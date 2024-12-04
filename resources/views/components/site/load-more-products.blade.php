@@ -18,7 +18,7 @@
     </div>
 @empty
     <div class="alert alert-info text-center" role="alert">
-        No More products found in MamaSauce.
+        No More products found.
     </div>
 @endforelse
 
