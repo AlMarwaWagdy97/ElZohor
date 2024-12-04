@@ -91,7 +91,7 @@
                                             <button
                                                 class="btn btn-primary w-md waves-effect waves-light border-0 hover-cutom"
                                                 type="submit"
-                                                style=" background-color:{{ @$adminLoginTheme->button_color }}; !important">
+                                                style=" background-color:{{ @$adminLoginTheme->button_color }} !important; ">
                                                 @lang('admin.login') </button>
                                         </div>
                                     </div>
