@@ -98,7 +98,7 @@
                                     {{ removeHTML(Str::substr(@$product->trans->where('locale', $current_lang)->first()->description, 0, 120)) }}
                                     ...
                                 </p>
-                                <a href="{{ route('site.products.show', @$product->trans->where('locale', $current_lang)->first()->slug) }}?key={{ @request()->key }}"
+                                <a @if( @$product->trans->where('locale', $current_lang)->first()->slug)    href="{{ route('site.products.show', @$product->trans->where('locale', $current_lang)->first()->slug ) }}?key={{ @request()->key }}"  @endif
                                     class="btn">@lang('Show')</a>
                             </div>
                         </div>
