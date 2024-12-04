@@ -10,12 +10,12 @@ class CategoriesTranslation extends Model
     use HasFactory;
 
     protected $table = 'categories_translations';
-    
+
     protected $fillable = [
         'category_id',
         'title',
-        'slug',
         'description',
+        'slug',
         'meta_description',
         'meta_title',
         'meta_key',

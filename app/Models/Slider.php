@@ -11,29 +11,28 @@ class Slider extends Model
 {
     use HasFactory, SoftDeletes;
     use Translatable;
-    public $translatedAttributes = ['title','slug','description','slider_id','locale',];
+    public $translatedAttributes = ['title', 'slug', 'sub_title', 'sub_description', 'description', 'slider_id', 'locale',];
     protected $fillable = [
         'url',
-        'sort',
         'image',
+        'sort',
         'status',
         'created_by',
         'updated_by',
     ];
-  
 
 
     protected $translationForeignKey = 'slider_id';
-    public function trans()  
+    
+    public function trans()
     {
         return $this->hasMany(SliderTranslation::class, 'slider_id', 'id');
     }
 
-    
+
     // Scopes ---------------------------------------------------------------------------------
-    public function scopeActive($query){
+    public function scopeActive($query)
+    {
         return $query->where('status', 1);
     }
-
-  
 }

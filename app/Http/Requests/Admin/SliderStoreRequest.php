@@ -37,14 +37,16 @@ class SliderStoreRequest extends FormRequest
           
             $req = [];
             foreach(config('translatable.locales') as $locale){
-                $req += [$locale . '.title' => 'required'];
+                $req += [$locale . '.title' => 'nullable'];
                 $req += [$locale . '.slug' => 'nullable'];
+                $req += [$locale . '.sub_title' => 'nullable'];
+                $req += [$locale . '.sub_description' => 'nullable'];
                 $req += [$locale . '.description' => 'nullable'];
             }
             $this->isMethod('POST') ? 
-                $req += ['image' =>'nullable|' . ImageValidate()]
+                $req += ['image' =>'required|mimes:jpeg,png,jpg,gif,svg,mp4,webm|max:20000']
              : 
-                $req += ['image' =>'nullable|' . ImageValidate()]
+                $req += ['image' =>'nullable|mimes:jpeg,png,jpg,gif,svg,mp4,webm|max:20000']
             ;
            
             $req += ['sort' =>'nullable'];

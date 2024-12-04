@@ -10,9 +10,9 @@ class Settings extends Model
     use HasFactory;
 
 
-    protected $fillable = ['key', 'status'];
+    protected $fillable = ['key', 'status' ];
 
-    //  Relations 
+    //  Relations
     public function values(){
         return $this->hasMany(SettingsValues::class, 'setting_id', 'id');
     }

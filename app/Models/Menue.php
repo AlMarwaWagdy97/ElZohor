@@ -22,10 +22,11 @@ class Menue extends Model
         'dynamic_table',
         'dynamic_url',
         'status',
+        'featured', //new
         'created_by',
         'updated_by',
     ];
-    // foreign key  
+    // foreign key
     protected $translationForeignKey = 'menue_id';
     // transatable table
     public $translatedAttributes = ['menue_id', 'locale', 'title', 'slug'];
@@ -53,5 +54,11 @@ class Menue extends Model
     }
     public function scopeFooter($query){
         return $query->where('position', MenuPositionEnums::FOOTER);
+    }
+
+    public function scopeFeatured($query)
+    {
+        return $query->where('featured', 1);
+
     }
 }
