@@ -25,16 +25,21 @@ class HomeSettingSingleton
     }
 
 
-    
+
     private function loadSettingDatabase()
     {
-        $this->settings = HomeSettingPage::with('trans')->get();
+        $this->settings = HomeSettingPage::with(['trans' => function ($query) {
+            $query->where('locale', app()->getLocale());
+        }])->get();
     }
 
 
     public function getItem($val)
     {
-        return $this->settings->where('title_section', $val)->first();
+        return $this->settings->where('title_section', $val)-> where( 'featured' , 1)->first();
     }
- 
+
+
+
+
 }

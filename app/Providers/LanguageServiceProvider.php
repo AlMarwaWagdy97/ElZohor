@@ -26,15 +26,17 @@ class LanguageServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $languages = collect(LaravelLocalization::getSupportedLocales() );
+        $languages = collect(LaravelLocalization::getSupportedLocales());
+
         $current = LaravelLocalization::getCurrentLocale();
+        
         $locals = (clone $languages)->forget($current)->keys()->toArray();
-        view()->share('locals' , $locals);
+        
+        view()->share('locals', $locals);
 
         $languages = $languages->keys()->toArray();
-        view()->share('languages' , $languages);
-    
-        view()->share('current_lang' , app()->getLocale());
+        view()->share('languages', $languages);
 
+        view()->share('current_lang', app()->getLocale());
     }
 }

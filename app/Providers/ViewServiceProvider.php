@@ -2,7 +2,6 @@
 
 namespace App\Providers;
 
-use App\Models\SettingsValues;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 use App\Settings\SettingSingleton;

@@ -35,7 +35,7 @@ class Footer extends Component
         
         if( $footerMenus == null){
             $footerMenus = Cache::rememberForever('footer-menus', function () {
-                return Menue::with('trans', 'children', 'children.trans')->orderBy('sort', 'ASC')->Footer()->active()->get();
+                return Menue::with('trans', 'children', 'children.trans')->Footer()->active()->orderBy('sort', 'ASC')->get();
             });
         }
         return view('components.site.layouts.footer', compact('footerMenus'));

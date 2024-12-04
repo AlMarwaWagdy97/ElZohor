@@ -2,92 +2,81 @@
 
 namespace App\Services;
 
-use App\Models\Gallery;
+use App\Models\Client;
+use App\Models\Product;
 use App\Models\Slider;
-use App\Models\Specialties;
-use App\Models\Video;
+use App\Models\Teams;
 use App\Settings\HomeSettingSingleton;
 use App\Settings\SettingSingleton;
 
 class HomeService
 {
-    public $sliders, $specialties, $reviews, $gallries, $videos;
+    public $sliders, $teams, $clients, $products, $videos;
 
-    public $modelHomeSetting, $settings, $services, $brand_image, $tags, $portfolios, $blogs;
+    public $modelHomeSetting, $settings;
 
 
     public function __construct()
     {
 
         $this->sliders = new Slider();
-        $this->specialties = new Specialties();
-        $this->gallries = new Gallery();
-        $this->videos = new Video();
+        $this->teams = new Teams();
+        $this->clients = new Client();
+        $this->products = new Product();
+
 
         $this->modelHomeSetting = HomeSettingSingleton::getInstance();
         $this->settings = SettingSingleton::getInstance();
     }
 
+
     // get Data --------------------------------------------------------------------------------------------------
 
     function getSlidersData()
     {
-        return $this->sliders->with('trans')->orderBy('sort', 'ASC')->active()->get();
+        return $this->sliders->with(['trans' => function ($query) {
+            $query->where('locale', app()->getLocale());
+        }])->orderBy('sort', 'ASC')->active()->get();
     }
 
-    function getSpecialtiesData()
+    function getTeamsData()
     {
-        return $this->specialties->with('trans')->orderBy('sort', 'ASC')->active()->feature()->limit(8)->get();
+        return $this->teams->with(['trans' => function ($query) {
+            $query->where('locale', app()->getLocale());
+        }])->orderBy('sort', 'ASC')->feature()->active()->where('is_directors', 0)->get();
     }
 
-
-    function getGalleriesData()
+    function getClientsData()
     {
-        return $this->gallries->with('trans')->orderBy('sort', 'ASC')->active()->feature()->limit(3)->get();
+        return $this->clients->orderBy('sort', 'ASC')->feature()->active()->get('image');
     }
 
-    function getVideosData()
+    function getProductsData()
     {
-        return $this->videos->with('trans')->orderBy('sort', 'ASC')->active()->feature()->limit(3)->get();
+        return $this->products->with(['trans' => function ($query) {
+            $query->where('locale', app()->getLocale());
+        }])->orderBy('sort', 'ASC')->feature()->active()->get();
     }
 
-    function getHomeMeetDoctor()
+    function getVissionsData()
     {
-        return  $this->modelHomeSetting->getItem('meet-our-doctors');
-    }
-    function getHomeMission()
-    {
-        return  $this->modelHomeSetting->getItem('mission');
-    }
-
-    function getHomeMakeAppointment()
-    {
-        return $this->modelHomeSetting->getItem('make-an-appointments');
-    }
-    function getHomeInsurance()
-    {
-        return $this->modelHomeSetting->getItem('insurance');
-    }
-
-    function getHomeVisions()
-    {
-        return $this->modelHomeSetting->getItem('our-visions');
+        return [
+            $this->modelHomeSetting->getItem('vision'),
+            $this->modelHomeSetting->getItem('mission'),
+            $this->modelHomeSetting->getItem('goals'),
+        ];
     }
 
     function index()
     {
         $data['sliders'] = $this->getSlidersData();
-        $data['specialties'] = $this->getSpecialtiesData();
-        $data['galleries'] = $this->getGalleriesData();
-        $data['videos'] = $this->getVideosData();
+        $data['teams'] = $this->getTeamsData();
+        $data['clients'] = $this->getClientsData();
+        $data['products'] = $this->getProductsData();
 
-        $data['meetDoctor'] = $this->getHomeMeetDoctor();
-        $data['mission'] = $this->getHomeMission();
-        $data['makeAppointment'] = $this->getHomeMakeAppointment();
-        $data['insurance'] = $this->getHomeInsurance();
-        $data['visions'] = $this->getHomeVisions();
+        $data['visions'] =  $this->getVissionsData();
+
         $data['settings'] = $this->settings;
-
         return $data;
     }
 }

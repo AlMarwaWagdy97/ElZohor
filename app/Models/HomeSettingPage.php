@@ -12,9 +12,11 @@ class HomeSettingPage extends Model
 {
     use HasFactory, SoftDeletes, Translatable;
 
-    protected $fillable = ['title_section', 'image',  'status', 'url', 'created_by', 'updated_by'];
+    protected $fillable = ['title_section', 'image', 'status', 'featured', 'url', 'created_by', 'updated_by', 'num_of_items',
+        'button_featured'
+    ];
 
-    public $translatedAttributes = ['home_setting_id', 'locale', 'title', 'description', 'sub_title'];
+    public $translatedAttributes = ['home_setting_id', 'locale', 'title', 'description', 'sub_title' , 'button_title'];
     // foreign key
     protected $translationForeignKey = 'home_setting_id';
 

@@ -10,7 +10,7 @@ use Illuminate\View\Component;
 class LoadMoreBestDoctors extends Component
 {
     public $doctors;
-    public $specialty_id, $start = 0, $count = 6;
+    public $specialty_id, $start = 0, $count = 3;
 
     /**
      * Create a new component instance.
@@ -19,19 +19,19 @@ class LoadMoreBestDoctors extends Component
      */
     public function __construct($specialty_id, $start = 0, $count = 0)
     {
-        
         $this->specialty_id = $specialty_id;
+        $this->specialty_id = Cookie::get('specialty_id');
         
         $this->start = $start;
         $this->count = $count;
-
-        if($specialty_id == 0){
+        if($this->specialty_id == 0){
             $this->doctors = Doctor::with('trans')->orderBy('sort', 'ASC')
             ->active()->offset($start)->limit($count)->get();
         }
         else{
             $this->doctors = Doctor::with('trans')->where('specialty_id', $this->specialty_id)
-            ->orderBy('sort', 'ASC')->active()->offset($start)->limit($count)->get();
+                ->orderBy('sort', 'ASC')->active()->offset($start)->limit($count)->get();
+                $this->start = $start +  $this->count;
         }
     }
 
