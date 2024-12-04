@@ -1,25 +1,24 @@
 <?php
 
-use App\Http\Controllers\Site\InsuranceController;
+use App\Http\Controllers\Site\GenerateSitemapController;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use Illuminate\Support\Facades\Blade;
-use App\Http\Controllers\Site\BookingController;
+use App\Http\Controllers\Site\CertificationController;
+use App\Http\Controllers\Site\ClientController;
 use App\Http\Controllers\Site\HomeController;
-use App\Http\Controllers\Site\DoctorsController;
-use App\Http\Controllers\Site\GalleryController;
-use App\Http\Controllers\Site\OffersController;
 use App\Http\Controllers\Site\PageController;
-use App\Http\Controllers\Site\ServicesController;
-use App\Http\Controllers\Site\SpecialitesController;
+use App\Http\Controllers\Site\ProductController;
+use App\Http\Controllers\Site\TeamsController;
 use App\Http\Controllers\Site\VideosController;
-use App\View\Components\Site\LoadMoreGallery;
-use App\View\Components\Site\LoadMoreOffers;
-use App\View\Components\Site\LoadMoreServices;
-use App\View\Components\Site\Doctors\LoadMoreDoctors;
-use App\View\Components\Site\Doctors\LoadMoreBestDoctors;
+use App\View\Components\Site\LoadMoreCategories;
+use App\View\Components\Site\LoadMoreCertifications;
+use App\View\Components\Site\LoadMoreClients;
+use App\View\Components\Site\LoadMoreDirectors;
+use App\View\Components\Site\LoadMoreProducts;
+use App\View\Components\Site\LoadMoreTeams;
 use App\View\Components\Site\LoadMoreVideos;
-use App\View\Components\Site\Specialites\LoadMoreSpecialites;
+use App\View\Components\Site\SearchProducts;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,54 +37,154 @@ Route::group([
     'as' => 'site.'
 ], function () {
 
+
+    /************************************start generate site map *******************************/
+
+
+
+
+
+    Route::controller(GenerateSitemapController::class)->group(function () {
+        route::get('all-generate-sitemap', 'generate')->name('sitemap');
+//        route::get('generate-sitemap', 'home')->name('home-sitemap');
+
+        route::get('about-us/generate-sitemap', 'about')->name('about-sitemap');
+        route::get('contact-us/generate-sitemap', 'contactUs')->name('contact-sitemap');
+        route::get('clients/generate-sitemap', 'clients')->name('clients-sitemap');
+
+
+
+
+
+        route::get('pages/{slug}/generate-sitemap', 'pages')->name('pages-sitemap');
+//
+
+//        route::get('media/generate-sitemap', 'media')->name('media-sitemap');
+//        route::get('media/{slug}/generate-sitemap', 'singleMedia')->name('single-media-sitemap');
+
+
+
+        route::get('products/generate-sitemap', 'products')->name('products-sitemap');
+        route::get('products/{slug}/generate-sitemap', 'singleProduct')->name('single-products-sitemap');
+
+
+
+        route::get('certifications/generate-sitemap', 'certifications')->name('certifications-sitemap');
+        route::get('certifications/{slug}/generate-sitemap', 'singleCertificate')->name('single-certifications-sitemap');
+
+
+
+        route::get('videos/generate-sitemap', 'videos')->name('videos-sitemap');
+        route::get('videos/{slug}/generate-sitemap', 'singleVideo')->name('single-videos-sitemap');
+
+
+        route::get('teams/generate-sitemap', 'teams')->name('teams-sitemap');
+        route::get('teams/{slug}/generate-sitemap', 'singleTeam')->name('single-teams-sitemap');
+
+
+    });
+
+
+
+
+    /**********************end generate site map****************************************/
+
+
+
     Route::controller(HomeController::class)->group(function () {
         Route::get('/', 'home')->name('home');
-        Route::get('contact-us', 'contact')->name('contact-us');
     });
 
-    Route::controller(SpecialitesController::class)->group(function () {
-        Route::get('specialities', 'index')->name('specialites');
-        Route::get('specialities/{slug}', 'show')->name('specialites.show');
-    });
+    Route::controller(ProductController::class)->group(function () {
+        Route::get('products', 'index')->name('products');
+        Route::get('products/{slug}', 'show')->name('products.show');
+        Route::get('products-reset', 'reset')->name('products-reset');
 
-    Route::controller(DoctorsController::class)->group(function () {
-        Route::get('doctors', 'index')->name('doctors');
-        Route::get('doctors/{slug}', 'show')->name('doctors.show');
     });
 
     Route::controller(PageController::class)->group(function () {
-        Route::get('pages/{slug}', 'show')->name('pages.show');
+        Route::get('pages/{slug}', 'show')->name('pages');
+        Route::get('about-us', 'aboutUs')->name('about-us');
         Route::get('contact-us', 'contactUs')->name('contact-us');
     });
 
-    Route::controller(ServicesController::class)->group(function () {
-        Route::get('services', 'index')->name('services.index');
-        Route::get('services/{slug}', 'show')->name('services.show');
-    });
-
-    Route::controller(OffersController::class)->group(function () {
-        Route::get('offers', 'index')->name('offers.index');
-        Route::get('offers/{slug}', 'show')->name('offers.show');
-    });
-
-    Route::controller(GalleryController::class)->group(function () {
-        Route::get('gallery', 'index')->name('gallery.index');
-        Route::get('gallery/{slug}', 'show')->name('gallery.show');
+    Route::controller(CertificationController::class)->group(function () {
+        Route::get('certifications', 'index')->name('certifications');
+        Route::get('certifications/{slug}', 'show')->name('certifications.show');
     });
 
     Route::controller(VideosController::class)->group(function () {
-        Route::get('videos', 'index')->name('videos.index');
+        Route::get('videos', 'index')->name('videos');
+        Route::get('videos/{slug}', 'show')->name('videos.show');
     });
 
-    Route::get('booking', [BookingController::class, 'index'] )->name('booking');
-    Route::get('/insurance', [InsuranceController::class, 'index'] )->name('insurance_show');
+    Route::controller(ClientController::class)->group(function () {
+        Route::get('clients', 'index')->name('clients');
+    });
 
-    Route::get('specialites-more/{start}/{count}', fn ($start, $count) => Blade::renderComponent(new LoadMoreSpecialites($start, $count)) )->name('specialites.loadMore');
-    Route::get('doctors-more/{specialty_id}/{start}/{count}', fn ($specialty_id, $start, $count) => Blade::renderComponent(new LoadMoreDoctors($specialty_id, $start, $count)) )->name('doctors.loadMore');
-    Route::get('best-doctors-more/{specialty_id}/{start}/{count}', fn ($specialty_id, $start, $count) => Blade::renderComponent(new LoadMoreBestDoctors($specialty_id, $start, $count)) )->name('best-doctors.loadMore');
-    Route::get('services-more/{start}/{count}', fn ($start, $count) => Blade::renderComponent(new LoadMoreServices( $start, $count)) )->name('services-more.loadMore');
-    Route::get('offers-more/{start}/{count}', fn ($start, $count) => Blade::renderComponent(new LoadMoreOffers( $start, $count)) )->name('offers-more.loadMore');
-    Route::get('gallery-more/{start}/{count}', fn ($start, $count) => Blade::renderComponent(new LoadMoreGallery( $start, $count)) )->name('gallery-more.loadMore');
-    Route::get('videos-more/{start}/{count}', fn ($start, $count) => Blade::renderComponent(new LoadMoreVideos( $start, $count)) )->name('videos-more.loadMore');
+    Route::controller(TeamsController::class)->group(function () {
+        Route::get('teams', 'index')->name('teams');
+        Route::get('teams/{slug}', 'show')->name('teams.show');
+    });
+
+
+    Route::match(['get', 'post'], 'search-products', function () {
+        $search = request('search', '');
+        $category_id = request('category_id', 0); // defaulting to 0 if not provided
+        $start = (int) request('start', 0); // defaulting to 0 if not provided
+        $count = (int) request('count', 6); // defaulting to 6 if not provided
+        $component = new SearchProducts($search, $start, $count, $category_id);
+        return Blade::renderComponent($component);
+    })->name('searchProducts');
+
+
+    Route::get('categories-more/{category_id}/{start}/{count}/{totalProducts}', function ($category_id, $start, $count ,$totalProducts) {
+        $count = 6; // Define the count value here
+        $search = $search = request('search', ''); // Define the search value here
+        return Blade::renderComponent(new LoadMoreCategories($category_id, $start, $count, $search, $totalProducts));
+    })->name('categories.loadMore');
+    Route::get('products-more/{category_id}/{start}/{count}', fn ($category_id, $start, $count) => Blade::renderComponent(new LoadMoreProducts($category_id, $start, $count)))->name('products-more.loadMore');
+
+
+
+
+
+
+
+    /****************************new******************************/
+    Route::view('test_now' , 'site/test');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    Route::get('teams-more/{start}/{count}', fn ($start, $count) => Blade::renderComponent(new LoadMoreTeams($start, $count)))->name('teams-more.loadMore');
+    Route::get('directors-more/{start}/{count}', fn ($start, $count) => Blade::renderComponent(new LoadMoreDirectors($start, $count)))->name('directors-more.loadMore');
+    Route::get('clients-more/{start}/{count}', fn ($start, $count) => Blade::renderComponent(new LoadMoreClients($start, $count)))->name('clients-more.loadMore');
+    Route::get('certifications-more/{start}/{count}', fn ($start, $count) => Blade::renderComponent(new LoadMoreCertifications($start, $count)))->name('certifications-more.loadMore');
+    Route::get('videos-more/{start}/{count}', fn ($start, $count) => Blade::renderComponent(new LoadMoreVideos($start, $count)))->name('videos-more.loadMore');
+
+
+
+
+
+
+              route::get('careers', [PageController::class , 'careers'])->name('careers.index');
+    route::get('news', [PageController::class , 'news'])->name('news.index');
+    route::get('blogs', [PageController::class , 'blogs'])->name('blogs.index');
+
+
+
 
 });

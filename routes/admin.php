@@ -1,33 +1,29 @@
 <?php
 
 
-use App\Http\Controllers\Admin\InsuranceController;
-use App\Http\Controllers\Admin\TitleTranslationController;
 use App\Http\Controllers\Admin\UserScriptController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AuthController;
-use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\MenueController;
 use App\Http\Controllers\Admin\PagesController;
-use App\Http\Controllers\Admin\DoctorController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\ThemesController;
-use App\Http\Controllers\Admin\BookingController;
 use App\Http\Controllers\Admin\ProfileController;
-use App\Http\Controllers\Admin\ServicesController;
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\Admin\ContactUsController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\SubscribesController;
 use App\Http\Controllers\Admin\imageUploadController;
-use App\Http\Controllers\Admin\SpecialtiesController;
 use App\Http\Controllers\Admin\HomeSettingPageController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\Admin\Authorizations\RolesController;
 use App\Http\Controllers\Admin\Authorizations\PermissionsController;
+use App\Http\Controllers\Admin\ClientController;
 use App\Http\Controllers\Admin\GalleryController;
-use App\Http\Controllers\Admin\ReviewsController;
+use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\TeamsController;
 use App\Http\Controllers\Admin\VideoController;
 
 /*
@@ -121,33 +117,35 @@ Route::group([
                 Route::resource('subscribes', SubscribesController::class);
                 //--------------- End subscribes ---------------------------------
 
-                // ----- Specialties -----------------------------------------------
-                Route::resource('specialties', SpecialtiesController::class);
-                Route::post('specialties/actions', [SpecialtiesController::class, 'actions'])->name('specialties.actions');
-                Route::get('specialties/update-status/{id}', [SpecialtiesController::class, 'update_status'])->name('specialties.update-status');
-                Route::get('specialties/update-featured/{id}', [SpecialtiesController::class, 'update_featured'])->name('specialties.update-featured');
-                //--------------- End Specialties ---------------------------------
+                // ----- categories -----------------------------------------------
+                Route::post('categories/actions', [CategoryController::class, 'actions'])->name('categories.actions');
+                Route::get('categories/update-status/{id}', [CategoryController::class, 'update_status'])->name('categories.update-status');
+                Route::get('categories/update-featured/{id}', [CategoryController::class, 'update_featured'])->name('categories.update-featured');
+                Route::get('categories/show_tree', [CategoryController::class, 'show_tree'])->name('categories.show_tree');
+                Route::resource('categories', CategoryController::class);
+                //--------------- End categories --------------------------------
 
-                // ----- doctors -----------------------------------------------
-                Route::resource('doctors', DoctorController::class);
-                Route::post('doctors/actions', [DoctorController::class, 'actions'])->name('doctors.actions');
-                Route::get('doctors/update-status/{id}', [DoctorController::class, 'update_status'])->name('doctors.update-status');
-                Route::get('doctors/update-featured/{id}', [DoctorController::class, 'update_featured'])->name('doctors.update-featured');
-                //--------------- End doctors ---------------------------------
+                // ----- Products -----------------------------------------------
+                Route::resource('products', ProductController::class);
+                Route::post('products/actions', [ProductController::class, 'actions'])->name('products.actions');
+                Route::get('products/update-status/{id}', [ProductController::class, 'update_status'])->name('products.update-status');
+                Route::get('products/update-featured/{id}', [ProductController::class, 'update_featured'])->name('products.update-featured');
+                //--------------- End Products ---------------------------------
 
-                // ----- booking -----------------------------------------------
-                Route::resource('booking', BookingController::class);
-                Route::post('booking/actions', [BookingController::class, 'actions'])->name('booking.actions');
-                Route::get('booking/update-status/{id}', [BookingController::class, 'update_status'])->name('booking.update-status');
-                Route::get('booking/update-featured/{id}', [BookingController::class, 'update_featured'])->name('booking.update-featured');
-                //--------------- End booking ---------------------------------
+                // ----- clients -----------------------------------------------
+                Route::resource('clients', ClientController::class);
+                Route::post('clients/actions', [ClientController::class, 'actions'])->name('clients.actions');
+                Route::get('clients/update-status/{id}', [ClientController::class, 'update_status'])->name('clients.update-status');
+                Route::get('clients/update-featured/{id}', [ClientController::class, 'update_featured'])->name('clients.update-featured');
+                //--------------- End clients ---------------------------------
 
-                // ----- reviews -----------------------------------------------
-                Route::resource('reviews', ReviewsController::class);
-                Route::post('reviews/actions', [ReviewsController::class, 'actions'])->name('reviews.actions');
-                Route::get('reviews/update-status/{id}', [ReviewsController::class, 'update_status'])->name('reviews.update-status');
-                Route::get('reviews/update-featured/{id}', [ReviewsController::class, 'update_featured'])->name('reviews.update-featured');
-                //--------------- End reviews ---------------------------------
+                // ----- Teams -----------------------------------------------
+                Route::resource('teams', TeamsController::class);
+                Route::post('teams/actions', [TeamsController::class, 'actions'])->name('teams.actions');
+                Route::get('teams/update-status/{id}', [TeamsController::class, 'update_status'])->name('teams.update-status');
+                Route::get('teams/update-featured/{id}', [TeamsController::class, 'update_featured'])->name('teams.update-featured');
+                Route::get('teams/update-directors/{id}', [TeamsController::class, 'update_directors'])->name('teams.update-directors');
+                //--------------- End Teams ---------------------------------
 
                 // ----- gallery -----------------------------------------------
                 Route::resource('gallery', GalleryController::class);
@@ -162,20 +160,6 @@ Route::group([
                 Route::get('videos/update-status/{id}', [VideoController::class, 'update_status'])->name('videos.update-status');
                 Route::get('videos/update-featured/{id}', [VideoController::class, 'update_featured'])->name('videos.update-featured');
                 //--------------- End videos ---------------------------------
-
-                // ----- Services -----------------------------------------------
-                Route::resource('services', ServicesController::class);
-                Route::get('services/update-status/{id}', [ServicesController::class, 'update_status'])->name('services.update-status');
-                Route::post('services/actions', [ServicesController::class, 'actions'])->name('services.actions');
-                Route::get('services/update-featured/{id}', [ServicesController::class, 'update_featured'])->name('services.update-featured');
-                // ----- End Services -------------------------------------------
-
-                // ----- offers -----------------------------------------------
-                Route::resource('news', NewsController::class);
-                Route::post('news/actions', [NewsController::class, 'actions'])->name('news.actions');
-                Route::get('news/update-status/{id}', [NewsController::class, 'update_status'])->name('news.update-status');
-                Route::get('news/update-featured/{id}', [NewsController::class, 'update_featured'])->name('news.update-featured');
-                //--------------- End offers ---------------------------------
 
                 // ---------- settings --------------------------------------------
                 Route::get('settings', [SettingsController::class, 'index'])->name('settings.index');
@@ -197,14 +181,9 @@ Route::group([
                 Route::post('home-settings/upload', [imageUploadController::class, 'upload'])->name('ckeditor.upload');
 
 
-                // ----- SettingHome -----------------------------------------------
-                Route::resource('title-translation', TitleTranslationController::class);
 
 
 
-                Route::resource('insurance' , InsuranceController::class );
-                Route::get('insurance/update-status/{id}', [InsuranceController::class, 'update_status'])->name('insurance.update-status');
-                Route::get('insurance/update-featured/{id}', [InsuranceController::class, 'update_featured'])->name('insurance.update-featured');
 
 
 
@@ -221,5 +200,8 @@ Route::group([
             });
         });
     });
+
+
+    Route::get('admin/update_featured/{id}', [SettingsController::class, 'update_feature']);
+
 });
-// require __DIR__.'/auth.php';
