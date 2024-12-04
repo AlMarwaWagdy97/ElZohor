@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\Articles;
+
 use App\Models\CategoriesTranslation;
 use Illuminate\Database\Eloquent\Model;
 use Astrotomic\Translatable\Translatable;
@@ -15,18 +15,12 @@ class Categories extends Model
 
     protected $fillable = [
         'parent_id',
+        'image',
         'level',
         'sort',
-        'back_home',
         'feature',
         'status',
-        'kafara',
-        'image',
-        'background_image',
-        'background_color',
-        'section_bg',
-        'created_by',
-        'updated_by',
+        'meta'
     ];
 
     protected $translationForeignKey = 'category_id';
@@ -35,36 +29,42 @@ class Categories extends Model
         'category_id',
         'locale',
         'title',
-        'slug',
         'description',
+        'slug',
         'meta_title',
         'meta_description',
         'meta_key',
     ];
 
-    public function trans(){
+    public function trans()
+    {
         return $this->hasMany(CategoriesTranslation::class, 'category_id', 'id');
     }
-    public function parent(){
-        return $this->belongsTo(Categories::class,'parent_id', 'id');
+    public function parent()
+    {
+        return $this->belongsTo(Categories::class, 'parent_id', 'id');
     }
-    public function children(){
+    public function children()
+    {
         return $this->hasMany(Categories::class, 'parent_id', 'id');
     }
-    public function articles(){
-        return $this->hasMany(Articles::class, 'category_id', 'id')->active();
+
+    public function products()
+    {
+        return $this->hasMany(Product::class, 'category_id', 'id');
     }
-    public function portfoliosFeature(){
-        return $this->hasMany(Portfolios::class, 'category_id', 'id')->active()->feature();
-    }
+
 
 
     // Scopes ----------------------------
-    public function scopeActive($query){
+    public function scopeActive($query)
+    {
         return $query->where('status', 1);
     }
-    public function scopeFeature($query){
+
+
+    public function scopeFeature($query)
+    {
         return $query->where('feature', 1);
     }
-
 }
