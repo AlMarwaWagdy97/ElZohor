@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="{{ $current_lang == 'ar' ? 'rtl' : 'ltr' }}">
+<html lang="en" dir="{{ $current_lang == 'ar' ? 'ltr' : 'rtl' }}">
 
 @include('site.layouts.header')
 
