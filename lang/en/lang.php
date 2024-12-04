@@ -10,5 +10,7 @@ return [
 
     'English'                      =>  ' English',
     'Arabic'                       =>  ' Arabic',
+    'en'                           =>  ' English',
+    'ar'                           =>  ' Arabic',
 
     ];

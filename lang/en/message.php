@@ -1,7 +1,7 @@
 <?php
 
 return [
-
+    'Message' => 'Message',
    
     'admin' => [
         'created_sucessfully'                       => 'Item is created Sucessfully',

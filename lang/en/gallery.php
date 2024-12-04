@@ -7,15 +7,14 @@ return [
     | Admin Dashboard 
     |--------------------------------------------------------------------------
     */
-    'GALLERY'                    => 'GALLERY',
-    'gallery'                    => 'Gallery',
-    'galleries'                  => 'Galleries',
-    'edit'                       => 'Edit in ":name" Gallery',
-    'show'                       => 'Show ":name" Gallery',
-    'show_gallery'               => 'Show Gallery',
-    'show_galleries'             => 'Show Galleries',
-    'create_gallery'             => 'Create Galleries',
-    'edit_galleries'             => 'Edit Galleries',
-    'create_new_galleries'       => 'Create New Galleries',
+    'gallery'                    => 'Certification',
+    'galleries'                  => 'Certifications',
+    'edit'                       => 'Edit in ":name" Certification',
+    'show'                       => 'Show ":name" Certification',
+    'show_gallery'               => 'Show Certification',
+    'show_galleries'             => 'Show Certifications',
+    'create_gallery'             => 'Create Certifications',
+    'edit_galleries'             => 'Edit Certifications',
+    'create_new_galleries'       => 'Create New Certifications',
 ];
 

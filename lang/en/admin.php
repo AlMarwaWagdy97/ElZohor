@@ -173,17 +173,15 @@ return [
     'twitter'                 => 'Twitter',
     'booking'                 => 'Booking',
     'type'                    => 'Type',
+    'members'                 => 'Members',
+    'products'                => 'Products',
+    'sub_title'               => 'Sub title',
+    'sub_description'         => 'Sub description',
+    'is_directors'            => 'is board directors',
 
-    'lang_en'                  => 'English',
-    'lang_ar'                  => 'Arabic',
-    'not_found'                 => 'Not Found',
-    'updated_by'                => 'Updated By',
-    'created_by'                => 'Created By',
-    'key'                => 'Key',
-    'title_translations'       => 'Title Translations',
-    'title_translations_show'       => '    Show   title translations     ',
-    'title_translations_create'       => ' Create   title translations        ',
-    'title_translations_edit'       => ' Edit  title translations         ',
+    'button_title' => 'Button Title',
+    'featured' => 'Featured',
+    'button_featured' => 'Button Feature Status',
 
 
 
@@ -201,5 +199,7 @@ return [
 
     'user_scripts_edit' => 'Edit User Scripts',
     'user_scripts' => 'User Scripts',
+    'updated_by'                => 'Updated By',
+    'created_by'                => 'Created By',
 
 ];

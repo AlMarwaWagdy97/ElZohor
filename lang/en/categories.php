@@ -4,30 +4,30 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Admin Dashboard 
+    | Admin Dashboard
     |--------------------------------------------------------------------------
     */
     'category'                    => 'Category',
     'categories'                    => 'Categories',
     'show_all'                        => 'show Category',
-    
+
     'edit_name'                        => 'Edit in ":name" category',
     'show_name'                        => 'Show":name" category',
     'show_all'                        => 'Show Category',
     'show'                        => 'Show Categories',
     'create'                      => 'Create Category',
     'edit'                        => 'Edit Category',
-    
-    'create_new'                  => 'Create New Categories',
+
+    'create_new'                  => 'Create Category',
     'title'                       => 'Title',
     'description'                 => 'Description',
     'slug'                        => 'Slug',
     'url'                         => 'Url',
     'type'                        => 'Type',
-    'status'                      => 'Status' ,
-    'feature'                     => 'Feature' ,
+    'status'                      => 'Status',
+    'feature'                     => 'Feature',
     'created_at'                  => 'Created At',
-    'updated_at'                  => 'Updated At',    
+    'updated_at'                  => 'Updated At',
     'actions'                     => 'Actions',
     'sort'                        => 'Sort',
     'kafara'                      => 'Kafara',
@@ -53,4 +53,3 @@ return [
 
 
 ];
-
