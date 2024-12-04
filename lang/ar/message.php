@@ -2,6 +2,7 @@
 
 return [
 
+    'Message' => 'الرسالة',
    
     'admin' => [
         'created_sucessfully'                       => 'تم إنشاء العنصر بنجاح',

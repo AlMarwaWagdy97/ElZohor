@@ -1,10 +1,35 @@
 {
+    "Follow us on social media": "تابعنا على وسائل التواصل الاجتماعي ",
+    "Mama Sauce": "ماما صوص",
+    "Privacy Policy": "سياسة الخصوصية",
+    "Learn more": "المزيد",
+    "Board of Directors": "مجلس الادراة",
+    "Team Leaders": "قادة الفريق",
+    "Partener’s Success": "شركاء النجاح",
+    "Some of our Partners": "بعض من شركاء النجاح",
+    "OUR PRODUCTS": "منتجاتنا",
+    "Products": "المنتجات",
+    "CLIENTS": "العملاء",
+    "Partners": "العملاء",
+    "Quality": "شهادات الجودة",
+    "We would love to hear frome you":"نحن نحب أن نسمع منك",
+    "Name": "الأسم",
+    "Email": "البريد إلكتروني",
+    "Phone": "الهاتف",
+    "Message": "الشهادات",
+    "Send":"إرسال",
+    "Show":"عرض",
+    "Certifications":"شهادات الجودة",
+    "More":"المزيد",
+    "close":"غلق",
+
+
     "Booking Now": "احجز الآن",
     "Medical File": "الملف الطبي",
 
     "OUR":" ",
-    "SPECIALTIES":"التخصصات",
-    "ALL SPECIALTIES":"كل التخصصات",
+    "SPECIALTIES":"الأقسام",
+    "ALL SPECIALTIES":"كل الأقسام",
 
     "Doctors":"الأطباء",
     "MAKE AN APPOINTMENT":"إحجز موعد",
@@ -30,10 +55,8 @@
     "MEET OUR DOCTORS":"تعرف على أطبائنا",
 
     "Appointments":"المواعيد",
-    "Name":"الأسم",
-    "Phone":"الهاتف",
     "Mobile":"الهاتف",
-    "Email":"البريد إلكتروني",
+    "mobile":"الهاتف",
     "Address":"العنوان",
     "Specifity":"القسم",
     "Degree":"الدرجة",
@@ -45,16 +68,14 @@
     "GET IN":" ابقى على",
     "TOUCH":"تواصل",
     "Departments":"القسم",
-    "Send":"إرسال",
     "BEST DOCTORS":"أفضل الأطباء",
-    "FOR YOU":" بالنسبة لك",
+    "FOR YOU":"لك",
     "All":"الكل",
     "No Data":"لا يوجد اطباء",
     "Contact Us":"تواصل معنا ",
-    "Our Doctors":"  اطبائنا ",
-    "Show":"عرض",
-
-
-    "":"",
-    "":""
+    "search":"بحث",
+    "Back":"رجوع",
+    "CEO's speech":"كلمة الرئيس التنفيذي",
+    "Brochure":"كتالوج",
+    "Mama's sauces":"صلصات ماما"
 }

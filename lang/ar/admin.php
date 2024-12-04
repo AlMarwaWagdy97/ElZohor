@@ -142,7 +142,7 @@ return [
     'Read_Notification'        => 'قراءه كل الاشعارات ',
     'crafted_with'             => ' انشاء ',
     'holol'                    => 'حلول',
-    'blogs'                    => 'المدونات',
+    'members'                    => 'الاعضاء',
     'notifications'            => 'إشعارات',
     'view_all'                 => 'عرض الكل',
     'all_pages'                => 'كل الصفحات',
@@ -152,7 +152,7 @@ return [
     'all_services'             => 'كل الخدمات',
     'change'                   => 'تغير',
     'select'                   => 'أختر',
-    'works'                    => 'الأعمال',
+    'products'                    => 'المنتجات',
     'gallerys'                 => 'المعرض',
     'image_site'               => 'مقاس [ عرض :width , طول: :height ]',
     'holol'                    => 'حلول',
@@ -162,18 +162,20 @@ return [
     'facebook'                 => 'فيسبوك',
     'twitter'                  => 'تويتر',
     'phone'                    => 'الهاتف',
-    'booking'                   => 'الحجوزات',
-    'type'                   => 'نوع',
-    'lang_en'                  => 'الانجليزية',
-    'lang_ar'                  => 'العربية',
-    'not_found'                 => 'لا يوجد  ',
-    'updated_by'                => 'تم تعديله بواسطة',
-    'created_by'                => 'تم انشائه بواسطة',
-    'key'                => 'الكلمة المفتاحية',
-    'title_translations'       => ' ترجمة العناوين  ',
-    'title_translations_show'       => ' عرض  ترجمة العناوين    ',
-    'title_translations_create'       => ' انشاء  ترجمة العناوين    ',
-    'title_translations_edit'       => 'تعديل  ترجمة العناوين     ',
+    'booking'                  => 'الحجوزات',
+    'type'                     => 'نوع',
+    'sub_title'                => 'عنوان فرعي',
+    'sub_description'          => 'وصف فرعي',
+    'is_directors'             => 'مجلس ادارة',
+
+    'button_title' => '  عنوان الزر ',
+    'featured' => 'عرض ',
+    'button_featured' => 'حالة عرض الزر    ',
+
+
+
+
+
 
 
     'script'       => '   لينكات السكريبت      ',
@@ -190,5 +192,7 @@ return [
 
     'user_scripts_edit' => ' تعديل لينكات السكريبت    ',
     'user_scripts' => ' لينكات السكريبت  ',
+    'updated_by'                => 'تم تعديله بواسطة',
+    'created_by'                => 'تم انشائه بواسطة',
 
 ];

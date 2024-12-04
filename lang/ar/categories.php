@@ -12,7 +12,7 @@ return [
     'edit_name'                        => ' تعديل تصنيف ":name" ',
     'show_name'                        => 'عرض تصنيف ":name" ',
     'edit'                        => 'تعديل تصنيف',
-    
+
     'show_all'                        => 'عرض التصنيفات',
     'show'                        => 'عرض التصنيفات',
     'create'                      => 'اضافة تصنيف',
@@ -22,21 +22,22 @@ return [
     'slug'                        => 'Slug',
     'url'                         => 'الرابط',
     'type'                        => 'نوع',
-    'status'                      => 'الحاله' ,
-    'feature'                     => 'ميزة' ,
+    'status'                      => 'الحاله',
+    'feature'                     => 'ميزة',
     'created_at'                  => 'وقت الانشاء',
-    'updated_at'                  => 'وقت التحديث',    
+    'updated_at'                  => 'وقت التحديث',
     'actions'                     => 'الاجراءات',
     'sort'                        => 'صنف',
     'kafara'                      => 'كفاره',
     'background_image'            => 'صورة الخلفية',
+    'image'                       => 'صورة',
     'background_color'            => 'لون الخلفية',
     'back_home'                   => 'الزر "إظهار الرجوع" في الصفحة الرئيسيةShow Back button in home page',
     'parent_id'                   => 'فئة الوالدين',
     'parent'                      => 'فئة الوالدين',
     'select_parent'               => 'حدد فئة الوالدين',
     'select_kafara_type'          => 'حدد فئة كفاره',
-
+    'level'                       => 'مستوي',
     'section_bg'                  => 'لون خلفية القسم على الصفحة الرئيسية',
     'ads'                         => 'اعلان',
     'link'                        => 'الرابط',
@@ -49,4 +50,3 @@ return [
     'show_tree'                    => 'عرض الفروع ',
 
 ];
-
