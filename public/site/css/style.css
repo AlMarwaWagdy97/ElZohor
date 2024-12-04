@@ -1,0 +1,522 @@
+* {
+  box-sizing: border-box;
+  font-weight: normal;
+}
+@font-face {
+  font-family: "ITC Handel Gothic Arabic Bold";
+  src: url(../Fonts/font.ttf);
+}
+:root {
+  --white-color: #ffffff;
+  --main-color: #39ac3f;
+  --primary-color: #2b98d4;
+  --secound-color: #264176;
+  --danger-color: #e7332a;
+  --dark-color: #4e4e4d;
+  --light-color: #f1f1f1;
+  --secondary-color: #929292;
+  --black: #000;
+  --main-raduis: 10px;
+  --main-font-size: 14px;
+  --main-font-icon: 24px;
+}
+
+a {
+  color: inherit !important;
+}
+a, h4, p{
+  text-decoration: none;
+}
+body {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "ITC Handel Gothic Arabic Bold";
+  }
+  overflow-x: hidden;
+}
+.bg-main {
+  background-color: var(--main-color);
+  color: white;
+}
+.bg-main:hover {
+  background-color: var(--main-color);
+  color: white;
+}
+.text-main {
+  color: var(--main-color);
+}
+.text-secondary {
+  color: var(--secondary-color);
+}
+
+.bath {
+  background-color: #dadada;
+}
+/*Navbar*/
+header {
+  background-color: #fff;
+}
+.nav {
+  color: var(--secound-color) !important;
+}
+.icons i {
+  color: var(--secound-color);
+}
+.icons i:hover {
+  color: var(--main-color) !important;
+  cursor: pointer;
+}
+.navbar-nav {
+  font-weight: bold;
+}
+.nav-item {
+  color: var(--secound-color) !important;
+}
+.nav-item:hover {
+  color: var(--main-color) !important;
+}
+.active {
+  color: var(--main-color) !important;
+}
+.nav-link {
+  padding-left: 0 !important;
+}
+/*Navbar*/
+
+/*Hero*/
+.Hero {
+  background-image: url("../images/22.jpg"); /* Replace with your image path */
+  background-size: cover;
+  background-position: center;
+  height: 580px;
+  width: 100%;
+}
+.slide-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; /* Cover the entire slide */
+  height: 100%; /* Cover the entire slide */
+  object-fit: cover; /* Ensure the video covers the entire slide */
+  z-index: -1;
+}
+
+.v {
+  background-color: #39ac3f;
+}
+.swiper-button {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.swiper-button:hover {
+  background-color: var(--main-color);
+}
+.swiper-button-prev {
+  margin-left: -9px;
+}
+/* Optionally, you can style the icons within the buttons */
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 20px; /* Change the font size of the icon */
+  /* Add any other styles you need */
+}
+.booking {
+  background-color: var(--main-color);
+}
+.fixed_text {
+  text-align: start;
+}
+/*Hero*/
+
+/*OURSPECIALTIES*/
+.OURSPECIALTIES {
+  background-color: #f1f1f1;
+}
+.w {
+  color: var(--main-color);
+}
+.S_card {
+  transition: box-shadow 0.5s ease;
+}
+.S_card h4 {
+  color: var(--main-color);
+}
+.S_card:hover p {
+  color: var(--secound-color);
+}
+.S_card:hover {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Adjust shadow properties as needed */
+}
+/*OURSPECIALTIES*/
+
+/*ourdoctors*/
+.ourdoctors {
+  background-color: #dadada;
+  h1 {
+    color: var(--main-color);
+  }
+  h5 {
+    color: var(--main-color);
+  }
+  p {
+    color: #0d1f44;
+    font-weight: bolder;
+  }
+}
+/*ourdoctors*/
+/*community*/
+.community {
+  background-color: var(--main-color);
+  button {
+    color: var(--secound-color);
+  }
+}
+
+/*community*/
+
+/*clients*/
+.clients {
+  background-color: #fff;
+  .navigation {
+    span {
+      color: var(--main-color);
+    }
+  }
+
+  .ClientsCard {
+    border-top: 5px solid var(--main-color); /* Green border on top */
+    border-left: 1px solid gray; /* Remove left border */
+    border-right: 1px solid gray; /* Remove right border */
+    border-bottom: 1px solid gray; /* Remove bottom border */
+    padding: 20px; /* Add padding for content */
+
+    border-radius: 10px;
+  }
+  .avatar {
+    width: 50px; /* Set avatar width as needed */
+    height: 50px; /* Set avatar height as needed */
+    border-radius: 50%; /* Make the avatar circular */
+    margin-right: 10px; /* Add margin between avatar and user name */
+  }
+
+  .user-name {
+    font-weight: bold;
+  }
+}
+/*clients*/
+/*Gallery*/
+.Gallery {
+  background-color: #f4f4f4;
+
+  h3 {
+    color: var(--main-color);
+  }
+  .G_Card:hover p {
+    color: var(--main-color);
+  }
+  .q {
+    background-color: var(--main-color) !important;
+    color: white;
+  }
+}
+/*Gallery*/
+/*Videos*/
+.Videos {
+  h3 {
+    color: var(--main-color);
+  }
+  p {
+    color: var(--secound-color);
+  }
+  .z {
+    border-top: 5px solid var(--main-color); /* Green border on top */
+    border-left: 1px solid gray; /* Remove left border */
+    border-right: 1px solid gray; /* Remove right border */
+    border-bottom: 1px solid gray; /* Remove bottom border */
+    padding: 20px; /* Add padding for content */
+
+    border-radius: 10px;
+  }
+}
+/*Videos*/
+/*insurances*/
+.insurances {
+  background-color: var(--main-color);
+}
+/*insurances*/
+/*info*/
+.info {
+  background-color: #dadada;
+  color: var(--main-color);
+}
+/*info*/
+/*footer*/
+.footer {
+  p {
+    color: var(--secound-color);
+  }
+  ul {
+    list-style: none;
+  }
+  .q {
+    background-color: var(--main-color) !important;
+    color: white;
+  }
+  .whatsapp {
+    position: fixed;
+    left: 15px;
+    bottom: 15px;
+    z-index: 99999;
+    background: #25d366;
+    width: 60px;
+    height: 60px;
+    font-size: 2.8rem;
+    border-radius: 11px;
+    transition: all 0.4s;
+    text-decoration: none;
+  }
+}
+/*footer*/
+#scrollToTopBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  border: none;
+  background-color: var(--main-color);
+  color: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+  z-index: 9999;
+  padding-bottom: 15px;
+  transition: opacity 0.3s ease-in-out;
+}
+#scrollToTopBtn.fade-in {
+  opacity: 1;
+}
+
+#scrollToTopBtn.fade-out {
+  opacity: 0;
+}
+
+/*Best doctors*/
+.best {
+  .text-title {
+    color: var(--main-color);
+  }
+  .card:hover .card-title {
+    color: var(--main-color);
+  }
+  .icons i {
+    color: var(--secondary-color);
+  }
+  .nav-item {
+    margin: 0 5px;
+    text-align: center;
+    background-color: var(--secound-color);
+    border-radius: 15px;
+    color: var(--white-color) !important;
+    .nav-link {
+      padding: 10px !important;
+      color: #fff;
+      &.active {
+        color: #000 !important;
+      }
+    }
+    &:hover {
+      background-color: var(--main-color);
+      color: var(--white-color);
+    }
+  }
+}
+
+/*Best doctors*/
+
+/*BookAnAppointment*/
+.book {
+  .text-title {
+    color: var(--main-color);
+  }
+  .form {
+    .form-control {
+      background-color: #dadada;
+    }
+    /* #Name::placeholder,
+      #Email::placeholder {
+          color: red; /* default color 
+      } */
+    input[type="date"]:required:invalid::-webkit-datetime-edit {
+      color: transparent;
+    }
+
+    select#exampleFormControlSelect1 {
+      background: #dadada
+        url("http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png")
+        no-repeat 95% center;
+    }
+
+    button[type="submit"] {
+      color: white;
+    }
+  }
+  .ourinfo {
+    color: gray;
+    .x {
+      color: var(--main-color) !important;
+    }
+  }
+}
+
+/*BookAnAppointment*/
+
+/*Meet*/
+.Meet {
+  .title {
+    color: var(--main-color);
+  }
+  h1 {
+    color: var(--main-color);
+  }
+  p {
+    color: var(--secound-color);
+  }
+  .q {
+    background-color: var(--main-color) !important;
+    color: white;
+  }
+  .text {
+    background-color: #dadada;
+  }
+}
+/*Meet*/
+
+/*Single*/
+.Single {
+  @media (max-width: 991.98px) {
+    .quickProfile {
+      height: 50%;
+      margin-left: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .form {
+      height: 55%;
+      margin-left: 0.5rem;
+    }
+  }
+  @media (min-width: 992px) {
+    .quickProfile {
+      height: 45%;
+    }
+    .form {
+      height: 51%;
+    }
+  }
+  .quickProfile {
+    font-size: 15px;
+    button {
+      color: var(--main-color);
+    }
+    button:hover {
+      color: var(--main-color);
+    }
+  }
+  .form {
+    background-color: #dadada;
+
+    button:hover {
+      color: white;
+    }
+  }
+  .Detailed_info {
+    .Infoicons {
+      i {
+        background-color: #fff5f5;
+        color: #8b8b8b;
+      }
+      i:hover {
+        background-color: var(--main-color);
+        color: white !important;
+      }
+    }
+    .Infotext {
+      color: #929292;
+    }
+  }
+  .ClientsCard {
+    border-top: 5px solid var(--main-color); /* Green border on top */
+    border-left: 1px solid gray; /* Remove left border */
+    border-right: 1px solid gray; /* Remove right border */
+    border-bottom: 1px solid gray; /* Remove bottom border */
+    padding: 20px; /* Add padding for content */
+
+    border-radius: 10px;
+  }
+  .avatar {
+    width: 50px; /* Set avatar width as needed */
+    height: 50px; /* Set avatar height as needed */
+    border-radius: 50%; /* Make the avatar circular */
+    margin-right: 10px; /* Add margin between avatar and user name */
+  }
+
+  .user-name {
+    font-weight: bold;
+  }
+  .swiper-button-next,
+  .swiper-button-prev {
+    background-color: #929292;
+    color: #fff !important;
+  }
+  .swiper-button-prev {
+    left: -100px;
+    right: auto;
+  }
+}
+
+.c {
+  background-color: var(--main-color);
+  height: 15px;
+}
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background-color: var(--main-color);
+  color: #fff !important;
+}
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  font-size: 20px !important;
+}
+/*Single*/
+
+/*OURSPECIALTIES*/
+.OURSPECIALTIES {
+  background-color: #f1f1f1;
+}
+.w {
+  color: var(--main-color);
+}
+.S_card {
+  transition: box-shadow 0.5s ease;
+}
+.S_card:hover h4 {
+  color: var(--main-color);
+}
+.S_card:hover p {
+  color: var(--secound-color);
+}
+.S_card:hover {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Adjust shadow properties as needed */
+}
+/*OURSPECIALTIES*/
+/*//////////////////////////////////Test ///////////////////////////////////////////////////////*/
+
+.swiper-slide {
+  .fixed_text {
+      text-align: start;
+  }
+}

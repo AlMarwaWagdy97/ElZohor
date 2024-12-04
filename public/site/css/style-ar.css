@@ -1,0 +1,33 @@
+.me-lg-3 {
+    margin-left: 1rem !important;
+}
+
+.breadcrumb-item+.breadcrumb-item::before {
+    float: right;
+    padding-left: var(--bs-breadcrumb-item-padding-x);
+    color: var(--bs-breadcrumb-divider-color);
+    content: var(--bs-breadcrumb-divider, "/");
+}
+
+/*.text-lg-start {*/
+/*    text-align: right !important;*/
+/*}*/
+.me-lg-3 {
+    margin-right: 0rem !important;
+    margin-left: 1rem !important;
+}
+
+
+.swiper-slide {
+    .fixed_text {
+        text-align: end;
+    }
+}
+
+@media (min-width: 991px) {
+    .swiper-slide {
+        .fixed_text {
+            margin-left: 6rem;
+        }
+    }
+}
