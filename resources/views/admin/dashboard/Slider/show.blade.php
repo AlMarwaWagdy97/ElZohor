@@ -47,20 +47,27 @@
                                                             <span class="missiong-spam">{{ $errors->first($locale . '.title') }}</span>
                                                         @endif
                                                     </div>
-                                                   {{-- Start Slug --}}
-                                                   {{-- <div class="row mb-3 slug-section">
-                                                    <label for="example-text-input"
-                                                    class="col-sm-2 col-form-label">{{ trans('admin.slug_in') . trans('lang.' . Locale::getDisplayName($locale)) }}
-                                                </label>
-                                                    <div class="col-sm-10">
-                                                        <input type="text" id="slug{{ $key }}" name="{{ $locale }}[slug]" disabled value="{{ @$slider->trans->where('locale',$locale)->first()->slug }}" class="form-control slug" required>
-                                                        @if($errors->has($locale .'.slug'))
-                                                            <span class="missiong-spam">{{ $errors->first($locale . '.slug') }}</span>
+                                                     {{-- sub title ------------------------------------------------------------------------------------- --}}
+                                                     <div class="row mb-3">
+                                                        <label for="example-text-sub_title" class="col-sm-2 col-form-label">{{ trans('admin.sub_title') . trans('lang.' . Locale::getDisplayName($locale)) }}</label>
+                                                        <div class="col-sm-10">
+                                                            <input class="form-control" type="text" name="{{ $locale }}[sub_title]" disabled value="{{ @$slider->trans->where('locale',$locale)->first()->sub_title  }}" id="sub_title{{ $key }}">
+                                                        </div>
+                                                        @if ($errors->has($locale . '.sub_title'))
+                                                        <span class="missiong-spam">{{ $errors->first($locale . '.sub_title') }}</span>
                                                         @endif
-                                                    </div>            
-                                                </div>
-                                                   @include('admin.layouts.scriptSlug') --}}
-                                                   {{-- End Slug --}}
+                                                    </div>
+
+                                                    {{-- sub description ------------------------------------------------------------------------------------- --}}
+                                                    <div class="row mb-3">
+                                                        <label for="example-text-description" class="col-sm-2 col-form-label">{{ trans('admin.sub_description') . trans('lang.' . Locale::getDisplayName($locale)) }}</label>
+                                                        <div class="col-sm-10">
+                                                            <input class="form-control" type="text" name="{{ $locale }}[sub_description]" disabled value="{{ @$slider->trans->where('locale',$locale)->first()->sub_description  }}" id="sub_description{{ $key }}">
+                                                        </div>
+                                                        @if ($errors->has($locale . '.sub_description'))
+                                                        <span class="missiong-spam">{{ $errors->first($locale . '.sub_description') }}</span>
+                                                        @endif
+                                                    </div>
             
                                                     {{-- description ------------------------------------------------------------------------------------- --}}
                                                     <div class="row mb-3">
@@ -101,20 +108,34 @@
                                                 <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                                 <div class="accordion-body">
                                                     
-                                                    @if( @$slider->image != null)
-                                                    <div class="col-12">
-                                                        <div class="row mb-3">
-                                                            <div class="col-sm-12">
-                                                                <a href="{{ asset( $slider->image) }}" target="_blank">
-                                                                    <img src="{{asset( $slider->image)}}" alt=""  style="width:100%">
-                                                                </a>
+
+                                                    @if( $slider->image != null)
+                                                    @if(substr($slider->image, -3) == "mp4")
+                                                        <div class="col-12">
+                                                            <div class="row mb-3">
+                                                                <div class="col-sm-12">
+                                                                    <a href="{{ asset($slider->image) }}" target="_blank">
+                                                                        <video width="200" height="200" controls muted>
+                                                                            <source src="{{ asset($slider->image) }}" type="video/mp4">
+                                                                        </video>
+                                                                    </a>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                    @else
+                                                        <div class="col-12">
+                                                            <div class="row mb-3">
+                                                                <div class="col-sm-12">
+                                                                    <a href="{{ asset($slider->image) }}" target="_blank">
+                                                                        <img src="{{asset( $slider->image)}}" alt="" style="width:100%">
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     @endif
-                                                  
+                                                @endif
 
-
+                                          
                                                     {{-- Status ------------------------------------------------------------------------------------- --}}
                                                         <div class="col-12">
                                                             <label class="col-4 col-form-label" for="available">{{ trans('admin.status') }}</label>
@@ -188,5 +209,5 @@
 
 @section('style')
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="{{ asset('assets/js/ckeditor/ckeditor.js') }}"></script>
+    <script src="https://cdn.ckeditor.com/4.5.6/standard/ckeditor.js"></script>
 @endsection

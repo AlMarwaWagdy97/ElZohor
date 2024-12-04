@@ -1,22 +1,35 @@
-<form method="POST" wire:submit.prevent="sendForm()">
+<div>
+    <form class="mt-5" wire:submit.prevent="sendForm()">
 
-    <div class="my-3">
-        @include('site.layouts.booking-message')
-    </div>
-
-    <div class="form-group d-flex flex-wrap flex-lg-nowrap ">
-      <input type="text" wire:model="name" class="form-control @error('text') is-invalid @enderror" id="Name" placeholder="@lang('Name') *" required>
-    </div>
-
-    <div class="form-group my-3 d-flex flex-wrap flex-lg-nowrap ">
-        <input type="email" wire:model="email" class="form-control me-lg-3 my-lg-0 my-3 @error('email') is-invalid @enderror" id="Email" aria-describedby="emailHelp" placeholder="@lang('Email') "  >
-        <input type="tel" wire:model="phone" class="form-control @error('phone') is-invalid @enderror" id="Email" aria-describedby="emailHelp" placeholder="@lang('Mobile') *" required>
-    </div>
-
-    <div class="col-12 my-3">
-        <textarea wire:model="message" class="form-control @error('message') is-invalid @enderror"  id="exampleTextarea" rows="6" placeholder="@lang('Message ...')"></textarea>
-    </div>
-
-    <button type="submit" class="btn bg-main  text-lg-start text-center px-5"> @lang('Send') </button>
-
-  </form>
+        <div class="my-3">
+            @include('site.layouts.message')
+        </div>
+          
+        <div class="form-group mb-3 mt-2">
+            <label> @lang("Name") </label>
+            <input type="text" wire:model="name" class="form-control @error('name') is-invalid @enderror" />
+        </div>
+    
+    
+        <div class="form-group my-5">
+            <label> @lang('Email') </label>
+            <input type="email" wire:model="email" class="form-control  @error('email') is-invalid @enderror"/>
+        </div>
+    
+        <div class="form-group my-5">
+            <label> @lang('mobile') </label>
+            <input type="mobile" wire:model="mobile" class="form-control @error('mobile') is-invalid @enderror"/>
+        </div>
+    
+        <div class="form-group">
+            <label> @lang('message.Message') </label>
+            <textarea wire:model="message" class="form-control @error('message') is-invalid @enderror"  rows="6"></textarea>
+        </div>
+    
+        <div class="row">
+            <button type="submit" class="btn btn-more px-5 py-3 mx-auto mt-5">
+                @lang('Send')
+            </button>
+        </div>
+    </form>
+</div>

@@ -3,7 +3,12 @@
 @section('title', trans('settings.setting_create'))
 @section('title_page', trans('settings.setting_create'))
 
-
+@section('style')
+    {{-- @vite(['resources/assets/admin/css/data-tables.js']) --}}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    {{-- <script src="{{ asset('assets/js/ckeditor/ckeditor.js') }}"></script> --}}
+    <script src="{{ asset('assets/js/ckeditor/ckeditor.js') }}"></script>
+@endsection
 
 @section('content')
 
@@ -85,6 +90,24 @@
                                                                 });
                                                             </script>
                                                         </div>
+
+
+
+                                                        {{-- button title ------------------------------------------------------------------------------------- --}}
+                                                        <div class="row mb-3">
+                                                            <label for="example-text-input"
+                                                                   class="col-sm-2 col-form-label">{{ trans('admin.button_title') . trans('lang.' . Locale::getDisplayName($locale)) }}
+                                                            </label>
+                                                            <div class="col-sm-10 mb-2">
+                                                                <input id="button_title{{ $key }}"  class="form-control sub_title" name="{{ $locale }}[button_title]">
+                                                                @if ($errors->has($locale . '.button_title'))
+                                                                    <span
+                                                                        class="missiong-spam">{{ $errors->first($locale . '.button_title') }}</span>
+                                                                @endif
+                                                            </div>
+
+                                                        </div>
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -161,6 +184,64 @@
                                                                 data-off-label=" @lang('admin.no')"></label>
                                                         </div>
                                                     </div>
+
+
+
+
+
+
+
+
+
+
+                                                    {{-- num_of_items ------------------------------------------------------------------------------------- --}}
+                                                    <div class="col-12">
+                                                        <div class="row mb-3">
+                                                            <label for="example-number-input" col-form-label>
+                                                                @lang('settings.num_of_items'):</label>
+                                                            <div class="col-sm-12">
+                                                                <input class="form-control" type="number"
+                                                                       placeholder="@lang('settings.num_of_items'):"
+                                                                       id="example-number-input" name="num_of_items" min="0"
+                                                                       value="0">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+
+
+
+                                                    {{-- featured ------------------------------------------------------------------------------------- --}}
+                                                    <div class="col-12">
+                                                        <label class="col-sm-12 col-form-label"
+                                                               for="available">{{ trans('admin.featured') }}</label>
+                                                        <div class="col-sm-10">
+                                                            <input class="form-check form-switch44" name="featured" checked
+                                                                   type="checkbox" id="switch44" switch="success"
+
+                                                                   value="1">
+                                                            <label class="form-label" for="switch44"
+                                                                   data-on-label=" @lang('admin.yes') "
+                                                                   data-off-label=" @lang('admin.no')"></label>
+                                                        </div>
+                                                    </div>
+
+
+                                                    {{-- button featured ------------------------------------------------------------------------------------- --}}
+                                                    <div class="col-12">
+                                                        <label class="col-sm-12 col-form-label"
+                                                               for="available">{{ trans('admin.button_featured') }}</label>
+                                                        <div class="col-sm-10">
+                                                            <input class="form-check form-switch44" name="button_featured"
+                                                                   type="checkbox" id="switch44button_featured" switch="success"
+
+                                                                   value="1">
+                                                            <label class="form-label" for="switch44button_featured"
+                                                                   data-on-label=" @lang('admin.yes') "
+                                                                   data-off-label=" @lang('admin.no')"></label>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -192,6 +273,6 @@
 
 
 @section('script')
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="{{ asset('assets/js/ckeditor/ckeditor.js') }}"></script>
+
+    {{-- @vite(['resources/assets/admin/js/data-tables.js']) --}}
 @endsection

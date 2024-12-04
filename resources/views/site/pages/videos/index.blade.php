@@ -5,77 +5,47 @@
 @section('meta_description', @$metaSetting->where('key', 'videos_meta_description_' . $current_lang)->first()->value)
 
 @section('content')
-
-<!--Bath-->
-<div class="bath py-3 ">
+<!--item -->
+<div class="vedios mt-5">
     <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ route('site.home') }}">@lang('Home')</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">
-                            {{translateTitle('videos')}}
-                        </li>
-                    </ol>
-                </nav>
+        <div class="title my-3 row text-center">
+            <h1 class="mb-3">{{@$videoInfo->trans && $videoInfo->trans->count() > 0 ? @$videoInfo->trans[0]->title : '' }}</h1>
+        <p>
+            {!! @$videoInfo->trans[0]->description !!}
+        </p>
+    </div>
+    @forelse ($videos as $video)
+        <div class="row text-center mt-5 wow bounceInRight">
+            <div class="col-12 col-lg-6">
+                <iframe width="560" height="315" src="{{ @$video->url }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+
+            <div class="col-12 col-lg-6 text-start align-content-center">
+                <img src="{{asset( $video->image) }}" alt="" />
+                <div class="text">
+                    <h1>{{ @$video->trans->where('locale', $current_lang)->first()->title }}</h1>
+                    <p>
+                        {!! @$video->trans->where('locale', $current_lang)->first()->description !!}
+                    </p>
+                    <a href="{{ route('site.videos.show', $video->trans[0]->slug) }}" class="btn btn-more px-5 py-2 mx-auto btn-more-dark">
+                        @lang('Show')
+                    </a>
+                </div>
             </div>
         </div>
+    @empty
+
+    @endforelse
+
+
+    <div id="loadMore" class="text-center">
+        <a hx-get="{{ route('site.videos-more.loadMore', ['start' => 4, 'count' => 4]) }}" hx-indicator="#loading" hx-target="#loadMore" hx-swap="outerHTML" class="btn btn-more mt-5 px-5 py-3 mx-auto btn-more-dark">
+            @lang('See more')
+        </a>
     </div>
 </div>
-<!--Bath-->
-
-<div class="best py-3 mt-5">
-    <div class="container">
-        <div class="row text-center">
-            <h1 class="display-lg-3 w"> {{ @$videoInfo->trans->where('locale', $current_lang)->first()->title }} </h1>
-            <h5 class="my-5 px-5 text-secound">
-                {!! @$videoInfo->trans->where('locale', $current_lang)->first()->description !!}
-            </h5>
-        </div>
-
-        <div class=" vedio row ">
-            <div class=" col-12 col-lg-6 text-center ">
-                @forelse ($videos as $video)
-                <div class="col-12 d-flex justify-content-center align-items-center video-frame-content  wow bounceInLeft">
-                    <img src="{{asset( $video->image) }}" class="img-fluid h-100" alt="">
-                    <div>
-                        <h4 class="text-main"> {{ @$video->trans->where('locale', $current_lang)->first()->title }} </h4>
-                        <p class="text-secound">
-                            {!! @$video->trans->where('locale', $current_lang)->first()->description !!}
-                        </p>
-                    </div>
-                </div>
-                @empty
-
-                @endforelse
-            </div>
-
-
-            <div class="col-12 col-lg-6 text-center">
-                @forelse ($videos as $video)
-                <div class="z video-frame-single my-2  wow bounceInRight">
-                    <iframe width="100%" height="100%" src="{{ $video->url }}"> </iframe>
-                </div>
-
-                @empty
-
-                @endforelse
-
-            </div>
-
-
-            <div class="col-12 justify-content-center text-center" id="loadMore">
-                <a hx-get="{{ route('site.videos-more.loadMore', ['start' => 4, 'count' => 4]) }}"
-                    hx-indicator="#loading" hx-target="#loadMore" hx-swap="outerHTML" class="btn text-white bg-success me-3 px-5 my-5">@lang('SEE MORE')</a>
-            </div>
-        </div>
-    </div>
 </div>
+<!--item -->
 
 
-
-<!--INFO-->
-@include('site.components.info')
-<!--INFO-->
 @endsection

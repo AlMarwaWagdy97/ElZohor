@@ -25,8 +25,12 @@
                                 method="POST" enctype="multipart/form-data" role="form">
                                 @csrf
                                 <div class="card-body">
+                                    <div class="row mb-3">
+
                                     @foreach ($settings as $setting)
-                                        @if ($setting->type == 0)
+                                            <div class="float-end col-10">
+
+                                            @if ($setting->type == 0)
                                             <div class="row mb-3">
                                                 <label for="example-text-input" class="col-sm-2 col-form-label">
                                                     {{ trans('settings.' . $setting->key) }} </label>
@@ -47,17 +51,11 @@
                                                         name="{{ $setting->key }}">
                                                 </div>
                                                 @if ($setting->value)
-                                                    @if(substr($setting->value, -3) == "mp4")
-                                                        <div class="col-sm-4" >
-                                                            <video width="200" height="150" controls muted>
-                                                                <source src="{{ asset($setting->value) }}" type="video/mp4">
-                                                            </video>
-                                                        </div>
-                                                    @else
-                                                        <div class="col-sm-4" style="max-width: 200px; max-height: 150px; background-color: #e7e7e7;">
-                                                            <img src="{{asset($setting->value)}}" alt="" style="width: 150px">
-                                                        </div>
-                                                    @endif 
+                                                    <div class="col-sm-4"
+                                                        style="max-width: 200px; max-height: 150px; background-color: #e7e7e7;">
+                                                        <img style="width: 100px;height:100px"
+                                                            src="{{ asset($setting->value) }}" alt="" />
+                                                    </div>
                                                 @else
                                                     <div class="col-sm-4" style="width: 200px; height: 150px;">
                                                         <img src="{{ admin_path('images/not_found.PNG') }}" width="150"
@@ -81,7 +79,7 @@
                                                 @if ($setting->value)
                                                     <div class="col-sm-4">
                                                         <a href="{{ asset($setting->value) }}" target="_blank">
-                                                            <img style="width: 100px;height:100px"
+                                                            <img style="width: 100px; height:100px"
                                                                 src="{{ admin_path('images/pdf.png') }}" alt="" />
                                                         </a>
                                                     </div>
@@ -130,8 +128,23 @@
                                                 </div>
                                             </div>
                                         @endif
-                                    @endforeach
 
+                                    </div>
+                                            <div class="float-end col-2">
+                                                <a class="btn btn-sm btn-secondary {{ $setting->featured === 1 ? 'bg-success' : ''}}" href="{{url('admin/update_featured/' . $setting->id . "?featured=1" )}}">featured   </a>
+                                                <a class="btn btn-sm btn-secondary {{ ($setting->featured === 0 ||  $setting->featured === null) ? 'bg-danger' : ''}}" href="{{url('admin/update_featured/' . $setting->id . "?featured=0" )}}">no featured   </a>
+
+                                            </div>
+
+                                            {{--                                            <select class="form-control d-inline-block"  name="{{ $setting->key }}_featured">--}}
+{{--                                                <option value="">....</option>--}}
+{{--                                                <option value="1">featured</option>--}}
+{{--                                                <option value="0">not featured</option>--}}
+
+{{--                                            </select>--}}
+
+                                    @endforeach
+                                    </div>
                                 </div>
                                 <!-- /.card-body -->
                                 <div class="card-footer text-end">

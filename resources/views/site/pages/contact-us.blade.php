@@ -5,60 +5,86 @@
 @section('meta_description', @$metaSetting->where('key', 'contact_us_meta_description_' . $current_lang)->first()->value)
 
 @section('content')
-<!--Bath-->
-<div class="bath py-3 ">
+<!--Form-->
+<div class="Content_Us mt-5 p-lg-5">
     <div class="container">
         <div class="row">
-            <div class="col-12">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ route('site.home') }}">@lang('Home')</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">
-                            {{ $contactUs->trans->where('locale',$current_lang)->first()->title }}
-                        </li>
-                    </ol>
-                </nav>
+            <div class="ContentInfo col-12 col-lg-6">
+                <div class="conteantHeader">
+                    <p>
+                        {!! @$contactUs->trans[0]->description !!}
+                    </p>
+                </div>
+                <div class="info my-5">
+                    <h1> {{ @$contactUs->trans[0]->title }} </h1>
+                    <div class="infoIcons">
+                        <div class="location mt-3">
+                            <div class="location d-flex justify-content-lg-start align-items-center mb-3">
+                                <i class="bx bx-location-plus display-6 me-lg-2"> </i>
+                                <span class="ms-3 ms-lg-0"> {{ $settings->getItem('address') }} </span>
+                            </div>
+                        </div>
+
+                        <div class="email">
+                            <div class="email d-flex justify-content-lg-start align-items-center mb-3">
+                                <i class="bx bx-envelope display-6 me-2"></i>
+                                <span dir="ltr" class="mx-1 mx-lg-0">
+                                    <a href="mailto:{{ $settings->getItem('email') }}">
+                                        {{ $settings->getItem('email') }}
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="phone">
+                            <div class="phone d-flex justify-content-lg-start align-items-center mb-3">
+                                <i class="bx bx-phone display-6 me-2"></i>
+                                <span dir="ltr">
+                                    @php
+                                        $mobile = explode('-',  $settings->getItem('mobile'));
+                                    @endphp
+                                    @forelse ($mobile as $key => $num)
+                                        <a href="tel:{{$num }}">
+                                            <span dir="ltr"> {{ $num }}</span>
+                                        </a>
+                                        @if( ($key + 1 ) < count($mobile ))<span class="mx-2">-</span>@endif
+                                    @empty
+                                        <a href="tel:{{ $settings->getItem('mobile') }}">
+                                            <span dir="ltr"> {{ $settings->getItem('mobile') }}</span>
+                                        </a>
+                                    @endforelse
+
+                                    </span>
+
+                            </div>
+                        </div>
+
+                        <div class="phone">
+                            <div class="phone d-flex justify-content-lg-start align-items-center mb-3">
+                                <i class="bx bxl-whatsapp display-6 me-2"></i>
+                                <span dir="ltr" class="mx-1 mx-lg-0">
+                                    <a href="https://wa.me/{{ $settings->getItem('whatsapp') }}" target="_blank">
+                                        {{ $settings->getItem('whatsapp') }}
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="col--md-12 pe-3 maps">
+                            <iframe src="{{ $settings->getItem('maps') }}" frameborder="0" width="100%" height="250px"></iframe>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="y"></div> -->
+            <div class="ContentForm col-12 col-lg-6">
+                <h1>@lang('We would love to hear frome you')</h1>
+
+                <livewire:site.contact />
             </div>
         </div>
     </div>
 </div>
-<!--Bath-->
-
-<div class="container  my-5 rounded">
-    <div class="row text-center">
-        <h1 class="text-main"> {{ @$contactUs->trans->where('locale', $current_lang)->first()->title }}</h1>
-        <h5 class="my-5 px-5 text-secound">
-            {!! @$contactUs->trans->where('locale', $current_lang)->first()->description !!}
-        </h5>
-    </div>
-    <div class="row py-5">
-        <div class="col-lg-8 col-12 text text-center wow bounceInLeft">
-            @livewire('site.contact-us')
-        </div>
-        <div class="col-lg-4 col-12 wow bounceInRight py-3">
-            <img src="{{ asset(@$contactUs->image) }}" class="img-fluid rounded" alt="">
-            <div class="Info_icons mt-5 text-center">
-                <a href="{{ $settings->getItem('facebook') }}"><i class="fa-brands fa-facebook rounded-circle text-white bg-main p-3 me-2"></i></a>
-                <a href="{{ $settings->getItem('twitter') }}"><i class="fa-brands fa-x-twitter rounded-circle text-white bg-main p-3 me-2"></i></a>
-                <a href="{{ $settings->getItem('instagram') }}"><i class="fa-brands fa-instagram rounded-circle text-white bg-main p-3 me-2"></i></a>
-            </div>
-        </div>
-
-        <!--book  an appointment-->
-    </div>
-    <!--book  an appointment-->
-    <div class="row maps">
-        <div class="col-12">
-            <iframe src="{{ $settings->getItem('maps') }}"></iframe>
-        </div>
-    </div>
-
-
-</div>
-
-
-<!--INFO-->
-@include('site.components.info')
-<!--INFO-->
-
+<!--Form-->
 @endsection

@@ -3,7 +3,7 @@
         <div class="row py-5">
 
             <div class="col-12 navigation text-center mb-5">
-                <h1 class="text-secound">@lang('WHAT') <span> @lang('CLIENTS SAY')</span></h1>
+                <h3>@lang('WHAT') <span> @lang('CLIENTS SAY')</span></h3>
                 <div class="arrow">
                 </div>
             </div>
@@ -29,7 +29,7 @@
                                         <h6 class="text-main">
                                             {{ @$review->trans->where('locale', $current_lang)->first()->title }}
                                         </h6>
-                                        <span class="user-name ">
+                                        <span class="user-name">
                                             {{ @$review->trans->where('locale', $current_lang)->first()->type }}
                                         </span>
                                     </div>

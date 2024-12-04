@@ -20,7 +20,7 @@
                         <form action="{{ route('admin.users.store') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="row d-flex justify-content-center ">
-                                <div class="col-md-6">
+                                <div class="col-md-8">
 
                                     <div class="accordion mt-4 mb-4 " id="accordionExample">
                                         <div class="accordion-item border rounded ">
@@ -98,7 +98,7 @@
                                 </div>
 
 
-                                <div class="col-md-5">
+                                <div class="col-md-4">
 
                                     <div class="accordion mt-4 mb-4" id="accordionExample">
                                         <div class="accordion-item border rounded">
@@ -174,7 +174,7 @@
 
                             </div>
 
-                         
+
 
                         </form>
                     </div>

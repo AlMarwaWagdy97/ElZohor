@@ -202,9 +202,9 @@
                                                     {{-- sort ------------------------------------------------------------------------------------- --}}
                                                         <div class="col-12">
                                                             <div class="row mb-3">
-                                                                <label for="example-number-input"  col-form-label> @lang('articles.sort'):</label>
+                                                                <label for="example-number-input"  col-form-label> @lang('admin.sort'):</label>
                                                                 <div class="col-sm-12">
-                                                                    <input class="form-control" disabled type="number"disabled placeholder="@lang('articles.sort'):" id="example-number-input" value="{{ $video->sort }}">
+                                                                    <input class="form-control" disabled type="number"disabled placeholder="@lang('admin.sort'):" id="example-number-input" value="{{ $video->sort }}">
                                                                 </div>
                                                             </div>
                                                         </div>

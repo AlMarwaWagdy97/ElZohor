@@ -221,7 +221,7 @@
 
 @section('style')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
- <script src="{{ asset('assets/js/ckeditor/ckeditor.js') }}"></script>
+<script src="{{ asset('assets/js/ckeditor/ckeditor.js') }}"></script>
 @endsection
 @section('script')
 <script>

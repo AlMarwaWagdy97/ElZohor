@@ -10,19 +10,19 @@
 
 @section('content')
 
-<div class="container-fluid">
+    <div class="container-fluid">
         <div class="card">
             <div class="card-body">
                 <div class="row">
-
-                    {{-- Tree ---------------------------------------------------- --}}
+                    <!-- Tree ---------------------------------------------------- -->
                     <div class="col-md-4">
 
                         <div class="actions-tree mb-3">
                             <form action="{{ route('admin.categories.show_tree') }}" method="GET">
-                                <div class="row">{{-- Bettie Ankunding --}}
+                                <div class="row"><!--- Bettie Ankunding -->
                                     <div class="col-md-6 mt-2">
-                                        <input type="text" name="title" value="{{ request()->title }}" class="form-controle">
+                                        <input type="text" name="title" value="{{ request()->title }}"
+                                            class="form-controle">
                                     </div>
                                     <div class="col-md-6 mt-2">
                                         <button type="submit" class="btn btn-primary btn-sm"> @lang('admin.search') </button>
@@ -31,27 +31,28 @@
                             </form>
                             <br>
                             <button class="btn btn-primary" id="collapse-all"> @lang('admin.collapse')</button>
-                            <a href="{{ route('admin.categories.create') }}" title="@lang('admin.create')" class="btn btn-success" > @lang('admin.create')</i></a>
+                            <a href="{{ route('admin.categories.create') }}" title="@lang('admin.create')"
+                                class="btn btn-success"> @lang('admin.create')</i></a>
                         </div>
-                        @php 
-                            if(@$menu != null)@$menu_parent_ids = getPathTree(@$menu);
-                            if(@$item_parent_id != null ){
+                        @php
+                            if (@$menu != null) {
+                                @$menu_parent_ids = getPathTree(@$menu);
+                            }
+                            if (@$item_parent_id != null) {
                                 @$menu_parent_ids = getPathTree(@App\Models\Menue::find(@$item_parent_id));
-                                @$menu_parent_ids[] = (int)$item_parent_id;
-                            } 
+                                @$menu_parent_ids[] = (int) $item_parent_id;
+                            }
                             $first = true;
                         @endphp
                         <ul class="todos" id="todos">
                             @include('admin/dashboard/categories/tree')
 
-                            {{-- <li class="todo-plus">
-                                <a href="{{ route('admin.menus.create', 0) }}" title="@lang('admin.create')" class="text-success" ><i class="fas fa-plus"></i></a>
-                            </li> --}}
+                            <li class="todo-plus">
+                                <a href="{{ route('admin.menus.create', 0) }}" title="@lang('admin.create')"
+                                    class="text-success"><i class="fas fa-plus"></i></a>
+                            </li>
                         </ul>
                     </div>
-
-
-
                 </div>
             </div>
         </div>
@@ -62,7 +63,7 @@
 
 
 @section('script')
-      
+
     {{-- @vite(['resources/assets/admin/js/data-tables.js']) --}}
     <script>
         const todos = document.querySelectorAll(".todo");
@@ -83,78 +84,76 @@
     </script>
 
     <script>
-        $(document).ready(function(){
-            $("#collapse-all").on('click', function(){
-                if(!$(this).hasClass('active')){
-                    $("li").addClass("active");   
-                    $(".toggler").addClass("active");   
-                    $(".toggler-target").addClass("active");   
+        $(document).ready(function() {
+            $("#collapse-all").on('click', function() {
+                if (!$(this).hasClass('active')) {
+                    $("li").addClass("active");
+                    $(".toggler").addClass("active");
+                    $(".toggler-target").addClass("active");
                     $(this).addClass('active')
-                }
-                else{
-                    $("li").removeClass("active");   
-                    $(".toggler").removeClass("active");   
-                    $(".toggler-target").removeClass("active");  
+                } else {
+                    $("li").removeClass("active");
+                    $(".toggler").removeClass("active");
+                    $(".toggler-target").removeClass("active");
                     $(this).removeClass('active')
                 }
-                 
+
             });
 
 
             // $("#collapse-all").toggle(
             //     function(){
-            //         $("li").addClass("active");   
-            //         $(".toggler").addClass("active");   
-            //         $(".toggler-target").addClass("active");  
+            //         $("li").addClass("active");
+            //         $(".toggler").addClass("active");
+            //         $(".toggler-target").addClass("active");
             //     },
             //     function(){
-            //         $("li").removeClass("active");   
-            //         $(".toggler").removeClass("active");   
+            //         $("li").removeClass("active");
+            //         $(".toggler").removeClass("active");
             //         $(".toggler-target").removeClass("active");
             // });
         });
-        
     </script>
 
 
     <script>
-        $(document).ready(function(){
-            $("#type").on('change', function(){
+        $(document).ready(function() {
+            $("#type").on('change', function() {
                 var val = $(this).val();
                 console.log(val, val == "static");
-                if(val == "static"){
+                if (val == "static") {
                     $('#static-url').show();
                     $('#dynamic-url').hide();
 
-                    $("#static_url").prop('required',true);
-                    $("#dynamic-type").prop('required',false);
-                    $("#get-dynamic-urls").prop('required',false);
+                    $("#static_url").prop('required', true);
+                    $("#dynamic-type").prop('required', false);
+                    $("#get-dynamic-urls").prop('required', false);
 
-                }
-                else{
+                } else {
                     $('#static-url').hide();
                     $('#dynamic-url').show();
                     $('#get-dynamic-urls').find('option').remove().end();
 
-                    $("#static_url").prop('required',false);
-                    $("#dynamic-type").prop('required',true);
-                    $("#get-dynamic-urls").prop('required',true);
+                    $("#static_url").prop('required', false);
+                    $("#dynamic-type").prop('required', true);
+                    $("#get-dynamic-urls").prop('required', true);
                 }
             });
 
-            $("#dynamic-type").on('change', function(){
+            $("#dynamic-type").on('change', function() {
                 let val = $(this).val();
                 $.ajax({
-                type:'GET',
-                url:'/admin/menus/urls/' + val ,
-                success:function(data) {
-                    $('#get-dynamic-urls').find('option').remove().end();
-                    $("#get-dynamic-urls").append( '<option value=""></option>');
+                    type: 'GET',
+                    url: '/admin/menus/urls/' + val,
+                    success: function(data) {
+                        $('#get-dynamic-urls').find('option').remove().end();
+                        $("#get-dynamic-urls").append('<option value=""></option>');
 
-                    $.each(data, function(key, value){
-                        $("#get-dynamic-urls").append('<option value="' + value + '">' + value + '</option>');
-                    });
-                }
+                        $.each(data, function(key, value) {
+                            $("#get-dynamic-urls").append('<option value="' + value +
+                                '">' + value + '</option>');
+                        });
+                    }
                 });
             });
         });

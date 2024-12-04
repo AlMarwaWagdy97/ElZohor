@@ -73,7 +73,7 @@
                                                             @lang('admin.description_in') {{ Locale::getDisplayName($locale) }}
                                                         </label>
                                                         <div class="col-sm-10 mb-2"  wire:ignore>
-                                                        
+
                                                             <textarea id="my-ckeditor{{ $key }}" class="form-control"  wire:model="description.{{ $locale }}"   @if (@$showMode == true) disabled @endif></textarea>
                                                             @error('description.{{ $locale }}')
                                                                 <span class="text-danger">{{ $message }}</span>
@@ -320,14 +320,14 @@
                                             </div>
                                         @endif
 
-                                        
-                                      
+
+
                                         </div>
                                     </div>
                                 </div>
 
-                           
-                             
+
+
 
                             </div>
                         </div>
@@ -353,7 +353,7 @@
                         @endif
 
 
-          
+
 
                     </div>
                 </div>

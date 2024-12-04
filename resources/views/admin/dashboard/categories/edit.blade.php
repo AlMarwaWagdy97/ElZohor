@@ -340,5 +340,5 @@
 
 @section('style')
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdn.ckeditor.com/4.12.1/standard/ckeditor.js"></script>
+    <script src="{{ asset('assets/js/ckeditor/ckeditor.js') }}"></script>
 @endsection

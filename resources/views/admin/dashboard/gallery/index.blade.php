@@ -73,12 +73,13 @@
                                     <input form="update-pages"  class="checkbox-check flat" type="checkbox" name="check-all"  id="check-all">
                                 </th>
                                 <th>#</th>
+                                <th>@lang('admin.image')</th>
                                 <th>@lang('admin.title')</th>
                                 <th>@lang('admin.description')</th>
-                                <th>@lang('articles.sort')</th>
+                                <th>@lang('admin.sort')</th>
                                 <th>@lang('admin.created_at')</th>
                                 <th>@lang('admin.updated_at')</th>
-                                <th>@lang('articles.actions')</th>
+                                <th>@lang('admin.actions')</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -90,12 +91,15 @@
                                     </td>
                                     <td>{{ $items->firstItem() + $key  }}</td>
                                     <td>
+                                        <a href="{{asset($item->image)}}" target="_blank"> 
+                                            <img src="{{asset($item->image)}}" alt="" style="width: 50px; height: 50px">
+                                        </a>
+                                    </td>
+                                    <td>
                                         {{ $item->trans->where('locale',$current_lang)->first()->title}}
-
                                     </td>
                                     <td>
                                         {{  substr(removeHTML($item->trans->where('locale',$current_lang)->first()->description),0,30) }}
-                                        
                                     </td>
                                     <td>{{ $item->sort }}</td>
                                     <td>{{ $item->created_at }}</td>

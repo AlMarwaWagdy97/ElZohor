@@ -7,10 +7,8 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <p> @lang('contact_us.name'): {{ $item->name }}</p>
-                    <p> @lang('contact_us.email'): {{ $item->email }}</p>
-                    <p> @lang('contact_us.phone'): {{ $item->phone }}</p>
-                    <p> @lang('contact_us.message'): {{ $item->message }}</p>
+                    <h5>{{ $item->subject }}</h5>
+                    <p>{{ $item->message }}</p>
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->

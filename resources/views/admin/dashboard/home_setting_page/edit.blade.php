@@ -4,6 +4,13 @@
 @section('title_page', trans('settings.edit', ['name' => @$homeSetting->title_section]))
 
 
+@section('style')
+    {{-- @vite(['resources/assets/admin/css/data-tables.js']) --}}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="{{ asset('assets/js/ckeditor/ckeditor.js') }}"></script>
+
+
+@endsection
 
 @section('content')
 
@@ -39,7 +46,7 @@
                                                         <div class="row mb-3 title-section">
                                                             <label for="example-text-input"
                                                                 class="col-sm-2 col-form-label">{{ trans('admin.title_in') . trans('lang.' . Locale::getDisplayName($locale)) }}</label>
-
+{{--{{dd(@$homeSetting->trans->where('locale', $locale)->first()->title )}}--}}
                                                             <div class="col-sm-10">
                                                                 <input type="text" id="title{{ $key }}"
                                                                     name="{{ $locale }}[title]"
@@ -86,6 +93,7 @@
                                                                     $('.textarea').wysihtml5()
                                                                 })
                                                             </script> --}}
+
                                                             <script type="text/javascript">
                                                                 CKEDITOR.replace('description{{ $key }}', {
                                                                     filebrowserUploadUrl: "{{ route('admin.ckeditor.upload', ['_token' => csrf_token()]) }}",
@@ -94,6 +102,25 @@
                                                             </script>
 
                                                         </div>
+
+
+
+
+                                                        {{-- button title ------------------------------------------------------------------------------------- --}}
+                                                        <div class="row mb-3">
+                                                            <label for="example-text-input"
+                                                                   class="col-sm-2 col-form-label">{{ trans('admin.button_title') . trans('lang.' . Locale::getDisplayName($locale)) }}
+                                                            </label>
+                                                            <div class="col-sm-10 mb-2">
+                                                                <input  class="form-control sub_title" id="button_title{{ $key }}" value="{{ @$homeSetting->trans->where('locale', $locale)->first()->button_title }}  " name="{{ $locale }}[button_title]">
+                                                                @if ($errors->has($locale . '.button_title'))
+                                                                    <span
+                                                                        class="missiong-spam">{{ $errors->first($locale . '.button_title') }}</span>
+                                                                @endif
+                                                            </div>
+
+                                                        </div>
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -123,7 +150,7 @@
                                                             <div class="col-sm-12">
                                                                 <input class="form-control" type="text"
                                                                     placeholder="@lang('settings.setting_name_section'):"
-                                                                    id="example-number-input" name="title_section" 
+                                                                    id="example-number-input" name="title_section" disabled
                                                                     value="{{ @$homeSetting->title_section }}">
                                                             </div>
                                                         </div>
@@ -161,6 +188,20 @@
                                                         </div>
                                                     </div>
 
+                                                    {{-- num_of_items ------------------------------------------------------------------------------------- --}}
+                                                    <div class="col-12">
+                                                        <div class="row mb-3">
+                                                            <label for="example-number-input" col-form-label>
+                                                                @lang('settings.num_of_items'):</label>
+                                                            <div class="col-sm-12">
+                                                                <input class="form-control" type="number"
+                                                                       placeholder="@lang('settings.num_of_items'):"
+                                                                       id="example-number-input" name="num_of_items" min="0"
+                                                                       value="{{ @$homeSetting->num_of_items }}">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
                                                     {{-- Status ------------------------------------------------------------------------------------- --}}
                                                     <div class="col-12">
                                                         <label class="col-sm-12 col-form-label"
@@ -175,6 +216,40 @@
                                                                 data-off-label=" @lang('admin.no')"></label>
                                                         </div>
                                                     </div>
+
+
+                                                    {{-- featured ------------------------------------------------------------------------------------- --}}
+                                                    <div class="col-12">
+                                                        <label class="col-sm-12 col-form-label"
+                                                               for="available">{{ trans('admin.featured') }}</label>
+                                                        <div class="col-sm-10">
+                                                            <input class="form-check form-switch44" name="featured"
+                                                                   type="checkbox" id="switch44" switch="success"
+                                                                   {{ @$homeSetting->featured == 1 ? 'checked' : '' }}
+                                                                   value="1">
+                                                            <label class="form-label" for="switch44"
+                                                                   data-on-label=" @lang('admin.yes') "
+                                                                   data-off-label=" @lang('admin.no')"></label>
+                                                        </div>
+                                                    </div>
+
+
+                                                    {{-- button featured ------------------------------------------------------------------------------------- --}}
+                                                    <div class="col-12">
+                                                        <label class="col-sm-12 col-form-label"
+                                                               for="available">{{ trans('admin.button_featured') }}</label>
+                                                        <div class="col-sm-10">
+                                                            <input class="form-check form-switch44" name="button_featured"
+                                                                   type="checkbox" id="switch44button_featured" switch="success"
+                                                                   {{ @$homeSetting->button_featured === 1 ? 'checked' : '' }}
+                                                                   value="1">
+                                                            <label class="form-label" for="switch44button_featured"
+                                                                   data-on-label=" @lang('admin.yes') "
+                                                                   data-off-label=" @lang('admin.no')"></label>
+                                                        </div>
+                                                    </div>
+
+
                                                 </div>
                                             </div>
                                         </div>
@@ -204,7 +279,15 @@
 
 @endsection
 
-@section('style')
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="{{ asset('assets/js/ckeditor/ckeditor.js') }}"></script>
+
+@section('script')
+
+    {{-- <script type="text/javascript">
+        CKEDITOR.replace('description', {
+            filebrowserUploadUrl: "{{ route('admin.ckeditor.upload', ['_token' => csrf_token()]) }}",
+            filebrowserUploadMethod: 'form'
+        });
+    </script> --}}
+    {{-- <script src="https://cdn.ckeditor.com/ckeditor5/34.2.0/classic/ckeditor.js"></script> --}}
+    {{-- @vite(['resources/assets/admin/js/data-tables.js']) --}}
 @endsection

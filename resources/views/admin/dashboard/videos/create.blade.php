@@ -169,9 +169,9 @@
                                                 <div class="col-12">
                                                     <div class="row mb-3">
                                                         <label for="example-number-input" col-form-label>
-                                                            @lang('articles.sort'):</label>
+                                                            @lang('admin.sort'):</label>
                                                         <div class="col-sm-12">
-                                                            <input class="form-control" type="number" placeholder="@lang('articles.sort'):" id="example-number-sort" name="sort" value="{{ old('sort') }}">
+                                                            <input class="form-control" type="number" placeholder="@lang('admin.sort'):" id="example-number-sort" name="sort" value="{{ old('sort') }}">
                                                         </div>
                                                     </div>
                                                 </div>

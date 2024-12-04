@@ -83,7 +83,15 @@
                                         </td>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>
-                                            <a href="{{asset($slider->image)}}" target="_blank">  <img src="{{asset($slider->image)}}" alt="" style="width: 50px"></a>
+                                            <a href="{{asset($slider->image)}}" target="_blank"> 
+                                            @if(substr($slider->image, -3) == "mp4")
+                                                <video width="50" height="50" controls muted>
+                                                    <source src="{{ asset($slider->image) }}" type="video/mp4">
+                                                </video>
+                                            @else
+                                                <img src="{{asset($slider->image)}}" alt="" style="width: 50px">
+                                            @endif 
+                                            </a>
                                         </td>
                                         <td>
                                             {{-- @foreach($languages as $local)

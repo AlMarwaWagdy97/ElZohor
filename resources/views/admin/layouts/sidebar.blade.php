@@ -1,4 +1,5 @@
-<div class="vertical-menu side-navbar-custom-color" style="background-color:{{ @$adminDashboardTheme->side_navbar_background }};">
+<div class="vertical-menu side-navbar-custom-color"
+    style="background-color:{{ @$adminDashboardTheme->side_navbar_background }};">
 
     <div data-simplebar class="h-100">
 
@@ -6,7 +7,7 @@
         <div id="sidebar-menu">
             <!-- Left Menu Start -->
             <ul class="metismenu list-unstyled" id="side-menu">
-                {{-- View  Dashboard --}}
+                <!-- View  Dashboard --->
                 <li>
                     <a href="{{ route('admin.home') }}" class="waves-effect">
                         <i class="fa fa-home"></i>
@@ -15,7 +16,7 @@
                 </li>
 
 
-                {{-- System ----------------------------------------------------------- --}}
+                <!-- System ----------------------------------------------------------- --->
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="fa fa-th-large"></i>
@@ -23,7 +24,7 @@
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
 
-                        {{-- User --------------------------------------------------------------- --}}
+                        <!-- User --------------------------------------------------------------- --->
                         <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
                                 <i class="fas fas fa-users"></i>
@@ -34,9 +35,9 @@
                                 <li><a href="{{ route('admin.users.create') }}"> @lang('users.create_user')</a></li>
                             </ul>
                         </li>
-                        {{-- End User ----------------------------------------------------------- --}}
+                        <!-- End User ----------------------------------------------------------- --->
 
-                        {{-- Rules  ----------------------------------------------------------- --}}
+                        <!-- Rules  ----------------------------------------------------------- --->
                         <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
                                 <i class="fa fa-wrench"></i>
@@ -47,9 +48,9 @@
                                 <li><a href="{{ route('admin.roles.create') }}"> @lang('admin.roles_create')</a></li>
                             </ul>
                         </li>
-                        {{-- End Rules ----------------------------------------------------------- --}}
+                        <!-- End Rules ----------------------------------------------------------- --->
 
-                        {{-- Menus -------------------------------------------------------------- --}}
+                        <!-- Menus -------------------------------------------------------------- --->
                         <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
                                 <i class="fa fa-sitemap"></i>
@@ -60,9 +61,9 @@
                                 <li><a href="{{ route('admin.menus.create') }}"> @lang('menus.create_menus')</a></li>
                             </ul>
                         </li>
-                        {{-- End Menus ----------------------------------------------------------- --}}
+                        <!-- End Menus ----------------------------------------------------------- --->
 
-                        {{-- Pages --------------------------------------------------------------- --}}
+                        <!-- Pages --------------------------------------------------------------- --->
                         <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
                                 <i class="fas fa-pager"></i>
@@ -73,10 +74,10 @@
                                 <li><a href="{{ route('admin.pages.create') }}"> @lang('admin.page_create')</a></li>
                             </ul>
                         </li>
-                        {{-- End Pages ------------------------------------------------------------ --}}
+                        <!-- End Pages ------------------------------------------------------------ --->
 
 
-                        {{-- Slider --------------------------------------------------------------- --}}
+                        <!-- Slider --------------------------------------------------------------- --->
                         <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
                                 <i class="fa fa-sliders-h"></i>
@@ -87,86 +88,79 @@
                                 <li><a href="{{ route('admin.slider.create') }}"> @lang('slider.slider_create')</a></li>
                             </ul>
                         </li>
-                        {{-- End Slider ----------------------------------------------------------- --}}
+                        <!-- End Slider ----------------------------------------------------------- --->
 
-                        {{-- Contact Us ----------------------------------------------------------- --}}
+                        <!-- Contact Us ----------------------------------------------------------- --->
                         <li>
                             <a href="{{ route('admin.contact-us.index') }}" class="waves-effect">
                                 <i class="mdi mdi-email-outline"></i>
                                 <span>{{ trans('admin.contact_us') }}</span>
                             </a>
                         </li>
-                        {{-- End Contact Us ------------------------------------------------------- --}}
+                        <!-- End Contact Us ------------------------------------------------------- --->
 
-                        {{-- subscribes Us ----------------------------------------------------------- --}}
-                        <li>
+                        <!-- subscribes Us ----------------------------------------------------------- --->
+                        {{-- <li>
                             <a href="{{ route('admin.subscribes.index') }}" class="waves-effect">
                                 <i class="far fa-handshake"></i>
                                 <span>{{ trans('admin.subscribes') }}<span>
                             </a>
-                        </li>
-                        {{-- End subscribes Us ------------------------------------------------------- --}}
-
-
-                        {{-- title translations   ----------------------------------------------------------- --}}
-                        <li>
-                            <a href="{{ route('admin.title-translation.index') }}" class="waves-effect">
-                                <i class="fas fa-pencil-alt"></i>
-                                <span>{{ trans('admin.title_translations') }}</span>
-                            </a>
-                        </li>
-                        {{-- End title translations ------------------------------------------------------- --}}
-
+                        </li> --}}
+                        <!-- End subscribes Us ------------------------------------------------------- --->
                     </ul>
                 </li>
-                {{-- End System ----------------------------------------------------------- --}}
+                <!-- End System ----------------------------------------------------------- --->
 
 
-                {{-- Works ----------------------------------------------------------- --}}
+                <!-- products ----------------------------------------------------------- --->
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="fas fa-briefcase"></i>
-                        <span> @lang('admin.works')</span>
+                        <span> @lang('admin.products')</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
 
-                        {{-- Specialties --------------------------------------------------------------- --}}
+                        <!-- categories --------------------------------------------------------------- --->
                         <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
                                 <i class="fa fa-sitemap"></i>
-                                <span> @lang('specialties.specialties')</span>
+                                <span> @lang('categories.categories')</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="{{ route('admin.specialties.index') }}"> @lang('specialties.show_specialties')</a></li>
-                                <li><a href="{{ route('admin.specialties.create') }}"> @lang('specialties.create_specialties')</a></li>
+                                <li><a href="{{ route('admin.categories.index') }}"> @lang('categories.show')</a></li>
+                                <li><a href="{{ route('admin.categories.create') }}"> @lang('categories.create_new')</a></li>
                             </ul>
                         </li>
-                        {{-- End Specialties ----------------------------------------------------------- --}}
+                        <!-- End categories ----------------------------------------------------------- --->
 
-                        {{-- Doctors --------------------------------------------------------------- --}}
+                        <!-- Products --------------------------------------------------------------- --->
                         <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
-                                <i class="fas fa-user-md"></i>
-                                <span> @lang('doctors.doctors')</span>
+                                <i class="fas fa-utensil-spoon"></i>
+                                <span>@lang('product.products')</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="{{ route('admin.doctors.index') }}"> @lang('doctors.show_doctors')</a></li>
-                                <li><a href="{{ route('admin.doctors.create') }}"> @lang('doctors.create_doctor')</a></li>
+                                <li><a href="{{ route('admin.products.index') }}">@lang('product.show_products')</a></li>
+                                <li><a href="{{ route('admin.products.create') }}">@lang('product.create_products')</a></li>
                             </ul>
                         </li>
-                        {{-- End Doctors ----------------------------------------------------------- --}}
 
-                        {{-- booking --------------------------------------------------------------- --}}
-                        <li>
+                        <!-- End Products ---->
+
+
+
+
+                        <!-- booking --->
+                        {{-- <li>
                             <a href="{{ route('admin.booking.index') }}" class="waves-effect">
                                 <i class="fas fa-shopping-bag"></i>
                                 <span>{{ trans('admin.booking') }}</span>
                             </a>
-                        </li>
-                        {{-- End booking ----------------------------------------------------------- --}}
+                        </li> --}}
+                        <!-- End booking --->
 
-                        {{-- reviews --------------------------------------------------------------- --}}
-                        <li>
+                        <!-- reviews --->
+                        {{-- <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
                                 <i class="fas fa-comments"></i>
                                 <span> @lang('reviews.reviews')</span>
@@ -175,63 +169,66 @@
                                 <li><a href="{{ route('admin.reviews.index') }}"> @lang('reviews.show_reviews')</a></li>
                                 <li><a href="{{ route('admin.reviews.create') }}"> @lang('reviews.create_reviews')</a></li>
                             </ul>
-                        </li>
-                        {{-- End reviews ----------------------------------------------------------- --}}
-
-                        {{-- insurance --------------------------------------------------------------- --}}
-                        <li>
-                            <a href="javascript: void(0);" class="has-arrow waves-effect">
-                                <i class="fa fa-file"></i>
-{{--                                <i class="fas fa-comments"></i>--}}
-                                <span> @lang('insurance.insurance')</span>
-                            </a>
-                            <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="{{ route('admin.insurance.index') }}"> @lang('insurance.show_insurance')</a></li>
-{{--                                <li><a href="{{ route('admin.insurance.create') }}"> @lang('insurance.create_insurance')</a></li>--}}
-                            </ul>
-                        </li>
-                        {{-- End reviews ----------------------------------------------------------- --}}
-
+                        </li> --}}
+                        <!-- End reviews ------->
                     </ul>
                 </li>
-                {{-- End Works -------------------------------------------------------- --}}
+                <!-- End Works -------------------------------------------------------- --->
 
 
-                {{-- Blogs ----------------------------------------------------------- --}}
+
+
+                <!-- Members  ----------------------------------------------------------- --->
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="mdi mdi-buffer"></i>
-                        <span> @lang('admin.blogs')</span>
+                        <span> @lang('admin.members')</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        {{-- services --------------------------------------------------------------- --}}
+                        <!-- Teams --------------------------------------------------------------- --->
                         <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
-                                <i class="fa fa-smile"></i>
-                                <span> @lang('services.services')</span>
+                                <i class="fas fa-user-md"></i>
+                                <span> @lang('teams.teams')</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="{{ route('admin.services.index') }}"> @lang('services.show_services')</a></li>
-                                <li><a href="{{ route('admin.services.create') }}"> @lang('services.create_services')</a></li>
+                                <li><a href="{{ route('admin.teams.index') }}"> @lang('teams.show_teams')</a></li>
+                                <li><a href="{{ route('admin.teams.create') }}"> @lang('teams.create_teams')</a></li>
                             </ul>
                         </li>
-                        {{-- End services ----------------------------------------------------------- --}}
+                        <!-- End Teams ---->
 
-                         {{-- offers --------------------------------------------------------------- --}}
-                         <li>
+
+
+                        <!-- Partners --------------------------------------------------------------- -->
+                        <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
-                                <i class="fas fa-hand-holding-usd"></i>
-                                <span> @lang('offers.offers')</span>
+                                <i class="fas fa-handshake"></i> <!-- Replaced with handshake icon for clients -->
+                                <span>@lang('clients.clients')</span> <!-- Updated text for clients -->
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="{{ route('admin.news.index') }}"> @lang('offers.show_offers')</a></li>
-                                <li><a href="{{ route('admin.news.create') }}"> @lang('news.create_news')</a></li>
+                                <li><a href="{{ route('admin.clients.index') }}">@lang('clients.show_clients')</a></li>
+                                <li><a href="{{ route('admin.clients.create') }}">@lang('clients.create_clients')</a></li>
                             </ul>
                         </li>
-                        {{-- End services ----------------------------------------------------------- --}}
+                        <!-- End Partners ---->
 
 
-                        {{-- gallery --------------------------------------------------------------- --}}
+
+
+                    </ul>
+                </li>
+                <!-- End members -------------------------------------------------------- --->
+
+                <!-- Blogs ----------------------------------------------------------- -->
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="fas fa-photo-video"></i>
+                        <span> @lang('blog.blogs')</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+
+                        <!-- gallery --------------------------------------------------------------- -->
                         <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
                                 <i class="fas fa-images"></i>
@@ -242,9 +239,9 @@
                                 <li><a href="{{ route('admin.gallery.create') }}"> @lang('gallery.create_gallery')</a></li>
                             </ul>
                         </li>
-                        {{-- End gallery ----------------------------------------------------------- --}}
+                        <!-- End gallery ----------------------------------------------------------- -->
 
-                        {{-- videos --------------------------------------------------------------- --}}
+                        <!-- videos --------------------------------------------------------------- -->
                         <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
                                 <i class="fas fa-video"></i>
@@ -255,17 +252,15 @@
                                 <li><a href="{{ route('admin.videos.create') }}"> @lang('videos.create_video')</a></li>
                             </ul>
                         </li>
-                        {{-- End videos ----------------------------------------------------------- --}}
-
-
-
+                        <!-- End videos ----------------------------------------------------------- -->
 
                     </ul>
                 </li>
-                {{-- End Blogs -------------------------------------------------------- --}}
+                <!-- End Blogs -------------------------------------------------------- -->
 
 
-                {{-- Settings ----------------------------------------------------------- --}}
+
+                <!-- Settings ----------------------------------------------------------- --->
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="mdi mdi-spin mdi-cog "></i>
@@ -284,7 +279,7 @@
 
                             </ul>
                         </li>
-                        {{-- Themes --------------------------------------------------------------- --}}
+                        <!-- Themes --------------------------------------------------------------- --->
                         <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
                                 <i class="fa fa-palette"></i>
@@ -292,14 +287,14 @@
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
                                 <li><a href="{{ route('admin.themes.dashboard') }}"> @lang('themes.dashboard_theme')</a></li>
-                                <li><a href="{{ route('admin.themes.site') }}"> @lang('themes.site_theme')</a></li>
+                                {{-- <li><a href="{{ route('admin.themes.site') }}"> @lang('themes.site_theme')</a></li> --}}
 
                             </ul>
                         </li>
-                        {{-- End Themes ----------------------------------------------------------- --}}
+                        <!-- End Themes ----------------------------------------------------------- --->
                     </ul>
                 </li>
-                {{-- End Settings ----------------------------------------------------------- --}}
+                <!-- End Settings ----------------------------------------------------------- --->
             </ul>
 
 

@@ -48,7 +48,7 @@
                                                         <label for="example-text-input" class="col-sm-2 col-form-label">{{ trans('admin.slug_in') . trans('lang.' .Locale::getDisplayName($locale)) }} </label>
 
                                                         <div class="col-sm-10">
-                                                            <input type="text" id="slug{{ $key }}" name="{{ $locale }}[slug]" value="{{ old($locale . '.slug') }}" class="form-control slug" required>
+                                                            <input type="text" id="slug{{ $key }}" name="{{ $locale }}[slug]" value="{{ old($locale . '.slug') }}" class="form-control slug" >
                                                             @if ($errors->has($locale . '.slug'))
                                                             <span class="missiong-spam">{{ $errors->first($locale . '.slug') }}</span>
                                                             @endif
@@ -161,7 +161,7 @@
                                                         <label for="example-number-input" col-form-label>
                                                             @lang('admin.image'):</label>
                                                         <div class="col-sm-12">
-                                                            <input class="form-control" type="file" placeholder="@lang('admin.image'):" id="example-number-input" name="image" value="{{ old('image') }}">
+                                                            <input required class="form-control" type="file" placeholder="@lang('admin.image'):" id="example-number-input" name="image" value="{{ old('image') }}">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -169,9 +169,9 @@
                                                 <div class="col-12">
                                                     <div class="row mb-3">
                                                         <label for="example-number-input" col-form-label>
-                                                            @lang('articles.sort'):</label>
+                                                            @lang('admin.sort'):</label>
                                                         <div class="col-sm-12">
-                                                            <input class="form-control" type="number" placeholder="@lang('articles.sort'):" id="example-number-input" name="sort" value="{{ old('sort') }}">
+                                                            <input class="form-control" type="number" placeholder="@lang('admin.sort'):" id="example-number-input" name="sort" value="{{ old('sort') }}">
                                                         </div>
                                                     </div>
                                                 </div>
