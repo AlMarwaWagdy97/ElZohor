@@ -21,8 +21,7 @@ return new class extends Migration
             $table->tinyinteger('feature')->nullable()->default(1);
             $table->tinyInteger('status')->nullable()->default(1);
             $table->string('image')->nullable();
-            $table->unsignedBigInteger('created_by')->nullable();
-            $table->unsignedBigInteger('updated_by')->nullable();
+            $table->string('description')->nullable();
             $table->softDeletes(); 
             $table->timestamps();
         });

@@ -13,19 +13,23 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('home_setting_pages', function (Blueprint $table) {
+        Schema::create('news', function (Blueprint $table) {
             $table->id();
-            $table->string('url')->nullable();
-            $table->string('title_section')->nullable();
-            $table->string('image')->nullable();
-            $table->string('background_color')->nullable();
-            $table->tinyinteger('status')->default(1);
-            $table->tinyinteger('featured')->default(1);
+            $table->string('title')->index();
+            $table->longText('description')->nullable();
 
+
+            $table->tinyInteger('status')->default(0)->nullable();
+            $table->string('image')->nullable();
+
+
+            $table->foreign('created_by')->references('id')->on('users')->onDelete('cascade');
             $table->unsignedBigInteger('created_by')->nullable();
+
+            $table->foreign('updated_by')->references('id')->on('users')->onDelete('cascade');
             $table->unsignedBigInteger('updated_by')->nullable();
 
-            $table->softDeletes();
+
             $table->timestamps();
         });
     }
@@ -37,6 +41,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('home_setting_pages');
+        Schema::dropIfExists('news');
     }
 };

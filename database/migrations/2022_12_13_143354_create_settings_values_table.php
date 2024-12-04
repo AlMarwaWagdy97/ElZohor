@@ -21,12 +21,15 @@ return new class extends Migration
             $table->string('key')->nullable();
             $table->longText('value')->nullable();
             $table->tinyInteger('type',false,true)->default(0)->comment("0=>text , 1=>image, 2=>textarea, 3=>frame, 4=>textarea with line, 5=>number");
+            $table->tinyInteger('featured')->default(1)->nullable();
+
+
             $table->timestamps();
             $table->foreign('setting_id')->references('id')->on('settings')->onDelete('cascade');
 
         });
 
-      
+
 
     }
 

@@ -24,9 +24,13 @@ return new class extends Migration
             $table->string('dynamic_url')->nullable();
             $table->integer('level')->nullable();
             $table->string('status')->default('1')->nullable();
+            $table->string('featured')->default('1')->nullable();// new
+
+
+
             $table->string('created_by')->nullable();
             $table->string('updated_by')->nullable();
-            $table->softDeletes();        
+            $table->softDeletes();
             $table->timestamps();
         });
 

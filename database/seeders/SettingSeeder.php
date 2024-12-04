@@ -34,17 +34,17 @@ class SettingSeeder extends Seeder
             SettingsValues::create(['key' => 'linked_in', 'setting_id' => $setting->id, 'value' => "https://linkedin.com"]);
             SettingsValues::create(['key' => 'youtube', 'setting_id' => $setting->id, 'value' => "https://youtube.com"]);
             SettingsValues::create(['key' => 'snapchat', 'setting_id' => $setting->id, 'value' => "https://snapchat.com"]);
+            SettingsValues::create(['key' => 'tiktok', 'setting_id' => $setting->id, 'value' => "https://snapchat.com"]);
             SettingsValues::create(['key' => 'maps', 'setting_id' => $setting->id, 'value' => ""]);
             foreach (config('translatable.locales') as $locale) {
                 SettingsValues::create(['key' => 'logo_' . $locale, 'setting_id' => $setting->id, 'type' => 1]);
             }
             SettingsValues::create(['key' => 'icon', 'type' => 1, 'setting_id' => $setting->id]);
-            SettingsValues::create(['key' => 'pdf', 'type' => 6, 'setting_id' => $setting->id]);
+            
+            SettingsValues::create(['key' => 'awards', 'setting_id' => $setting->id, 'value' => "10"]);
+            SettingsValues::create(['key' => 'clients', 'setting_id' => $setting->id, 'value' => "20"]);
+            SettingsValues::create(['key' => 'products', 'setting_id' => $setting->id, 'value' => "50"]);
 
-
-            SettingsValues::create(['key' => 'services_paginate', 'type' => 5, 'setting_id' => $setting->id]);
-            SettingsValues::create(['key' => 'blogs_paginate', 'type' => 5, 'setting_id' => $setting->id]);
-            SettingsValues::create(['key' => 'offers_paginate', 'type' => 5, 'setting_id' => $setting->id]);
         }
         $settingExist = $settings->where('key', 'meta_setting')->get();
         if (count($settingExist) == 0) {
@@ -54,23 +54,30 @@ class SettingSeeder extends Seeder
                 SettingsValues::create(['key' => 'home_meta_description_' . $locale,  'setting_id' => $setting->id, 'type' => 2]);
                 SettingsValues::create(['key' => 'home_meta_key_' . $locale, 'setting_id' => $setting->id, 'type' => 4]);
 
-                SettingsValues::create(['key' => 'services_meta_title_' . $locale,  'setting_id' => $setting->id, 'type' => 0]);
-                SettingsValues::create(['key' => 'services_meta_description_' . $locale,  'setting_id' => $setting->id, 'type' => 2]);
-                SettingsValues::create(['key' => 'services_meta_key_' . $locale, 'setting_id' => $setting->id, 'type' => 4]);
+                SettingsValues::create(['key' => 'products_meta_description_' . $locale,  'setting_id' => $setting->id, 'type' => 2]);
+                SettingsValues::create(['key' => 'products_meta_key_' . $locale, 'setting_id' => $setting->id, 'type' => 4]);
+                SettingsValues::create(['key' => 'products_meta_title_' . $locale,  'setting_id' => $setting->id, 'type' => 0]);
 
+                SettingsValues::create(['key' => 'category_meta_description_' . $locale,  'setting_id' => $setting->id, 'type' => 2]);
+                SettingsValues::create(['key' => 'category_meta_key_' . $locale, 'setting_id' => $setting->id, 'type' => 4]);
+                SettingsValues::create(['key' => 'category_meta_title_' . $locale,  'setting_id' => $setting->id, 'type' => 0]);
+               
+                SettingsValues::create(['key' => 'clients_meta_title_' . $locale,  'setting_id' => $setting->id, 'type' => 0]);
+                SettingsValues::create(['key' => 'clients_meta_description_' . $locale,  'setting_id' => $setting->id, 'type' => 2]);
+                SettingsValues::create(['key' => 'clients_meta_key_' . $locale, 'setting_id' => $setting->id, 'type' => 4]);
 
-                SettingsValues::create(['key' => 'portfolio_meta_title_' . $locale,  'setting_id' => $setting->id, 'type' => 0]);
-                SettingsValues::create(['key' => 'portfolio_meta_description_' . $locale,  'setting_id' => $setting->id, 'type' => 2]);
-                SettingsValues::create(['key' => 'portfolio_meta_key_' . $locale, 'setting_id' => $setting->id, 'type' => 4]);
+                SettingsValues::create(['key' => 'teams_meta_title_' . $locale,  'setting_id' => $setting->id, 'type' => 0]);
+                SettingsValues::create(['key' => 'teams_meta_description_' . $locale,  'setting_id' => $setting->id, 'type' => 2]);
+                SettingsValues::create(['key' => 'teams_meta_key_' . $locale, 'setting_id' => $setting->id, 'type' => 4]);
 
-                SettingsValues::create(['key' => 'offers_meta_title_' . $locale,  'setting_id' => $setting->id, 'type' => 0]);
-                SettingsValues::create(['key' => 'offers_meta_description_' . $locale,  'setting_id' => $setting->id, 'type' => 2]);
-                SettingsValues::create(['key' => 'offers_meta_key_' . $locale, 'setting_id' => $setting->id, 'type' => 4]);
+                SettingsValues::create(['key' => 'certifcations_meta_title_' . $locale,  'setting_id' => $setting->id, 'type' => 0]);
+                SettingsValues::create(['key' => 'certifcations_meta_description_' . $locale,  'setting_id' => $setting->id, 'type' => 2]);
+                SettingsValues::create(['key' => 'certifcations_meta_key_' . $locale, 'setting_id' => $setting->id, 'type' => 4]);
 
-                SettingsValues::create(['key' => 'blogs_meta_title_' . $locale,  'setting_id' => $setting->id, 'type' => 0]);
-                SettingsValues::create(['key' => 'blogs_meta_description_' . $locale,  'setting_id' => $setting->id, 'type' => 2]);
-                SettingsValues::create(['key' => 'blogs_meta_key_' . $locale, 'setting_id' => $setting->id, 'type' => 4]);
-
+                SettingsValues::create(['key' => 'videos_meta_title_' . $locale,  'setting_id' => $setting->id, 'type' => 0]);
+                SettingsValues::create(['key' => 'videos_meta_description_' . $locale,  'setting_id' => $setting->id, 'type' => 2]);
+                SettingsValues::create(['key' => 'videos_meta_key_' . $locale, 'setting_id' => $setting->id, 'type' => 4]);
+                
                 SettingsValues::create(['key' => 'contact_meta_title_' . $locale,  'setting_id' => $setting->id, 'type' => 0]);
                 SettingsValues::create(['key' => 'contact_meta_description_' . $locale,  'setting_id' => $setting->id, 'type' => 2]);
                 SettingsValues::create(['key' => 'contact_meta_key_' . $locale, 'setting_id' => $setting->id, 'type' => 4]);
