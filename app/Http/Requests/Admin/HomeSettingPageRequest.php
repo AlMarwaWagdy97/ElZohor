@@ -23,6 +23,8 @@ class HomeSettingPageRequest extends FormRequest
             $attr += [$locale . '.title' => 'Title ' . Locale::getDisplayName($locale)];
 
             $attr += [$locale . '.description' => 'Description ' . Locale::getDisplayName($locale)];
+            $attr += [$locale . '.button_title' => 'Description ' . Locale::getDisplayName($locale)];
+
         }
         $attr += ['image' => 'Image'];
         // $attr += ['title_section' =>'Title Section'];
@@ -44,15 +46,23 @@ class HomeSettingPageRequest extends FormRequest
             $req += [$locale . '.title' => 'nullable'];
             $req += [$locale . '.sub_title' => 'nullable'];
             $req += [$locale . '.description' => 'nullable'];
+            $req += [$locale . '.button_title' => 'nullable'];
+
         }
         $req += ['image' => 'nullable|' . ImageValidate()];
         $req += ['pdf' => 'nullable|file|mimetypes:application/pdf'];
         $req += ['status' => 'nullable'];
+        $req += ['featured' => 'nullable'];
 
         $req += ['url' => 'nullable'];
         // $req += ['title_section' =>'nullable'];
         $req += ['updated_by' => 'nullable'];
         $req += ['created_by' => 'nullable'];
+        $req += ['button_featured' => 'nullable'];
+
+        $req += ['num_of_items' => 'integer|min:0|nullable'];
+
+
         return $req;
     }
 
@@ -60,9 +70,12 @@ class HomeSettingPageRequest extends FormRequest
     public function getSanitized()
     {
 
+
         $data = $this->validated();
 
         $data['status'] = isset($data['status']) ? true : false;
+        $data['featured'] = isset($data['featured']) ? true : false;
+        $data['button_featured'] = isset($data['button_featured']) ? true : false;
 
         if (request()->isMethod('PUT')) {
             $data['updated_by']  = @auth()->user()->id;

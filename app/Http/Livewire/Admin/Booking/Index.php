@@ -69,8 +69,10 @@ class Index extends Component
             $this->selectAll = false;
             $this->mySelected = [];
         }
-        return view('livewire.admin.booking.table', compact('items', 'links'));
+        return view('livewire.admin.Booking.table', compact('items', 'links'));
     }
+
+
 
     // delete selected item -------------------------------------------
     public function delete()

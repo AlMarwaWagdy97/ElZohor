@@ -5,7 +5,6 @@ namespace App\Http\Livewire\Admin\Categories;
 use App\Models\Ads;
 use Livewire\Component;
 use Livewire\WithFileUploads;
-use App\Http\Controllers\TestViewController;
 use App\Models\Categories;
 use Locale;
 
