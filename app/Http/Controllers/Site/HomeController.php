@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers\Site;
 
-use App\Models\Pages;
 use App\Services\HomeService;
-use App\Models\HomeSettingPage;
 use App\Http\Controllers\Controller;
 
 class HomeController extends Controller

@@ -33,7 +33,7 @@ class SettingsController extends Controller
                 return view('admin.dashboard.settings.form',compact('settings', 'settingMain'));
 
         }
-       
+
     }
 
     public function form_update(Request $request, $id) {
@@ -44,10 +44,11 @@ class SettingsController extends Controller
             $settings = $settings->where('key',$key)->first();
             if ($request->hasFile($key)) {
                 $filename = $this->upload_file($request->file($key) , ('settings'));
-                $settings->where('key',$key)->update(['value'=>$filename ]);
+                $settings->where('key',$key)->update(['value'=>$filename , 'featured' => $request->featured]);
             }else{
-                $settings->where('key',$key)->update(['value'=>$item]);
+                $settings->where('key',$key)->update(['value'=>$item  , 'featured' => $request->featured]);
             }
+
         }
         session()->flash('success' , trans('message.admin.updated_sucessfully') );
         return redirect()->back();
@@ -60,7 +61,7 @@ class SettingsController extends Controller
             $settingMain = Settings::create(['key'=> $key]);
         }
         $settings = $settingMain->values;
-        // store values in setting 
+        // store values in setting
         $values = $request->except('_token');
         if($values){
            foreach($values as $key => $value){
@@ -78,4 +79,10 @@ class SettingsController extends Controller
     }
 
 
+    public function update_feature(Request $request , $id)
+    {
+     $SettingsValues =   SettingsValues::where('id' , $id)->update(['featured' => $request->featured]);
+
+       return redirect()->back();
+    }
 }

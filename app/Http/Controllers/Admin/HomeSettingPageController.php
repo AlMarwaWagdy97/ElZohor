@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\HomeSettingPage;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\HomeSettingPageRequest;
+use function Symfony\Component\Mime\Header\all;
 
 class HomeSettingPageController extends Controller
 {
@@ -17,7 +18,6 @@ class HomeSettingPageController extends Controller
     public function index()
     {
         $items = HomeSettingPage::query()->with('trans')->get(['title_section', 'id', 'status']);
-
         return view('admin.dashboard.home_setting_page.index', compact('items'));
     }
 
@@ -40,6 +40,7 @@ class HomeSettingPageController extends Controller
     public function store(HomeSettingPageRequest $request)
     {
         $data = $request->getSanitized();
+
 
         if ($request->hasFile('image')) {
             $data['image'] = $this->upload_file($request->file('image'), ('HomeSetting'));
@@ -79,10 +80,33 @@ class HomeSettingPageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+//    public function update(HomeSettingPageRequest $request, HomeSettingPage $homeSetting)
+//    {
+//
+//
+//        $data = $request->getSanitized();
+//
+//        if ($request->hasFile('image')) {
+//            @unlink($homeSetting->image);
+//            $data['image'] = $this->upload_file($request->file('image'), ('HomeSetting'));
+//        }
+//        if ($request->hasFile('pdf')) {
+//            @unlink($homeSetting->image);
+//            $data['pdf'] = $this->upload_file($request->file('pdf'), ('HomeSetting'));
+//        }
+//        $homeSetting->update($data);
+//
+//        session()->flash('success', trans('message.admin.updated_sucessfully'));
+//        return redirect()->back();
+//    }
+
     public function update(HomeSettingPageRequest $request, HomeSettingPage $homeSetting)
     {
 
+
+
         $data = $request->getSanitized();
+
 
         if ($request->hasFile('image')) {
             @unlink($homeSetting->image);
@@ -93,18 +117,24 @@ class HomeSettingPageController extends Controller
             $data['pdf'] = $this->upload_file($request->file('pdf'), ('HomeSetting'));
         }
         $homeSetting->update($data);
+
         session()->flash('success', trans('message.admin.updated_sucessfully'));
         return redirect()->back();
     }
+
     public function update_status($id)
     {
         $news = HomeSettingPage::findOrfail($id);
         $news->status == 1 ? $news->status = 0 : $news->status = 1;
+
         $news->save();
         session()->flash('success', trans('articles.status_changed_sucessfully'));
 
         return redirect()->back();
     }
+
+
+
 
     /**
      * Remove the specified resource from storage.

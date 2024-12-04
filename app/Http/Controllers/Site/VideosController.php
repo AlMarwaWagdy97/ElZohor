@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Site;
 use App\Http\Controllers\Controller;
 use App\Models\Video;
 use App\Settings\HomeSettingSingleton;
-use Illuminate\Http\Request;
 
 class VideosController extends Controller
 {

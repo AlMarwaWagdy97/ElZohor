@@ -7,7 +7,7 @@ use App\Models\UserScript;
 
 if (!function_exists('SETTING_SITE')) {
     function SETTING_SITE($key = false){
-        $setting = @Settings::query()->where('key', 'site_setting')->get()->first();
+        $setting = @Settings::query()->where('key', 'site_setting')->where('featured', '1')->get()->first();
         if($setting != null){
             return  @$setting->values->where('key', $key)->first()->value;
         }
@@ -29,11 +29,13 @@ if (!function_exists('getPages')) {
 }
 
 
+
+
 if (!function_exists('getScriptHeader')) {
     function getScriptHeader() {
-             $pages = @UserScript::query()->active()->where('place' , 'header')->first()->script;
+        $pages = @UserScript::query()->active()->where('place' , 'header')->first()->script;
 //             $pages = @Pages::query()->with('trans')->whereId($id)->first();
-         return $pages ;
+        return $pages ;
     }
 }
 

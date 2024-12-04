@@ -8,21 +8,37 @@ class UrlTypesEnum
 
 
     public const PAGES = 'pages';
-    public const SPECIALTIES = 'specialities';
-    public const DOCTORS = 'doctors';
-    public const SERVICES = 'services';
-    public const OFFER = 'offer';
-    public const GALLERY = 'gallery';
-    public const VIDEO = 'video';
+    public const PRODUCTS = 'products';
+    public const CLIENTS = 'clients';
 
-    public const ALL_SPECIALTIES = 'all specialities';
-    public const ALL_DOCTORS = 'all doctors';
-    public const ALL_SERVICES = 'all services';
-    public const ALL_OFFERS = 'all offers';
-    public const ALL_GALLERY = 'all gallery';
-    public const ALL_VIDEOS = 'all videos';
+
+    public const CERTIFICATIONS = 'certifications';
+    public const VIDEO = 'videos';
+
+    public const CAREERS = 'careers';
+    public const BLOGS = 'blogs';
+    public const NEWS = 'news';
+    public const TEAMS = 'teams';
+    public const ABOUTUS = 'about us';
     public const CONTACTUS = 'contact us';
-    public const INSURANCE = 'insurance';
+
+
+   /***************************************************/
+    public const ALL_PRODUCTS = 'all products';
+    public const ALL_CLIENTS = 'all clients';
+
+    public const ALL_CAREERS = 'all careers';
+    public const ALL_BLOGS = 'all blogs';
+    public const ALL_NEWS = 'all news';
+    public const ALL_VIDEOS = 'all videos';
+    public const ALL_CERTIFICATIONS = 'all certifications';
+
+    public const ALL_TEAMS = 'all teams';
+    /***************************************************/
+
+
+
+
 
 
 
@@ -32,21 +48,33 @@ class UrlTypesEnum
 
         return [
             static::PAGES => 'pages',
-            static::SPECIALTIES => 'specialities',
-            static::DOCTORS => 'doctors',
-            static::SERVICES => 'services',
-            static::OFFER => 'offer',
-            static::GALLERY => 'gallery',
+            static::PRODUCTS => 'products',
+            static::CLIENTS => 'clients',
+
+            static::TEAMS => 'teams',
+            static::CAREERS => 'careers',
+            static::BLOGS => 'blogs',
+            static::NEWS => 'news',
+            static::CERTIFICATIONS => 'certuifications',
             static::VIDEO => 'video',
 
-            static::ALL_SPECIALTIES => 'all specialities',
-            static::ALL_DOCTORS => 'all doctors',
-            static::ALL_SERVICES => 'all services',
-            static::ALL_OFFERS => 'all offers',
-            static::ALL_GALLERY => 'all gallery',
+
+
+            static::ALL_PRODUCTS => 'all products',
+            static::ALL_CLIENTS => 'all clients',
+
+            static::ALL_TEAMS => 'all teams',
+            static::ALL_CAREERS => 'all careers',
+            static::ALL_BLOGS => 'all blogs',
+            static::ALL_NEWS => 'all news',
+            static::ALL_CERTIFICATIONS => 'all certifications',
             static::ALL_VIDEOS => 'all videos',
+
+
+
+            static::ABOUTUS => 'about us',
             static::CONTACTUS => 'contact us',
-            static::INSURANCE => 'insurance',
+
         ];
     }
 }

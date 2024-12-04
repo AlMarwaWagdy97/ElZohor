@@ -3,14 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Livewire\Admin\Categories\Form;
 use App\Http\Requests\Admin\CategoriesRequest;
 use App\Models\Categories;
-use Illuminate\Console\View\Components\Component;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
-use Menu;
-use Menus;
 
 class CategoryController extends Controller
 {
@@ -23,24 +18,24 @@ class CategoryController extends Controller
     {
         $query = Categories::query()->with('trans');
         $ids = arrang_records(clone $query);
-        if($ids)$categories = @$query->whereIn('id', $ids)->orderByRaw("field(id,".implode(',',$ids).")")->get();
+        if ($ids) $categories = @$query->whereIn('id', $ids)->orderByRaw("field(id," . implode(',', $ids) . ")")->get();
         else $categories = $query->get();
-        
+
         return view('admin.dashboard.categories.create', compact('categories'));
 
-        // $editMode = false;
-        // return view('livewire.admin.categories.form', compact('editMode'));
     }
 
 
     public function store(CategoriesRequest $request)
     {
+        // return $request->all();
         $data = $request->getSanitized();
 
         if ($request->hasFile('image')) {
             $data['image'] = $this->upload_file($request->file('image'), ('categories'));
         }
         Categories::create($data);
+
         session()->flash('success', trans('message.admin.created_sucessfully'));
         return back();
     }
@@ -62,9 +57,9 @@ class CategoryController extends Controller
         $query = Categories::query()->with('trans');
         $childs =  get_childs_id($item->children,  $query);
         $ids = arrang_records(clone $query);
-        if($ids)$categories = $query->whereIn('id', $ids)->whereNotIn('id', $childs)->where('id','!=',  $item->id)->orderByRaw("field(id,".implode(',',$ids).")")->get();
+        if ($ids) $categories = $query->whereIn('id', $ids)->whereNotIn('id', $childs)->where('id', '!=',  $item->id)->orderByRaw("field(id," . implode(',', $ids) . ")")->get();
         else $categories = $query->get();
-        
+
         return view('admin.dashboard.categories.edit', compact('item', 'categories'));
     }
 
@@ -72,13 +67,15 @@ class CategoryController extends Controller
 
     public function update(CategoriesRequest $request, Categories $category)
     {
-        
+
         $data = $request->getSanitized();
         if ($request->hasFile('image')) {
             @unlink($category->image);
             $data['image'] = $this->upload_file($request->file('image'), ('categories'));
         }
+
         $category->update($data);
+        
         $items = Categories::query()->with('trans')->get();
         update_childs_level($category, $items);
         session()->flash('success', trans('message.admin.updated_sucessfully'));
@@ -145,9 +142,9 @@ class CategoryController extends Controller
     {
         $items =  Categories::query()->with('trans')->get();
         $searchItem = [];
-        if($request->title){
-            $searchItem = Categories::query()->with('trans')->orWhereTranslationLike('title', '%' . $request->title . '%')->get();  
+        if ($request->title) {
+            $searchItem = Categories::query()->with('trans')->orWhereTranslationLike('title', '%' . $request->title . '%')->get();
         }
-        return view('admin.dashboard.categories.index',compact('items', 'searchItem'));   
+        return view('admin.dashboard.categories.index', compact('items', 'searchItem'));
     }
 }

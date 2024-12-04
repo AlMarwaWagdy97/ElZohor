@@ -13,12 +13,16 @@ if (!function_exists('admin_path')) {
     }
 }
 
+
+
 if (!function_exists('pagination_count')) {
     function pagination_count()
     {
         return 25;
     }
 }
+
+
 
 if (!function_exists('slug')) {
     function slug($value)
@@ -35,23 +39,27 @@ if (!function_exists('slug')) {
         return $value;
     }
 }
-
+// update deprecated one
 if (!function_exists('removeHTML')) {
     function removeHTML($content)
     {
-        $result = filter_var($content, FILTER_SANITIZE_STRING);
+        $result = htmlspecialchars_decode(strip_tags($content));
         $result = trim($result);
         $result = str_replace('&nbsp;', '', $result);
         return $result;
     }
 }
 
+
+
 if (!function_exists('ImageValidate')) {
     function ImageValidate()
     {
-        return "image";
+        return "image|mimes:jpeg,png,jpg,gif,svg|max:30000";
     }
 }
+
+
 
 if (!function_exists('getLevel')) {
     function getLevel($item)
@@ -64,6 +72,9 @@ if (!function_exists('getLevel')) {
         }
     }
 }
+
+
+
 
 if (!function_exists('updateLevel')) {
     function updateLevel($parent)

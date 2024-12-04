@@ -8,12 +8,7 @@ use Spatie\Permission\Models\Role;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\UserStoreRequest;
 
-
-
-
-
-
- class AdminController extends Controller
+class AdminController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -180,5 +175,3 @@ use App\Http\Requests\Admin\UserStoreRequest;
         return redirect()->back();
     }
 }
-
-
