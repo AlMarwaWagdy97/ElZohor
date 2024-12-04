@@ -19,7 +19,7 @@
                 <div class="Vision col-lg-3 col-12 px-3">
                     <div class="WhiteDiv mt-3 mb-3 mx-auto p-3">
                         <img
-                            src="{{asset(App\Settings\HomeSettingSingleton::getInstance()->getItem('mission')->image)}}"
+                            src="{{asset($aboutUs->image)}}"
                             class="img-fluid" alt=""/>
                     </div>
 
@@ -36,7 +36,7 @@
                 <div class="Vision col-lg-3 col-12 px-3">
                     <div class="WhiteDiv mt-3 mb-3 mx-auto p-3">
                         <img
-                            src=" {{asset(App\Settings\HomeSettingSingleton::getInstance()->getItem('vision')->image)}}"
+                            src="{{asset($aboutUs->image)}}"
                             class="img-fluid" alt=""/>
                     </div>
 
@@ -50,7 +50,7 @@
                 <div class="Vision col-lg-3 col-12 px-3">
                     <div class="WhiteDiv mt-3 mb-3 mx-auto p-3">
                         <img
-                            src="{{asset(App\Settings\HomeSettingSingleton::getInstance()->getItem('our_value')?->image)}}"
+                            src="{{asset($aboutUs->image)}}"
                             class="img-fluid" alt=""/>
                     </div>
 
@@ -72,7 +72,7 @@
                 <div class="Vision col-lg-3 col-12 px-3">
                     <div class="WhiteDiv mt-3 mb-3 mx-auto p-3">
                         <img
-                            src="{{asset(App\Settings\HomeSettingSingleton::getInstance()->getItem('our_advantage')?->image)}}"
+                            src="{{asset($aboutUs->image)}}"
                             class="img-fluid" alt=""/>
                     </div>
 
