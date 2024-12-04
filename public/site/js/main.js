@@ -1,94 +1,64 @@
-//Swipwer
-var swiper = new Swiper(".swiper", {
-  loop: true,
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
-});
-let X = new Swiper(".swiper .X", {
-  loop: true,
-  spaceBetween: 40,
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
-});
-
-// Function to show or hide scroll to top button based on scroll position
-window.onscroll = function () {
-  scrollFunction();
-};
-
-function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    // document.getElementById("scrollToTopBtn").classList.add("fade-in");
-    // document.getElementById("scrollToTopBtn").classList.remove("fade-out");
-    // document.getElementById("scrollToTopBtn").style.display = "block";
-  } else {
-    // document.getElementById("scrollToTopBtn").classList.add("fade-out");
-    // document.getElementById("scrollToTopBtn").classList.remove("fade-in");
-  }
-}
-
-// Function to scroll to the top of the page when scroll to top button is clicked
-function scrollToTop() {
-  document.body.scrollTop = 0; // For Safari
-  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-}
-
-//Wow
 new WOW().init();
 
+const swiper = new Swiper(".x", {
+  // Optional parameters
+  loop: true,
 
-function Copy() {
-  var Url = document.getElementById("url");
-  Url.style.display = "block";
-  Url.value = window.location.href;
-  console.log(Url.value);
-  Url.select();
-  document.execCommand("copy");
-  Url.style.display = "none";
-  alert("Text copied to clipboard");
-}
-
-$(".services__card .services__card-content").click(function () {
-  $(this).toggleClass("show-text")
-})
-
-const elements = document.querySelectorAll(".best .nav-item");
-
-
-elements.length!=0? elements[0].style.backgroundColor = "#39ac3f":"";
-elements.forEach((el) => {
-  el.addEventListener("click", () => {
-    // Reset all elements' background color to the original color
-    elements.forEach((item) => {
-      item.style.backgroundColor = "#264176"; // Reset to original color
-    });
-
-    // Set the background color of the clicked element to red
-    el.style.backgroundColor = "#39ac3f";
-  });
+  // If we need pagination
+  pagination: {
+    el: ".swiper-pagination",
+  },
 });
 
+const swiperLeader = new Swiper(".leader", {
+  // Optional parameters
+  loop: true,
+  // Navigation arrows
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  // If we need pagination
+  pagination: {
+    el: ".swiper-pagination",
+  },
+  breakpoints: {
+    320: {
+      slidesPerView: 1,
+      spaceBetween: 10,
+    },
+    1024: {
+      slidesPerView: 3,
+    },
+  },
+});
 
-// change clicked nav-item
-function detectZoom() {
-  const myDiv = document.getElementById("Hero");
+const Item_list = document.querySelector(".Item-list-1");
+const moreLink = document.querySelector(".Item-list-1 .more-link");
+const HiddenContent_1 = document.querySelectorAll(".hidden-text-1");
+let flag = true;
 
- 
-  let zoom = Math.round(((window.outerWidth - 10) / window.innerWidth) * 100);
-console.log(zoom)
-  if (zoom < 97) {
-    const dynamicWidth = zoom / 100;
-    myDiv.style.width = `${dynamicWidth * 0.86 * 100}%`;
-  } else {
-    myDiv.style.width = "100%";
+const Item_list_2 = document.querySelector(".Item-list-2");
+const moreLink_2 = document.querySelector(".Item-list-2 .more-link");
+const HiddenContent_2 = document.querySelectorAll(".hidden-text-2");
+let flag2 = true;
+
+const ShowMore = (f, a, arr) => {
+  console.log(f, a, arr);
+  if (f == true) {
+    arr.forEach((item) => (item.style.display = "block"));
+    a.textContent = "اقل";
+  } else if (f == false) {
+    arr.forEach((item) => (item.style.display = "none"));
+    a.textContent = "المزيد";
   }
-}
+};
+moreLink.addEventListener("click", () => {
+  ShowMore(flag, moreLink, HiddenContent_1);
 
-// Run the function on page load and on window resize
-window.addEventListener("resize", detectZoom);
-window.addEventListener("load", detectZoom);
-window.onbeforeunload = detectZoom()
+  flag = !flag;
+});
+moreLink_2.addEventListener("click", () => {
+  ShowMore(flag2, moreLink_2, HiddenContent_2);
+  flag2 = !flag2;
+});
