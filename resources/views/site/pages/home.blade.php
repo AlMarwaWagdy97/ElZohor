@@ -255,7 +255,7 @@
 
                     <div class="row">
                         <button class="btn btn-more mt-5 px-5 py-3 mx-auto">
-                            Learn more
+                             الكزيد
                         </button>
                     </div>
                 </div>
@@ -346,12 +346,12 @@
     <div class="container position-relative z-3">
         <h1 class="text-capitalize text-center text-white">أخر الأخبار</h1>
         <div class="row text-center pt-5">
-            @forelse ($visions as $vision)
-                @isset( $vision->featured)
-                <div class="Vision col-lg-4 col-12 px-3">
+{{--            {{dd($visions)}}--}}
+            @forelse (App\Models\News::active()->latest()->take(3)->get() as $itemOne)
+                 <div class="Vision col-lg-4 col-12 px-3">
                 <div class="WhiteDiv mt-3 mb-3 py-5 mx-auto">
                     <img
-                        src="{{ asset($vision->image ?? '') }}"
+                        src="{{ asset($visions[0]->image ?? '') }}"
                         class="img-fluid"
                         alt=""
                     />
@@ -359,11 +359,10 @@
 
                 <div class="text text-center">
                     <h4 class="text-uppercase">
-                        {{$vision->trans ?  $vision->trans[0]->title  :''}}
+                        {{$itemOne->title  ??''}}
                     </h4>
                 </div>
             </div>
-                @endisset
 
                 @empty
             @endforelse
