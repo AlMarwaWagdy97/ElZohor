@@ -254,7 +254,7 @@
 {{--                    </div>--}}
 
                     <div class="row">
-                        <button class="btn btn-more mt-5 px-5 py-3 mx-auto">
+                        <button onclick="window.location.href='{{url('/products')}}'" class="btn btn-more mt-5 px-5 py-3 mx-auto">
                              المزيد
                         </button>
                     </div>
