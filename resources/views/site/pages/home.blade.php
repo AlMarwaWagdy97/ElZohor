@@ -336,7 +336,7 @@
 
 
 
-@if(is_array($visions) && isset($visions[0])   )
+{{--@if(is_array($visions) && isset($visions[0])   )--}}
 <!--Our Vision-->
 <div
     class="OurVision mt-5 mb-5 position-relative wow fadeInUpBig"
@@ -351,7 +351,7 @@
                  <div class="Vision col-lg-4 col-12 px-3">
                 <div class="WhiteDiv mt-3 mb-3 py-5 mx-auto">
                     <img
-                        src="{{ asset($visions[0]->image ?? '') }}"
+                        src="{{ asset($itemOne->image ?? '') }}"
                         class="img-fluid"
                         alt=""
                     />
@@ -402,7 +402,7 @@
     </div>
 </div>
 <!--Our Vision-->
-@endif
+{{--@endif--}}
 
 
 
