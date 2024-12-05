@@ -440,7 +440,7 @@
                                 <img
                                     src="{{ asset(App\Settings\HomeSettingSingleton::getInstance()->getItem('products_bottom_box')->image) }}"
                                     class="my-3" style="width: 100px" alt=""/>
-                                <h1 class="num"
+                                <h1 class="num bg_purple_h4"
                                     data-val="{{App\Settings\HomeSettingSingleton::getInstance()->getItem('products_bottom_box')->num_of_items}}">
                                     {{--                                    data-val="{{App\Settings\HomeSettingSingleton::getInstance()->getItem('products_bottom_box')->num_of_items}}">--}}
                                     0+</h1>
@@ -457,7 +457,7 @@
                                     src="{{ asset(App\Settings\HomeSettingSingleton::getInstance()->getItem('clients_bottom_box')->image) }}"
                                     class="my-3"
                                     style="width: 100px" alt=""/>
-                                <h1 class="num"
+                                <h1 class="num bg_purple_h4"
                                     data-val="{{  App\Settings\HomeSettingSingleton::getInstance()->getItem('clients_bottom_box')->num_of_items  }}">
                                     0+</h1>
                                 <p class="text-uppercase">{{App\Settings\HomeSettingSingleton::getInstance()->getItem('clients_bottom_box')->trans[0]->title}}</p>
@@ -475,7 +475,7 @@
                                 <img
                                     src="{{ asset(App\Settings\HomeSettingSingleton::getInstance()->getItem('quality_bottom_box')->image) }}"
                                     class="my-3" style="width: 100px" alt=""/>
-                                <h1 class="num"
+                                <h1 class="num bg_purple_h4"
                                     data-val="{{  App\Settings\HomeSettingSingleton::getInstance()->getItem('quality_bottom_box')->num_of_items  }}">
                                     0+</h1>
                                 <p class="text-uppercase">{{App\Settings\HomeSettingSingleton::getInstance()->getItem('quality_bottom_box')->trans[0]->title}}</p>
