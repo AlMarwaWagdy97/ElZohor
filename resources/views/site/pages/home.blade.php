@@ -255,7 +255,7 @@
 
                     <div class="row">
                         <button class="btn btn-more mt-5 px-5 py-3 mx-auto">
-                             الكزيد
+                             المزيد
                         </button>
                     </div>
                 </div>
