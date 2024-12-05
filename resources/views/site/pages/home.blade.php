@@ -349,7 +349,7 @@
             @forelse ($visions as $vision)
                 @isset( $vision->featured)
                 <div class="Vision col-lg-4 col-12 px-3">
-                <div class="WhiteDiv mt-3 mb-3 py-3 mx-auto">
+                <div class="WhiteDiv mt-3 mb-3 py-5 mx-auto">
                     <img
                         src="{{ asset($vision->image ?? '') }}"
                         class="img-fluid"
