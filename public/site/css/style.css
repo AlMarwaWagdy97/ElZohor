@@ -221,19 +221,29 @@ li a {
   /*Text Area*/
 
   .btn-more {
-    background-color: #8c1320;
-    color: #fff;
-    border-radius: 50px;
-    font-size: 15px;
-    border: 4px solid rgba(250, 250, 250, 1);
-    padding: 0 38px;
-    outline: none;
+
+      position: relative;
+      background-color: #905885;
+      color: #fff;
+      border-radius: 50px;
+      font-size: 15px;
+      border: 4px solid rgba(250, 250, 250, 1);
+      padding: 0px 38px;
+      outline: none;
+      cursor: pointer;
+      z-index: 10;
   }
   .btn-more:hover {
-    background-color: #8c1320;
-    border: 4px solid rgba(250, 250, 250, 1);
-    color: #fff;
-    outline: none;
+      position: relative;
+      background-color: #905885;
+      color: #fff;
+      border-radius: 50px;
+      font-size: 15px;
+      border: 4px solid rgba(250, 250, 250, 1);
+      padding: 0px 38px;
+      outline: none;
+      cursor: pointer;
+      z-index: 10;
   }
   .swiper-pagination {
     position: absolute;
@@ -353,8 +363,16 @@ li a {
     width: 180px;
   }
   .btn-more:hover {
-    background-color: #8c1320;
-    color: #fff;
+      background-color: #905885;
+      color: #fff;
+      border-radius: 50px;
+      font-size: 15px;
+      border: 4px solid rgba(250, 250, 250, 1);
+      padding: 0px 38px;
+      outline: none;
+      cursor: pointer;
+      z-index: 10;
+      width: 180px;
   }
 }
 
@@ -800,6 +818,33 @@ li a {
     color: #905885;
   }
 }
+
+.btn-custom-blogs {
+    position: relative;
+    background-color: #905885;
+    color: #fff;
+    border-radius: 50px;
+    font-size: 15px;
+    border: 4px solid rgba(250, 250, 250, 1);
+    padding: 0px 38px 28px 38px;
+    outline: none;
+    cursor: pointer;
+    z-index: 10;
+    width: 118px;
+    height: 30px;
+    text-decoration: none;
+
+    text-align: center;
+    margin: auto;
+
+}
+.btn-custom-blogs:hover {
+    color: white;
+}
+
+
+
+
 /*///////////////////////////////////////////////////////////////////////Blog//////////////////////////////////////////////////////////////////////////////*/
 /*/////////////////////////////////////////////////////////////////////About US////////////////////////////////////////////////////////////////////////////*/
 
