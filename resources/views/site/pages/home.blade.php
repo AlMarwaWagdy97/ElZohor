@@ -203,7 +203,7 @@
 
     <!--PRODUCTS-->
     @if(App\Settings\HomeSettingSingleton::getInstance()->getItem('products'))
-        @if( $products  &&  $products->count()) )
+        @if( $products  &&  $products->count())
         <!--PRODUCTS-->
         <div
             class="prodects text-center mt-5 position-relative wow fadeInDown"
