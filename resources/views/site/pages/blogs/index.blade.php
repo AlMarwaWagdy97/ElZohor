@@ -20,7 +20,7 @@
                             <h1> {{$val->title}}</h1>
                             <p>
                                 {{$val->description}}
-                                <a href="{{route('site.blogs.show' ,  $val->slug ?? $val->id)}}" class=" btn-custom-blogs ">عرض</a>
+{{--                                <a href="{{route('site.blogs.show' ,  $val->slug ?? $val->id)}}" class=" btn-custom-blogs ">عرض</a>--}}
 
                             </p>
 
@@ -35,7 +35,7 @@
                             <h1>{{$val->title}}</h1>
                             <p>
                                 {{$val->description}}
-                                <a href="{{route('site.blogs.show' ,  $val->slug ?? $val->id)}}" class=" btn-custom-blogs ">عرض</a>
+{{--                                <a href="{{route('site.blogs.show' ,  $val->slug ?? $val->id)}}" class=" btn-custom-blogs ">عرض</a>--}}
 
                             </p>
 
