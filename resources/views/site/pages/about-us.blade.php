@@ -60,13 +60,13 @@
                         <ul class="Item-list-1" >
                             <li id="more" >
 {{--                                {{    substr( App\Settings\HomeSettingSingleton::getInstance()->getItem('our_value')?->trans[0]?->description,0,10)  }}--}}
-                                {{     App\Settings\HomeSettingSingleton::getInstance()->getItem('our_value')?->trans[0]->title  }}
+                                {!!    App\Settings\HomeSettingSingleton::getInstance()->getItem('our_value')?->trans[0]->description  !!}
 
 
                             </li>
                             <li class="hidden-text-1">
 {{--                                {{    substr( App\Settings\HomeSettingSingleton::getInstance()->getItem('our_value')?->trans[0]?->description,10,600)  }}--}}
-                                {{     App\Settings\HomeSettingSingleton::getInstance()->getItem('our_value')?->trans[0]->description  }}
+                                {!!    App\Settings\HomeSettingSingleton::getInstance()->getItem('our_value')?->trans[0]->description  !!}
 
                             </li>
                             <a class="more-link"
@@ -92,10 +92,10 @@
 {{--                                {{  substr( App\Settings\HomeSettingSingleton::getInstance()->getItem('our_advantage')?->trans[0]->description,10,600)  }}--}}
 {{--                            </li>--}}
                             <li id="more2">
-                                {{     App\Settings\HomeSettingSingleton::getInstance()->getItem('our_advantage')?->trans[0]->title  }}
+                                {!!    App\Settings\HomeSettingSingleton::getInstance()->getItem('our_advantage')?->trans[0]->description   !!}
                             </li>
                             <li class="hidden-text-2">
-                                {{  App\Settings\HomeSettingSingleton::getInstance()->getItem('our_advantage')?->trans[0]->description   }}
+                                {!!    App\Settings\HomeSettingSingleton::getInstance()->getItem('our_advantage')?->trans[0]->description   !!}
                             </li>
 
                             <a href="{{App\Settings\HomeSettingSingleton::getInstance()->getItem('our_advantage')?->trans[0]->link??'#more2'}}"
