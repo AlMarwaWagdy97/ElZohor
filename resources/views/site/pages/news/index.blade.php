@@ -21,6 +21,7 @@
                             <p>
                                 {{$val->description}}
                             </p>
+                            <a href="{{route('site.news.show' ,  $val->slug ?? $val->id)}}" class=" btn-custom-blogs ">عرض</a>
                         </div>
                     </div>
                 @else
@@ -33,6 +34,8 @@
                             <p>
                                 {{$val->description}}
                             </p>
+                            <a href="{{route('site.news.show' , $val->slug ?? $val->id)}}" class=" btn-custom-blogs ">عرض</a>
+
                         </div>
                         <div class="col-12 col-lg-6">
                             <img src="{{asset($val->image)}}" class="img-fluid" alt=""/>
@@ -43,5 +46,4 @@
 
         </div>
     </div>
-
 @endsection
