@@ -339,7 +339,7 @@
 {{--@if(is_array($visions) && isset($visions[0])   )--}}
 <!--Our Vision-->
 <div
-    class="OurVision mt-5 mb-5 position-relative wow fadeInUpBig"
+    class="OurVision  mb-5 position-relative wow fadeInUpBig"
     data-wow-offset="300"
 >
     <div class="overlay"></div>
