@@ -15,20 +15,20 @@
                         <ul class="navbar-nav mx-auto align-items-center mb-2 mb-lg-0 font-weight-bold fs-6">
                             @include('components.site.layouts.menuItem')
 
-                            @if ($current_lang == 'ar')
-                            <a class=" fs-5 text-white  d-block d-lg-none" href="{{ \LaravelLocalization::getLocalizedURL("en", \Request::fullUrl()) }}">EN</a>
-                          @else
+                            {{-- @if ($current_lang == 'ar') --}}
+                            {{-- <a class=" fs-5 text-white  d-block d-lg-none" href="{{ \LaravelLocalization::getLocalizedURL("en", \Request::fullUrl()) }}">EN</a> --}}
+                          {{-- @else --}}
                             <a class=" fs-5 text-white  d-block d-lg-none" href="{{ \LaravelLocalization::getLocalizedURL("ar", \Request::fullUrl()) }}">AR</a>
-                          @endif
+                          {{-- @endif --}}
 
                         </ul>
                     </div>
 
-                        @if ($current_lang == 'ar')
-                          <a class=" fs-5 text-white  d-none d-lg-block" href="{{ \LaravelLocalization::getLocalizedURL("en", \Request::fullUrl()) }}">EN</a>
-                        @else
+                        {{-- @if ($current_lang == 'ar') --}}
+                          {{-- <a class=" fs-5 text-white  d-none d-lg-block" href="{{ \LaravelLocalization::getLocalizedURL("en", \Request::fullUrl()) }}">EN</a> --}}
+                        {{-- @else --}}
                           <a class=" fs-5 text-white  d-none d-lg-block" href="{{ \LaravelLocalization::getLocalizedURL("ar", \Request::fullUrl()) }}">AR</a>
-                        @endif
+                        {{-- @endif --}}
 
                 </div>
             </nav>
