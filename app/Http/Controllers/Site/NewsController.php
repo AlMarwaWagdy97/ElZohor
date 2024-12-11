@@ -11,7 +11,7 @@ class NewsController extends Controller
 {
     public function index()
     {
-        $news = News::active()->get();
+        $news = News::with('transNow')->active()->featured()->get();
         $settings = SettingSingleton::getInstance();
         return view('site.pages.news.index', compact('news', 'settings'));
     }
@@ -20,10 +20,10 @@ class NewsController extends Controller
     public function show($slug)
     {
         if(is_numeric($slug)){
-            $new = News::findOrFail($slug);
+            $new = News::with('transNow')->active()->featured()->findOrFail($slug);
         }
         else{
-            $new = News::with('trans')->WhereTranslation('slug', $slug)->get()->first();
+            $new = News::with('transNow')->WhereTranslation('slug', $slug)->active()->featured()->first();
             if($new == null) abort('404');
         }
 

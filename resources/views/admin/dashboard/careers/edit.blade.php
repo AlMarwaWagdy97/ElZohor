@@ -1,7 +1,7 @@
 @extends('admin.app')
 
-@section('title', trans('news.edit_news'))
-@section('title_page', trans('news.edit', ['name' => @$news->title]) )
+@section('title', trans('admin.careers_edit' , ['name' => @$career->title]))
+@section('title_page', trans('admin.careers_edit', ['name' => @$career->title]) )
 
 @section('content')
 
@@ -12,13 +12,12 @@
             <div class="col-12 m-3">
                 <div class="row mb-3 text-end">
                     <div>
-                        <a href="{{ route('admin.news.index') }}" class="btn btn-outline-primary waves-effect waves-light ml-3 btn-sm">@lang('button.cancel')</a>
+                        <a href="{{ route('admin.careers.index') }}" class="btn btn-outline-primary waves-effect waves-light ml-3 btn-sm">@lang('button.cancel')</a>
                     </div>
                 </div>
                 <div class="card">
                     <div class="card-body">
-
-                        <form action="{{ route('admin.news.update', $news->id) }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('admin.careers.update', $career->id) }}" method="post" enctype="multipart/form-data">
                             @csrf
                             @method('put')
                             <div class="row">
@@ -40,7 +39,7 @@
                                                     <div class="row mb-3">
                                                         <label for="example-text-input" class="col-sm-2 col-form-label">{{ trans('admin.title_in') . trans('lang.' .Locale::getDisplayName($locale)) }}</label>
                                                         <div class="col-sm-10">
-                                                            <input class="form-control" type="text" name="{{ $locale }}[title]" value="{{ @$news->trans->where('locale', $locale)->first()->title }}" id="title{{ $key }}">
+                                                            <input class="form-control" type="text" name="{{ $locale }}[title]" value="{{ @$career->trans->where('locale', $locale)->first()->title }}" id="title{{ $key }}">
                                                         </div>
                                                         @if ($errors->has($locale . '.title'))
                                                         <span class="missiong-spam">{{ $errors->first($locale . '.title') }}</span>
@@ -53,7 +52,7 @@
                                                         <label for="example-text-input" class="col-sm-2 col-form-label">{{ trans('admin.slug_in') . trans('lang.' .Locale::getDisplayName($locale)) }} </label>
 
                                                         <div class="col-sm-10">
-                                                            <input type="text" id="slug{{ $key }}" name="{{ $locale }}[slug]" value="{{ @$news->trans->where('locale', $locale)->first()->slug }}" class="form-control slug mb-3" required>
+                                                            <input type="text" id="slug{{ $key }}" name="{{ $locale }}[slug]" value="{{ @$career->trans->where('locale', $locale)->first()->slug }}" class="form-control slug mb-3" required>
                                                             @if ($errors->has($locale . '.slug'))
                                                             <span class="missiong-spam">{{ $errors->first($locale . '.slug') }}</span>
                                                             @endif
@@ -64,7 +63,7 @@
                                                         <div class="row mb-3">
                                                             <label for="example-text-input" class="col-sm-2 col-form-label">{{ trans('admin.description_in') . trans('lang.' .Locale::getDisplayName($locale)) }} </label>
                                                             <div class="col-sm-10 mb-2">
-                                                                <textarea id="description{{ $key }}" name="{{ $locale }}[description]"> {{ @$news->trans->where('locale',$locale)->first()->description }} </textarea>
+                                                                <textarea id="description{{ $key }}" name="{{ $locale }}[description]"> {{ @$career->trans->where('locale',$locale)->first()->description }} </textarea>
                                                                 @if($errors->has( $locale . '.description'))
                                                                 <span class="missiong-spam">{{ $errors->first( $locale . '.description') }}</span>
                                                                 @endif
@@ -100,7 +99,7 @@
                                                         <div class="row mb-3">
                                                             <label for="example-text-input" class="col-sm-2 col-form-label">{{ trans('admin.meta_title_in') . trans('lang.' .Locale::getDisplayName($locale)) }}</label>
                                                             <div class="col-sm-10">
-                                                                <input class="form-control" type="text" name="{{ $locale }}[meta_title]" value="{{ @$news->trans->where('locale', $locale)->first()->meta_title }}" id="title{{ $key }}">
+                                                                <input class="form-control" type="text" name="{{ $locale }}[meta_title]" value="{{ @$career->trans->where('locale', $locale)->first()->meta_title }}" id="title{{ $key }}">
                                                             </div>
                                                             @if ($errors->has($locale . '.meta_title'))
                                                             <span class="missiong-spam">{{ $errors->first($locale . '.meta_title') }}</span>
@@ -112,7 +111,7 @@
                                                             <label for="example-text-input" class="col-sm-2 col-form-label"> {{ trans('admin.meta_description_in') . trans('lang.' .Locale::getDisplayName($locale)) }}
                                                             </label>
                                                             <div class="col-sm-10 mb-2">
-                                                                <textarea name="{{ $locale }}[meta_description]" class="form-control description"> {{ @$news->trans->where('locale', $locale)->first()->meta_description }} </textarea>
+                                                                <textarea name="{{ $locale }}[meta_description]" class="form-control description"> {{ @$career->trans->where('locale', $locale)->first()->meta_description }} </textarea>
                                                                 @if ($errors->has($locale . '.meta_description'))
                                                                 <span class="missiong-spam">{{ $errors->first($locale . '.meta_description') }}</span>
                                                                 @endif
@@ -124,7 +123,7 @@
                                                             <label for="example-text-input" class="col-sm-2 col-form-label"> {{ trans('admin.meta_key_in') . trans('lang.' .Locale::getDisplayName($locale)) }}
                                                             </label>
                                                             <div class="col-sm-10 mb-2">
-                                                                <textarea name="{{ $locale }}[meta_key]" class="form-control description"> {{ @$news->trans->where('locale', $locale)->first()->meta_key }} </textarea>
+                                                                <textarea name="{{ $locale }}[meta_key]" class="form-control description"> {{ @$career->trans->where('locale', $locale)->first()->meta_key }} </textarea>
                                                                 @if ($errors->has($locale . '.meta_key'))
                                                                 <span class="missiong-spam">{{ $errors->first($locale . '.meta_key') }}</span>
                                                                 @endif
@@ -139,6 +138,7 @@
                                     </div>
                                 </div>
 
+
                                 <div class="col-md-4">
 
                                     <div class="accordion mt-4 mb-4" id="accordionExample">
@@ -151,27 +151,27 @@
                                             <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                                 <div class="accordion-body">
                                                     <div class="col-sm-3 mb-3">
-                                                        @if ($news->image != null)
-                                                            <img src="{{ asset($news->image) }}" alt="" style="width:100%">
-                                                        @endif
+{{--                                                        @if ($career->image != null)--}}
+{{--                                                            <img src="{{ asset($career->image) }}" alt="" style="width:100%">--}}
+{{--                                                        @endif--}}
                                                     </div>
                                                     {{-- image ------------------------------------------------------------------------------------- --}}
-                                                    <div class="col-12">
-                                                        <div class="row mb-3">
-                                                            <label for="example-number-input" col-form-label>
-                                                                @lang('admin.image'):</label>
-                                                            <div class="col-sm-12">
-                                                                <input class="form-control" type="file" placeholder="@lang('admin.image'):" id="example-number-input" name="image" value="{{ old('image') }}">
-                                                            </div>
-                                                        </div>
-                                                    </div>
+{{--                                                    <div class="col-12">--}}
+{{--                                                        <div class="row mb-3">--}}
+{{--                                                            <label for="example-number-input" col-form-label>--}}
+{{--                                                                @lang('admin.image'):</label>--}}
+{{--                                                            <div class="col-sm-12">--}}
+{{--                                                                <input class="form-control" type="file" placeholder="@lang('admin.image'):" id="example-number-input" name="image" value="{{ old('image') }}">--}}
+{{--                                                            </div>--}}
+{{--                                                        </div>--}}
+{{--                                                    </div>--}}
                                                     {{-- sort ------------------------------------------------------------------------------------- --}}
                                                     <div class="col-12">
                                                         <div class="row mb-3">
                                                             <label for="example-number-input" col-form-label>
                                                                 @lang('articles.sort'):</label>
                                                             <div class="col-sm-12">
-                                                                <input class="form-control" type="number" placeholder="@lang('articles.sort'):" id="example-number-input" name="sort" value="{{ @$news->sort }}">
+                                                                <input class="form-control" type="number" placeholder="@lang('articles.sort'):" id="example-number-input" name="sort" value="{{ @$career->sort }}">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -179,7 +179,7 @@
                                                     <div class="col-12">
                                                         <label class="col-sm-12 col-form-label" for="available">{{ trans('admin.feature') }}</label>
                                                         <div class="col-sm-10">
-                                                            <input class="form-check form-switch" name="feature" type="checkbox" id="switch1" switch="success" {{ @$news->feature == 1 ? 'checked' : '' }} value="1">
+                                                            <input class="form-check form-switch" name="feature" type="checkbox" id="switch1" switch="success" {{ @$career->feature == 1 ? 'checked' : '' }} value="1">
                                                             <label class="form-label" for="switch1" data-on-label=" @lang('admin.yes') " data-off-label=" @lang('admin.no')"></label>
                                                         </div>
                                                     </div>
@@ -188,10 +188,34 @@
                                                     <div class="col-12">
                                                         <label class="col-sm-12 col-form-label" for="available">{{ trans('admin.status') }}</label>
                                                         <div class="col-sm-10">
-                                                            <input class="form-check form-switch" name="status" type="checkbox" id="switch3" switch="success" {{ @$news->status == 1 ? 'checked' : '' }} value="1">
+                                                            <input class="form-check form-switch" name="status" type="checkbox" id="switch3" switch="success" {{ @$career->status == 1 ? 'checked' : '' }} value="1">
                                                             <label class="form-label" for="switch3" data-on-label=" @lang('admin.yes') " data-off-label=" @lang('admin.no')"></label>
                                                         </div>
                                                     </div>
+
+
+                                                    <!---category_id------>
+                                                    <div class="col-12">
+                                                        <div class="row mb-3">
+                                                            <label for="example-number-input" col-form-label>
+                                                                @lang('admin.category_id'):</label>
+                                                            <div class="col-sm-12">
+                                                                <select name="category_id" class="form-control">
+                                                                    <option value="">اختر القسم</option>
+                                                                    @forelse($categories as $category)
+                                                                        <option
+                                                                        {{( $career->category_id ==  old('category_id') || $career->category_id == $category->id)   ? 'selected' : ''}}   value="{{$category->id}}"> {{ optional($category->transNow)->title  }} </option>
+                                                                    @empty
+
+                                                                    @endforelse
+                                                                </select>
+
+
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
                                                 </div>
                                             </div>
                                         </div>
@@ -203,13 +227,14 @@
 
 
 
+
                             </div>
 
 
                             {{-- Butoooons ------------------------------------------------------------------------- --}}
                             <div class="row mb-3 text-end">
                                 <div>
-                                    <a href="{{ route('admin.news.index') }}" class="btn btn-outline-danger waves-effect waves-light ml-3 btn-sm">@lang('button.cancel')</a>
+                                    <a href="{{ route('admin.careers.index') }}" class="btn btn-outline-danger waves-effect waves-light ml-3 btn-sm">@lang('button.cancel')</a>
                                     <button type="submit" class="btn btn-outline-success waves-effect waves-light ml-3 btn-sm">@lang('button.save')</button>
                                 </div>
                             </div>

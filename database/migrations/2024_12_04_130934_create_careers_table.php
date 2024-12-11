@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('careers', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('category_id');
-            $table->string('title')->index();
-            $table->longText('description')->nullable();
+//            $table->string('title')->index();
+//            $table->longText('description')->nullable();
             $table->foreign('category_id')->references('id')->on('career_categories')->onDelete('cascade');
             $table->tinyInteger('status')->default(0)->nullable();
 

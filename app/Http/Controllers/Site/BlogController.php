@@ -11,7 +11,7 @@ class BlogController extends Controller
 {
     public function index()
     {
-        $blogs = Blog::active()->get();
+        $blogs = Blog::with('transNow')->active()->featured()->get();
         $settings = SettingSingleton::getInstance();
         return view('site.pages.blogs.index', compact('blogs', 'settings'));
     }
@@ -21,10 +21,10 @@ class BlogController extends Controller
     {
 
         if(is_numeric($slug)){
-            $blog = Blog::findOrFail($slug);
+            $blog = Blog::with('transNow')->active()->featured()->findOrFail($slug);
         }
         else{
-            $blog = Blog::with('trans')->WhereTranslation('slug', $slug)->get()->first();
+            $blog = Blog::with('transNow')->WhereTranslation('slug', $slug)->active()->featured()->first();
             if($blog == null) abort('404');
         }
 

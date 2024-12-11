@@ -59,14 +59,13 @@
                         <h4 class="text-uppercase"> {{App\Settings\HomeSettingSingleton::getInstance()->getItem('our_value')?->trans[0]->title}}</h4>
                         <ul class="Item-list-1" >
                             <li id="more" >
-{{--                                {{    substr( App\Settings\HomeSettingSingleton::getInstance()->getItem('our_value')?->trans[0]?->description,0,10)  }}--}}
-                                {!!    App\Settings\HomeSettingSingleton::getInstance()->getItem('our_value')?->trans[0]->description  !!}
+                                {!!       App\Settings\HomeSettingSingleton::getInstance()->getItem('our_value')?->trans[0]->description ?  substr(removeHTML( App\Settings\HomeSettingSingleton::getInstance()->getItem('our_value')?->trans[0]->description),0,10)  : ''  !!}
 
 
                             </li>
                             <li class="hidden-text-1">
-{{--                                {{    substr( App\Settings\HomeSettingSingleton::getInstance()->getItem('our_value')?->trans[0]?->description,10,600)  }}--}}
-                                {!!    App\Settings\HomeSettingSingleton::getInstance()->getItem('our_value')?->trans[0]->description  !!}
+                                {!!       App\Settings\HomeSettingSingleton::getInstance()->getItem('our_value')?->trans[0]->description ?  substr(removeHTML( App\Settings\HomeSettingSingleton::getInstance()->getItem('our_value')?->trans[0]->description),10,200)  : ''  !!}
+
 
                             </li>
                             <a class="more-link"
@@ -85,17 +84,14 @@
                     <div class="text text-center">
                         <h4 class="text-uppercase">   {{App\Settings\HomeSettingSingleton::getInstance()->getItem('our_advantage')?->trans[0]->title}}</h4>
                         <ul class="Item-list-2">
-{{--                            <li id="more2">--}}
-{{--                                {{    substr( App\Settings\HomeSettingSingleton::getInstance()->getItem('our_advantage')?->trans[0]->description,0,10)  }}--}}
-{{--                            </li>--}}
-{{--                            <li class="hidden-text-2">--}}
-{{--                                {{  substr( App\Settings\HomeSettingSingleton::getInstance()->getItem('our_advantage')?->trans[0]->description,10,600)  }}--}}
-{{--                            </li>--}}
-                            <li id="more2">
-                                {!!    App\Settings\HomeSettingSingleton::getInstance()->getItem('our_advantage')?->trans[0]->description   !!}
+ {{--                                {{  substr( App\Settings\HomeSettingSingleton::getInstance()->getItem('our_advantage')?->trans[0]->description,10,600)  }}--}}
+                             <li id="more2">
+                                {!!       App\Settings\HomeSettingSingleton::getInstance()->getItem('our_advantage')?->trans[0]->description ?  substr(removeHTML( App\Settings\HomeSettingSingleton::getInstance()->getItem('our_advantage')?->trans[0]->description),0,10)  : ''  !!}
+
                             </li>
                             <li class="hidden-text-2">
-                                {!!    App\Settings\HomeSettingSingleton::getInstance()->getItem('our_advantage')?->trans[0]->description   !!}
+                                {!!       App\Settings\HomeSettingSingleton::getInstance()->getItem('our_advantage')?->trans[0]->description ?  substr(removeHTML( App\Settings\HomeSettingSingleton::getInstance()->getItem('our_advantage')?->trans[0]->description),10,200)  : ''  !!}
+
                             </li>
 
                             <a href="{{App\Settings\HomeSettingSingleton::getInstance()->getItem('our_advantage')?->trans[0]->link??'#more2'}}"

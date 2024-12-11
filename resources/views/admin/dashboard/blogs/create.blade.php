@@ -1,8 +1,7 @@
 @extends('admin.app')
 
-@section('title', trans('categories.edit'))
-@section('title_page', trans('categories.edit_name', ['name' => @$item->translate($locale)->title]))
-
+@section('title', trans('admin.blogs_create'))
+@section('title_page', trans('admin.blogs_create'))
 
 @section('content')
 
@@ -13,18 +12,17 @@
                 <div class="col-12 m-3">
                     <div class="row mb-3 text-end">
                         <div>
-                            <a href="{{ route('admin.categories.index') }}"
-                                class="btn btn-outline-primary waves-effect waves-light ml-3">@lang('button.cancel')</a>
+                            <a href="{{ route('admin.blogs.index') }}"
+                                class="btn btn-outline-primary waves-effect waves-light ml-3 btn-sm">@lang('button.cancel')</a>
                         </div>
                     </div>
                     <div class="card">
                         <div class="card-body">
 
-                            <form action="{{ route('admin.categories.update', $item->id) }}" method="post" enctype="multipart/form-data">
+                            <form action="{{ route('admin.blogs.store') }}" method="post" enctype="multipart/form-data">
                                 @csrf
-                                @method('put')
                                 <div class="row">
-                                    <div class="col-md-9">
+                                    <div class="col-md-8">
                                         @foreach ($languages as $key => $locale)
                                             <div class="accordion mt-4 mb-4" id="accordionExample">
                                                 <div class="accordion-item border rounded">
@@ -35,7 +33,6 @@
                                                             aria-expanded="true"
                                                             aria-controls="collapseOne{{ $key }}">
                                                             {{ trans('lang.' . Locale::getDisplayName($locale)) }}
-
                                                         </button>
                                                     </h2>
                                                     <div id="collapseOne{{ $key }}"
@@ -44,17 +41,15 @@
                                                         data-bs-parent="#accordionExample">
                                                         <div class="accordion-body">
 
-
-
-                                                            {{-- title ------------------------------------------------------------------------------------- --}}
-                                                            <div class="row mb-3">
+                                                            <div class="row mb-3 title-section">
                                                                 <label for="example-text-input"
                                                                     class="col-sm-2 col-form-label">{{ trans('admin.title_in') . trans('lang.' . Locale::getDisplayName($locale)) }}</label>
+
                                                                 <div class="col-sm-10">
                                                                     <input type="text" id="title{{ $key }}"
                                                                         name="{{ $locale }}[title]"
-                                                                        value="{{ @$item->trans->where('locale', $locale)->first()->title }}"
-                                                                        class="form-control" required>
+                                                                        value="{{ old($locale . '.title') }}"
+                                                                        class="form-control title" required>
                                                                     @if ($errors->has($locale . '.title'))
                                                                         <span
                                                                             class="missiong-spam">{{ $errors->first($locale . '.title') }}</span>
@@ -62,8 +57,6 @@
                                                                 </div>
                                                             </div>
 
-
-                                                            {{-- Start Slug --}}
                                                             <div class="row mb-3 slug-section">
                                                                 <label for="example-text-input"
                                                                     class="col-sm-2 col-form-label">{{ trans('admin.slug_in') . trans('lang.' . Locale::getDisplayName($locale)) }}
@@ -72,7 +65,7 @@
                                                                 <div class="col-sm-10">
                                                                     <input type="text" id="slug{{ $key }}"
                                                                         name="{{ $locale }}[slug]"
-                                                                        value="{{ @$item->trans->where('locale', $locale)->first()->slug }}"
+                                                                        value="{{ old($locale . '.slug') }}"
                                                                         class="form-control slug" required>
                                                                     @if ($errors->has($locale . '.slug'))
                                                                         <span
@@ -81,16 +74,16 @@
                                                                 </div>
                                                             </div>
                                                             @include('admin.layouts.scriptSlug')
-                                                            {{-- End Slug --}}
 
+
+                                                            {{-- Start Slug --}}
                                                             {{-- description ------------------------------------------------------------------------------------- --}}
                                                             <div class="row mb-3">
                                                                 <label for="example-text-input"
-                                                                    class="col-sm-2 col-form-label">
-                                                                    {{ trans('admin.description_in') . trans('lang.' . Locale::getDisplayName($locale)) }}
+                                                                    class="col-sm-2 col-form-label">{{ trans('admin.description_in') . trans('lang.' . Locale::getDisplayName($locale)) }}
                                                                 </label>
-                                                                <div class="col-sm-10 mt-2">
-                                                                    <textarea id="description{{ $key }}" name="{{ $locale }}[description]"> {{ @$item->trans->where('locale', $locale)->first()->description }} </textarea>
+                                                                <div class="col-sm-10 mb-2">
+                                                                    <textarea id="description{{ $key }}" name="{{ $locale }}[description]">  </textarea>
                                                                     @if ($errors->has($locale . '.description'))
                                                                         <span
                                                                             class="missiong-spam">{{ $errors->first($locale . '.description') }}</span>
@@ -98,21 +91,19 @@
                                                                 </div>
 
                                                                 <script type="text/javascript">
-                                                                    CKEDITOR.replace('description{{ $key }}', {
-                                                                        filebrowserUploadUrl: "{{ route('admin.ckeditor.upload', ['_token' => csrf_token()]) }}",
-                                                                        filebrowserUploadMethod: 'form'
-                                                                    });
+                                                                    $(function() {
+                                                                        CKEDITOR.replace('description{{ $key }}');
+                                                                        $('.textarea').wysihtml5()
+                                                                    })
                                                                 </script>
+
                                                             </div>
-
-
                                                         </div>
                                                     </div>
                                                 </div>
+
                                             </div>
                                         @endforeach
-
-
                                         <div class="accordion mt-4 mb-4" id="accordionExample">
                                             <div class="accordion-item border rounded">
                                                 <h2 class="accordion-header" id="headingTwo{{ $key }}">
@@ -132,14 +123,13 @@
 
                                                         @foreach ($languages as $key => $locale)
                                                             {{-- meta_title_ ------------------------------------------------------------------------------------- --}}
-                                                            {{-- meta_title_ ------------------------------------------------------------------------------------- --}}
                                                             <div class="row mb-3">
                                                                 <label for="example-text-input"
                                                                     class="col-sm-2 col-form-label">{{ trans('admin.meta_title_in') . trans('lang.' . Locale::getDisplayName($locale)) }}</label>
                                                                 <div class="col-sm-10">
                                                                     <input class="form-control" type="text"
                                                                         name="{{ $locale }}[meta_title]"
-                                                                        value="{{ @$item->trans->where('locale', $locale)->first()->meta_title }}"
+                                                                        value="{{ old($locale . '.meta_title') }}"
                                                                         id="title{{ $key }}">
                                                                 </div>
                                                                 @if ($errors->has($locale . '.meta_title'))
@@ -155,7 +145,7 @@
                                                                     {{ trans('admin.meta_description_in') . trans('lang.' . Locale::getDisplayName($locale)) }}
                                                                 </label>
                                                                 <div class="col-sm-10 mb-2">
-                                                                    <textarea name="{{ $locale }}[meta_description]" class="form-control description"> {{ @$item->trans->where('locale', $locale)->first()->meta_description }} </textarea>
+                                                                    <textarea name="{{ $locale }}[meta_description]" class="form-control description"> {{ old($locale . '.meta_description') }} </textarea>
                                                                     @if ($errors->has($locale . '.meta_description'))
                                                                         <span
                                                                             class="missiong-spam">{{ $errors->first($locale . '.meta_description') }}</span>
@@ -170,7 +160,7 @@
                                                                     {{ trans('admin.meta_key_in') . trans('lang.' . Locale::getDisplayName($locale)) }}
                                                                 </label>
                                                                 <div class="col-sm-10 mb-2">
-                                                                    <textarea name="{{ $locale }}[meta_key]" class="form-control description"> {{ @$item->trans->where('locale', $locale)->first()->meta_key }} </textarea>
+                                                                    <textarea name="{{ $locale }}[meta_key]" class="form-control description"> {{ old($locale . '.meta_key') }} </textarea>
                                                                     @if ($errors->has($locale . '.meta_key'))
                                                                         <span
                                                                             class="missiong-spam">{{ $errors->first($locale . '.meta_key') }}</span>
@@ -181,14 +171,11 @@
                                                         @endforeach
                                                     </div>
                                                 </div>
-
                                             </div>
                                         </div>
-
-
                                     </div>
+                                    <div class="col-md-4">
 
-                                    <div class="col-md-3">
                                         <div class="accordion mt-4 mb-4" id="accordionExample">
                                             <div class="accordion-item border rounded">
                                                 <h2 class="accordion-header" id="headingOne">
@@ -203,109 +190,85 @@
                                                     <div class="accordion-body">
 
                                                         {{-- image ------------------------------------------------------------------------------------- --}}
-                                                        @if ($item->image != null)
-                                                            <img src="{{ asset($item->image) }}" alt=""
-                                                                style="width:100%">
-                                                        @endif
-
                                                         <div class="col-12">
                                                             <div class="row mb-3">
-                                                                <label for="example-number-input">
+                                                                <label for="example-number-input" col-form-label>
                                                                     @lang('admin.image'):</label>
                                                                 <div class="col-sm-12">
                                                                     <input class="form-control" type="file"
-                                                                        name="image">
+                                                                        placeholder="@lang('admin.image'):"
+                                                                        id="example-number-input" name="image"
+                                                                        value="{{ old('image') }}">
                                                                 </div>
                                                             </div>
-                                                            @if ($errors->has('image'))
-                                                                <span
-                                                                    class="missiong-spam">{{ $errors->first('image') }}</span>
-                                                            @endif
                                                         </div>
-
-
                                                         {{-- sort ------------------------------------------------------------------------------------- --}}
                                                         <div class="col-12">
                                                             <div class="row mb-3">
-                                                                <label for="example-number-input">
-                                                                    @lang('categories.sort'):</label>
+                                                                <label for="example-number-input" col-form-label>
+                                                                    @lang('articles.sort'):</label>
                                                                 <div class="col-sm-12">
                                                                     <input class="form-control" type="number"
-                                                                        name="sort" value="{{ $item->sort }}">
+                                                                        placeholder="@lang('articles.sort'):"
+                                                                        id="example-number-input" name="sort"
+                                                                        value="{{ old('sort') }}">
                                                                 </div>
-                                                                @error('sort')
-                                                                    <span class="text-danger">{{ $message }}</span>
-                                                                @enderror
+                                                            </div>
+                                                        </div>
+                                                        {{-- feature ------------------------------------------------------------------------------------- --}}
+                                                        <div class="col-12">
+                                                            <label class="col-sm-12 col-form-label"
+                                                                for="available">{{ trans('admin.feature') }}</label>
+                                                            <div class="col-sm-10">
+                                                                <input class="form-check form-switch" name="feature"
+                                                                    type="checkbox" id="switch1" switch="success"
+                                                                    checked value="1">
+                                                                <label class="form-label" for="switch1"
+                                                                    data-on-label=" @lang('admin.yes') "
+                                                                    data-off-label=" @lang('admin.no')"></label>
                                                             </div>
                                                         </div>
 
-
                                                         {{-- Status ------------------------------------------------------------------------------------- --}}
-                                                        <div class="row col-12">
-                                                            <label class="col-md-6"
-                                                                for="example-number-input">{{ trans('admin.status') }}</label>
-                                                            <div class="col-sm-6">
+                                                        <div class="col-12">
+                                                            <label class="col-sm-12 col-form-label"
+                                                                for="available">{{ trans('admin.status') }}</label>
+                                                            <div class="col-sm-10">
                                                                 <input class="form-check form-switch" name="status"
                                                                     type="checkbox" id="switch3" switch="success"
-                                                                    {{ $item->status == 1 ? 'checked' : '' }}
-                                                                    value="1">
+                                                                    checked value="1">
                                                                 <label class="form-label" for="switch3"
                                                                     data-on-label=" @lang('admin.yes') "
                                                                     data-off-label=" @lang('admin.no')"></label>
                                                             </div>
-                                                            @error('status')
-                                                                <span class="text-danger">{{ $message }}</span>
-                                                            @enderror
                                                         </div>
-                                                        {{-- feature ------------------------------------------------------------------------------------- --}}
-                                                        <div class="row col-12">
-                                                            <label class="col-md-6" for="example-number-input"
-                                                                for="available">{{ trans('categories.feature') }}</label>
-                                                            <div class="col-sm-6">
-                                                                <input class="form-check form-switch" name="feature"
-                                                                    type="checkbox" id="switch1" switch="success"
-                                                                    {{ $item->feature == 1 ? 'checked' : '' }}
-                                                                    value="1">
-                                                                <label class="form-label" for="switch1"
-                                                                    data-on-label=" @lang('admin.yes') "
-                                                                    data-off-label=" @lang('admin.no')"></label>
-                                                                @error('feature')
-                                                                    <span class="text-danger">{{ $message }}</span>
-                                                                @enderror
-                                                            </div>
-                                                        </div>
-
-
                                                     </div>
                                                 </div>
-
                                             </div>
                                         </div>
                                     </div>
+                                </div>
 
-                                    {{-- Butoooons ------------------------------------------------------------------------- --}}
+                                {{-- Butoooons ------------------------------------------------------------------------- --}}
                                     <div class="row mb-3 text-end">
                                         <div>
-                                            <a href="{{ route('admin.categories.index') }}"
-                                                class="btn btn-outline-primary waves-effect waves-light ml-3">@lang('button.cancel')</a>
+                                            <a href="{{ route('admin.blogs.index') }}"
+                                                class="btn btn-outline-primary waves-effect waves-light ml-3 btn-sm">@lang('button.cancel')</a>
                                             <button type="submit"
-                                                class="btn btn-outline-success waves-effect waves-light ml-3">@lang('button.save')</button>
+                                                class="btn btn-outline-success waves-effect waves-light ml-3 btn-sm">@lang('button.save')</button>
                                         </div>
                                     </div>
 
-                                </div>
+
+
+
+                            </form>
+
                         </div>
-
-
-
-
-                        </form>
-
                     </div>
-                </div>
-            </div> <!-- end col -->
-        </div>
-    </div> <!-- end row-->
+                </div> <!-- end col -->
+            </div>
+        </div> <!-- end row-->
 
     </div> <!-- container-fluid -->
 

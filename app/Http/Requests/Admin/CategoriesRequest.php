@@ -26,7 +26,8 @@ class CategoriesRequest extends FormRequest
             $attr += [$locale . '.meta_description' => 'Meta description ' . Locale::getDisplayName($locale)];
             $attr += [$locale . '.meta_key' => 'Meta key ' . Locale::getDisplayName($locale)];
         }
-        $attr += ['image' => ImageValidate()];
+
+        $attr += ['image' => 'Image'];
         $attr += ['sort' => 'Sort'];
         $attr += ['feature' => 'Fearure'];
         $attr += ['status' => 'Status'];
@@ -49,7 +50,7 @@ class CategoriesRequest extends FormRequest
             $req += [$locale . '.meta_description' => 'nullable'];
             $req += [$locale . '.meta_key' => 'nullable'];
         }
-        $req += ['image' =>   ImageValidate()];
+        $req += ['image' =>  'nullable|'. ImageValidate()];
         $req += ['status' => 'nullable'];
         $req += ['sort' => 'nullable'];
         $req += ['feature' => 'nullable'];

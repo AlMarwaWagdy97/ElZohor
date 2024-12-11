@@ -1,7 +1,7 @@
 @extends('admin.app')
 
-@section('title', trans('news.show_news'))
-@section('title_page', trans('news.show_news'))
+@section('title', trans('admin.careers_categories'))
+@section('title_page', trans('admin.careers_categories'))
 
 @section('style')
     {{-- @vite(['resources/assets/admin/css/data-tables.js']) --}}
@@ -18,19 +18,19 @@
             <div class="card-body  search-group">
                 <div class="row">
                     <div class="col-md-12 text-end mb-2">
-                        <a href="{{ route('admin.news.create') }}" class="btn btn-outline-success btn-sm">@lang('admin.create')</a>
+                        <a href="{{ route('admin.careers_categories.create') }}" class="btn btn-outline-success btn-sm">@lang('admin.create')</a>
                     </div>
                 </div>
                 {{-- Start Form search --}}
-                <form action="{{route('admin.news.index')}}" method="get">
+                <form action="{{route('admin.careers_categories.index')}}" method="get">
                     @csrf
                     <div class="row mb-3">
                         <div class="col-md-3 mb-2">
                             <input type="test"  value="{{ old('title', request()->input('title')) }}" name="title" placeholder="{{ trans('admin.title') }}" class="form-control">
                         </div>
-                        <div class="col-md-3 mb-2">
-                            <input type="test"  value="{{ old('description', request()->input('description')) }}" name="description" placeholder="{{ trans('admin.description') }}" class="form-control">
-                        </div>
+{{--                        <div class="col-md-3 mb-2">--}}
+{{--                            <input type="test"  value="{{ old('description', request()->input('description')) }}" name="description" placeholder="{{ trans('admin.description') }}" class="form-control">--}}
+{{--                        </div>--}}
                         <div class="col-md-3 mb-2">
                             <select class="form-select" name="status"  aria-label=".form-select-sm example">
                                 <option selected value=""> @lang('admin.status')  </option>
@@ -41,7 +41,7 @@
 
                         <div class="search-input col-md-2">
                             <button class="btn btn-primary btn-sm" type="submit"><i class="fas fa-search"> </i></button>
-                            <a class="btn btn-success btn-sm" href="{{route('admin.news.index')}}"><i class="refresh ion ion-md-refresh"></i></a>
+                            <a class="btn btn-success btn-sm" href="{{route('admin.careers_categories.index')}}"><i class="refresh ion ion-md-refresh"></i></a>
                         </div>
                     </div>
                 </form>
@@ -50,9 +50,8 @@
 
 
 
-
                 <div class="card-body mt-0 pt-0">
-                    <form id="update-pages" action="{{route('admin.news.actions')}}" method="post">
+                    <form id="update-pages" action="{{route('admin.careers_categories.actions')}}" method="post">
                         @csrf
                     </form>
                     <div class="table-responsive">
@@ -75,7 +74,7 @@
                                 </th>
                                 <th>#</th>
                                 <th>@lang('admin.title')</th>
-                                <th>@lang('admin.description')</th>
+{{--                                <th>@lang('admin.description')</th>--}}
                                 <th>@lang('articles.sort')</th>
                                 <th>@lang('admin.created_at')</th>
                                 <th>@lang('admin.updated_at')</th>
@@ -85,6 +84,7 @@
                             <tbody>
 
                                 @foreach ($items as $key => $item)
+                                    @if($item)
                                 <tr>
                                     <td>
                                         <input form="update-pages" class="checkbox-check" type="checkbox" name="record[{{$item->id}}]" value={{ $item->id }}>
@@ -95,33 +95,33 @@
                                         {{ optional($item->transNow)->title}}
 
                                     </td>
-                                    <td>
-                                        {{  $item->transNow ?  substr(removeHTML($item->transNow->description),0,30)  : ''}}
+{{--                                    <td>--}}
+{{--                                        {{  $item->transNow ?  substr(removeHTML($item->transNow->description),0,30)  : ''}}--}}
 
-                                    </td>
+{{--                                    </td>--}}
                                     <td>{{ $item->sort }}</td>
                                     <td>{{ $item->created_at }}</td>
                                     <td>{{ $item->updated_at }}</td>
                                     <td>
                                         <div class="d-flex justify-content-center">
                                             @if($item->status == 1)
-                                                <a href="{{ route('admin.news.update-status', $item->id )}}" title="@lang('admin.active')" class="btn btn-xs btn-success btn-sm m-1"><i class="fa fa-check"></i></a>
+                                                <a href="{{ route('admin.careers_categories.update-status', $item->id )}}" title="@lang('admin.active')" class="btn btn-xs btn-success btn-sm m-1"><i class="fa fa-check"></i></a>
                                             @else
-                                                <a href="{{ route('admin.news.update-status', $item->id )}}" title="@lang('admin.dis_active')"  class="btn btn-xs btn-outline-secondary btn-sm m-1"><i class="fa fa-ban"></i></a>
+                                                <a href="{{ route('admin.careers_categories.update-status', $item->id )}}" title="@lang('admin.dis_active')"  class="btn btn-xs btn-outline-secondary btn-sm m-1"><i class="fa fa-ban"></i></a>
                                             @endif
 
                                             @if($item->feature == 1)
-                                                <a href="{{ route('admin.news.update-featured', $item->id )}}" title="@lang('admin.feature')"  class="btn btn-xs btn-warning btn-sm m-1"><i class="fa fa-star"></i></a>
+                                                <a href="{{ route('admin.careers_categories.update-featured', $item->id )}}" title="@lang('admin.feature')"  class="btn btn-xs btn-warning btn-sm m-1"><i class="fa fa-star"></i></a>
                                             @else
-                                                <a href="{{ route('admin.news.update-featured', $item->id )}}" title="@lang('admin.feature')"  class="btn btn-xs btn-outline-secondary btn-sm m-1"><i class="fa fa-star"></i></a>
+                                                <a href="{{ route('admin.careers_categories.update-featured', $item->id )}}" title="@lang('admin.feature')"  class="btn btn-xs btn-outline-secondary btn-sm m-1"><i class="fa fa-star"></i></a>
                                             @endif
 
 
 
-                                            <a href="{{ route('admin.news.show', $item->id) }}" title="@lang('admin.show')" class="btn btn-xs btn-outline-info btn-sm m-1"><i class="fas fa-eye"></i></a>
+                                            <a href="{{ route('admin.careers_categories.show', $item->id) }}" title="@lang('admin.show')" class="btn btn-xs btn-outline-info btn-sm m-1"><i class="fas fa-eye"></i></a>
 
 
-                                            <a href="{{ route('admin.news.edit',$item->id) }}" title="@lang('admin.edit')" class="btn btn-outline-primary btn-sm m-1"><i class="fas fa-pencil-alt"></i></a>
+                                            <a href="{{ route('admin.careers_categories.edit',$item->id) }}" title="@lang('admin.edit')" class="btn btn-outline-primary btn-sm m-1"><i class="fas fa-pencil-alt"></i></a>
 
                                             <a class="btn btn-outline-danger btn-sm m-1" title="@lang('admin.delete')" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $item->id }}">
                                                 <i class="fas fa-trash-alt"> </i>
@@ -132,7 +132,8 @@
 
 
                                 </tr>
-                                @include('admin.dashboard.news.delete')
+                                @include('admin.dashboard.careers_categories.delete')
+                                    @endif
 
                                 @endforeach
 

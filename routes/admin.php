@@ -1,6 +1,10 @@
 <?php
 
 
+use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\CareerCategoryController;
+use App\Http\Controllers\Admin\CareerController;
+use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\UserScriptController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AuthController;
@@ -181,20 +185,46 @@ Route::group([
                 Route::post('home-settings/upload', [imageUploadController::class, 'upload'])->name('ckeditor.upload');
 
 
+                // ----- news -----------------------------------------------
+                Route::resource('news', NewsController::class);
+                Route::get('news/update-status/{id}', [NewsController::class, 'update_status'])->name('news.update-status');
+                Route::get('news/update-featured/{id}', [NewsController::class, 'update_featured'])->name('news.update-featured');
+
+                Route::post('news/upload', [NewsController::class, 'upload'])->name('ckeditor.upload');
+                Route::post('news/actions', [NewsController::class, 'actions'])->name('news.actions');
+
+                // ----- blogs -----------------------------------------------
+                Route::resource('blogs', BlogController::class);
+                Route::get('blogs/update-status/{id}', [BlogController::class, 'update_status'])->name('blogs.update-status');
+                Route::get('blogs/update-featured/{id}', [BlogController::class, 'update_featured'])->name('blogs.update-featured');
+
+                Route::post('blogs/upload', [BlogController::class, 'upload'])->name('ckeditor.upload');
+                Route::post('blogs/actions', [BlogController::class, 'actions'])->name('blogs.actions');
 
 
+                // ----- careers -----------------------------------------------
+                Route::resource('careers', CareerController::class);
+                Route::get('careers/update-status/{id}', [CareerController::class, 'update_status'])->name('careers.update-status');
+                Route::get('careers/update-featured/{id}', [CareerController::class, 'update_featured'])->name('careers.update-featured');
+
+                Route::post('careers/upload', [CareerController::class, 'upload'])->name('ckeditor.upload');
+                Route::post('careers/actions', [CareerController::class, 'actions'])->name('careers.actions');
 
 
+                // ----- careers categories -----------------------------------------------
+                Route::resource('careers_categories', CareerCategoryController::class);
+                Route::get('careers_categories/update-status/{id}', [CareerCategoryController::class, 'update_status'])->name('careers_categories.update-status');
+                Route::get('careers_categories/update-featured/{id}', [CareerCategoryController::class, 'update_featured'])->name('careers_categories.update-featured');
 
+                Route::post('careers_categories/upload', [CareerCategoryController::class, 'upload'])->name('ckeditor.upload');
+                Route::post('careers_categories/actions', [CareerCategoryController::class, 'actions'])->name('careers_categories.actions');
 
 
                 /***********************user scripts************************/
-                Route::resource('user_scripts' , UserScriptController::class )->except('edit' , 'update' , 'show');
+                Route::resource('user_scripts', UserScriptController::class)->except('edit', 'update', 'show');
                 Route::get('user_scripts/update-status/{id}', [UserScriptController::class, 'update_status'])->name('user_scripts.update-status');
-                Route::post('user_scripts_all_post' , [UserScriptController::class , 'updateAll'] )->name('user_scripts.update_all');
-                Route::get('user_scripts_all' , [UserScriptController::class , 'editAll'] )->name('user_scripts.editAll');
-
-
+                Route::post('user_scripts_all_post', [UserScriptController::class, 'updateAll'])->name('user_scripts.update_all');
+                Route::get('user_scripts_all', [UserScriptController::class, 'editAll'])->name('user_scripts.editAll');
 
 
             });

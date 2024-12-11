@@ -1,8 +1,8 @@
 @extends('site.app')
 
-@section('title', @$blog->meta_title)
-@section('meta_key', @$blog->meta_key)
-@section('meta_description', @$blog->meta_description)
+@section('title', optional(@$blog->transNow)->meta_title)
+@section('meta_key', optional(@$blog->transNow)->meta_key)
+@section('meta_description', optional(@$blog->transNow)->meta_description)
 
 @section('content')
 <!--item -->
@@ -14,9 +14,9 @@
                 <img src="{{ asset(@$blog->image) }}" class="img-fluid" alt="" />
             </div>
             <div class="description col-12 col-lg-6 p-3 align-content-center text-start wow bounceInLeft">
-                <h1 dir="ltr">{{ @$blog->title }}</h1>
+                <h1 dir="ltr">{{ optional(@$blog->transNow)->title }}</h1>
                 <p dir="ltr">
-                    {!! @$blog->description !!}
+                    {!! optional(@$blog->transNow)->description !!}
                 </p>
             </div>
         </div>

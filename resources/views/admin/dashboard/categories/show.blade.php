@@ -18,7 +18,7 @@
                     <div class="card">
                         <div class="card-body">
 
-                               
+
                                 <div class="row">
                                     <div class="col-md-9">
                                         @foreach ($languages as $key => $locale)
@@ -53,7 +53,7 @@
                                                                         @endif
                                                                     </div>
                                                                 </div>
-                                                                        
+
                                                             {{-- Start Slug --}}
                                                             <div class="row mb-3 slug-section">
                                                                 <label for="example-text-input" class="col-sm-2 col-form-label">{{ trans('admin.slug_in') . trans('lang.' .Locale::getDisplayName($locale)) }} </label>
@@ -63,7 +63,7 @@
                                                                     @if($errors->has($locale .'.slug'))
                                                                         <span class="missiong-spam">{{ $errors->first($locale . '.slug') }}</span>
                                                                     @endif
-                                                                </div>            
+                                                                </div>
                                                             </div>
                                                             @include('admin.layouts.scriptSlug')
                                                             {{-- End Slug --}}
@@ -164,7 +164,7 @@
 
 
                                     </div>
-                   
+
                                     <div class="col-md-3">
                                         <div class="accordion mt-4 mb-4" id="accordionExample">
                                             <div class="accordion-item border rounded">
@@ -191,21 +191,9 @@
                                                             </div>
                                                         </div>
                                                         @endif
-                                                      
-                                                        {{-- parent Category ------------------------------------------------------------------------------------- --}}
 
-                                                        <div class="col-12">
-                                                            <div class="row mb-3">
-                                                                <label for="example-number-input"> @lang('categories.parent'):</label>
-                                                                <div class="col-sm-12">
-                                                                    <p class="h2 text-primary ">{{ @$item->parent ?@$item->parent->title: "__"  }}</p>
-                                                                </div>
-                                                            </div>
-                                                            @error('parent_id')
-                                                                <span class="text-danger">{{ $message }}</span>
-                                                            @enderror
-                                                        </div>
-                                                        {{-- sort ------------------------------------------------------------------------------------- --}}
+
+                                                         {{-- sort ------------------------------------------------------------------------------------- --}}
                                                         <div class="col-12">
                                                             <div class="row mb-3">
                                                                 <label for="example-number-input"  col-form-label> @lang('categories.sort'):</label>
@@ -218,28 +206,28 @@
                                                         <div class="col-12 ">
                                                             <label class="col-md-3 col-form-label" for="available">{{ trans('admin.feature') }}</label>
                                                                 @if($item->feature == 1 )
-                                                                    <p class="badge  bg-success h3" style="font-size:20px">@lang("admin.yes")</p>   
+                                                                    <p class="badge  bg-success h3" style="font-size:20px">@lang("admin.yes")</p>
                                                                 @else
                                                                     <p class="badge  bg-danger h3" style="font-size:20px">@lang("admin.no")</p>
-                                                                @endif   
+                                                                @endif
                                                         </div>
 
-                                                    
+
                                                         {{-- Status ------------------------------------------------------------------------------------- --}}
                                                         <div class="col-12">
                                                             <label class="col-sm-3 col-form-label" for="available">{{ trans('admin.status') }}</label>
                                                                 @if($item->status == 1 )
-                                                                    <p class="badge  bg-success h3" style="font-size:20px">@lang("admin.active")</p>   
+                                                                    <p class="badge  bg-success h3" style="font-size:20px">@lang("admin.active")</p>
                                                                 @else
                                                                     <p class="badge  bg-danger h3" style="font-size:20px">@lang("admin.dis_active")</p>
                                                                 @endif
                                                         </div>
                                                     </div>
-                                                            
-                                                    
+
+
                                                      </div>
                                                 </div>
-                                            
+
                                             </div>
                                         </div>
                                     </div>

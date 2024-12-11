@@ -77,7 +77,7 @@ class PageController extends Controller
     public function careers()
     {
         $page = Pages::findOrFail(4);
-        $careers = Career::with('category')->active()->get();
+        $careers = Career::with('category')->orderBy('sort' , 'ASC')->active()->get();
         $settings = SettingSingleton::getInstance();
         return view('site.pages.careers.index', compact('careers', 'settings' , 'page'));
     }
@@ -86,7 +86,7 @@ class PageController extends Controller
     public function news()
     {
         $page = Pages::findOrFail(5);
-        $news = News::active()->get();
+        $news = News::with('transNow')->active()->get();
         $settings = SettingSingleton::getInstance();
         return view('site.pages.news.index', compact('news', 'settings' , 'page'));
     }
@@ -96,7 +96,7 @@ class PageController extends Controller
     public function blogs()
     {
         $page = Pages::findOrFail(6);
-        $blogs = Blog::active()->get();
+        $blogs = Blog::with('transNow' )->active()->get();
         $settings = SettingSingleton::getInstance();
         return view('site.pages.blogs.index', compact('blogs', 'settings' , 'page'));
     }

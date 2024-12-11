@@ -10,16 +10,16 @@
 
             @foreach($news as $key => $val)
                 @if( $key % 2 == 0 || $key == 0)
-                    <div class="row blog text-center wow bounceInRight">
+                    <div   class="row blog text-center wow bounceInRight">
                         <div class="col-12 col-lg-6">
-                            <img src="{{asset($val->image)}}" class="img-fluid" alt=""/>
+                            <img onclick="window.location.href=`{{url(route('site.news.show' , optional($val->transNow)->slug ?? $val->id))}}`" src="{{asset($val->image)}}" class="img-fluid poniterClass" alt=""/>
                         </div>
                         <div
                             class="col-12 col-lg-6 text-end d-flex flex-column justify-content-center"
                         >
-                            <h1> {{$val->title}}</h1>
+                            <h1 class="poniterClass" onclick="window.location.href=`{{url(route('site.news.show' , optional($val->transNow)->slug ?? $val->id))}}`"> {{optional($val->transNow)->title}} </h1>
                             <p>
-                                {{$val->description}}
+                                {!!  optional($val->transNow)->description !!}
 {{--                                <a href="{{route('site.news.show' ,  $val->slug ?? $val->id)}}" class=" btn-custom-blogs ">عرض</a>--}}
 
                             </p>
@@ -27,20 +27,20 @@
                     </div>
                 @else
 
-                    <div class="row blog text-center wow bounceInLeft">
+                    <div    class="row blog text-center wow bounceInLeft">
                         <div
                             class="col-12 col-lg-6 my-5 text-end d-flex flex-column justify-content-center"
                         >
-                            <h1>{{$val->title}}</h1>
+                            <h1 class="poniterClass" onclick="window.location.href=`{{url(route('site.news.show' , optional($val->transNow)->slug ?? $val->id))}}`">{{optional($val->transNow)->title}} </h1>
                             <p>
-                                {{$val->description}}
+                                {!!   optional($val->transNow)->description !!}
 {{--                                <a href="{{route('site.news.show' , $val->slug ?? $val->id)}}" class=" btn-custom-blogs ">عرض</a>--}}
 
                             </p>
 
                         </div>
                         <div class="col-12 col-lg-6">
-                            <img src="{{asset($val->image)}}" class="img-fluid" alt=""/>
+                            <img onclick="window.location.href=`{{url(route('site.news.show' , optional($val->transNow)->slug ?? $val->id))}}`" src="{{asset($val->image)}}" class="img-fluid poniterClass" alt=""/>
                         </div>
                     </div>
                 @endif

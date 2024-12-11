@@ -1,7 +1,7 @@
 @extends('admin.app')
 
-@section('title', trans('news.create_news'))
-@section('title_page', trans('news.create_news'))
+@section('title', trans('admin.careers_categories_create'))
+@section('title_page', trans('admin.careers_categories_create'))
 
 @section('content')
 
@@ -12,14 +12,15 @@
                 <div class="col-12 m-3">
                     <div class="row mb-3 text-end">
                         <div>
-                            <a href="{{ route('admin.news.index') }}"
-                                class="btn btn-outline-primary waves-effect waves-light ml-3 btn-sm">@lang('button.cancel')</a>
+                            <a href="{{ route('admin.careers_categories.index') }}"
+                               class="btn btn-outline-primary waves-effect waves-light ml-3 btn-sm">@lang('button.cancel')</a>
                         </div>
                     </div>
                     <div class="card">
                         <div class="card-body">
 
-                            <form action="{{ route('admin.news.store') }}" method="post" enctype="multipart/form-data">
+                            <form action="{{ route('admin.careers_categories.store') }}" method="post"
+                                  enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
                                     <div class="col-md-8">
@@ -28,28 +29,28 @@
                                                 <div class="accordion-item border rounded">
                                                     <h2 class="accordion-header" id="headingOne{{ $key }}">
                                                         <button class="accordion-button fw-medium" type="button"
-                                                            data-bs-toggle="collapse"
-                                                            data-bs-target="#collapseOne{{ $key }}"
-                                                            aria-expanded="true"
-                                                            aria-controls="collapseOne{{ $key }}">
+                                                                data-bs-toggle="collapse"
+                                                                data-bs-target="#collapseOne{{ $key }}"
+                                                                aria-expanded="true"
+                                                                aria-controls="collapseOne{{ $key }}">
                                                             {{ trans('lang.' . Locale::getDisplayName($locale)) }}
                                                         </button>
                                                     </h2>
                                                     <div id="collapseOne{{ $key }}"
-                                                        class="accordion-collapse collapse show mt-3"
-                                                        aria-labelledby="headingOne{{ $key }}"
-                                                        data-bs-parent="#accordionExample">
+                                                         class="accordion-collapse collapse show mt-3"
+                                                         aria-labelledby="headingOne{{ $key }}"
+                                                         data-bs-parent="#accordionExample">
                                                         <div class="accordion-body">
 
                                                             <div class="row mb-3 title-section">
                                                                 <label for="example-text-input"
-                                                                    class="col-sm-2 col-form-label">{{ trans('admin.title_in') . trans('lang.' . Locale::getDisplayName($locale)) }}</label>
+                                                                       class="col-sm-2 col-form-label">{{ trans('admin.title_in') . trans('lang.' . Locale::getDisplayName($locale)) }}</label>
 
                                                                 <div class="col-sm-10">
                                                                     <input type="text" id="title{{ $key }}"
-                                                                        name="{{ $locale }}[title]"
-                                                                        value="{{ old($locale . '.title') }}"
-                                                                        class="form-control title" required>
+                                                                           name="{{ $locale }}[title]"
+                                                                           value="{{ old($locale . '.title') }}"
+                                                                           class="form-control title" required>
                                                                     @if ($errors->has($locale . '.title'))
                                                                         <span
                                                                             class="missiong-spam">{{ $errors->first($locale . '.title') }}</span>
@@ -59,14 +60,14 @@
 
                                                             <div class="row mb-3 slug-section">
                                                                 <label for="example-text-input"
-                                                                    class="col-sm-2 col-form-label">{{ trans('admin.slug_in') . trans('lang.' . Locale::getDisplayName($locale)) }}
+                                                                       class="col-sm-2 col-form-label">{{ trans('admin.slug_in') . trans('lang.' . Locale::getDisplayName($locale)) }}
                                                                 </label>
 
                                                                 <div class="col-sm-10">
                                                                     <input type="text" id="slug{{ $key }}"
-                                                                        name="{{ $locale }}[slug]"
-                                                                        value="{{ old($locale . '.slug') }}"
-                                                                        class="form-control slug" required>
+                                                                           name="{{ $locale }}[slug]"
+                                                                           value="{{ old($locale . '.slug') }}"
+                                                                           class="form-control slug" required>
                                                                     @if ($errors->has($locale . '.slug'))
                                                                         <span
                                                                             class="missiong-spam">{{ $errors->first($locale . '.slug') }}</span>
@@ -78,26 +79,27 @@
 
                                                             {{-- Start Slug --}}
                                                             {{-- description ------------------------------------------------------------------------------------- --}}
-                                                            <div class="row mb-3">
-                                                                <label for="example-text-input"
-                                                                    class="col-sm-2 col-form-label">{{ trans('admin.description_in') . trans('lang.' . Locale::getDisplayName($locale)) }}
-                                                                </label>
-                                                                <div class="col-sm-10 mb-2">
-                                                                    <textarea id="description{{ $key }}" name="{{ $locale }}[description]">  </textarea>
-                                                                    @if ($errors->has($locale . '.description'))
-                                                                        <span
-                                                                            class="missiong-spam">{{ $errors->first($locale . '.description') }}</span>
-                                                                    @endif
-                                                                </div>
+{{--                                                            <div class="row mb-3">--}}
+{{--                                                                <label for="example-text-input"--}}
+{{--                                                                       class="col-sm-2 col-form-label">{{ trans('admin.description_in') . trans('lang.' . Locale::getDisplayName($locale)) }}--}}
+{{--                                                                </label>--}}
+{{--                                                                <div class="col-sm-10 mb-2">--}}
+{{--                                                                    <textarea id="description{{ $key }}"--}}
+{{--                                                                              name="{{ $locale }}[description]">  </textarea>--}}
+{{--                                                                    @if ($errors->has($locale . '.description'))--}}
+{{--                                                                        <span--}}
+{{--                                                                            class="missiong-spam">{{ $errors->first($locale . '.description') }}</span>--}}
+{{--                                                                    @endif--}}
+{{--                                                                </div>--}}
 
-                                                                <script type="text/javascript">
-                                                                    $(function() {
-                                                                        CKEDITOR.replace('description{{ $key }}');
-                                                                        $('.textarea').wysihtml5()
-                                                                    })
-                                                                </script>
+{{--                                                                <script type="text/javascript">--}}
+{{--                                                                    $(function () {--}}
+{{--                                                                        CKEDITOR.replace('description{{ $key }}');--}}
+{{--                                                                        $('.textarea').wysihtml5()--}}
+{{--                                                                    })--}}
+{{--                                                                </script>--}}
 
-                                                            </div>
+{{--                                                            </div>--}}
                                                         </div>
                                                     </div>
                                                 </div>
@@ -108,29 +110,29 @@
                                             <div class="accordion-item border rounded">
                                                 <h2 class="accordion-header" id="headingTwo{{ $key }}">
                                                     <button class="accordion-button fw-medium" type="button"
-                                                        data-bs-toggle="collapse"
-                                                        data-bs-target="#collapseTwo{{ $key }}"
-                                                        aria-expanded="true"
-                                                        aria-controls="collapseTwo{{ $key }}">
+                                                            data-bs-toggle="collapse"
+                                                            data-bs-target="#collapseTwo{{ $key }}"
+                                                            aria-expanded="true"
+                                                            aria-controls="collapseTwo{{ $key }}">
                                                         @lang('admin.meta')
                                                     </button>
                                                 </h2>
                                                 <div id="collapseTwo{{ $key }}"
-                                                    class="accordion-collapse collapse show mt-3"
-                                                    aria-labelledby="headingTwo{{ $key }}"
-                                                    data-bs-parent="#accordionExample">
+                                                     class="accordion-collapse collapse show mt-3"
+                                                     aria-labelledby="headingTwo{{ $key }}"
+                                                     data-bs-parent="#accordionExample">
                                                     <div class="accordion-body">
 
                                                         @foreach ($languages as $key => $locale)
                                                             {{-- meta_title_ ------------------------------------------------------------------------------------- --}}
                                                             <div class="row mb-3">
                                                                 <label for="example-text-input"
-                                                                    class="col-sm-2 col-form-label">{{ trans('admin.meta_title_in') . trans('lang.' . Locale::getDisplayName($locale)) }}</label>
+                                                                       class="col-sm-2 col-form-label">{{ trans('admin.meta_title_in') . trans('lang.' . Locale::getDisplayName($locale)) }}</label>
                                                                 <div class="col-sm-10">
                                                                     <input class="form-control" type="text"
-                                                                        name="{{ $locale }}[meta_title]"
-                                                                        value="{{ old($locale . '.meta_title') }}"
-                                                                        id="title{{ $key }}">
+                                                                           name="{{ $locale }}[meta_title]"
+                                                                           value="{{ old($locale . '.meta_title') }}"
+                                                                           id="title{{ $key }}">
                                                                 </div>
                                                                 @if ($errors->has($locale . '.meta_title'))
                                                                     <span
@@ -141,11 +143,12 @@
                                                             {{-- meta_description_ ------------------------------------------------------------------------------------- --}}
                                                             <div class="row mb-3">
                                                                 <label for="example-text-input"
-                                                                    class="col-sm-2 col-form-label">
+                                                                       class="col-sm-2 col-form-label">
                                                                     {{ trans('admin.meta_description_in') . trans('lang.' . Locale::getDisplayName($locale)) }}
                                                                 </label>
                                                                 <div class="col-sm-10 mb-2">
-                                                                    <textarea name="{{ $locale }}[meta_description]" class="form-control description"> {{ old($locale . '.meta_description') }} </textarea>
+                                                                    <textarea name="{{ $locale }}[meta_description]"
+                                                                              class="form-control description"> {{ old($locale . '.meta_description') }} </textarea>
                                                                     @if ($errors->has($locale . '.meta_description'))
                                                                         <span
                                                                             class="missiong-spam">{{ $errors->first($locale . '.meta_description') }}</span>
@@ -156,11 +159,12 @@
                                                             {{-- meta_key_ ------------------------------------------------------------------------------------- --}}
                                                             <div class="row mb-3">
                                                                 <label for="example-text-input"
-                                                                    class="col-sm-2 col-form-label">
+                                                                       class="col-sm-2 col-form-label">
                                                                     {{ trans('admin.meta_key_in') . trans('lang.' . Locale::getDisplayName($locale)) }}
                                                                 </label>
                                                                 <div class="col-sm-10 mb-2">
-                                                                    <textarea name="{{ $locale }}[meta_key]" class="form-control description"> {{ old($locale . '.meta_key') }} </textarea>
+                                                                    <textarea name="{{ $locale }}[meta_key]"
+                                                                              class="form-control description"> {{ old($locale . '.meta_key') }} </textarea>
                                                                     @if ($errors->has($locale . '.meta_key'))
                                                                         <span
                                                                             class="missiong-spam">{{ $errors->first($locale . '.meta_key') }}</span>
@@ -173,11 +177,7 @@
                                                 </div>
                                             </div>
                                         </div>
-
-
-
                                     </div>
-
                                     <div class="col-md-4">
 
                                         <div class="accordion mt-4 mb-4" id="accordionExample">
@@ -193,19 +193,19 @@
                                                      aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                                     <div class="accordion-body">
 
-                                                        {{-- image ------------------------------------------------------------------------------------- --}}
-                                                        <div class="col-12">
-                                                            <div class="row mb-3">
-                                                                <label for="example-number-input" col-form-label>
-                                                                    @lang('admin.image'):</label>
-                                                                <div class="col-sm-12">
-                                                                    <input class="form-control" type="file"
-                                                                           placeholder="@lang('admin.image'):"
-                                                                           id="example-number-input" name="image"
-                                                                           value="{{ old('image') }}">
-                                                                </div>
-                                                            </div>
-                                                        </div>
+{{--                                                        --}}{{-- image ------------------------------------------------------------------------------------- --}}
+{{--                                                        <div class="col-12">--}}
+{{--                                                            <div class="row mb-3">--}}
+{{--                                                                <label for="example-number-input" col-form-label>--}}
+{{--                                                                    @lang('admin.image'):</label>--}}
+{{--                                                                <div class="col-sm-12">--}}
+{{--                                                                    <input class="form-control" type="file"--}}
+{{--                                                                           placeholder="@lang('admin.image'):"--}}
+{{--                                                                           id="example-number-input" name="image"--}}
+{{--                                                                           value="{{ old('image') }}">--}}
+{{--                                                                </div>--}}
+{{--                                                            </div>--}}
+{{--                                                        </div>--}}
                                                         {{-- sort ------------------------------------------------------------------------------------- --}}
                                                         <div class="col-12">
                                                             <div class="row mb-3">
@@ -246,24 +246,24 @@
                                                                        data-off-label=" @lang('admin.no')"></label>
                                                             </div>
                                                         </div>
+
+
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-
-                                    {{-- Butoooons ------------------------------------------------------------------------- --}}
-                                    <div class="row mb-3 text-end">
-                                        <div>
-                                            <a href="{{ route('admin.news.index') }}"
-                                                class="btn btn-outline-primary waves-effect waves-light ml-3 btn-sm">@lang('button.cancel')</a>
-                                            <button type="submit"
-                                                class="btn btn-outline-success waves-effect waves-light ml-3 btn-sm">@lang('button.save')</button>
-                                        </div>
-                                    </div>
-
                                 </div>
 
+                                {{-- Butoooons ------------------------------------------------------------------------- --}}
+                                <div class="row mb-3 text-end">
+                                    <div>
+                                        <a href="{{ route('admin.careers_categories.index') }}"
+                                           class="btn btn-outline-primary waves-effect waves-light ml-3 btn-sm">@lang('button.cancel')</a>
+                                        <button type="submit"
+                                                class="btn btn-outline-success waves-effect waves-light ml-3 btn-sm">@lang('button.save')</button>
+                                    </div>
+                                </div>
 
 
                             </form>

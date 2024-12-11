@@ -15,9 +15,8 @@ return new class extends Migration
     {
         Schema::create('career_categories', function (Blueprint $table) {
             $table->id();
-            $table->string('title')->index();
+//            $table->string('title')->index();
             $table->tinyInteger('status')->default(0)->nullable();
-
             $table->timestamps();
         });
     }

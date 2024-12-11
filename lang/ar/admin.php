@@ -61,7 +61,6 @@ return [
     'payment'                       => 'دفع',
     'tags'                       => 'العلامات',
     'cheak_all'                 => 'تحديد الكل',
-    'news'                      => 'العروض',
     'blog'                      => 'المدونة',
     'site'                      => 'الصفحه',
     'footerMenu'                      => 'عرض القائمة الفوتر',
@@ -194,5 +193,28 @@ return [
     'user_scripts' => ' لينكات السكريبت  ',
     'updated_by'                => 'تم تعديله بواسطة',
     'created_by'                => 'تم انشائه بواسطة',
+
+    'blogs'                =>  'المقالات' ,
+    'blogs_create'                => 'اضافة مقال' ,
+    'blogs_index'                => 'عرض المقالات' ,
+
+    'news'                =>  'الاخبار' ,
+    'news_create'                =>  'اضافة خبر' ,
+    'news_index'                =>  'عرض الاخبار' ,
+
+    'careers_categories' => 'اقسام الوظائف',
+    'careers_categories_index' => 'عرض اقسام الوظائف',
+    'careers_categories_create' => 'اضافة قسم وظيفي',
+    'careers_categories_edit' => 'التعديل في القسم الوظيفي' . ' ' . ":name",
+    'careers_categories_show' => 'عرض القسم الوظيفي' . ' ' . ":name",
+
+
+    'careers' => 'الوظائف',
+    'careers_index' => 'عرض الوظائف',
+    'careers_create' => 'اضافة وظيفة',
+
+    'careers_show' => 'عرض الوظيفة' . " " .   ":name"  ,
+    'careers_edit' => 'التعديل في وظيفة' . ' ' . ":name",
+    'category_id' => 'القسم',
 
 ];

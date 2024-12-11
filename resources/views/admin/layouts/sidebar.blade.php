@@ -1,5 +1,5 @@
 <div class="vertical-menu side-navbar-custom-color"
-    style="background-color:{{ @$adminDashboardTheme->side_navbar_background }};">
+     style="background-color:{{ @$adminDashboardTheme->side_navbar_background }};">
 
     <div data-simplebar class="h-100">
 
@@ -100,13 +100,13 @@
                         <!-- End Contact Us ------------------------------------------------------- --->
 
                         <!-- subscribes Us ----------------------------------------------------------- --->
-                        {{-- <li>
-                            <a href="{{ route('admin.subscribes.index') }}" class="waves-effect">
-                                <i class="far fa-handshake"></i>
-                                <span>{{ trans('admin.subscribes') }}<span>
-                            </a>
-                        </li> --}}
-                        <!-- End subscribes Us ------------------------------------------------------- --->
+                    {{-- <li>
+                        <a href="{{ route('admin.subscribes.index') }}" class="waves-effect">
+                            <i class="far fa-handshake"></i>
+                            <span>{{ trans('admin.subscribes') }}<span>
+                        </a>
+                    </li> --}}
+                    <!-- End subscribes Us ------------------------------------------------------- --->
                     </ul>
                 </li>
                 <!-- End System ----------------------------------------------------------- --->
@@ -128,7 +128,8 @@
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
                                 <li><a href="{{ route('admin.categories.index') }}"> @lang('categories.show')</a></li>
-                                <li><a href="{{ route('admin.categories.create') }}"> @lang('categories.create_new')</a></li>
+                                <li><a href="{{ route('admin.categories.create') }}"> @lang('categories.create_new')</a>
+                                </li>
                             </ul>
                         </li>
                         <!-- End categories ----------------------------------------------------------- --->
@@ -140,42 +141,40 @@
                                 <span>@lang('product.products')</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="{{ route('admin.products.index') }}">@lang('product.show_products')</a></li>
-                                <li><a href="{{ route('admin.products.create') }}">@lang('product.create_products')</a></li>
+                                <li><a href="{{ route('admin.products.index') }}">@lang('product.show_products')</a>
+                                </li>
+                                <li><a href="{{ route('admin.products.create') }}">@lang('product.create_products')</a>
+                                </li>
                             </ul>
                         </li>
 
                         <!-- End Products ---->
 
 
-
-
                         <!-- booking --->
-                        {{-- <li>
-                            <a href="{{ route('admin.booking.index') }}" class="waves-effect">
-                                <i class="fas fa-shopping-bag"></i>
-                                <span>{{ trans('admin.booking') }}</span>
-                            </a>
-                        </li> --}}
-                        <!-- End booking --->
+                    {{-- <li>
+                        <a href="{{ route('admin.booking.index') }}" class="waves-effect">
+                            <i class="fas fa-shopping-bag"></i>
+                            <span>{{ trans('admin.booking') }}</span>
+                        </a>
+                    </li> --}}
+                    <!-- End booking --->
 
                         <!-- reviews --->
-                        {{-- <li>
-                            <a href="javascript: void(0);" class="has-arrow waves-effect">
-                                <i class="fas fa-comments"></i>
-                                <span> @lang('reviews.reviews')</span>
-                            </a>
-                            <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="{{ route('admin.reviews.index') }}"> @lang('reviews.show_reviews')</a></li>
-                                <li><a href="{{ route('admin.reviews.create') }}"> @lang('reviews.create_reviews')</a></li>
-                            </ul>
-                        </li> --}}
-                        <!-- End reviews ------->
+                    {{-- <li>
+                        <a href="javascript: void(0);" class="has-arrow waves-effect">
+                            <i class="fas fa-comments"></i>
+                            <span> @lang('reviews.reviews')</span>
+                        </a>
+                        <ul class="sub-menu" aria-expanded="false">
+                            <li><a href="{{ route('admin.reviews.index') }}"> @lang('reviews.show_reviews')</a></li>
+                            <li><a href="{{ route('admin.reviews.create') }}"> @lang('reviews.create_reviews')</a></li>
+                        </ul>
+                    </li> --}}
+                    <!-- End reviews ------->
                     </ul>
                 </li>
                 <!-- End Works -------------------------------------------------------- --->
-
-
 
 
                 <!-- Members  ----------------------------------------------------------- --->
@@ -199,7 +198,6 @@
                         <!-- End Teams ---->
 
 
-
                         <!-- Partners --------------------------------------------------------------- -->
                         <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
@@ -208,55 +206,114 @@
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
                                 <li><a href="{{ route('admin.clients.index') }}">@lang('clients.show_clients')</a></li>
-                                <li><a href="{{ route('admin.clients.create') }}">@lang('clients.create_clients')</a></li>
+                                <li><a href="{{ route('admin.clients.create') }}">@lang('clients.create_clients')</a>
+                                </li>
                             </ul>
                         </li>
                         <!-- End Partners ---->
 
 
-
-
                     </ul>
                 </li>
-                <!-- End members -------------------------------------------------------- --->
 
-                <!-- Blogs ----------------------------------------------------------- -->
+            {{--                <li>--}}
+            <!-- End members -------------------------------------------------------- --->
+
+            {{--                    <a href="javascript: void(0);" class="has-arrow waves-effect">--}}
+            {{--                        <i class="fas fa-photo-video"></i>--}}
+            {{--                        <span> @lang('blog.blogs')</span>--}}
+            {{--                    </a>--}}
+            {{--                    <ul class="sub-menu" aria-expanded="false">--}}
+
+            {{--                    --}}{{--                        <!-- gallery --------------------------------------------------------------- -->--}}
+            {{--                    --}}{{--                        <li>--}}
+            {{--                    --}}{{--                            <a href="javascript: void(0);" class="has-arrow waves-effect">--}}
+            {{--                    --}}{{--                                <i class="fas fa-images"></i>--}}
+            {{--                    --}}{{--                                <span> @lang('gallery.galleries')</span>--}}
+            {{--                    --}}{{--                            </a>--}}
+            {{--                    --}}{{--                            <ul class="sub-menu" aria-expanded="false">--}}
+            {{--                    --}}{{--                                <li><a href="{{ route('admin.gallery.index') }}"> @lang('gallery.show_gallery')</a></li>--}}
+            {{--                    --}}{{--                                <li><a href="{{ route('admin.gallery.create') }}"> @lang('gallery.create_gallery')</a></li>--}}
+            {{--                    --}}{{--                            </ul>--}}
+            {{--                    --}}{{--                        </li>--}}
+            {{--                    --}}{{--                        <!-- End gallery ----------------------------------------------------------- -->--}}
+
+            {{--                    --}}{{--                        <!-- videos --------------------------------------------------------------- -->--}}
+            {{--                    --}}{{--                        <li>--}}
+            {{--                    --}}{{--                            <a href="javascript: void(0);" class="has-arrow waves-effect">--}}
+            {{--                    --}}{{--                                <i class="fas fa-video"></i>--}}
+            {{--                    --}}{{--                                <span> @lang('videos.videos')</span>--}}
+            {{--                    --}}{{--                            </a>--}}
+            {{--                    --}}{{--                            <ul class="sub-menu" aria-expanded="false">--}}
+            {{--                    --}}{{--                                <li><a href="{{ route('admin.videos.index') }}"> @lang('videos.show_videos')</a></li>--}}
+            {{--                    --}}{{--                                <li><a href="{{ route('admin.videos.create') }}"> @lang('videos.create_video')</a></li>--}}
+            {{--                    --}}{{--                            </ul>--}}
+            {{--                    --}}{{--                        </li>--}}
+            {{--                    --}}{{--                        <!-- End videos ----------------------------------------------------------- -->--}}
+            {{--                    </ul>--}}
+            {{--                </li>--}}
+
+
+                <!-- blogs --------------------------------------------------------------- -->
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="fas fa-photo-video"></i>
-                        <span> @lang('blog.blogs')</span>
+                        <i class="fa fa-palette"></i>
+                        <span> @lang('admin.blogs')</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-
-                        <!-- gallery --------------------------------------------------------------- -->
-                        <li>
-                            <a href="javascript: void(0);" class="has-arrow waves-effect">
-                                <i class="fas fa-images"></i>
-                                <span> @lang('gallery.galleries')</span>
-                            </a>
-                            <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="{{ route('admin.gallery.index') }}"> @lang('gallery.show_gallery')</a></li>
-                                <li><a href="{{ route('admin.gallery.create') }}"> @lang('gallery.create_gallery')</a></li>
-                            </ul>
+                        <li><a href="{{ route('admin.blogs.index') }}"> @lang('admin.blogs_index')</a>
                         </li>
-                        <!-- End gallery ----------------------------------------------------------- -->
-
-                        <!-- videos --------------------------------------------------------------- -->
-                        <li>
-                            <a href="javascript: void(0);" class="has-arrow waves-effect">
-                                <i class="fas fa-video"></i>
-                                <span> @lang('videos.videos')</span>
-                            </a>
-                            <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="{{ route('admin.videos.index') }}"> @lang('videos.show_videos')</a></li>
-                                <li><a href="{{ route('admin.videos.create') }}"> @lang('videos.create_video')</a></li>
-                            </ul>
+                        <li><a href="{{ route('admin.blogs.create') }}"> @lang('admin.blogs_create')</a>
                         </li>
-                        <!-- End videos ----------------------------------------------------------- -->
-
                     </ul>
                 </li>
-                <!-- End Blogs -------------------------------------------------------- -->
+                <!-- End blogs ----------------------------------------------------------- -->
+
+                <!-- news --------------------------------------------------------------- -->
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="fa fa-palette"></i>
+                        <span> @lang('admin.news')</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{ route('admin.news.index') }}"> @lang('admin.news_index')</a>
+                        </li>
+                        <li><a href="{{ route('admin.news.create') }}"> @lang('admin.news_create')</a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- End news ----------------------------------------------------------- -->
+
+                <!-- careers categories --------------------------------------------------------------- -->
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="fa fa-palette"></i>
+                        <span> @lang('admin.careers_categories')</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{ route('admin.careers_categories.index') }}"> @lang('admin.careers_categories_index')</a>
+                        </li>
+                        <li><a href="{{ route('admin.careers_categories.create') }}"> @lang('admin.careers_categories_create')</a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- End creers categories ----------------------------------------------------------- -->
+
+                <!-- careers   --------------------------------------------------------------- -->
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="fa fa-palette"></i>
+                        <span> @lang('admin.careers')</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{ route('admin.careers.index') }}"> @lang('admin.careers_index')</a>
+                        </li>
+                        <li><a href="{{ route('admin.careers.create') }}"> @lang('admin.careers_create')</a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- End creers   ----------------------------------------------------------- -->
+
 
 
 
@@ -273,8 +330,11 @@
                                 <span> @lang('settings.system_settings')</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="{{ route('admin.settings.index') }}"> @lang('settings.app_setting')</a></li>
-                                <li><a href="{{ route('admin.home-settings.index') }}"> @lang('settings.setting_home')</a></li>
+                                <li><a href="{{ route('admin.settings.index') }}"> @lang('settings.app_setting')</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('admin.home-settings.index') }}"> @lang('settings.setting_home')</a>
+                                </li>
                                 <li><a href="{{ route('admin.user_scripts.index') }}"> @lang('settings.script')</a></li>
 
                             </ul>
@@ -286,7 +346,8 @@
                                 <span> @lang('themes.themes')</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="{{ route('admin.themes.dashboard') }}"> @lang('themes.dashboard_theme')</a></li>
+                                <li><a href="{{ route('admin.themes.dashboard') }}"> @lang('themes.dashboard_theme')</a>
+                                </li>
                                 {{-- <li><a href="{{ route('admin.themes.site') }}"> @lang('themes.site_theme')</a></li> --}}
 
                             </ul>

@@ -12,10 +12,10 @@
             @foreach($careers as $career)
             <div class="col-12 col-lg-4 mb-3">
                 <div class="card mx-auto">
-                    <div class="card-header"> {{$career->category->title}}</div>
+                    <div class="card-header"> {{$career->category?->transNow?->title}}</div>
                     <div class="card-body">
-                        <h5 class="card-title"> {{$career->title}}</h5>
-                        <p class="card-text"> {{$career->description}} </p>
+                        <h5 class="card-title"> {{optional($career->transNow)->title}}</h5>
+                        <p class="card-text"> {!!  optional($career->transNow)->description !!} </p>
                         <a href="#" class="apply-btn btn">قدم من هنا </a>
                     </div>
                 </div>

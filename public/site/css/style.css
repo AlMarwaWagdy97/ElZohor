@@ -936,3 +936,12 @@ li {
 .btn-custom-blogs:hover {
     color: white;
 }
+
+
+.poniterClass{
+    cursor: pointer;
+}
+.poniterClass:hover{
+    cursor: pointer;
+}
+
