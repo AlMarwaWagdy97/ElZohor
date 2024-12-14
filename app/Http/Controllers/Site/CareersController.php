@@ -11,7 +11,7 @@ class CareersController extends Controller
 {
     public function index()
     {
-        $careers = Career::with('category')->active()->get();
+        $careers = Career::with('category')->active()->orderBy('sort' , 'ASC')->get();
         $settings = SettingSingleton::getInstance();
         return view('site.pages.careers.index', compact('careers', 'settings'));
     }

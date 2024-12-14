@@ -13,7 +13,7 @@ class CareerController extends Controller
 {
     public function index(Request $request)
     {
-        $query = Career::query()->with('trans')->orderBy('id', 'ASC');
+        $query = Career::query()->with('trans')->orderBy('sort', 'ASC');
 
 
 

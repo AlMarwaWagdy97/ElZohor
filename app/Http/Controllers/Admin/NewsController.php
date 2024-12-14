@@ -11,18 +11,18 @@ class NewsController extends Controller
 {
     public function index(Request $request)
     {
-        $query = News::query()->with('trans')->orderBy('id', 'ASC');
+        $query = News::query()->with('trans')->orderBy('sort', 'ASC');
 
 
-    
+
         if($request->status  != ''){
             $query->where('status', $request->status );
         }
         if ($request->title  != '') {
-    
+
             $query = $query->orWhereTranslationLike('title', '%' . request()->input('title') . '%');
         }
-   
+
         if($request->description != ''){
             $query = $query->orWhereTranslationLike('description', '%' . request()->input('description') . '%');
 

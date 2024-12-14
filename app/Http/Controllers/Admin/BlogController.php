@@ -11,7 +11,7 @@ class BlogController extends Controller
 {
     public function index(Request $request)
     {
-        $query = Blog::query()->with('trans')->orderBy('id', 'ASC');
+        $query = Blog::query()->with('trans')->orderBy('sort', 'ASC');
 
 
 
@@ -30,6 +30,8 @@ class BlogController extends Controller
         $items = $query->paginate($this->pagination_count);
         return view('admin.dashboard.blogs.index', compact('items'));
     }
+
+
 
     public function create()
     {

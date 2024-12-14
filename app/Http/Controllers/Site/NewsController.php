@@ -11,7 +11,7 @@ class NewsController extends Controller
 {
     public function index()
     {
-        $news = News::with('transNow')->active()->featured()->get();
+        $news = News::with('transNow')->active()->featured()->orderBy('sort' , 'ASC')->get();
         $settings = SettingSingleton::getInstance();
         return view('site.pages.news.index', compact('news', 'settings'));
     }

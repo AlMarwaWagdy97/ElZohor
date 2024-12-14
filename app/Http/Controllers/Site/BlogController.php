@@ -11,7 +11,7 @@ class BlogController extends Controller
 {
     public function index()
     {
-        $blogs = Blog::with('transNow')->active()->featured()->get();
+        $blogs = Blog::with('transNow')->active()->featured()->orderBy('sort' , 'ASC')->get();
         $settings = SettingSingleton::getInstance();
         return view('site.pages.blogs.index', compact('blogs', 'settings'));
     }

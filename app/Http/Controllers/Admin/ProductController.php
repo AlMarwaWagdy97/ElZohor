@@ -17,7 +17,7 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
-        $query = Product::query()->with('trans', 'category')->orderBy('id', 'ASC');
+        $query = Product::query()->with('trans', 'category')->orderBy('sort', 'ASC');
 
 
         if ($request->status  != '') {
