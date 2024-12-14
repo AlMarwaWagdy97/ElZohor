@@ -43,7 +43,7 @@ class SettingSingleton
 
     public function getSiteSetting()
     {
-        return $this->siteSetting->where('featured' , 1);
+        return $this->siteSetting?->where('featured' , 1);
 //        return $this->siteSetting;
 
     }

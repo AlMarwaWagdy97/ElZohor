@@ -30,7 +30,7 @@ return new class extends Migration
             $table->longText('meta_description')->nullable();
             $table->longText('meta_key')->nullable();
             $table->unique(['insurance_id', 'locale']);
-            $table->foreign('insurance_id')->references('id')->on('news')->onDelete('cascade');
+            $table->foreign('insurance_id')->references('id')->on('insurances')->onDelete('cascade');
 
             $table->timestamps();
         });
