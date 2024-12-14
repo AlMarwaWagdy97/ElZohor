@@ -14,16 +14,15 @@ class CareerCategoryController extends Controller
         $query = CareerCategory::query()->with('trans')->orderBy('id', 'DESC');
 
 
-
-        if($request->status  != ''){
-            $query->where('status', $request->status );
+        if ($request->status != '') {
+            $query->where('status', $request->status);
         }
-        if ($request->title  != '') {
+        if ($request->title != '') {
 
             $query = $query->orWhereTranslationLike('title', '%' . request()->input('title') . '%');
         }
 
-        if($request->description != ''){
+        if ($request->description != '') {
             $query = $query->orWhereTranslationLike('description', '%' . request()->input('description') . '%');
 
         }
@@ -34,7 +33,7 @@ class CareerCategoryController extends Controller
     public function create()
     {
         $categories = CareerCategory::with('transNow')->active()->get();
-        return view('admin.dashboard.careers_categories.create' , compact('categories'));
+        return view('admin.dashboard.careers_categories.create', compact('categories'));
     }
 
 
@@ -51,29 +50,32 @@ class CareerCategoryController extends Controller
     }
 
 
-    public function show( $id)
+    public function show($id)
     {
         $careerCategory = CareerCategory::find($id);
         $categories = CareerCategory::with('transNow')->active()->get();
-        return view('admin.dashboard.careers_categories.show', compact('careerCategory' , 'categories'));
+        return view('admin.dashboard.careers_categories.show', compact('careerCategory', 'categories'));
     }
 
 
     public function edit($id)
     {
         $careerCategory = CareerCategory::with('trans')->find($id);
-        return view('admin.dashboard.careers_categories.edit', compact('careerCategory' ));
+        return view('admin.dashboard.careers_categories.edit', compact('careerCategory'));
     }
 
 
-    public function update(CareerCategoryRequest $request, CareerCategory $careerCategory)
+    public function update(CareerCategoryRequest $request, $id)
     {
-        $data = $request->getSanitized();
-//        if ($request->hasFile('image')) {
-//            @unlink($careerCategory->image);
-//            $data['image'] = $this->upload_file($request->file('image'), ('careers'));
-//        }
-        $careerCategory->update($data);
+        try {
+
+            $data = $request->getSanitized();
+            $careerCategory = CareerCategory::find($id);
+            $careerCategory->update($data);
+        } catch (\Exception $e) {
+            session()->flash('error' , $e->getMessage());
+            return redirect()->back();
+        }
         session()->flash('success', trans('message.admin.updated_sucessfully'));
         return redirect()->back();
     }
@@ -104,7 +106,6 @@ class CareerCategoryController extends Controller
         $careerCategorys->save();
         return redirect()->back();
     }
-
 
 
     public function actions(Request $request)
