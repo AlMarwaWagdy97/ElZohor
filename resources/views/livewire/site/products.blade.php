@@ -16,11 +16,11 @@
 
     <div class="cards col-12 col-lg-9 row justify-content-between">
         @foreach ($products as $product)
-        <div class="card col-12 col-lg-4">
+        <div class="card col-12 col-4">
             <img src="{{ asset($product->image) }}" class="card-img-top img-fluid" alt="..." width="294px" height="220px" />
-            <div class="card-body px-0">
-                <h1 class="card-title h5">
-                    {{ @$product->trans->where('locale', $current_lang)->first()->name }}</h1>
+            <div class="card-body  text-center  px-0">
+                <h5 class="card-title">
+                    {{ @$product->trans->where('locale', $current_lang)->first()->name }}</h5>
                 <p class="card-text">
                     {{ removeHTML(Str::substr(@$product->trans->where('locale', $current_lang)->first()->description, 0, 120)) }} ...
                 </p>

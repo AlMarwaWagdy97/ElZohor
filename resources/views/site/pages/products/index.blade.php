@@ -86,14 +86,14 @@
                 <div class="cards col-12 col-lg-9 row " id="loadProduct">
                     @foreach ($products as $product)
                         <div class="card col-12 col-lg-4">
-                            <div class="prod-img">
-                                <img src="{{ asset($product->image) }}" class="card-img-top img-fluid h-100" />
+{{--                            <div class="prod-img">--}}
+                                <img src="{{ asset($product->image) }}" class="card-img-top img-fluid" />
                                 {{-- <h1>{{ $product->id }}</h1>
                                 <p>{{ $product->category->title }}</p> --}}
-                            </div>
-                            <div class="card-body px-0 text-center">
-                                <h1 class="card-title h5">
-                                    {{ @$product->trans->where('locale', $current_lang)->first()->name }}</h1>
+{{--                            </div>--}}
+                            <div class="card-body text-center px-0">
+                                <h5 class="card-title">
+                                    {{ @$product->trans->where('locale', $current_lang)->first()->name }}</h5>
                                 <p class="card-text">
                                     {{ removeHTML(Str::substr(@$product->trans->where('locale', $current_lang)->first()->description, 0, 120)) }}
                                     ...

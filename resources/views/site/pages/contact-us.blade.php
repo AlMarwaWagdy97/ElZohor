@@ -7,10 +7,10 @@
 @section('content')
 <!--Form-->
 <style>
-    .no_uder_line{
-        text-decoration: none !important;
-        color: #292d32;
-    }
+    /*.no_uder_line{*/
+    /*    text-decoration: none !important;*/
+    /*    color: #292d32;*/
+    /*}*/
 </style>
 <div class="Content_Us mt-5 p-lg-5">
     <div class="container">

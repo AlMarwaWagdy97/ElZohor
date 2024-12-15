@@ -3,7 +3,6 @@
 @section('title', @$aboutUs->trans->where('locale', $current_lang)->first()->meta_title)
 @section('meta_key', @$aboutUs->trans->where('locale', $current_lang)->first()->meta_key)
 @section('meta_description', @$aboutUs->trans->where('locale', $current_lang)->first()->meta_description)
-
 @section('content')
     <div
         class="AboutUs mt-5 position-relative wow fadeInUpBig"
@@ -17,7 +16,7 @@
             </p>
             <div class="row text-center pt-2">
                 <div class="Vision col-lg-3 col-12 px-3">
-                    <div class="WhiteDiv mt-3 mb-3 mx-auto p-3">
+                    <div class="WhiteDiv mt-3 mb-3 mx-auto p-5">
                         <img
                             src="{{asset($aboutUs->image)}}"
                             class="img-fluid" alt=""/>

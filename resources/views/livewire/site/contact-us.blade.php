@@ -1,3 +1,12 @@
+<style>
+    .btn-send {
+        background: #5e2b53 ;
+        color: #fff;
+        border-radius: 15px;
+    }
+
+</style>
+
 <div>
     <form class="mt-5" wire:submit.prevent="sendForm()">
 

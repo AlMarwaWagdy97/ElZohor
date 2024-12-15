@@ -655,7 +655,7 @@ label {
     border: none;
 h5 {
     font-family: SomarSans-Bold;
-    color: #5e2b53;
+    color: #5e2b53 !important;
 }
 p {
     font-family: Somar-Regular;
@@ -784,7 +784,7 @@ textarea {
 }
 }
 .btn-send {
-    background: #5e2b53;
+    background: #5e2b53 ;
     color: #fff;
     border-radius: 15px;
 }
