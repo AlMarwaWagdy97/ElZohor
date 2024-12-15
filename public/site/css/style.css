@@ -918,14 +918,14 @@ h2 {
 
 
 /*************custom**********/
-/*.bg_purple_h4{*/
-/*    color:  #905885 !important;*/
-/*}*/
+.bg_purple_h4{
+    color:  #905885 !important;
+}
 
-/*.item:hover {*/
-/*    border-bottom: 5px solid #905885;*/
-/*    font-size: 18px;*/
-/*}*/
+.item:hover {
+    border-bottom: 5px solid #905885;
+    font-size: 18px;
+}
 
 
 /*.btn-more:hover {*/
@@ -963,15 +963,15 @@ h2 {
 /*    margin: auto;*/
 
 /*}*/
-/*.btn-custom-blogs:hover {*/
-/*    color: white;*/
-/*}*/
+.btn-custom-blogs:hover {
+    color: white;
+}
 
 
-/*.poniterClass{*/
-/*    cursor: pointer;*/
-/*}*/
-/*.poniterClass:hover{*/
-/*    cursor: pointer;*/
-/*}*/
+.poniterClass{
+    cursor: pointer;
+}
+.poniterClass:hover{
+    cursor: pointer;
+}
 
