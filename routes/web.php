@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Site\BlogController;
 use App\Http\Controllers\Site\GenerateSitemapController;
+use App\Http\Livewire\Site\ApplyComponent;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use Illuminate\Support\Facades\Blade;
@@ -98,5 +99,7 @@ Route::group([
         return Blade::renderComponent(new LoadMoreCategories($category_id, $start, $count, $search, $totalProducts));
     })->name('categories.loadMore');
     Route::get('products-more/{category_id}/{start}/{count}', fn ($category_id, $start, $count) => Blade::renderComponent(new LoadMoreProducts($category_id, $start, $count)))->name('products-more.loadMore');
+
+        Route::get('apply', ApplyComponent::class)->name('apply');
 
 });

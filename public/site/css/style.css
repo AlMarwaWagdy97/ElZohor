@@ -253,8 +253,9 @@ span {
 /*leadership*/
 .leadership {
 .Title {
-h1 {
+h2 {
     font-family: SomarSans-Bold;
+    color: #5e2b53;
 }
 .titleImg {
 img {
@@ -307,9 +308,9 @@ img {
     padding-top: 6rem;
     padding-bottom: 6rem;
 .Title {
-h1 {
+h2 {
     font-family: SomarSans-Bold;
-    font-size: 36px;
+    color: #5e2b53;
 }
 .titleImg {
 img {
@@ -465,9 +466,14 @@ img {
     background-image: url("../imgs/Vector.png");
 }
 .footer-menu {
+    list-style: disc;
 li {
-    font-size: 18px;
+    font-size: 14px;
     font-family: SomarSans-Bold;
+&::marker {
+     color: #1dc9a0;
+     font-size: 0.8rem;
+ }
 a:hover {
     color: #c798bd;
 }
@@ -479,7 +485,7 @@ a:hover {
 .location {
 span {
     font-family: SomarSans-Bold;
-    font-size: 18px;
+    font-size: 14px;
     color: #fff;
 }
 }
@@ -489,7 +495,7 @@ span {
 }
 span {
     font-family: SomarSans-Bold;
-    font-size: 18px;
+    font-size: 14px;
     color: #fff;
 }
 }
@@ -500,19 +506,19 @@ span {
 }
 span {
     font-family: SomarSans-Bold;
-    font-size: 18px;
+    font-size: 14px;
     color: #fff;
 }
 }
 .soical {
 h5 {
     font-family: SomarSans-Bold;
-    font-size: 15px;
+    font-size: 14px;
     color: #fff;
 }
 .S_icon {
     color: #fff;
-    font-size: 18px;
+    font-size: 14px;
     cursor: pointer;
     text-decoration: none;
 }
@@ -522,7 +528,7 @@ hr {
     height: 10px;
 }
 h4 {
-    font-size: 18px;
+    font-size: 14px;
 }
 }
 /*Footer*/
@@ -578,6 +584,7 @@ h1 {
 p {
     font-family: Somar-Regular;
     font-size: 25px;
+    color:#905885;
 }
 }
 }
@@ -590,6 +597,10 @@ p {
 /*/////////////////////////////////////////////////////////Prodects Page//////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
 .Products {
+h2 {
+    font-family: SomarSans-Bold;
+    color: #5e2b53;
+}
 .searcharea {
 input {
     background: url(../imgs/search-normal.png) no-repeat scroll 7px;
@@ -644,10 +655,12 @@ label {
     border: none;
 h5 {
     font-family: SomarSans-Bold;
+    color: #5e2b53;
 }
 p {
     font-family: Somar-Regular;
     font-size: 20px;
+    color: #893e7a;
 }
 a {
     font-family: Somar-Regular;
@@ -762,6 +775,18 @@ input {
     border: none;
     border-bottom: 1px solid gray;
 }
+&.message {
+textarea {
+    border: none;
+    border-bottom: 1px solid gray;
+    resize: none;
+}
+}
+}
+.btn-send {
+    background: #5e2b53;
+    color: #fff;
+    border-radius: 15px;
 }
 }
 }
@@ -818,9 +843,8 @@ h1 {
 }
 p {
     font-family: Somar-Medium;
-    font-size: 30px;
+    font-size: 20px;
     line-height: normal;
-    color: #905885;
 }
 .Vision {
 .WhiteDiv {
@@ -841,23 +865,23 @@ h1 {
 }
 p {
     font-family: Somar-Medium;
-    font-size: 30px;
+    font-size: 20px;
     line-height: normal;
-    color: #905885;
+    color: #5a5559;
 }
 ul {
     height: fit-content;
     overflow: hidden;
 a {
-    color: #905885;
+    color: #5a5559;
     cursor: pointer;
 }
 li {
     margin-bottom: 5px;
     font-family: Somar-Medium;
-    font-size: 25px;
+    font-size: 20px;
     line-height: normal;
-    color: #905885;
+    color: #5a5559;
 .title {
     font-weight: 800;
 }
@@ -875,6 +899,10 @@ li {
 /*/////////////////////////////////////////////////////////////////////About US////////////////////////////////////////////////////////////////////////////*/
 /*/////////////////////////////////////////////////////////////////Jobs////////////////////////////////////////////////////////////////////////////////////////*/
 .Jobs {
+h2 {
+    font-family: SomarSans-Bold;
+    color: #5e2b53;
+}
 .apply-btn {
     background-color: #5e2b53;
     color: #fff;
@@ -887,61 +915,63 @@ li {
 }
 
 
+
+
 /*************custom**********/
-.bg_purple_h4{
-    color:  #905885 !important;
-}
+/*.bg_purple_h4{*/
+/*    color:  #905885 !important;*/
+/*}*/
 
-.item:hover {
-    border-bottom: 5px solid #905885;
-    font-size: 18px;
-}
-
-
-.btn-more:hover {
-    position: relative;
-    background-color: #905885;
-    color: #fff;
-    border-radius: 50px;
-    font-size: 15px;
-    border: 4px solid rgba(250, 250, 250, 1);
-    padding: 0px 38px;
-    outline: none;
-    cursor: pointer;
-    z-index: 10;
-
-}
+/*.item:hover {*/
+/*    border-bottom: 5px solid #905885;*/
+/*    font-size: 18px;*/
+/*}*/
 
 
+/*.btn-more:hover {*/
+/*    position: relative;*/
+/*    background-color: #905885;*/
+/*    color: #fff;*/
+/*    border-radius: 50px;*/
+/*    font-size: 15px;*/
+/*    border: 4px solid rgba(250, 250, 250, 1);*/
+/*    padding: 0px 38px;*/
+/*    outline: none;*/
+/*    cursor: pointer;*/
+/*    z-index: 10;*/
 
-.btn-custom-blogs {
-    position: relative;
-    background-color: #905885;
-    color: #fff;
-    border-radius: 50px;
-    font-size: 15px;
-    border: 4px solid rgba(250, 250, 250, 1);
-    padding: 0px 38px 28px 38px;
-    outline: none;
-    cursor: pointer;
-    z-index: 10;
-    width: 118px;
-    height: 30px;
-    text-decoration: none;
-
-    text-align: center;
-    margin: auto;
-
-}
-.btn-custom-blogs:hover {
-    color: white;
-}
+/*}*/
 
 
-.poniterClass{
-    cursor: pointer;
-}
-.poniterClass:hover{
-    cursor: pointer;
-}
+
+/*.btn-custom-blogs {*/
+/*    position: relative;*/
+/*    background-color: #905885;*/
+/*    color: #fff;*/
+/*    border-radius: 50px;*/
+/*    font-size: 15px;*/
+/*    border: 4px solid rgba(250, 250, 250, 1);*/
+/*    padding: 0px 38px 28px 38px;*/
+/*    outline: none;*/
+/*    cursor: pointer;*/
+/*    z-index: 10;*/
+/*    width: 118px;*/
+/*    height: 30px;*/
+/*    text-decoration: none;*/
+
+/*    text-align: center;*/
+/*    margin: auto;*/
+
+/*}*/
+/*.btn-custom-blogs:hover {*/
+/*    color: white;*/
+/*}*/
+
+
+/*.poniterClass{*/
+/*    cursor: pointer;*/
+/*}*/
+/*.poniterClass:hover{*/
+/*    cursor: pointer;*/
+/*}*/
 

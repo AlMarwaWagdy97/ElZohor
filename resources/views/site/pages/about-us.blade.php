@@ -12,7 +12,7 @@
 
         <div class="container position-relative z-3">
             <h1 class="text-capitalize text-center">    {{ @$aboutUs->trans->where('locale', $current_lang)->first()->title }}  </h1>
-            <p class="mt-3">
+            <p class="mt-3  text-secondary">
                 {!! @$aboutUs->trans->where('locale', $current_lang)->first()->content !!}
             </p>
             <div class="row text-center pt-2">
@@ -34,7 +34,7 @@
                 </div>
 
                 <div class="Vision col-lg-3 col-12 px-3">
-                    <div class="WhiteDiv mt-3 mb-3 mx-auto p-3">
+                    <div class="WhiteDiv mt-3 mb-3 mx-auto p-5">
                         <img
                             src="{{asset($aboutUs->image)}}"
                             class="img-fluid" alt=""/>
@@ -49,7 +49,7 @@
                 </div>
 
                 <div class="Vision col-lg-3 col-12 px-3">
-                    <div class="WhiteDiv mt-3 mb-3 mx-auto p-3">
+                    <div class="WhiteDiv mt-3 mb-3 mx-auto p-5">
                         <img
                             src="{{asset($aboutUs->image)}}"
                             class="img-fluid" alt=""/>
@@ -75,7 +75,7 @@
                 </div>
 
                 <div class="Vision col-lg-3 col-12 px-3">
-                    <div class="WhiteDiv mt-3 mb-3 mx-auto p-3">
+                    <div class="WhiteDiv mt-3 mb-3 mx-auto p-5">
                         <img
                             src="{{asset($aboutUs->image)}}"
                             class="img-fluid" alt=""/>

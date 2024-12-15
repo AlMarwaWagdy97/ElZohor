@@ -152,10 +152,10 @@
                             >
                                 {{--                                <img src="{{asset('site/imgs/Logo100-100.png')}}" class="mb-3" alt="" />--}}
 
-                                <img src="{{ asset($settings->getItem('logo') ) }}" class="mb-3" alt=""/>
+                                <img src="{{ asset($settings->getItem('logo') ) }}"   alt=""/>
 
                             </div>
-                            <h1 class="text-capitalize">نبذة عن الزهور</h1>
+                            <h2 class="text-capitalize">نبذة عن الزهور</h2>
                         </div>
                     </div>
                 </div>
@@ -217,7 +217,7 @@
                     <div class="titleImg d-flex mx-3 text-center">
                         <img src="{{ asset($settings->getItem('logo') ) }}" class="mb-3" alt="" />
                     </div>
-                    <h1 class="text-capitalize">منتجاتنا</h1>
+                    <h2 class="text-capitalize">منتجاتنا</h2>
                 </div>
 
                 <div class="row mt-lg-5 py-3">

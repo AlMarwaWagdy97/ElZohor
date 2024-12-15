@@ -7,7 +7,7 @@
 @section('content')
 <div class="Jobs mt-5 position-relative wow fadeInUpBig" data-wow-offset="300">
     <div class="container position-relative z-3">
-        <h1 class="text-capitalize text-center">الوظائف</h1>
+        <h2 class="text-capitalize text-center">الوظائف</h2>
         <div class="row text-center pt-2">
             @foreach($careers as $career)
             <div class="col-12 col-lg-4 mb-3">
