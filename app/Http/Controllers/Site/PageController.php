@@ -108,7 +108,7 @@ class PageController extends Controller
 
         $settings = SettingSingleton::getInstance();
 
-        return view('site.job_application', compact('contactUs', 'settings' , 'career_id'));
+        return view('site.pages.careers.job_application', compact('contactUs', 'settings' , 'career_id'));
     }
 
 
