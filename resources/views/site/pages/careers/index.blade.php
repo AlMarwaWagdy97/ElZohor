@@ -16,7 +16,7 @@
                     <div class="card-body">
                         <h5 class="card-title"> {{optional($career->transNow)->title}}</h5>
                         <p class="card-text"> {!!  optional($career->transNow)->description !!} </p>
-                        <a href="#" class="apply-btn btn">قدم من هنا </a>
+                        <a href="{{route('site.apply' ,$career->id)}}" class="apply-btn btn">قدم من هنا </a>
                     </div>
                 </div>
             </div>

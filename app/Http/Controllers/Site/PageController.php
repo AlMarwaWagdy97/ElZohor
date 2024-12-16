@@ -102,5 +102,16 @@ class PageController extends Controller
     }
 
 
+    public function applyForJob($career_id)
+    {
+        $contactUs = HomeSettingSingleton::getInstance()->getItem('job_application');
+
+        $settings = SettingSingleton::getInstance();
+
+        return view('site.job_application', compact('contactUs', 'settings' , 'career_id'));
+    }
+
+
+
 
 }

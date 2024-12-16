@@ -100,6 +100,6 @@ Route::group([
     })->name('categories.loadMore');
     Route::get('products-more/{category_id}/{start}/{count}', fn ($category_id, $start, $count) => Blade::renderComponent(new LoadMoreProducts($category_id, $start, $count)))->name('products-more.loadMore');
 
-        Route::get('apply', ApplyComponent::class)->name('apply');
-
+//        Route::get('apply', ApplyComponent::class)->name('apply');
+Route::get('apply/{career_id}' , [PageController::class , 'applyForJob'])->name('apply');
 });

@@ -176,5 +176,6 @@ return [
         'time'                  => 'الوقت',
         'available'             => 'مُتاح',
         'size'                  => 'الحجم',
+        'file'                  => 'CV',
     ],
 ];
