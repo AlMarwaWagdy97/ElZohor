@@ -104,11 +104,11 @@ class PageController extends Controller
 
     public function applyForJob($career_id)
     {
-        $contactUs = HomeSettingSingleton::getInstance()->getItem('job_application');
+        $jobApp = HomeSettingSingleton::getInstance()->getItem('job_application');
 
         $settings = SettingSingleton::getInstance();
 
-        return view('site.pages.careers.job_application', compact('contactUs', 'settings' , 'career_id'));
+        return view('site.pages.careers.job_application', compact('jobApp', 'settings' , 'career_id'));
     }
 
 

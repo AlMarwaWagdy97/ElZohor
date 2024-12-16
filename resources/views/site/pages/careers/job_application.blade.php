@@ -7,11 +7,6 @@
 @section('content')
     <!--Form-->
     <style>
-        .no_uder_line {
-            text-decoration: none !important;
-            color: #292d32;
-        }
-
         .text-red-500 {
             color: #dc3545;
         }
@@ -23,7 +18,7 @@
                 <div class="ContentInfo col-12 col-lg-6">
                     <div class="conteantHeader">
                         <p>
-                            {!! @$contactUs->trans[0]->description !!}
+                            {!! @$jobApp->trans[0]->description !!}
                         </p>
                     </div>
                     <div class="info my-5" style="
@@ -31,7 +26,7 @@
                 font-size: 17px;
                 color: #292d32;
                 opacity: 0.8;">
-                        <h1> {{ @$contactUs->trans[0]->title }} </h1>
+                        <h1> {{ @$jobApp->trans[0]->title }} </h1>
                         <div class="infoIcons">
                             <div class="location mt-3">
                                 <div class="location d-flex justify-content-lg-start align-items-center mb-3">
@@ -74,10 +69,19 @@
                                 </div>
                             </div>
 
+                            {{--                        <div class="phone">--}}
+                            {{--                            <div class="phone d-flex justify-content-lg-start align-items-center mb-3">--}}
+                            {{--                                <i class="bx bxl-whatsapp display-6 me-2"></i>--}}
+                            {{--                                <span dir="ltr" class="mx-1 mx-lg-0">--}}
+                            {{--                                    <a href="https://wa.me/{{ $settings->getItem('whatsapp') }}" target="_blank">--}}
+                            {{--                                        {{ $settings->getItem('whatsapp') }}--}}
+                            {{--                                    </a>--}}
+                            {{--                                </span>--}}
+                            {{--                            </div>--}}
+                            {{--                        </div>--}}
 
                             <div class="col--md-12 pe-3 maps">
-                                <iframe src="{{ $settings->getItem('maps') }}" frameborder="0" width="100%"
-                                        height="250px"></iframe>
+                                <iframe src="{{ $settings->getItem('maps') }}" frameborder="0" width="100%" height="250px"></iframe>
                             </div>
 
                         </div>
