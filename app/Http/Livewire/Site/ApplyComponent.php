@@ -35,18 +35,15 @@ class ApplyComponent extends Component
             'email' => 'nullable|email',
             'mobile' => 'required|string|min:11|max:11',
             'address' => 'required|min:4|string|max:800',
-            'file' => 'required|file',
-
-
+            'file' => 'required|mimes:pdf|max:10000',
         ]);
 
-        $m = JopApplication::create([
+        JopApplication::create([
             'name' => $this->name,
             'email' => $this->email,
             'mobile' => $this->mobile,
             'address' => $this->address,
             'file' => $this->upload_file($this->file, '/cvs', 1),
-
             'career_id' => (int)$this->career_id,
 
 
