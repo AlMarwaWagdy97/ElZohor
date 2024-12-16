@@ -1,8 +1,8 @@
 @extends('site.app')
 
-@section('title', @$metaSetting->where('key', 'contact_us_meta_title_' . $current_lang)->first()->value)
-@section('meta_key', @$metaSetting->where('key', 'contact_us_meta_key_' . $current_lang)->first()->value)
-@section('meta_description', @$metaSetting->where('key', 'contact_us_meta_description_' . $current_lang)->first()->value)
+@section('title', @$metaSetting->where('key', 'apply_meta_title_' . $current_lang)->first()->value)
+@section('meta_key', @$metaSetting->where('key', 'apply_meta_key_' . $current_lang)->first()->value)
+@section('meta_description', @$metaSetting->where('key', 'apply_meta_description_' . $current_lang)->first()->value)
 
 @section('content')
     <!--Form-->
