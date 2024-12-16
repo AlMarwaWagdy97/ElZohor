@@ -1,6 +1,7 @@
 <?php
 
 
+use App\Http\Controllers\Admin\ApplyController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\CareerCategoryController;
 use App\Http\Controllers\Admin\CareerController;
@@ -218,6 +219,15 @@ Route::group([
 
                 Route::post('careers_categories/upload', [CareerCategoryController::class, 'upload'])->name('ckeditor.upload');
                 Route::post('careers_categories/actions', [CareerCategoryController::class, 'actions'])->name('careers_categories.actions');
+
+
+                // ----- applications   -----------------------------------------------
+                Route::resource('applications', ApplyController::class);
+//                Route::get('careers_categories/update-status/{id}', [CareerCategoryController::class, 'update_status'])->name('careers_categories.update-status');
+//                Route::get('careers_categories/update-featured/{id}', [CareerCategoryController::class, 'update_featured'])->name('careers_categories.update-featured');
+
+//                Route::post('careers_categories/upload', [CareerCategoryController::class, 'upload'])->name('ckeditor.upload');
+                Route::post('applications/actions', [ApplyController::class, 'actions'])->name('applications.actions');
 
 
                 /***********************user scripts************************/

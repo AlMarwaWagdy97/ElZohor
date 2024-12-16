@@ -92,8 +92,8 @@
                     <h1> نريد انضمامك معنا </h1>
                     <p>ارسل لنا وسنقوم بالرد في اقرب وقت</p>
 
-                    <livewire:site.apply-component :career_id="'{{$career_id}}'"/>
-
+{{--                    <livewire:site.apply-component :career_id="{{$career_id}}"/>--}}
+                    @livewire('site.apply-component', ['career_id' => $career_id])
                 </div>
             </div>
         </div>

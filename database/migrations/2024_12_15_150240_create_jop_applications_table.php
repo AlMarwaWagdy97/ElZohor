@@ -21,7 +21,13 @@ return new class extends Migration
             $table->text('address');
             $table->text('file');
             $table->unsignedBigInteger('updated_by')->nullable();
-            $table->tinyInteger('status')->nullable()->default(0);
+            $table->tinyInteger('status')->nullable()->default(0)->comment("                        0 => not_seen
+                        1 => seen
+                        2 => contacted
+                        3=> accepted
+                        4=> rejected
+                        
+");
             $table->unsignedBigInteger('career_id');
 
 

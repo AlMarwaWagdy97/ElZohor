@@ -14,12 +14,18 @@ class ApplyComponent extends Component
     use WithFileUploads;
     use FileHandler;
 
-    public $career_id;
 
-    public function __construct($career_id)
+//    public function __construct($career_id)
+//    {
+//        $this->career_id = $career_id;
+//    }
+    public function mount($career_id)
     {
+
         $this->career_id = $career_id;
     }
+
+    public $career_id;
 
     public $name;
     public $email;
