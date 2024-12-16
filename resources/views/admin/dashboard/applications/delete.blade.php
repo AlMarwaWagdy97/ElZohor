@@ -8,7 +8,7 @@
         <div class="modal-body">
             <h2 class="swal2-title" id="swal2-title" style="display: flex;">  @lang('admin.are_you_sure')</h2>
         <div class="modal-footer" >
-            <form  action="{{ route('admin.careers.destroy' , $item->id) }}" method="POST">
+            <form  action="{{ route('admin.applications.destroy' , $item->id) }}" method="POST">
                 @csrf
                 @method('DELETE')
                 <button type="button" class="btn btn-primary" data-dismiss="modal">@lang('admin.no')</button>

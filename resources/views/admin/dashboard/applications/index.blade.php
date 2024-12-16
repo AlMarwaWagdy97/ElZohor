@@ -151,15 +151,23 @@
                                             <td>{{ $item->created_at }}</td>
                                             <td>
                                                 <div class="d-flex justify-content-center">
-                                                    @if($item->status == 1)
-                                                        <a href="#" title="@lang('admin.active')"
-                                                           class="btn btn-xs btn-success btn-sm m-1"><i
-                                                                class="fa fa-check"></i></a>
-                                                    @else
-                                                        <a href="#" title="@lang('admin.dis_active')"
-                                                           class="btn btn-xs btn-outline-secondary btn-sm m-1"><i
-                                                                class="fa fa-ban"></i></a>
-                                                    @endif
+{{--                                                    @if($item->status == 1)--}}
+{{--                                                        <a href="#" title="@lang('admin.active')"--}}
+{{--                                                           class="btn btn-xs btn-success btn-sm m-1"><i--}}
+{{--                                                                class="fa fa-check"></i></a>--}}
+{{--                                                    @else--}}
+{{--                                                        <a href="#" title="@lang('admin.dis_active')"--}}
+{{--                                                           class="btn btn-xs btn-outline-secondary btn-sm m-1"><i--}}
+{{--                                                                class="fa fa-ban"></i></a>--}}
+{{--                                                    @endif--}}
+                                                    <select class="form-select" name="status"  disabled  >
+                                                        <option value="0" {{ @$item->status === 0 ? 'selected' : '' }}>لم يشاهد</option>
+                                                        <option value="1" {{ @$item->status === 1 ? 'selected' : '' }}>  تم مشاهدته</option>
+                                                        <option value="2" {{ @$item->status === 2 ? 'selected' : '' }}> تم الاتصال به  </option>
+                                                        <option value="3" {{ @$item->status === 3 ? 'selected' : '' }}> تم الفبول</option>
+                                                        <option value="4" {{ @$item->status === 4 ? 'selected' : '' }}> تم الرفض  </option>
+
+                                                    </select>
 
 
                                                     <a href="{{ route('admin.applications.show', $item->id) }}"

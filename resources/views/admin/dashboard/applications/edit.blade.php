@@ -142,11 +142,18 @@
                                                                 <option value="4" {{ @$application->status === 4 ? 'selected' : '' }}> تم الرفض  </option>
 
                                                             </select>
-                                                            <label class="form-label" for="switch3" data-on-label=" @lang('admin.yes') " data-off-label=" @lang('admin.no')"></label>
+{{--                                                            <label class="form-label" for="switch3" data-on-label=" @lang('admin.yes') " data-off-label=" @lang('admin.no')"></label>--}}
                                                         </div>
                                                     </div>
 
-
+                                                    <br>
+                                                    <div class="col-12">
+                                                        <label class="col-sm-12 col-form-label" for="available"> وظيفة </label>
+                                                        <div class="col-sm-10">
+                                                            <h5>{{optional($application->career)->transNow?->title}}</h5>
+                                                            {{--                                                            <label class="form-label" for="switch3" data-on-label=" @lang('admin.yes') " data-off-label=" @lang('admin.no')"></label>--}}
+                                                        </div>
+                                                    </div>
 
                                                 </div>
                                             </div>

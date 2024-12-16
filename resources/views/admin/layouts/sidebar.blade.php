@@ -314,6 +314,20 @@
                 </li>
                 <!-- End creers   ----------------------------------------------------------- -->
 
+                <!-- applications   --------------------------------------------------------------- -->
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="fa fa-palette"></i>
+                        <span> طلبات التقديم </span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{ route('admin.applications.index') }}"> عرض طلبات التقديم </a>
+                        </li>
+
+                    </ul>
+                </li>
+                <!-- End applications   ----------------------------------------------------------- -->
+
 
 
 
