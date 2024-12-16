@@ -142,7 +142,7 @@
                                             <td>{{ $item->email }}</td>
                                             <td>{{ $item->address }}</td>
                                             <td>
-                                                <a @if( $item->cv) href="{{  asset( $item->cv) }}" download
+                                                <a @if( $item->file) href="{{  asset( $item->file) }}" download
                                                    @else href="#" @endif>
                                                     <i class="fa fa-download"></i>
                                                 </a>

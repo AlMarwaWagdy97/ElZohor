@@ -113,7 +113,7 @@
                                                                 <div class="col-sm-12">
 
 
-                                                                    <a @if( $application->cv) href="{{  asset( $application->cv) }}" download
+                                                                    <a @if( $application->file) href="{{  asset( $application->file) }}" download
                                                                        @else href="#" @endif>
                                                                         <i class="fa fa-download"></i>
                                                                     </a>
