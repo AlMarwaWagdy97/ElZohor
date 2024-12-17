@@ -148,93 +148,93 @@ $current_lang)->first()->title]))
 
                                 </div>
 
+                                <div class="col-md-4">
 
-
-                            </div>
-
-
-                            <div class="col-md-4">
-
-                                <div class="accordion mt-4 mb-4" id="accordionExample">
-                                    <div class="accordion-item border rounded">
-                                        <h2 class="accordion-header" id="headingOne">
-                                            <button class="accordion-button fw-medium" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                                {{ trans('admin.settings') }}
-                                            </button>
-                                        </h2>
-                                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                            <div class="accordion-body">
-                                                <div class="col-sm-3 mb-3">
-                                                    @if ($item->image != null)
-                                                    <img src="{{ asset($item->image) }}" alt="" style="width:100%">
-                                                    @endif
-                                                </div>
-                                                {{-- image ------------------------------------------------------------------------------------- --}}
-                                                <div class="col-12">
-                                                    <div class="row mb-3">
-                                                        <label for="example-number-input" col-form-label>
-                                                            @lang('admin.image'):</label>
-                                                        <div class="col-sm-12">
-                                                            <input class="form-control" type="file" placeholder="@lang('admin.image'):" id="example-number-input" name="image" value="{{ old('image') }}">
+                                    <div class="accordion mt-4 mb-4" id="accordionExample">
+                                        <div class="accordion-item border rounded">
+                                            <h2 class="accordion-header" id="headingOne">
+                                                <button class="accordion-button fw-medium" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                    {{ trans('admin.settings') }}
+                                                </button>
+                                            </h2>
+                                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                                <div class="accordion-body">
+                                                    <div class="col-sm-3 mb-3">
+                                                        @if ($item->image != null)
+                                                            <img src="{{ asset($item->image) }}" alt="" style="width:100%">
+                                                        @endif
+                                                    </div>
+                                                    {{-- image ------------------------------------------------------------------------------------- --}}
+                                                    <div class="col-12">
+                                                        <div class="row mb-3">
+                                                            <label for="example-number-input" col-form-label>
+                                                                @lang('admin.image'):</label>
+                                                            <div class="col-sm-12">
+                                                                <input class="form-control" type="file" placeholder="@lang('admin.image'):" id="example-number-input" name="image" value="{{ old('image') }}">
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <!-- parent Category -->
-                                                <div class="col-12">
-                                                    <div class="row mb-3">
-                                                        <label for="example-number-input">
-                                                            @lang('categories.parent'):
-                                                        </label>
-                                                        <div class="col-sm-12">
-                                                            <select class="form-select form-select-sm select2" name="category_id">
-                                                                <option value="" selected> {{ trans('categories.select_parent') }} </option>
-                                                                @foreach ($categories as $category)
-                                                                <option value="{{ $category->id }}" {{ $item->category_id == $category->id ? 'selected' : '' }}>
-                                                                    {{ str_repeat('ـــ ', $category->level - 1) }}
-                                                                    {{ @$category->trans->where('locale', $current_lang)->first()->title }}
-                                                                </option>
-                                                                @endforeach
-                                                            </select>
+                                                    <!-- parent Category -->
+                                                    <div class="col-12">
+                                                        <div class="row mb-3">
+                                                            <label for="example-number-input">
+                                                                @lang('categories.parent'):
+                                                            </label>
+                                                            <div class="col-sm-12">
+                                                                <select class="form-select form-select-sm select2" name="category_id">
+                                                                    <option value="" selected> {{ trans('categories.select_parent') }} </option>
+                                                                    @foreach ($categories as $category)
+                                                                        <option value="{{ $category->id }}" {{ $item->category_id == $category->id ? 'selected' : '' }}>
+                                                                            {{ str_repeat('ـــ ', $category->level - 1) }}
+                                                                            {{ @$category->trans->where('locale', $current_lang)->first()->title }}
+                                                                        </option>
+                                                                    @endforeach
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        @error('category_id')
+                                                        <span class="text-danger">{{ $message }}</span>
+                                                        @enderror
+                                                    </div>
+                                                    {{-- sort ------------------------------------------------------------------------------------- --}}
+                                                    <div class="col-12">
+                                                        <div class="row mb-3">
+                                                            <label for="example-number-input" col-form-label>
+                                                                @lang('admin.sort'):</label>
+                                                            <div class="col-sm-12">
+                                                                <input class="form-control" type="number" placeholder="@lang('admin.sort'):" id="example-number-input" name="sort" value="{{ @$item->sort }}">
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                    @error('category_id')
-                                                    <span class="text-danger">{{ $message }}</span>
-                                                    @enderror
-                                                </div>
-                                                {{-- sort ------------------------------------------------------------------------------------- --}}
-                                                <div class="col-12">
-                                                    <div class="row mb-3">
-                                                        <label for="example-number-input" col-form-label>
-                                                            @lang('admin.sort'):</label>
-                                                        <div class="col-sm-12">
-                                                            <input class="form-control" type="number" placeholder="@lang('admin.sort'):" id="example-number-input" name="sort" value="{{ @$item->sort }}">
+                                                    {{-- feature ------------------------------------------------------------------------------------- --}}
+                                                    <div class="col-12">
+                                                        <label class="col-sm-12 col-form-label" for="available">{{ trans('admin.feature') }}</label>
+                                                        <div class="col-sm-10">
+                                                            <input class="form-check form-switch" name="feature" type="checkbox" id="switch1" switch="success" {{ @$item->feature == 1 ? 'checked' : '' }} value="1">
+                                                            <label class="form-label" for="switch1" data-on-label=" @lang('admin.yes') " data-off-label=" @lang('admin.no')"></label>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                {{-- feature ------------------------------------------------------------------------------------- --}}
-                                                <div class="col-12">
-                                                    <label class="col-sm-12 col-form-label" for="available">{{ trans('admin.feature') }}</label>
-                                                    <div class="col-sm-10">
-                                                        <input class="form-check form-switch" name="feature" type="checkbox" id="switch1" switch="success" {{ @$item->feature == 1 ? 'checked' : '' }} value="1">
-                                                        <label class="form-label" for="switch1" data-on-label=" @lang('admin.yes') " data-off-label=" @lang('admin.no')"></label>
-                                                    </div>
-                                                </div>
-                                                {{-- Status ------------------------------------------------------------------------------------- --}}
-                                                <div class="col-12">
-                                                    <label class="col-sm-12 col-form-label" for="available">{{ trans('admin.status') }}</label>
-                                                    <div class="col-sm-10">
-                                                        <input class="form-check form-switch" name="status" type="checkbox" id="switch3" switch="success" {{ @$item->status == 1 ? 'checked' : '' }} value="1">
-                                                        <label class="form-label" for="switch3" data-on-label=" @lang('admin.yes') " data-off-label=" @lang('admin.no')"></label>
+                                                    {{-- Status ------------------------------------------------------------------------------------- --}}
+                                                    <div class="col-12">
+                                                        <label class="col-sm-12 col-form-label" for="available">{{ trans('admin.status') }}</label>
+                                                        <div class="col-sm-10">
+                                                            <input class="form-check form-switch" name="status" type="checkbox" id="switch3" switch="success" {{ @$item->status == 1 ? 'checked' : '' }} value="1">
+                                                            <label class="form-label" for="switch3" data-on-label=" @lang('admin.yes') " data-off-label=" @lang('admin.no')"></label>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+
+
+
                                 </div>
 
 
-
                             </div>
+
+
 
                             {{-- Butoooons ------------------------------------------------------------------------- --}}
                             <div class="row mb-3 text-end">
