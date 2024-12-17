@@ -1,12 +1,11 @@
 @extends('admin.app')
 
-@section('title', trans('product.show_products'))
+@section('title', trans('product.edit' , ['name' => '']))
 @section('title_page', trans('product.edit', ['name' => @$item->trans->where('locale',
-$current_lang)->first()->title]))
+app()->getLocale())->value('name')]))
 
 
 @section('content')
-
 <div class="container-fluid">
 
     <div class="row">

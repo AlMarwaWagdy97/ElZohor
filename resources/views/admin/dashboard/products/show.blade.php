@@ -1,7 +1,9 @@
 @extends('admin.app')
 
-@section('title', trans('items.show_items'))
-@section('title_page', trans('items.show', ['name' => @$item->trans->where('locale', $current_lang)->first()->title]))
+@section('title', trans('product.show' , ['name' => '']))
+
+@section('title_page', trans('product.show', ['name' => @$item->trans->where('locale',
+app()->getLocale())->value('name')]))
 
 @section('content')
 
@@ -77,7 +79,7 @@
                                                     </script>
                                                 </div>
 
-                                   
+
 
 
                                             </div>

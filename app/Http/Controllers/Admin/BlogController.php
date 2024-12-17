@@ -11,7 +11,7 @@ class BlogController extends Controller
 {
     public function index(Request $request)
     {
-        $query = Blog::query()->with('trans')->orderBy('sort', 'ASC');
+        $query = Blog::query()->with('trans' , 'transNow')->orderBy('sort', 'ASC');
 
 
 
@@ -58,6 +58,8 @@ class BlogController extends Controller
             session()->flash('error', trans('message.admin.not_found'));
             return redirect()->back();
         }
+        $blog->load('transNow');
+
         return view('admin.dashboard.blogs.show', compact('blog'));
     }
 
@@ -68,6 +70,8 @@ class BlogController extends Controller
             session()->flash('error', trans('message.admin.not_found'));
             return redirect()->back();
         }
+        $blog->load('transNow');
+
         return view('admin.dashboard.blogs.edit', compact('blog'));
     }
 

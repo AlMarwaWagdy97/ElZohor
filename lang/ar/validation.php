@@ -177,5 +177,6 @@ return [
         'available'             => 'مُتاح',
         'size'                  => 'الحجم',
         'file'                  => 'CV',
+        'category_id'           => 'التصنيف',
     ],
 ];

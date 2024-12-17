@@ -76,10 +76,10 @@
                                         <input form="update-pages" class="checkbox-check flat" type="checkbox" name="check-all" id="check-all">
                                     </th>
                                     <th>#</th>
-                                    <th>category</th>
-                                    <th>@lang('slider.image')</th>
                                     <th>@lang('admin.name')</th>
-                                    <th>@lang('admin.description')</th>
+
+                                    <th>التصنيف</th>
+                                    <th>@lang('slider.image')</th>
                                     <th>@lang('admin.sort')</th>
                                     <th>@lang('admin.created_at')</th>
                                     <th>@lang('admin.updated_at')</th>
@@ -94,17 +94,15 @@
                                         <input form="update-pages" class="checkbox-check" type="checkbox" name="record[{{ $item->id }}]" value={{ $item->id }}>
                                     </td>
                                     <td>{{ $items->firstItem() + $key }}</td>
-                                    <td>{{ $item->category->trans->where('locale', $current_lang)->first()->title }}
+                                    <td>
+                                        {{ @$item->transNow->name }}
+
+                                    </td>
+
+                                    <td>{{ $item->category?->transNow?->title }}
                                     </td>
                                     <td>
                                         <img src="{{ asset($item->image) }}" alt="" style="width: 50px">
-                                    </td>
-                                    <td>
-                                        {{ @$item->trans->where('locale', $current_lang)->first()->name }}
-
-                                    </td>
-                                    <td style="white-space: nowrap">
-                                        {{ substr(removeHTML(@$item->trans?->where('locale', $current_lang)->first()->description), 0, 30) }}
                                     </td>
                                     <td>{{ $item->sort }}</td>
                                     <td>{{ $item->created_at }}</td>

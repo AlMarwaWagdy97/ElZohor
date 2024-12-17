@@ -1,8 +1,7 @@
 @extends('admin.app')
 
-@section('title', trans('admin.blogs_show' ,  ['name' => @$blog->title]))
-@section('title_page', trans('admin.blogs_show', ['name' => @$blog->title]) )
-
+@section('title', trans('admin.blogs_show' ,  ['name' =>  '']))
+@section('title_page', trans('admin.blogs_show',  ['name' =>   optional(@$blog->transNow)->title]) )
 @section('content')
 
     <div class="container-fluid">

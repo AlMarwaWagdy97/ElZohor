@@ -40,6 +40,11 @@ class Categories extends Model
     {
         return $this->hasMany(CategoriesTranslation::class, 'category_id', 'id');
     }
+    public function transNow()
+    {
+        return $this->hasOne(CategoriesTranslation::class, 'category_id', 'id')->where('locale' ,app()->getLocale());
+    }
+
     public function parent()
     {
         return $this->belongsTo(Categories::class, 'parent_id', 'id');

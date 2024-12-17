@@ -11,7 +11,7 @@ class NewsController extends Controller
 {
     public function index(Request $request)
     {
-        $query = News::query()->with('trans')->orderBy('sort', 'ASC');
+        $query = News::query()->with('trans' , 'transNow')->orderBy('sort', 'ASC');
 
 
 
@@ -52,12 +52,14 @@ class NewsController extends Controller
 
     public function show(News $news)
     {
+        $news->load('transNow' , 'trans');
         return view('admin.dashboard.news.show', compact('news'));
     }
 
 
     public function edit(News $news)
     {
+        $news->load('transNow' , 'trans');
         return view('admin.dashboard.news.edit', compact('news'));
     }
 

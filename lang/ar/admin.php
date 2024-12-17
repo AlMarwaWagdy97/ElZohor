@@ -216,5 +216,7 @@ return [
     'careers_show' => 'عرض الوظيفة' . " " .   ":name"  ,
     'careers_edit' => 'التعديل في وظيفة' . ' ' . ":name",
     'category_id' => 'القسم',
+    'blogs_edit' => 'تعديل المقال'. " " . '":name" ',
+    'blogs_show' =>   ' عرض المقال' . " " . '":name" ',
 
 ];

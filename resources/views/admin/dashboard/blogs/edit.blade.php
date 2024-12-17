@@ -1,7 +1,7 @@
 @extends('admin.app')
 
-@section('title', trans('admin.blogs_edit' , ['name' => @$blog->title]))
-@section('title_page', trans('admin.blogs_edit', ['name' => @$blog->title]) )
+@section('title', trans('admin.blogs_edit' , ['name' => '']))
+@section('title_page', trans('admin.blogs_edit', ['name' => optional(@$blog->transNow)->title ]))
 
 @section('content')
 

@@ -1,7 +1,7 @@
 @extends('admin.app')
 
 @section('title', trans('news.edit_news'))
-@section('title_page', trans('news.edit', ['name' => @$news->title]) )
+@section('title_page', trans('news.edit', ['name' => optional(@$news->transNow)->title]) )
 
 @section('content')
 
@@ -35,12 +35,14 @@
                                                 <div class="accordion-body">
 
 
+                                                    @php $trans = @$news->trans->where('locale', $locale)->first() @endphp
+                                                    @if($trans)
 
                                                     {{-- title ------------------------------------------------------------------------------------- --}}
                                                     <div class="row mb-3">
                                                         <label for="example-text-input" class="col-sm-2 col-form-label">{{ trans('admin.title_in') . trans('lang.' .Locale::getDisplayName($locale)) }}</label>
                                                         <div class="col-sm-10">
-                                                            <input class="form-control" type="text" name="{{ $locale }}[title]" value="{{ @$news->trans->where('locale', $locale)->first()->title }}" id="title{{ $key }}">
+                                                            <input class="form-control" type="text" name="{{ $locale }}[title]" value="{{ $trans->title }}" id="title{{ $key }}">
                                                         </div>
                                                         @if ($errors->has($locale . '.title'))
                                                         <span class="missiong-spam">{{ $errors->first($locale . '.title') }}</span>
@@ -53,7 +55,7 @@
                                                         <label for="example-text-input" class="col-sm-2 col-form-label">{{ trans('admin.slug_in') . trans('lang.' .Locale::getDisplayName($locale)) }} </label>
 
                                                         <div class="col-sm-10">
-                                                            <input type="text" id="slug{{ $key }}" name="{{ $locale }}[slug]" value="{{ @$news->trans->where('locale', $locale)->first()->slug }}" class="form-control slug mb-3" required>
+                                                            <input type="text" id="slug{{ $key }}" name="{{ $locale }}[slug]" value="{{$trans->slug }}" class="form-control slug mb-3" required>
                                                             @if ($errors->has($locale . '.slug'))
                                                             <span class="missiong-spam">{{ $errors->first($locale . '.slug') }}</span>
                                                             @endif
@@ -64,7 +66,7 @@
                                                         <div class="row mb-3">
                                                             <label for="example-text-input" class="col-sm-2 col-form-label">{{ trans('admin.description_in') . trans('lang.' .Locale::getDisplayName($locale)) }} </label>
                                                             <div class="col-sm-10 mb-2">
-                                                                <textarea id="description{{ $key }}" name="{{ $locale }}[description]"> {{ @$news->trans->where('locale',$locale)->first()->description }} </textarea>
+                                                                <textarea id="description{{ $key }}" name="{{ $locale }}[description]"> {{ $trans->description }} </textarea>
                                                                 @if($errors->has( $locale . '.description'))
                                                                 <span class="missiong-spam">{{ $errors->first( $locale . '.description') }}</span>
                                                                 @endif
@@ -79,6 +81,52 @@
                                                             </script>
                                                         </div>
                                                     </div>
+                                                        @else
+                                                        {{-- title ------------------------------------------------------------------------------------- --}}
+                                                        <div class="row mb-3">
+                                                            <label for="example-text-input" class="col-sm-2 col-form-label">{{ trans('admin.title_in') . trans('lang.' .Locale::getDisplayName($locale)) }}</label>
+                                                            <div class="col-sm-10">
+                                                                <input class="form-control" type="text" name="{{ $locale }}[title]" value="{{old($locale.'.title')}}" id="title{{ $key }}">
+                                                            </div>
+                                                            @if ($errors->has($locale . '.title'))
+                                                                <span class="missiong-spam">{{ $errors->first($locale . '.title') }}</span>
+                                                            @endif
+                                                        </div>
+
+                                                        {{-- slug ------------------------------------------------------------------------------------- --}}
+                                                        {{-- Start Slug --}}
+                                                        <div class="row mb-3 slug-section">
+                                                            <label for="example-text-input" class="col-sm-2 col-form-label">{{ trans('admin.slug_in') . trans('lang.' .Locale::getDisplayName($locale)) }} </label>
+
+                                                            <div class="col-sm-10">
+                                                                <input type="text" id="slug{{ $key }}" name="{{ $locale }}[slug]" value="{{old($locale.'.slug')}}" class="form-control slug mb-3" required>
+                                                                @if ($errors->has($locale . '.slug'))
+                                                                    <span class="missiong-spam">{{ $errors->first($locale . '.slug') }}</span>
+                                                                @endif
+                                                            </div>
+                                                            @include('admin.layouts.scriptSlug')
+                                                            {{-- End Slug --}}
+                                                            {{-- description ------------------------------------------------------------------------------------- --}}
+                                                            <div class="row mb-3">
+                                                                <label for="example-text-input" class="col-sm-2 col-form-label">{{ trans('admin.description_in') . trans('lang.' .Locale::getDisplayName($locale)) }} </label>
+                                                                <div class="col-sm-10 mb-2">
+                                                                    <textarea id="description{{ $key }}" name="{{ $locale }}[description]"> {{old($locale.'.description') }} </textarea>
+                                                                    @if($errors->has( $locale . '.description'))
+                                                                        <span class="missiong-spam">{{ $errors->first( $locale . '.description') }}</span>
+                                                                    @endif
+                                                                </div>
+
+                                                                <script type="text/javascript">
+                                                                    $(function() {
+                                                                        CKEDITOR.replace('description{{$key}}');
+                                                                        $('.textarea').wysihtml5()
+                                                                    })
+
+                                                                </script>
+                                                            </div>
+                                                        </div>
+
+                                                    @endif
                                                 </div>
                                             </div>
                                         </div>
