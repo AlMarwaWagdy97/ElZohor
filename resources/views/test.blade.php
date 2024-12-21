@@ -32,8 +32,7 @@
             animation: moveDown 5s linear  infinite; /* Call the animation */
             animation-delay: 2s;
 
-            opacity: 0;
-        }
+         }
 
 
         .moving-div2 {
@@ -45,7 +44,6 @@
             z-index: 5;
             animation: moveDown 7s infinite; /* Call the animation */
             animation-delay: 2s;
-            opacity: 0;
 
         }
 
