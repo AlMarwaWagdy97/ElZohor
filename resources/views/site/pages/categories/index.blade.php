@@ -149,6 +149,9 @@
         .section_img {
             height: 75%;
             width: 75%;
+            padding-top: 10%;
+            padding-bottom: 10%;
+
         }
 
     </style>
