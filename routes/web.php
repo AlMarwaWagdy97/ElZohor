@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Site\BlogController;
+use App\Http\Controllers\Site\CategoryController;
 use App\Http\Controllers\Site\GenerateSitemapController;
 use App\Http\Livewire\Site\ApplyComponent;
 use Illuminate\Support\Facades\Route;
@@ -100,6 +101,22 @@ Route::group([
     })->name('categories.loadMore');
     Route::get('products-more/{category_id}/{start}/{count}', fn ($category_id, $start, $count) => Blade::renderComponent(new LoadMoreProducts($category_id, $start, $count)))->name('products-more.loadMore');
 
+
+
+
+
+
+
+
+
+
+
+
+    Route::resource('categories' , CategoryController::class )->except('edit' , 'create' , 'update' , 'store');
+
+
+
 //        Route::get('apply', ApplyComponent::class)->name('apply');
 Route::get('apply/{career_id}' , [PageController::class , 'applyForJob'])->name('apply');
+Route::view('my_test' , 'test'); //here
 });

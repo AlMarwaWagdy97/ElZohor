@@ -21,6 +21,7 @@ class UrlTypesEnum
     public const TEAMS = 'teams';
     public const ABOUTUS = 'about us';
     public const CONTACTUS = 'contact us';
+    public const CATEGORIES = 'categories';
 
 
    /***************************************************/
@@ -34,6 +35,8 @@ class UrlTypesEnum
     public const ALL_CERTIFICATIONS = 'all certifications';
 
     public const ALL_TEAMS = 'all teams';
+    public const ALL_CATEGORIES = 'all categories';
+
     /***************************************************/
 
 
@@ -57,6 +60,7 @@ class UrlTypesEnum
             static::NEWS => 'news',
             static::CERTIFICATIONS => 'certuifications',
             static::VIDEO => 'video',
+            static::CATEGORIES => 'categories',
 
 
 
@@ -74,6 +78,8 @@ class UrlTypesEnum
 
             static::ABOUTUS => 'about us',
             static::CONTACTUS => 'contact us',
+            static::ALL_CATEGORIES => 'all categories',
+
 
         ];
     }

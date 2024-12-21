@@ -90,20 +90,14 @@
                                                                     {{ trans('admin.description_in') . trans('lang.' . Locale::getDisplayName($locale)) }}
                                                                 </label>
                                                                 <div class="col-sm-10 mt-2">
-                                                                    <textarea id="description{{ $key }}" name="{{ $locale }}[description]"> {{ @$item->trans->where('locale', $locale)->first()->description }} </textarea>
+                                                                    <textarea id="description{{ $key }}" class="form-control" name="{{ $locale }}[description]"> {{ @$item->trans->where('locale', $locale)->first()->description }} </textarea>
                                                                     @if ($errors->has($locale . '.description'))
                                                                         <span
                                                                             class="missiong-spam">{{ $errors->first($locale . '.description') }}</span>
                                                                     @endif
                                                                 </div>
 
-                                                                <script type="text/javascript">
-                                                                    CKEDITOR.replace('description{{ $key }}', {
-                                                                        filebrowserUploadUrl: "{{ route('admin.ckeditor.upload', ['_token' => csrf_token()]) }}",
-                                                                        filebrowserUploadMethod: 'form'
-                                                                    });
-                                                                </script>
-                                                            </div>
+                                                             </div>
 
 
                                                         </div>

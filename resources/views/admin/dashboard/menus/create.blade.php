@@ -341,7 +341,13 @@
                             $("#get-dynamic-urls").append(
                                 '<option selected value="/news">/news</option>');
                         }
-                        /*********************/
+                     else if (val == "all categories") {
+                        $('#get-dynamic-urls').find('option').remove().end();
+                        $("#get-dynamic-urls").append(
+                            '<option selected value="/categories">/categories</option>');
+                    }
+
+                    /*********************/
 
                         else if (val == "all videos") {
                             $('#get-dynamic-urls').find('option').remove().end();

@@ -1,5 +1,5 @@
   <!--Footer-->
-  <div class="Footer mt-5 pt-4 position-relative  wow bounceInUp"   data-wow-offset="50">
+  <div id="my_footer" class="Footer mt-5 pt-4 position-relative  wow bounceInUp"   data-wow-offset="50">
       <div class="overlay "></div>
       <div class="container position-relative z-10">
           <div class="row align-items-center">
@@ -115,7 +115,12 @@
 
 
 
+  @if(request()->url() == url(app()->getLocale() . "/my_test"))
 
+  <script>
+      document.getElementById('my_footer').classList.remove("bounceInUp" , 'wow');
+  </script>
+      @endif
 
 
 

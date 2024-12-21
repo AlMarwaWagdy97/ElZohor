@@ -963,6 +963,14 @@ h2 {
 /*    margin: auto;*/
 
 /*}*/
+:root {
+    --main-bg-purple-color: #800080;
+    --main-bg-purple-second-color:#ff33ff;
+    --primaryBgColor:#070f9e;
+}
+
+
+
 .btn-custom-blogs:hover {
     color: white;
 }
@@ -974,4 +982,6 @@ h2 {
 .poniterClass:hover{
     cursor: pointer;
 }
+
+
 

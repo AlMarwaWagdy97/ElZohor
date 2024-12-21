@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Enums\MenuPositionEnums;
+use App\Models\Categories;
 use App\Models\Menue;
 use App\Models\Pages;
 use App\Enums\UrlTypesEnum;
@@ -239,6 +240,14 @@ class MenueController extends Controller
             $items = Video::query()->with('trans')->active()->get(['id']);
             foreach ($items as $item) {
                 $res[] =  '/news/' . $item->trans->where("locale", app()->getLocale())->first()->slug;
+            }
+        }
+
+
+        if ($name == UrlTypesEnum::CATEGORIES) {
+            $items = Categories::query()->with('trans')->active()->get(['id']);
+            foreach ($items as $item) {
+                $res[] =  '/categories/' . $item->trans->where("locale", app()->getLocale())->first()->slug;
             }
         }
 
