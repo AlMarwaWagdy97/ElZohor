@@ -80,6 +80,7 @@
 
             width: 50%;
             height: 20rem;
+            min-height: 50%;
             background-repeat: no-repeat;
 
 
