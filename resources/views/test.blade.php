@@ -82,6 +82,7 @@
             height: 20rem;
             background-repeat: no-repeat;
             min-height: 50% !important;
+            background-size:contain ;
 
 
         }
