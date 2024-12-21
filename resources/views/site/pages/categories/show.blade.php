@@ -77,13 +77,10 @@
 
         .main_image {
             background-image: url("{{url('attachments/products/test2.png')}}");
-
             width: 50%;
             height: 20rem;
             min-height: 50%;
             background-repeat: no-repeat;
-
-
         }
 
 
