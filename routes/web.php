@@ -119,4 +119,6 @@ Route::group([
 //        Route::get('apply', ApplyComponent::class)->name('apply');
 Route::get('apply/{career_id}' , [PageController::class , 'applyForJob'])->name('apply');
 Route::view('my_test' , 'test'); //here
-});
+    Route::view('my_test3' , 'test3'); //here
+
+ });
