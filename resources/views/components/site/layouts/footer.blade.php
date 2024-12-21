@@ -115,7 +115,7 @@
 
 
 
-  @if(request()->url() == url(app()->getLocale() . "/my_test"))
+  @if(request()->url() == url(app()->getLocale() . "/my_test") || request()->url() == url(app()->getLocale() . "/categories/" ) )
 
   <script>
       document.getElementById('my_footer').classList.remove("bounceInUp" , 'wow');
