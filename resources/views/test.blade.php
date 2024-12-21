@@ -81,7 +81,7 @@
             width: 50%;
             height: 20rem;
             background-repeat: no-repeat;
-            min-height: 50%;
+            min-height: 50% !important;
 
 
         }
