@@ -186,7 +186,7 @@
             <!-------------start left --------------->
             <section class="px-5 py-5">
                 <div class="row">
-                <div class="col-lg-6 col-md-12 text-center child_div_section">
+                <div class="col-lg-6 col-md-12 text-center ">
                     <div>
                         <p class="section_p" style="font-size: 20px;">{{$val->description}}</p>
                         <div class="button_align align_center mt-2"><a class="button  button_size_2"
@@ -195,7 +195,7 @@
                                     class="button_label">Discover</span></a></div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-12 text-center">
+                <div class="col-lg-6 col-md-12 text-center child_div_section">
                     <div class="scroll-animation visible"><img class="section_img" src="{{asset($val->image)}}"/></div>
                 </div>
                 </div>
