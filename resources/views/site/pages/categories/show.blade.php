@@ -88,7 +88,7 @@
             /*width: 40rem;*/
             /*height: 25rem;*/
 
-            width: 35rem;
+            width: 39rem;
             height: 25rem;
 
             min-width: 22rem;
