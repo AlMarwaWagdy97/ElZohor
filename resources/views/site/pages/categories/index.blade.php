@@ -2,6 +2,8 @@
 
 
 @section('content')
+
+
     <style>
         *,
         *::before,
@@ -129,7 +131,7 @@
             <section class="px-5 py-5">
                 <div class="row">
                 <div class="col-lg-6 col-md-12 text-center ">
-                    <div class="scroll-animation visible  wow bounceIn"><img class="section_img" src="{{asset($val->image)}}"/></div>
+                    <div    class="categories-scroll-animation visible wow  shake animated"  data-wow-duration="1500ms" data-wow-iteration="1"    ><img class="section_img" src="{{asset($val->image)}}"/></div>
                 </div>
                 <div class="col-lg-6 col-md-12 text-center child_div_section">
                     <div>
@@ -143,6 +145,10 @@
                 </div>
                 </div>
             </section>
+
+
+{{--            <i class="fa fa-heart fa-5x icn_green wow bounce"data-wow-duration="800ms"></i>--}}
+
             <!-------------end right --------------->
         @else
 
@@ -160,7 +166,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-12 text-center ">
-                    <div class="scroll-animation visible  wow bounceIn"><img class="section_img" src="{{asset($val->image)}}"/></div>
+                    <div class="categories-scroll-animation visible wow  shake animated"  data-wow-duration="1500ms" data-wow-iteration="1"    ><img class="section_img" src="{{asset($val->image)}}"/></div>
                 </div>
                 </div>
             </section>
@@ -169,48 +175,10 @@
     @endforeach
 
 
-    <script>
-        let zoomLevels = {};
-
-        // Get all elements with the class 'zoomable'
-        const zoomableElements = document.querySelectorAll('.zoomable');
-
-        // Function to handle zoom for all elements with the class 'zoomable'
-        function handleZoom(e) {
-            zoomableElements.forEach((element, index) => {
-                // Initialize zoom level for each element if not already set
-                if (!zoomLevels[index]) {
-                    zoomLevels[index] = 1; // default zoom level
-                }
-
-                // Adjust the zoom level based on mouse wheel direction
-                if (e.deltaY < 0) {
-                    // Zoom In (scroll up)
-                    zoomLevels[index] += 0.1;
-                } else {
-                    // Zoom Out (scroll down)
-                    zoomLevels[index] -= 0.1;
-                }
-                // Constrain the zoom level between 0.5 and 3
-                zoomLevels[index] = Math.min(Math.max(zoomLevels[index], 0.5), 3);
-            });
-
-            // Set a delay of 0.5 seconds (500ms) before applying the zoom
-            setTimeout(() => {
-                zoomableElements.forEach((element, index) => {
-                    // Apply the zoom level to the element after the delay
-                    element.style.transform = `scale(${zoomLevels[index]})`;
-                });
-            }, 2000); // Delay of 500 milliseconds (0.5 seconds)
-        }
-
-        window.addEventListener('wheel', handleZoom);
-
-
-
-
-    </script>
 
 
 @endsection
 
+
+
+{{--wow bounceIn--}}

@@ -1,5 +1,9 @@
 new WOW().init();
 
+
+
+
+
 const swiper = new Swiper(".x", {
   // Optional parameters
   loop: true,
@@ -62,3 +66,9 @@ moreLink_2.addEventListener("click", () => {
   ShowMore(flag2, moreLink_2, HiddenContent_2);
   flag2 = !flag2;
 });
+
+
+
+
+
+
