@@ -25,7 +25,7 @@ class MenuRequest extends FormRequest
             $attr += [$locale . '.title' => 'Title ' . Locale::getDisplayName($locale)];
             $attr += [$locale . '.slug' => 'Slug ' . Locale::getDisplayName($locale)];
         }
-        // $attr +=['parent_id' => 'Main Menu'];
+         $attr +=['parent_id' => 'Main Menu'];
         $attr += ['url' => 'Url'];
         $attr += ['type' => 'Type'];
 
@@ -38,7 +38,7 @@ class MenuRequest extends FormRequest
             $req += [$locale . '.title' => 'required'];
             $req += [$locale . '.slug' => 'required'];
         }
-        // $req += ['parent_id' =>'nullable'];
+         $req += ['parent_id' =>'nullable'];
         $req += ['sort' => 'nullable'];
         $req += ['type' => 'nullable'];
         $req += ['url' => 'nullable'];
@@ -58,9 +58,9 @@ class MenuRequest extends FormRequest
     {
         $data = $this->validated();
 
-        // if ($data['parent_id'] == 0) {
-        //     $date['parent_id']  = Null;
-        // }
+         if ($data['parent_id'] == 0) {
+             $date['parent_id']  = Null;
+         }
 
         $data['status'] = isset($data['status']) ? true : false;
         $data['level'] =  updateLevel(@Menue::find($data['id']));
