@@ -9,7 +9,7 @@
 
 
         section {
-            overflow: visible;
+            overflow: hidden;
             background-color: var(--main-bg-purple-color);
         }
 
@@ -38,7 +38,7 @@
         .moving-div2 {
             position: absolute; /* Needed for movement */
             top: 20%; /* Start from the top */
-            left: 85%; /* Center horizontally */
+            left: 75%; /* Center horizontally */
             width: 100px; /* Set width */
             height: 100px; /* Set height */
             z-index: 5;
@@ -75,9 +75,19 @@
 
         .main_image {
             background-image: url("{{url('attachments/products/test2.png')}}");
-            width: 50%;
-            height: 20rem;
-            min-height: 50%;
+            background-size: contain;
+
+            /*width: 40rem;*/
+            /*height: 25rem;*/
+
+            width: 35rem;
+            height: 25rem;
+
+            min-width: 22rem;
+            min-height: 18rem;
+
+
+
             background-repeat: no-repeat;
         }
 
@@ -97,6 +107,14 @@
             align-items: center;
             flex-direction: column;
         }
+
+        @media  (max-width: 424px) {
+            .main_image{
+                width: 25rem;
+                height: 15rem;
+            }
+        }
+
 
         .main_title{
             color: white;
