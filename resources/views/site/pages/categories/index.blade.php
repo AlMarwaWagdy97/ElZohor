@@ -169,6 +169,8 @@
                     <div class="categories-scroll-animation visible wow  shake animated"  data-wow-duration="1500ms" data-wow-iteration="1"    ><img class="section_img" src="{{asset($val->image)}}"/></div>
                 </div>
                 </div>
+
+
             </section>
             <!-------------end left --------------->
         @endif

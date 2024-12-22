@@ -2,7 +2,6 @@
 <html lang="en" dir="{{ $current_lang == 'ar' ? 'rtl' : 'ltr' }}">
 
 @include('site.layouts.header')
-
 <body>
 
 @if(App\Settings\SettingSingleton::getInstance()->getItemFeatured('navbar'))
