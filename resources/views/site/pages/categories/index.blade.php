@@ -170,23 +170,45 @@
 
 
     <script>
-        new WOW().init();
+        let zoomLevels = {};
 
-        let zoomLevel = 1;
-        const zoomableElement = document.getElementsByClassName('scroll-animation');
+        // Get all elements with the class 'zoomable'
+        const zoomableElements = document.querySelectorAll('.zoomable');
 
-        window.addEventListener('wheel', function(e) {
-            if (e.deltaY < 0) {
-                // Zoom In
-                zoomLevel += 0.1;
-            } else {
-                // Zoom Out
-                zoomLevel -= 0.1;
-            }
+        // Function to handle zoom for all elements with the class 'zoomable'
+        function handleZoom(e) {
+            zoomableElements.forEach((element, index) => {
+                // Initialize zoom level for each element if not already set
+                if (!zoomLevels[index]) {
+                    zoomLevels[index] = 1; // default zoom level
+                }
 
-            zoomLevel = Math.min(Math.max(zoomLevel, 0.5), 3);
-            zoomableElement.style.transform = `scale(${zoomLevel})`;
-        });
+                // Adjust the zoom level based on mouse wheel direction
+                if (e.deltaY < 0) {
+                    // Zoom In (scroll up)
+                    zoomLevels[index] += 0.1;
+                } else {
+                    // Zoom Out (scroll down)
+                    zoomLevels[index] -= 0.1;
+                }
+                // Constrain the zoom level between 0.5 and 3
+                zoomLevels[index] = Math.min(Math.max(zoomLevels[index], 0.5), 3);
+            });
+
+            // Set a delay of 0.5 seconds (500ms) before applying the zoom
+            setTimeout(() => {
+                zoomableElements.forEach((element, index) => {
+                    // Apply the zoom level to the element after the delay
+                    element.style.transform = `scale(${zoomLevels[index]})`;
+                });
+            }, 500); // Delay of 500 milliseconds (0.5 seconds)
+        }
+
+        window.addEventListener('wheel', handleZoom);
+
+
+
+
     </script>
 
 
