@@ -11,6 +11,9 @@
             box-sizing: border-box;
         }
 
+        h4{
+            color:white;
+        }
 
         /*************sections **************/
         .section_p {
@@ -177,11 +180,12 @@
                 </div>
                 <div class="col-lg-6 col-md-12 text-center child_div_section">
                     <div>
-                        <p class="section_p" style="font-size: 20px;">{{$val->description}}</p>
+                        <h4>{{$val->transNow->title}}</h4>
+                        <p class="section_p" style="font-size: 20px;">{{$val->transNow->description}}</p>
                         <div class="button_align align_center mt-2"><a class="button  button_size_2"
                                                                        href="{{url(route('site.categories.show' , $val->slug))}}"
                                                                        style="border:2px solid #fff!important;color:#fff;"><span
-                                    class="button_label">Discover</span></a></div>
+                                    class="button_label">اكتشف</span></a></div>
                     </div>
                 </div>
                 </div>
@@ -194,11 +198,12 @@
                 <div class="row">
                 <div class="col-lg-6 col-md-12 text-center child_div_section">
                     <div>
-                        <p class="section_p" style="font-size: 20px;">{{$val->description}}</p>
+                        <h4>{{$val->transNow->title}}</h4>
+                        <p class="section_p" style="font-size: 20px;">{{$val->transNow->description}}</p>
                         <div class="button_align align_center mt-2"><a class="button  button_size_2"
                                                                        href="{{url(route('site.categories.show' , $val->slug))}}"
                                                                        style="border:2px solid #fff!important;color:#fff;"><span
-                                    class="button_label">Discover</span></a></div>
+                                    class="button_label">اكتشف</span></a></div>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-12 text-center ">
