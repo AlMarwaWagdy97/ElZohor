@@ -36,6 +36,10 @@ class Product extends Model
     {
         return $this->hasMany(ProductTranslation::class, 'product_id', 'id');
     }
+    public function transNow()
+    {
+        return $this->hasOne(ProductTranslation::class, 'product_id', 'id')->where('locale' , app()->getLocale());
+    }
 
     public function category()
     {

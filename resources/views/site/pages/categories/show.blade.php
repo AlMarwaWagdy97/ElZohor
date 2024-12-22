@@ -2,7 +2,7 @@
 
 
 @section('content')
-{{--    800080--}}
+    {{--    800080--}}
 
     <style>
 
@@ -13,7 +13,6 @@
             padding: 0;
             box-sizing: border-box;
         }
-
 
 
         section {
@@ -37,10 +36,10 @@
             width: 100px; /* Set width */
             height: 100px; /* Set height */
             z-index: 5;
-            animation: moveDown 5s linear  infinite; /* Call the animation */
+            animation: moveDown 5s linear infinite; /* Call the animation */
             animation-delay: 2s;
 
-         }
+        }
 
 
         .moving-div2 {
@@ -75,15 +74,16 @@
         }
 
 
-
         .moving-div, .moving-div2 {
             will-change: transform, opacity; /* يساعد على تحسين الأداء */
         }
 
 
         .main_image {
-            background-image: url("{{url('attachments/products/test2.png')}}");
+            {{--background-image: url("{{url('attachments/products/test2.png')}}");--}}
+             background-image: url("{{url($category->image)}}");
             background-size: contain;
+            background-position: center;
 
             /*width: 40rem;*/
             /*height: 25rem;*/
@@ -93,7 +93,6 @@
 
             min-width: 22rem;
             min-height: 18rem;
-
 
 
             background-repeat: no-repeat;
@@ -116,32 +115,41 @@
             flex-direction: column;
         }
 
-        @media  (max-width: 424px) {
-            .main_image{
+        @media (max-width: 424px) {
+            .main_image {
                 width: 25rem;
                 height: 15rem;
             }
 
 
-            .moving-div{  left: 13%;}
-            .moving-div2{  left: 63%;}
+            .moving-div {
+                left: 13%;
+            }
+
+            .moving-div2 {
+                left: 63%;
+            }
         }
 
 
-        .main_title{
+        .main_title {
             color: white;
         }
 
 
-        .products_container .card{
+        .products_container .card {
             background-color: var(--main-bg-purple-color);
-            border: 0.001rem solid rgba(299 , 299 , 299 , 0.6);
+            border: 0.001rem solid rgba(299, 299, 299, 0.6);
             border-radius: 15px;
         }
 
+        .products_container {
+
+            flex-direction: row-reverse;
+        }
 
 
-        /********************************/
+            /********************************/
 
         .image_card:hover {
             /*position: absolute; !* Needed for movement *!*/
@@ -182,7 +190,6 @@
         }
 
 
-
     </style>
 
 
@@ -212,67 +219,57 @@
             </div>
 
 
-
-
-
             <div class="row">
 
 
-
                 <h2 class="text-start main_title ">
-                    HoHos
+                    {{optional($category->transNow)->title}}
                 </h2>
-<br>
-                <div class="row products_container py-5">
-                <div class="col-4">
-                    <div class="card">
+                <br>
+                <div class="row products_container py-5 d-flex">
+                    @foreach($category->products as $product)
+                        <div class="col-4">
+                            <div class="card">
 
-                        <img class="image_card" src="{{asset('attachments/products/RIkwhysE9Py17X4rf7wN9guBrCRnREw3ZnDm2X4R.png')}}" />
-                        <div class="product_title text-center py-3 text-light fw-bolder">HoHos</div>
-
-
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="card">
-                        <img class="image_card" src="{{asset('attachments/products/RIkwhysE9Py17X4rf7wN9guBrCRnREw3ZnDm2X4R.png')}}" />
-                        <div class="product_title text-center py-3 text-light fw-bolder">HoHos</div>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="card">
-                        <img class="image_card" src="{{asset('attachments/products/RIkwhysE9Py17X4rf7wN9guBrCRnREw3ZnDm2X4R.png')}}" />
-                        <div class="product_title text-center py-3 text-light fw-bolder">HoHos</div>
-                    </div>
-                </div>
-                </div>
-
-                <div class="row products_container py-5">
-                    <div class="col-4">
-                        <div class="card">
-
-                            <img class="image_card" src="{{asset('attachments/products/RIkwhysE9Py17X4rf7wN9guBrCRnREw3ZnDm2X4R.png')}}" />
-                            <div class="product_title text-center py-3 text-light fw-bolder">HoHos</div>
+                                <img class="image_card"
+                                     src="{{asset($product->image)}}"/>
+                                <div class="product_title text-center py-3 text-light fw-bolder">{{optional($product->transNow)->name}}</div>
 
 
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="card">
-                            <img class="image_card" src="{{asset('attachments/products/RIkwhysE9Py17X4rf7wN9guBrCRnREw3ZnDm2X4R.png')}}" />
-                            <div class="product_title text-center py-3 text-light fw-bolder">HoHos</div>
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="card">
-                            <img class="image_card" src="{{asset('attachments/products/RIkwhysE9Py17X4rf7wN9guBrCRnREw3ZnDm2X4R.png')}}" />
-                            <div class="product_title text-center py-3 text-light fw-bolder">HoHos</div>
-                        </div>
-                    </div>
+                    @endforeach
+
                 </div>
+
+                {{--                <div class="row products_container py-5">--}}
+                {{--                    <div class="col-4">--}}
+                {{--                        <div class="card">--}}
+
+                {{--                            <img class="image_card"--}}
+                {{--                                 src="{{asset('attachments/products/RIkwhysE9Py17X4rf7wN9guBrCRnREw3ZnDm2X4R.png')}}"/>--}}
+                {{--                            <div class="product_title text-center py-3 text-light fw-bolder">HoHos</div>--}}
+
+
+                {{--                        </div>--}}
+                {{--                    </div>--}}
+                {{--                    <div class="col-4">--}}
+                {{--                        <div class="card">--}}
+                {{--                            <img class="image_card"--}}
+                {{--                                 src="{{asset('attachments/products/RIkwhysE9Py17X4rf7wN9guBrCRnREw3ZnDm2X4R.png')}}"/>--}}
+                {{--                            <div class="product_title text-center py-3 text-light fw-bolder">HoHos</div>--}}
+                {{--                        </div>--}}
+                {{--                    </div>--}}
+                {{--                    <div class="col-4">--}}
+                {{--                        <div class="card">--}}
+                {{--                            <img class="image_card"--}}
+                {{--                                 src="{{asset('attachments/products/RIkwhysE9Py17X4rf7wN9guBrCRnREw3ZnDm2X4R.png')}}"/>--}}
+                {{--                            <div class="product_title text-center py-3 text-light fw-bolder">HoHos</div>--}}
+                {{--                        </div>--}}
+                {{--                    </div>--}}
+                {{--                </div>--}}
 
             </div>
-
 
 
         </div>
