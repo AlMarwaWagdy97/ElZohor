@@ -189,6 +189,22 @@
             }
         }
 
+/*********************************/
+
+        .image_card:not(:hover) {
+            animation: rotateViceVerse 1s ease-in-out; /* Call the animation */
+        }
+
+        @keyframes rotateViceVerse {
+            /*0% {*/
+            /*    transform: rotate(0deg); !* Start at 0 degrees *!*/
+            /*}*/
+            100% {
+                transform: rotate(-360deg); /* Complete one full rotation */
+            }
+        }
+
+
 
     </style>
 
