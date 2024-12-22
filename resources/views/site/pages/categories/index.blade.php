@@ -50,69 +50,22 @@
 
         }
 
+        section{
+            overflow: hidden;
 
-        /*body {*/
-        /*    font-family: Arial, sans-serif;*/
-        /*    margin: 0;*/
-        /*    padding: 0;*/
-        /*    height: 2000px; !* for demonstration purposes *!*/
-        /*}*/
-
-        .scroll-animation {
-            /*opacity: 0;*/
-            /*transform: translateY(100px);*/
-            /*transition: opacity 1s ease-out, transform 1s ease-out;*/
-        }
-
-        /*.scroll-animation.visible {*/
-        /*    opacity: 1;*/
-        /*    transform: translateY(0);*/
-
-
-        /*}*/
-
-
-        @keyframes shake {
-            0% {
-                transform: translateX(0);
-            }
-            25% {
-                transform: translateX(-10px); /* Move left */
-            }
-            50% {
-                transform: translateX(10px); /* Move right */
-            }
-            75% {
-                transform: translateX(-10px); /* Move left again */
-            }
-            100% {
-                transform: translateX(0); /* Return to original position */
-            }
-        }
-
-        .scroll-animation:hover {
-            animation: shake 0.8s ease-in-out;
         }
 
 
-        /*@keyframes swing {*/
-        /*    0% {*/
-        /*        transform: rotate(0deg);*/
-        /*    }*/
-        /*    25% {*/
-        /*        transform: rotate(-20deg); !* Swing to the left *!*/
-        /*    }*/
-        /*    50% {*/
-        /*        transform: rotate(20deg); !* Swing to the right *!*/
-        /*    }*/
-        /*    75% {*/
-        /*        transform: rotate(-20deg); !* Swing to the left again *!*/
-        /*    }*/
-        /*    100% {*/
-        /*        transform: rotate(0deg); !* Return to the original position *!*/
-        /*    }*/
 
-        /*}*/
+
+
+
+
+
+
+
+
+
         section {
             height: 100%;
             display: flex;
@@ -176,7 +129,7 @@
             <section class="px-5 py-5">
                 <div class="row">
                 <div class="col-lg-6 col-md-12 text-center ">
-                    <div class="scroll-animation visible"><img class="section_img" src="{{asset($val->image)}}"/></div>
+                    <div class="scroll-animation visible  wow bounceIn"><img class="section_img" src="{{asset($val->image)}}"/></div>
                 </div>
                 <div class="col-lg-6 col-md-12 text-center child_div_section">
                     <div>
@@ -207,7 +160,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-12 text-center ">
-                    <div class="scroll-animation visible"><img class="section_img" src="{{asset($val->image)}}"/></div>
+                    <div class="scroll-animation visible  wow bounceIn"><img class="section_img" src="{{asset($val->image)}}"/></div>
                 </div>
                 </div>
             </section>
@@ -216,6 +169,26 @@
     @endforeach
 
 
+    <script>
+        new WOW().init();
+
+        let zoomLevel = 1;
+        const zoomableElement = document.getElementsByClassName('scroll-animation');
+
+        window.addEventListener('wheel', function(e) {
+            if (e.deltaY < 0) {
+                // Zoom In
+                zoomLevel += 0.1;
+            } else {
+                // Zoom Out
+                zoomLevel -= 0.1;
+            }
+
+            zoomLevel = Math.min(Math.max(zoomLevel, 0.5), 3);
+            zoomableElement.style.transform = `scale(${zoomLevel})`;
+        });
+    </script>
 
 
 @endsection
+

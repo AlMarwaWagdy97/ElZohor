@@ -33,6 +33,16 @@
     <!-- script  -->
     @include('site.layouts.script')
     <!--</script> -->
+
+
+@if(request()->url() == url(app()->getLocale() . "/my_test") || (strpos(request()->url(), url(app()->getLocale() . "/categories")) === 0  && (request()->url()  != app()->getLocale() . "/categories")) )
+
+@endif
+
+
+
 </body>
+
+
 
 </html>

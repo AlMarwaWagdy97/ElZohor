@@ -115,12 +115,13 @@
 
 
 
-  @if(request()->url() == url(app()->getLocale() . "/my_test") || strpos(request()->url(), url(app()->getLocale() . "/categories")) === 0)
+{{--  @if(request()->url() == url(app()->getLocale() . "/my_test") || (strpos(request()->url(), url(app()->getLocale() . "/categories")) === 0  && (request()->url()  != app()->getLocale() . "/categories")) )--}}
 
-  <script>
-      document.getElementById('my_footer').classList.remove("bounceInUp" , 'wow');
-  </script>
-      @endif
+{{--  <script>--}}
+{{--      document.getElementById('my_footer').classList.remove("bounceInUp" , 'wow');--}}
+{{--  </script>--}}
+{{--      @endif--}}
+
 
 
 

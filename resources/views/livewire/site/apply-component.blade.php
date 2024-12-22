@@ -29,6 +29,7 @@
 
         <br>
         <br>
+
         {{--        <div class="form-group my-5">--}}
         {{--            <label> @lang('admin.address') </label>--}}
         {{--            <textarea wire:model="address" class="form-group  mb-3 message d-flex flex-column @error('address') is-invalid @enderror"--}}
@@ -45,9 +46,15 @@
 
 
         <div wire:click="store" class="w-100 btn-send btn p-3">ارسل</div>
+        <div class="  w-100  my-3   " style="padding: 16px;
+    background-color: rgba(60,2,128,0.4) !important;
+    color: white;" wire:loading>جاري الحفظ ...
+        </div>
 
         @if (session()->has('success'))
-            <div class="bg-light test-success text-success-500 my-3" style="color: green">{{ session('success') }}</div>
+            <div class=" my-3" style="padding: 16px;
+    background-color: rgba(0, 128, 0, 0.6) !important;
+    color: white;">{{ session('success') }}</div>
         @endif
 
     </form>
