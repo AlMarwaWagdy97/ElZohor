@@ -230,7 +230,7 @@
                 <div class="row products_container py-5 d-flex">
                     @if($category->products)
                     @foreach($category->products as $product)
-                        <div class="col-4">
+                        <div class="col-4 mb-4">
                             <div class="card">
 
                                 <img class="image_card"
