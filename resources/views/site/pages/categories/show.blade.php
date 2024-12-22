@@ -6,6 +6,14 @@
 
     <style>
 
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
 
 
         section {
@@ -113,6 +121,10 @@
                 width: 25rem;
                 height: 15rem;
             }
+
+
+            .moving-div{  left: 13%;}
+            .moving-div2{  left: 63%;}
         }
 
 
@@ -178,7 +190,7 @@
 
 
 
-    <section class="w-100 primaryBgColor">
+    <section class=" primaryBgColor">
         <img class="moving-div" src="{{asset('site/images/candy1.png')}}">
         <img class="moving-div2" src="{{asset('site/images/candy2.png')}}">
 
