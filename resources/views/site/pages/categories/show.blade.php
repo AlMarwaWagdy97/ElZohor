@@ -212,7 +212,8 @@
                     </div>
 
                     <div class="mt-5 main_p">
-                        dfjd 3o3oi4o34 slslkdlskd qlkel lele
+
+                        {{optional($category->transNow)->description}}
                     </div>
 
                 </div>
@@ -227,6 +228,7 @@
                 </h2>
                 <br>
                 <div class="row products_container py-5 d-flex">
+                    @if($category->products)
                     @foreach($category->products as $product)
                         <div class="col-4">
                             <div class="card">
@@ -239,6 +241,7 @@
                             </div>
                         </div>
                     @endforeach
+                        @endif
 
                 </div>
 
