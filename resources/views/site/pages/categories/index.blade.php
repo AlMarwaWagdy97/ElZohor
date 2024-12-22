@@ -201,7 +201,7 @@
                     // Apply the zoom level to the element after the delay
                     element.style.transform = `scale(${zoomLevels[index]})`;
                 });
-            }, 1000); // Delay of 500 milliseconds (0.5 seconds)
+            }, 2000); // Delay of 500 milliseconds (0.5 seconds)
         }
 
         window.addEventListener('wheel', handleZoom);
