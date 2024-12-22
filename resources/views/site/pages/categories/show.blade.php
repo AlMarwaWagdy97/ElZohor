@@ -81,7 +81,7 @@
 
         .main_image {
             {{--background-image: url("{{url('attachments/products/test2.png')}}");--}}
-             background-image: url("{{url($category->image)}}");
+             background-image: url("{{$category->image ? url($category->image) : ''}}");
             background-size: contain;
             background-position: center;
 
