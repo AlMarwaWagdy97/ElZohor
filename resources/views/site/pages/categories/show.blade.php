@@ -122,7 +122,7 @@
         }
 
 
-        .moving-div, .moving-div2 {
+        .moving-div, .moving-div2 , .moving-div3 , .moving-div4 {
             will-change: transform, opacity; /* يساعد على تحسين الأداء */
         }
 
