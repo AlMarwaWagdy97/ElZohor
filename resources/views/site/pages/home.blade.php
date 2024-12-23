@@ -254,7 +254,7 @@
 {{--                    </div>--}}
 
                     <div class="row">
-                        <button onclick="window.location.href='{{url('/products')}}'" class="btn btn-more mt-5 px-5 py-3 mx-auto">
+                        <button onclick="window.location.href='{{url(route('site.categories.index'))}}'" class="btn btn-more mt-5 px-5 py-3 mx-auto">
                              المزيد
                         </button>
                     </div>
@@ -399,6 +399,12 @@
 {{--                </div>--}}
 {{--            </div>--}}
         </div>
+        <div class="row">
+            <button onclick="window.location.href='{{url(route('site.news'))}}'" class="btn bg-white btn-more mt-5 px-5 py-3 mx-auto " id="newMainBtn" >
+                المزيد
+            </button>
+        </div>
+
     </div>
 </div>
 <!--Our Vision-->
