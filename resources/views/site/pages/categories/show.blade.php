@@ -47,11 +47,14 @@
             position: absolute; /* Needed for movement */
             top: 20%; /* Start from the top */
             left: 15%; /* Center horizontally */
-            width: 100px; /* Set width */
-            height: 100px; /* Set height */
+            /*width: 100px; !* Set width *!*/
+            /*height: 100px; !* Set height *!*/
+            width: 7%; /* Set width */
+
             z-index: 5;
             animation: moveDown 5s linear infinite; /* Call the animation */
             animation-delay: 2s;
+            opacity: 0.001;
 
         }
 
@@ -59,12 +62,43 @@
         .moving-div2 {
             position: absolute; /* Needed for movement */
             top: 20%; /* Start from the top */
-            left: 75%; /* Center horizontally */
-            width: 100px; /* Set width */
-            height: 100px; /* Set height */
+            /*left: 75%; !* Center horizontally *!*/
+            right: 15%; /* Center horizontally */
+            width: 7%; /* Set width */
+
+            /*width: 100px; !* Set width *!*/
+            /*height: 100px; !* Set height *!*/
             z-index: 5;
             animation: moveDown 7s infinite; /* Call the animation */
             animation-delay: 2s;
+            opacity: 0.001;
+
+        }
+
+
+        .moving-div3 {
+            position: absolute; /* Needed for movement */
+            top: 20%; /* Start from the top */
+            right: 7%; /* Center horizontally */
+            width: 7%; /* Set width */
+            /*height: 10%; !* Set height *!*/
+            z-index: 5;
+            animation: moveDown 15s infinite; /* Call the animation */
+            animation-delay: 2s;
+            opacity: 0.001;
+
+        }
+        .moving-div4 {
+            position: absolute; /* Needed for movement */
+            top: 20%; /* Start from the top */
+            left: 7%; /* Center horizontally */
+            width: 7%; /* Set width */
+            /*height: 10%; !* Set height *!*/
+            z-index: 5;
+            animation: moveDown 15s infinite; /* Call the animation */
+            animation-delay: 4s;
+            opacity: 0.001;
+
 
         }
 
@@ -233,8 +267,10 @@
     <section class=" primaryBgColor">
         <img class="moving-div" src="{{asset('site/images/candy1.png')}}">
         <img class="moving-div2" src="{{asset('site/images/candy2.png')}}">
+        <img class="moving-div3" src="{{asset('site/images/flowers/yellow.png')}}">
+        <img class="moving-div4" src="{{asset('site/images/flowers/pink.png')}}">
 
-
+{{--        C:\laragon\www\ElZohor\public\site\images\flowers--}}
         <div class="container">
 
             <div class="row">
