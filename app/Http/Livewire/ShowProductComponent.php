@@ -7,17 +7,18 @@ use Livewire\Component;
 
 class ShowProductComponent extends Component
 {
-    public $data;
+//    public $data;
     public $isOpen = "none";
 
 
 
-    public function mount($product_id , $product_image , $product_name)
+    public function mount($product_id , $product_image , $product_name , $product_description)
     {
 
         $this->product_id = $product_id;
         $this->product_image = $product_image;
         $this->product_name = $product_name;
+        $this->product_description = $product_description;
 
     }
 
@@ -31,7 +32,7 @@ class ShowProductComponent extends Component
 
 
     public function getData(){
-        $this->data = Product::with('transNow')->find($this->product_id);
+//        $this->data = Product::with('transNow')->find($this->product_id);
 
         $this->openModal();
     }

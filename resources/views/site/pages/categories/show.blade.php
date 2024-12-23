@@ -279,7 +279,7 @@
 {{--                            </div>--}}
 
 {{--                        </div>--}}
-                                     @livewire('show-product-component' , ['product_id'=>$product->id , 'product_image' => asset($product->image) , 'product_name' => optional($product->transNow)->name  ])
+                                     @livewire('show-product-component' , ['product_id'=>$product->id , 'product_image' => asset($product->image) , 'product_name' => optional($product->transNow)->name  , 'product_description' => optional($product->transNow)->description  ])
 
                         @endforeach
                         @endif

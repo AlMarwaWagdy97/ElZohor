@@ -33,8 +33,8 @@
 
                         <!-- Modal Header -->
                         <div class="myClass-header text-white p-3">
-                            <h5 class="myClass-title">{{optional(@$data->transNow)->name}}</h5>
-                            <p class="myClass-title">{{optional(@$data->transNow)->description}}</p>
+                            <h5 class="myClass-title">{{$product_name}}</h5>
+                            <p class="myClass-title">{!!  $product_description !!}</p>
 
                         </div>
                         <span class="p-1 btn" style="background-color: transparent; color:white; "

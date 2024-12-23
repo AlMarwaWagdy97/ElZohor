@@ -19,8 +19,10 @@
                         >
                             <h1 class="poniterClass"  onclick="window.location.href=`{{url(route('site.blogs.show' , optional($val->transNow)->slug ?? $val->id))}}`"> {{optional($val->transNow)->title}}</h1>
                             <p>
-                                {!! optional($val->transNow)->description  !!}
-{{--                                <a href="{{route('site.blogs.show' ,  $val->slug ?? $val->id)}}" class=" btn-custom-blogs ">عرض</a>--}}
+
+                                {!!       optional($val->transNow)->description   ?   substr(removeHTML(  optional($val->transNow)->description   ),0,100)   : ''  !!}
+
+                                {{--                                <a href="{{route('site.blogs.show' ,  $val->slug ?? $val->id)}}" class=" btn-custom-blogs ">عرض</a>--}}
 
                             </p>
 
@@ -34,7 +36,7 @@
                         >
                             <h1 class="poniterClass"  onclick="window.location.href=`{{url(route('site.blogs.show' , optional($val->transNow)->slug ?? $val->id))}}`">{{optional($val->transNow)->title}}</h1>
                             <p>
-                                {!!  optional($val->transNow)->description  !!}
+                                {!!       optional($val->transNow)->description   ?   substr(removeHTML(  optional($val->transNow)->description   ),0,100)   : ''  !!}
 {{--                                <a href="{{route('site.blogs.show' ,  $val->slug ?? $val->id)}}" class=" btn-custom-blogs ">عرض</a>--}}
 
                             </p>
