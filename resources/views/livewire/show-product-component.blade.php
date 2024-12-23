@@ -5,10 +5,7 @@
 
 
 <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-    <div class="card card_image_container" onclick="if(this.nextSibling.nextSibling.firstElementChild.firstElementChild.style.display == 'none')
-         {this.nextSibling.nextSibling.firstElementChild.firstElementChild.style.display = 'flex'}
-         else
-             {this.nextSibling.nextSibling.firstElementChild.firstElementChild.style.display = 'none'}">
+    <div class="card card_image_container"  wire:click="getData" >
 
         <img class="image_card"
              src="{{$product_image}}"/>
@@ -19,11 +16,11 @@
 
     <div class="row mt-2">
         <div class="m-auto my_product_livewire w-100 text-center ">
-            <button wire:click="getData" class="myBtnLiveWire" style="color:white; border: none; background-color: transparent; display: none ">
+{{--            <button wire:click="getData" class="myBtnLiveWire" style="color:white; border: none; background-color: transparent; display: none ">--}}
 {{--                <img style="background-color: transparent; " width="25" height="25"--}}
 {{--                     src="{{asset('site/images/arrow.png')}}">--}}
-                المزيد
-            </button>
+{{--                المزيد--}}
+{{--            </button>--}}
 
             <!-- The Modal -->
             <div class="row m-auto" id="myModal" style="background-color: rgba(0,0,0,0.4);
@@ -37,7 +34,7 @@
                             <p class="myClass-title">{!!  $product_description !!}</p>
 
                         </div>
-                        <span class="p-1 btn" style="background-color: transparent; color:white; "
+                        <span class="p-1 mb-3 btn" style="background-color: transparent; color:white; "
                               wire:click="closeModal">x</span>
 
                         <!-- Modal body -->
