@@ -347,9 +347,9 @@
         <h1 class="text-capitalize text-center text-white">أخر الأخبار</h1>
         <div class="row text-center pt-5">
 {{--            {{dd($visions)}}--}}
-            @forelse (App\Models\News::active()->latest()->take(3)->get() as $itemOne)
+            @forelse (App\Models\News::with('transNow')->active()->latest()->take(3)->get() as $itemOne)
                  <div class="Vision col-lg-4 col-12 px-3">
-                <div class="WhiteDiv mt-3 mb-3 py-5 mx-auto">
+                <div class="WhiteDiv poniterClass mt-3 mb-3 py-5 mx-auto" onclick="window.location.href = '{{url(route('site.news.show' , optional($itemOne->transNow)->slug))}}'">
                     <img
                         src="{{ asset($itemOne->image ?? '') }}"
                         class="img-fluid"
@@ -359,7 +359,7 @@
 
                 <div class="text text-center">
                     <h4 class="text-uppercase">
-                        {{$itemOne->title  ??''}}
+                        {{optional($itemOne->transNow)->title  ??''}}
                     </h4>
                 </div>
             </div>
