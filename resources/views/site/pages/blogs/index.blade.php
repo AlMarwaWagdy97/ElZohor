@@ -18,7 +18,7 @@
                             class="col-12 col-lg-6 text-end d-flex flex-column justify-content-center"
                         >
                             <h1 class="poniterClass"  onclick="window.location.href=`{{url(route('site.blogs.show' , optional($val->transNow)->slug ?? $val->id))}}`"> {{optional($val->transNow)->title}}</h1>
-                            <p>
+                            <p class="mt-2">
 
                                 {!!       optional($val->transNow)->description   ?   substr(removeHTML(  optional($val->transNow)->description   ),0,500)  . " ......................... "  : ''  !!}
 
@@ -35,7 +35,7 @@
                             class="col-12 col-lg-6 my-5 text-end d-flex flex-column justify-content-center"
                         >
                             <h1 class="poniterClass"  onclick="window.location.href=`{{url(route('site.blogs.show' , optional($val->transNow)->slug ?? $val->id))}}`">{{optional($val->transNow)->title}}</h1>
-                            <p>
+                            <p class="mt-2">
                                 {!!       optional($val->transNow)->description   ?   substr(removeHTML(  optional($val->transNow)->description   ),0,500)  . " ......................... "   : ''  !!}
 {{--                                <a href="{{route('site.blogs.show' ,  $val->slug ?? $val->id)}}" class=" btn-custom-blogs ">عرض</a>--}}
 
