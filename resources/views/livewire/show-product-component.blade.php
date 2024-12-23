@@ -14,8 +14,8 @@
 
     </div>
 
-    <div class="row mt-2">
-        <div class="m-auto my_product_livewire w-100 text-center ">
+    <div class="row mt-2" >
+        <div class="m-auto my_product_livewire w-100 text-center " >
 {{--            <button wire:click="getData" class="myBtnLiveWire" style="color:white; border: none; background-color: transparent; display: none ">--}}
 {{--                <img style="background-color: transparent; " width="25" height="25"--}}
 {{--                     src="{{asset('site/images/arrow.png')}}">--}}
@@ -24,7 +24,7 @@
 
             <!-- The Modal -->
             <div class="row m-auto" id="myModal" style="background-color: rgba(0,0,0,0.4);
-                border-radius: 15px; display: {{$isOpen}};   ">
+                 display: {{$isOpen}};  border:3px solid var(--main-bg-purple-second-color); "  >
                 <div class="myClass-dialog">
                     <div class="myClass-content">
 
@@ -34,7 +34,7 @@
                             <p class="myClass-title">{!!  $product_description !!}</p>
 
                         </div>
-                        <span class="p-1 mb-3 btn" style="background-color: transparent; color:white; "
+                        <span class="p-1 mb-3 btn" style="font-size: 20px; font-weight: bold; background-color: transparent; color: var(--main-bg-purple-second-color); border-radius: 15px;  "
                               wire:click="closeModal">x</span>
 
                         <!-- Modal body -->
