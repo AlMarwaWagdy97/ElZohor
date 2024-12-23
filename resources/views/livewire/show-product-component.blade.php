@@ -24,7 +24,7 @@
 
             <!-- The Modal -->
             <div class="row m-auto" id="myModal" style="background-color: rgba(0,0,0,0.4);
-                 display: {{$isOpen}};  border:3px solid var(--main-bg-purple-second-color); "  >
+                 display: {{$isOpen}};  border:2px solid var(--main-bg-purple-second-color); border-radius: 15px"  >
                 <div class="myClass-dialog">
                     <div class="myClass-content">
 
