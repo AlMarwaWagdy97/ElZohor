@@ -210,9 +210,9 @@
         }
 
         @keyframes rotateViceVerse {
-            /*0% {*/
-            /*    transform: rotate(0deg); !* Start at 0 degrees *!*/
-            /*}*/
+            0% {
+                transform: rotate(0deg); /* Start at 0 degrees */
+            }
             100% {
                 transform: rotate(-360deg); /* Complete one full rotation */
             }
