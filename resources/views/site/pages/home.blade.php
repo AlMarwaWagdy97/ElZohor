@@ -31,7 +31,7 @@
     <div class="Hero  wow bounceInUp">
         <div class="text-center">
             <!-- Slider main container -->
-            <div class="swiper x">
+            <div class="swiper Hero_slider">
                 <!-- Additional required wrapper -->
                 <div class="swiper-wrapper">
                     {{--                {{dd($settings->getItemFeatured('pdf') , 'dfdfd')}}--}}

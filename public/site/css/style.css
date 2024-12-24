@@ -155,7 +155,14 @@ i {
 }
 }
 
+
+
+
+
 .Hero {
+.swiper {
+    height: 550px;
+}
 .swiper-slide {
     position: relative;
     width: 100% !important;
@@ -584,7 +591,8 @@ h1 {
 p {
     font-family: Somar-Regular;
     font-size: 25px;
-    color:#905885;
+    color: #905885;
+
 }
 }
 }
