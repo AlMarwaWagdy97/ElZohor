@@ -18,7 +18,7 @@
     <link rel="icon" href="{{ @$SiteSetting['icon'] != null ? asset(@$SiteSetting['icon']) : asset('site/img/logos/logo.png') }}">
 
     <!-- Custom Stylsheet-->
-    <link rel="stylesheet" href="{{ asset('site/css/style.css?v=0.0.26') }}" />
+    <link rel="stylesheet" href="{{ asset('site/css/style.css?v=0.0.36') }}" />
 
     <!--Bootstrap cdn -->
     <link rel="stylesheet" href="{{ asset('site/css/bootstrap.min.css') }}" />
