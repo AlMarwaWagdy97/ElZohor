@@ -7,7 +7,7 @@
 @section('content')
 <div class="item my-5 p-lg-5">
     <div class="container">
-     
+
         <div class="row text-center justify-content-center">
             <div class="description col-12 col-lg-6 p-3 align-content-center text-start wow bounceInUp">
                 <h1> {{ @$product->trans->where('locale', $current_lang)->first()->name }} </h1>
@@ -25,7 +25,7 @@
 
         <div class="row">
             <div class="text-end">
-                <a href="{{ route('site.products') }}?key={{ @request()->key }}" class="btn btn-more mt-5 px-5 py-2 mx-auto btn-more-dark">
+                <a href="{{ url('/categories') }}" class="btn btn-more mt-5 px-5 py-2 mx-auto btn-more-dark">
                     @lang('Back')
                 </a>
             </div>
