@@ -63,7 +63,7 @@
 
                             </li>
                             <li class="hidden-text-1">
-                                {!!       App\Settings\HomeSettingSingleton::getInstance()->getItem('our_value')?->trans[0]->description ?   substr(removeHTML( App\Settings\HomeSettingSingleton::getInstance()->getItem('our_value')?->trans[0]->description),10,200)   : ''  !!}
+                                {!!       App\Settings\HomeSettingSingleton::getInstance()->getItem('our_value')?->trans[0]->description ?   substr(removeHTML( App\Settings\HomeSettingSingleton::getInstance()->getItem('our_value')?->trans[0]->description),10,1000)   : ''  !!}
 
 
                             </li>
@@ -89,7 +89,7 @@
 
                             </li>
                             <li class="hidden-text-2">
-                                {!!       App\Settings\HomeSettingSingleton::getInstance()->getItem('our_advantage')?->trans[0]->description ?  substr(removeHTML( App\Settings\HomeSettingSingleton::getInstance()->getItem('our_advantage')?->trans[0]->description),10,200)   : ''  !!}
+                                {!!       App\Settings\HomeSettingSingleton::getInstance()->getItem('our_advantage')?->trans[0]->description ?  substr(removeHTML( App\Settings\HomeSettingSingleton::getInstance()->getItem('our_advantage')?->trans[0]->description),10,1000)   : ''  !!}
 
                             </li>
 
