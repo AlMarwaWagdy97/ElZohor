@@ -2,7 +2,9 @@
 <script src="{{ asset('site/js/bootstrap.bundle.min.js') }}"></script>
 
 <!--Swiper-->
-<script src="{{ asset('site/js/swiper-bundle.min.js') }}"></script>
+{{--<script src="{{ asset('site/js/swiper-bundle.min.js') }}"></script>--}}
+<script src="{{ asset('site/js/swiper-bundle.js') }}"></script>
+
 
 <!--Animation-->
 <script src="{{ asset('site/js/wow.min.js') }}"></script>
