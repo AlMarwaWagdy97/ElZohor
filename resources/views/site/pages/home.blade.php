@@ -203,7 +203,7 @@
 
     <!--PRODUCTS-->
     @if(App\Settings\HomeSettingSingleton::getInstance()->getItem('products'))
-        @if( $products  &&  $products->count())
+        @if( $categories  &&  $categories->count())
         <!--PRODUCTS-->
         <div
             class="prodects text-center mt-5 position-relative wow fadeInDown"
@@ -221,12 +221,12 @@
                 </div>
 
                 <div class="row mt-lg-5 py-3">
-                @forelse($products->take(App\Settings\HomeSettingSingleton::getInstance()->getItem('products')->num_of_items ?? 3) as $key => $product)
+                @forelse($categories->take(App\Settings\HomeSettingSingleton::getInstance()->getItem('products')->num_of_items ?? 3) as $key => $category)
                     <div class="col-lg-4 col-12 px-5 mb-lg-0 mb-3 mt-lg-5">
-                        <div class="yellowDiv position-relative"  onclick="window.open('{{ url(app()->getLocale() . '/products/' . @$product->trans[0]->slug) }}' , '_blank')">
-                            <img src="{{ asset($product->image) }}" class="w-50"  alt="{{ @$product->trans[0]->name }}" />
+                        <div class="yellowDiv position-relative"  onclick="window.open('{{ url(app()->getLocale() . '/categories/' . @$category->trans[0]->slug) }}' , '_blank')">
+                            <img src="{{ asset($category->image) }}" class="w-50"  alt="{{ @$category->trans[0]->name }}" />
                             <div class="prodectInfo bg-white rounded p-2 text-center">
-                                <h4>{{ @$product->trans->first()->name }}</h4>
+                                <h4>{{ @$category->trans->first()->title }}</h4>
                             </div>
                         </div>
                     </div>
@@ -268,7 +268,7 @@
 
 
     {{--    @if(App\Settings\HomeSettingSingleton::getInstance()->getItem('products'))--}}
-{{--            @if( $products  &&  $products->count()) )--}}
+{{--            @if( $categories  &&  $categories->count()) )--}}
     {{--        <!--PRODUCTS-->--}}
     {{--        <div class="prodects text-center mt-5 position-relative wow fadeInDown" data-wow-delay=".1s"--}}
     {{--             data-wow-duration=".1s">--}}
@@ -283,16 +283,16 @@
 
     {{--                </div>--}}
     {{--                <div class="row mt-lg-5 py-3">--}}
-{{--                        @forelse($products->take(App\Settings\HomeSettingSingleton::getInstance()->getItem('products')->num_of_items) as $key => $product)--}}
+{{--                        @forelse($categories->take(App\Settings\HomeSettingSingleton::getInstance()->getItem('products')->num_of_items) as $key => $category)--}}
     {{--                        <div class="col-lg-4 col-12 px-5 mb-lg-0 mb-3 mt-lg-5">--}}
     {{--                            <div class="yellowDiv position-relative bg-success"--}}
-    {{--                                 onclick="window.open('{{ url(app()->getLocale() . '/products/' . @$product->trans[0]->slug) }}' , '_blank')">--}}
-    {{--                                <img src="{{ asset($product->image) }}"--}}
-    {{--                                     class="w-50" alt="{{ @$product->trans[0]->name }}"/>--}}
+    {{--                                 onclick="window.open('{{ url(app()->getLocale() . '/products/' . @$category->trans[0]->slug) }}' , '_blank')">--}}
+    {{--                                <img src="{{ asset($category->image) }}"--}}
+    {{--                                     class="w-50" alt="{{ @$category->trans[0]->name }}"/>--}}
     {{--                                <div class="prodectInfo bg-white rounded p-3 text-start">--}}
-    {{--                                    <h1 class="h5">{{ @$product->trans->first()->name }}</h1>--}}
+    {{--                                    <h1 class="h5">{{ @$category->trans->first()->name }}</h1>--}}
     {{--                                    <p>--}}
-    {{--                                        {{ removeHTML(Str::substr(@$product->trans->where('locale', $current_lang)->first()->description, 0, 120)) }}--}}
+    {{--                                        {{ removeHTML(Str::substr(@$category->trans->where('locale', $current_lang)->first()->description, 0, 120)) }}--}}
     {{--                                        ...--}}
     {{--                                    </p>--}}
     {{--                                </div>--}}

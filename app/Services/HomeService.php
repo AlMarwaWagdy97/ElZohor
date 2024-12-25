@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Models\Categories;
 use App\Models\Client;
 use App\Models\Product;
 use App\Models\Slider;
@@ -11,7 +12,7 @@ use App\Settings\SettingSingleton;
 
 class HomeService
 {
-    public $sliders, $teams, $clients, $products, $videos;
+    public $sliders, $teams, $clients, $products, $videos , $cats;
 
     public $modelHomeSetting, $settings;
 
@@ -23,6 +24,7 @@ class HomeService
         $this->teams = new Teams();
         $this->clients = new Client();
         $this->products = new Product();
+        $this->cats = new Categories();
 
 
         $this->modelHomeSetting = HomeSettingSingleton::getInstance();
@@ -58,6 +60,15 @@ class HomeService
         }])->orderBy('sort', 'ASC')->feature()->active()->get();
     }
 
+    function getCategoriesData()
+    {
+        return $this->cats->with(['trans' => function ($query) {
+            $query->where('locale', app()->getLocale());
+        }])->orderBy('sort', 'ASC')->active()->get();
+    }
+
+
+
     function getVissionsData()
     {
         return [
@@ -73,6 +84,8 @@ class HomeService
         $data['teams'] = $this->getTeamsData();
         $data['clients'] = $this->getClientsData();
         $data['products'] = $this->getProductsData();
+        $data['categories'] = $this->getCategoriesData();
+
 
         $data['visions'] =  $this->getVissionsData();
 

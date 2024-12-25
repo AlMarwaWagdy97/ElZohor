@@ -81,20 +81,20 @@ Route::group([
     Route::get('certifications-more/{start}/{count}', fn ($start, $count) => Blade::renderComponent(new LoadMoreCertifications($start, $count)))->name('certifications-more.loadMore');
     Route::get('videos-more/{start}/{count}', fn ($start, $count) => Blade::renderComponent(new LoadMoreVideos($start, $count)))->name('videos-more.loadMore');
 
-    route::get('careers', [PageController::class , 'careers'])->name('careers.index');
+    route::get('careers', [PageController::class, 'careers'])->name('careers.index');
 
 
     Route::match(['get', 'post'], 'search-products', function () {
         $search = request('search', '');
         $category_id = request('category_id', 0); // defaulting to 0 if not provided
-        $start = (int) request('start', 0); // defaulting to 0 if not provided
-        $count = (int) request('count', 6); // defaulting to 6 if not provided
+        $start = (int)request('start', 0); // defaulting to 0 if not provided
+        $count = (int)request('count', 6); // defaulting to 6 if not provided
         $component = new SearchProducts($search, $start, $count, $category_id);
         return Blade::renderComponent($component);
     })->name('searchProducts');
 
 
-    Route::get('categories-more/{category_id}/{start}/{count}/{totalProducts}', function ($category_id, $start, $count ,$totalProducts) {
+    Route::get('categories-more/{category_id}/{start}/{count}/{totalProducts}', function ($category_id, $start, $count, $totalProducts) {
         $count = 6; // Define the count value here
         $search = $search = request('search', ''); // Define the search value here
         return Blade::renderComponent(new LoadMoreCategories($category_id, $start, $count, $search, $totalProducts));
@@ -102,23 +102,13 @@ Route::group([
     Route::get('products-more/{category_id}/{start}/{count}', fn ($category_id, $start, $count) => Blade::renderComponent(new LoadMoreProducts($category_id, $start, $count)))->name('products-more.loadMore');
 
 
-
-
-
-
-
-
-
-
-
-
-    Route::resource('categories' , CategoryController::class )->except('edit' , 'create' , 'update' , 'store');
-
+    Route::resource('categories', CategoryController::class)->except('edit', 'create', 'update', 'store');
 
 
 //        Route::get('apply', ApplyComponent::class)->name('apply');
-Route::get('apply/{career_id}' , [PageController::class , 'applyForJob'])->name('apply');
-Route::view('my_test' , 'test'); //here
-    Route::view('my_test3' , 'test3'); //here
+    Route::get('apply/{career_id}', [PageController::class, 'applyForJob'])->name('apply');
+    Route::view('my_test', 'test'); //here
+    Route::view('my_test3', 'test3'); //here
 
- });
+    Route::view('bbb', 'site.my_test');
+});
