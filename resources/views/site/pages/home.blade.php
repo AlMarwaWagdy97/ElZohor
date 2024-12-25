@@ -202,6 +202,7 @@
 
 
     <!--PRODUCTS-->
+<!-------here we represent the products in (HomeSettingSingleton and home page settings) equals the categories  here in this section -->
     @if(App\Settings\HomeSettingSingleton::getInstance()->getItem('products'))
         @if( $categories  &&  $categories->count())
         <!--PRODUCTS-->
@@ -235,23 +236,6 @@
 
                         @endforelse
 
-{{--                    <div class="col-lg-4 col-12 px-5 mb-lg-0 mb-3 mt-5">--}}
-{{--                        <div class="yellowDiv position-relative">--}}
-{{--                            <img src="{{asset('site/imgs/boomboom١.png')}}" class="w-50" alt="" />--}}
-{{--                            <div class="prodectInfo bg-white rounded p-2 text-center">--}}
-{{--                                <h4>بونبون</h4>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-
-{{--                    <div class="col-lg-4 col-12 px-5 mb-lg-0 mb-3 mt-5">--}}
-{{--                        <div class="yellowDiv position-relative">--}}
-{{--                            <img src="{{asset('site/imgs/chocoroll.png')}}" class="w-50" alt="" />--}}
-{{--                            <div class="prodectInfo bg-white rounded p-2 text-center">--}}
-{{--                                <h4>مصاصة</h4>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
 
                     <div class="row">
                         <button onclick="window.location.href='{{url(route('site.categories.index'))}}'" class="btn btn-more mt-5 px-5 py-3 mx-auto">

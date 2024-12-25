@@ -63,6 +63,9 @@ li a {
     color: #fff;
     text-decoration: none;
 }
+img {
+    border-radius: 15px;
+}
 /*/////////////////////////////////////////////////////////INDEX PAGE ////////////////////////////////////////////////////////////////////////////////////////////*/
 /*All items*/
 
@@ -155,31 +158,27 @@ i {
 }
 }
 
-
-
-
-
 .Hero {
 .swiper {
-    height: 550px;
+    height: fit-content;
 }
 .swiper-slide {
     position: relative;
     width: 100% !important;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
+    background-position: center;
     -o-object-fit: contain;
     object-fit: contain;
-    height: 1000px;
 }
 .slide-1 {
-    background-image: url("../imgs/1.jpg");
+    background-image: url("../imgs/1-1.jpg");
 }
 .slide-2 {
-    background-image: url("../imgs/2.jpg");
+    background-image: url("../imgs/2-2.jpg");
 }
 .slide-3 {
-    background-image: url("../imgs/3.jpg");
+    background-image: url("../imgs/3-3.jpg");
 }
 .overlay {
     position: absolute;
@@ -592,7 +591,6 @@ p {
     font-family: Somar-Regular;
     font-size: 25px;
     color: #905885;
-
 }
 }
 }
@@ -663,7 +661,7 @@ label {
     border: none;
 h5 {
     font-family: SomarSans-Bold;
-    color: #5e2b53 !important;
+    color: #5e2b53;
 }
 p {
     font-family: Somar-Regular;
@@ -792,7 +790,7 @@ textarea {
 }
 }
 .btn-send {
-    background: #5e2b53 ;
+    background: #5e2b53;
     color: #fff;
     border-radius: 15px;
 }
@@ -921,6 +919,7 @@ h2 {
  }
 }
 }
+
 
 
 
