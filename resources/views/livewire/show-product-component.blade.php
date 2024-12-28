@@ -3,8 +3,7 @@
 
 {{--     <span wire:click.prevent="getData">click</span>--}}
 
-
-<div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+<div class="col-lg-4 col-6  mb-4">
     <div class="card card_image_container"  wire:click="getData" >
 
         <img class="image_card"
@@ -35,7 +34,7 @@
                             <p class="myClass-title">{!!  $product_description !!}</p>
 
                         </div>
-                        <span class="p-1 mb-3 btn" style="font-size: 20px; font-weight: bold; background-color: transparent; color: var(--main-bg-purple-second-color); border-radius: 15px;  "
+                        <span class="p-1 mb-3 btn" style="font-size: 18px; font-weight: bold; background-color: transparent; color: var(--main-bg-purple-second-color); border-radius: 15px;  "
                               wire:click="closeModal">x</span>
 
                         <!-- Modal body -->
