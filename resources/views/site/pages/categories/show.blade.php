@@ -299,24 +299,7 @@
                 <div class="row products_container py-5 d-flex">
                     @if($category->products)
                     @foreach($category->products as $product)
-{{--                        <div class="col-4 mb-4">--}}
-{{--                             <div class="card card_image_container">--}}
-
-{{--                                <img class="image_card"--}}
-{{--                                     src="{{asset($product->image)}}"/>--}}
-{{--                                <div class="product_title text-center py-3 text-light fw-bolder">{{optional($product->transNow)->name}}</div>--}}
-
-
-{{--                            </div>--}}
-
-{{--                            <div class="row" >--}}
-{{--                                @livewire('show-product-component' , ['product_id'=>$product->id])--}}
-
-{{--                            </div>--}}
-
-{{--                        </div>--}}
                                      @livewire('show-product-component' , ['product_id'=>$product->id , 'product_image' => asset($product->image) , 'product_name' => optional($product->transNow)->name  , 'product_description' => optional($product->transNow)->description  ])
-
                         @endforeach
                         @endif
 
