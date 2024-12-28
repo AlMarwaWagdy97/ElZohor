@@ -174,8 +174,6 @@
 
     </style>
 
-
-
 {{--    .caontainer_main_image {--}}
 
     {{--
