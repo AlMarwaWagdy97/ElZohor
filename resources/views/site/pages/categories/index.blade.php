@@ -14,25 +14,63 @@
         }
 
         h4{
-            color:white;
+            color:black;
+            position: relative;
+            z-index: 2;
+
         }
 
+
+
+
         /*************sections **************/
-        .section_p {
-            padding-right: 5%;
-            font-size: 20px;
+
+        .upper_h{
+            margin-bottom: 0;
+            margin-top: 5%;
             color: white;
+        }
+
+            .section_p {
+            /*padding-right: 5%;*/
+
+            color:white;
             margin: auto;
+            position: relative;
+            z-index: 10;
+            font-size: 20px;
             padding-left: 5%;
+                padding-right: 5%;
+
+                padding-bottom: 3%;
         }
 
         .button_size_2 {
             padding: 12px;
             padding-left: 15px;
             padding-right: 15px;
-            margin-top: 20px;
+            margin-bottom: 10%;
             text-decoration: none;
             font-size: 19px;
+            border:2px solid #fff!important;
+            color:white !important;
+            background-color: rgba(60, 2, 128, 0.7);
+            /*border-radius: 20px;*/
+
+        }
+
+        @media(max-width: 700px) {
+            .section_p {
+                /*padding-right: 5%;*/
+
+                z-index: 10;
+                font-size: 12px;
+                /*padding-left: 5%;*/
+            }
+
+            .button_size_2 {
+                font-size: 12px;
+            }
 
         }
 
@@ -52,12 +90,10 @@
 
         }
 
-        section{
-            overflow: hidden;
+        /*section{*/
+        /*    overflow: hidden;*/
 
-        }
-
-
+        /*}*/
 
 
 
@@ -68,51 +104,77 @@
 
 
 
-        section {
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 2rem;
-        }
+
+
+        /*section {*/
+        /*    height: 100%;*/
+        /*    font-size: 2rem;*/
+        /*}*/
 
 
             section {
-                padding-top: 10%;
-                padding-bottom: 20%;
+                /*padding-top: 10%;*/
+                /*padding-bottom: 20%;*/
+                position: relative;
+                overflow-x: hidden;
+                overflow-y: hidden;
+
             }
 
             .child_div_section {
-                padding-top: 10%;
-                padding-bottom: 10%;
+                /*padding-top: 10%;*/
+                /*padding-bottom: 10%;*/
 
             }
 
 
 
 
-        section:nth-child(odd) {
-            /*background-color: #0157a8;*/
-            background-color: var(--main-bg-purple-second-color);
+        /*section:nth-child(odd) {*/
+        /*    !*background-color: #0157a8;*!*/
+        /*    background-color: var(--main-bg-purple-second-color);*/
 
 
-        }
+        /*}*/
 
-        section:nth-child(even) {
-            /*background-color: #021788;*/
-            background-color: var(--main-bg-purple-color);
-        }
+        /*section:nth-child(even) {*/
+        /*    !*background-color: #021788;*!*/
+        /*    background-color: var(--main-bg-purple-color);*/
+        /*}*/
 
 
         .section_img {
-            height: 75%;
-            width: 75%;
-            padding-top: 10%;
-            padding-bottom: 10%;
+            height: 100%;
+            width: 100%;
+            /*padding-top: 10%;*/
+            /*padding-bottom: 10%;*/
+            margin: auto;
+            position: relative;
+            z-index: 1;
+
+
+
 
         }
 
 
+        .categories_main_container{
+
+        }
+
+        .absolute_div{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #00000054;
+
+            z-index: 4;
+            top:0;
+            left:0;
+            text-shadow: 4px 4px 10px black;
+
+
+        }
 
     </style>
 
@@ -125,55 +187,30 @@
     --}}
 
     @foreach($categories as $key => $val)
-        <!-------------right --------------->
-
-        @if($key%2 != 0)
-            <section class="px-5 py-5">
+             <section class="">
                 <div class="row">
-                <div class="col-lg-6 col-md-12 text-center ">
-                    <div    class="categories-scroll-animation visible wow  shake animated"  data-wow-duration="1500ms" data-wow-iteration="1"    ><img class="section_img" src="{{asset($val->image)}}"/></div>
-                </div>
-                <div class="col-lg-6 col-md-12 text-center child_div_section">
-                    <div>
-                        <h4>{{$val->transNow->title}}</h4>
-                        <p class="section_p" style="font-size: 20px;">{{$val->transNow->description}}</p>
-                        <div class="button_align align_center mt-2"><a class="button  button_size_2"
-                                                                       href="{{url(route('site.categories.show' , $val->transNow->slug))}}"
-                                                                       style="border:2px solid #fff!important;color:#fff;"><span
-                                    class="button_label">اكتشف</span></a></div>
+
+
+                <div class="col-lg-12 col-md-12 text-center child_div_section">
+
+                    <div    class="categories-scroll-animation visible wow  shake animated categories_main_container"  data-wow-duration="1500ms" data-wow-iteration="1"    >
+
+
+                        <img class="section_img" src="{{asset($val->image)}}"/>
+                        <div  class="absolute_div"   >
+                            <h4 class="upper_h mb-4">{{$val->transNow->title}}</h4>
+                            <p class="section_p" >{{$val->transNow->description}}</p>
+                            <div class="button_align align_center mt-2"><a class="button  button_size_2"
+                                                                           href="{{url(route('site.categories.show' , $val->transNow->slug))}}"><span
+                                        class="button_label">اكتشف</span></a></div>
+                        </div>
+
+
                     </div>
+
                 </div>
                 </div>
             </section>
-
-
-{{--            <i class="fa fa-heart fa-5x icn_green wow bounce"data-wow-duration="800ms"></i>--}}
-
-            <!-------------end right --------------->
-        @else
-
-            <!-------------start left --------------->
-            <section class="px-5 py-5">
-                <div class="row">
-                <div class="col-lg-6 col-md-12 text-center child_div_section">
-                    <div>
-                        <h4>{{$val->transNow->title}}</h4>
-                        <p class="section_p" style="font-size: 20px;">{{$val->transNow->description}}</p>
-                        <div class="button_align align_center mt-2"><a class="button  button_size_2"
-                                                                       href="{{url(route('site.categories.show' , $val->transNow->slug))}}"
-                                                                       style="border:2px solid #fff!important;color:#fff;"><span
-                                    class="button_label">اكتشف</span></a></div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-12 text-center ">
-                    <div class="categories-scroll-animation visible wow  shake animated"  data-wow-duration="1500ms" data-wow-iteration="1"    ><img class="section_img" src="{{asset($val->image)}}"/></div>
-                </div>
-                </div>
-
-
-            </section>
-            <!-------------end left --------------->
-        @endif
     @endforeach
 
 
