@@ -330,7 +330,7 @@
                     {{optional($category->transNow)->title}}
                 </h2>
                 <br>
-                <div class="row products_container py-5">
+                <div class="row products_container py-5 m-auto">
                     @if($category->products)
                         @foreach($category->products as $product)
                             @livewire('show-product-component' , ['product_id'=>$product->id , 'product_image' =>
