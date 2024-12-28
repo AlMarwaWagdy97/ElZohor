@@ -14,7 +14,7 @@
     </div>
 
     <div class="row mt-2" >
-        <div class="m-auto my_product_livewire w-100 text-center " >
+        <div class="m-auto my_product_livewire  text-center " >
 {{--            <button wire:click="getData" class="myBtnLiveWire" style="color:white; border: none; background-color: transparent; display: none ">--}}
 {{--                <img style="background-color: transparent; " width="25" height="25"--}}
 {{--                     src="{{asset('site/images/arrow.png')}}">--}}

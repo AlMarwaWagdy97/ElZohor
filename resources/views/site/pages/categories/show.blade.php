@@ -304,7 +304,7 @@
         {{--        C:\laragon\www\ElZohor\public\site\images\flowers--}}
         <div class="row">
 
-                        <div class="row">
+            {{--            <div class="row">--}}
             <div class="d-flex caontainer_main_image">
 
                 <div class="w-100 h-100 contain_img">
@@ -319,7 +319,7 @@
                 </div>
 
 
-                                </div>
+                {{--                </div>--}}
             </div>
 
 
@@ -330,7 +330,7 @@
                     {{optional($category->transNow)->title}}
                 </h2>
                 <br>
-                <div class="row products_container py-5 d-flex">
+                <div class="row products_container py-5">
                     @if($category->products)
                         @foreach($category->products as $product)
                             @livewire('show-product-component' , ['product_id'=>$product->id , 'product_image' =>
