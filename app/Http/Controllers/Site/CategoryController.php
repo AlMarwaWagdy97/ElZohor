@@ -12,6 +12,7 @@ class CategoryController extends Controller
     {
 //        $categories = Categories::with('trans')->orderBy('sort', 'ASC')->active()->limit(8)->get();
         $categories = Categories::with('transNow')->orderBy('sort', 'ASC')->active()->orderBy('sort', 'ASC')->get();
+        $categories->load('transNow');
         return view('site.pages.categories.index', compact('categories'));
     }
 

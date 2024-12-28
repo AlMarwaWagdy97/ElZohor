@@ -138,7 +138,7 @@
                         <h4>{{$val->transNow->title}}</h4>
                         <p class="section_p" style="font-size: 20px;">{{$val->transNow->description}}</p>
                         <div class="button_align align_center mt-2"><a class="button  button_size_2"
-                                                                       href="{{url(route('site.categories.show' , $val->slug))}}"
+                                                                       href="{{url(route('site.categories.show' , $val->transNow->slug))}}"
                                                                        style="border:2px solid #fff!important;color:#fff;"><span
                                     class="button_label">اكتشف</span></a></div>
                     </div>
@@ -160,7 +160,7 @@
                         <h4>{{$val->transNow->title}}</h4>
                         <p class="section_p" style="font-size: 20px;">{{$val->transNow->description}}</p>
                         <div class="button_align align_center mt-2"><a class="button  button_size_2"
-                                                                       href="{{url(route('site.categories.show' , $val->slug))}}"
+                                                                       href="{{url(route('site.categories.show' , $val->transNow->slug))}}"
                                                                        style="border:2px solid #fff!important;color:#fff;"><span
                                     class="button_label">اكتشف</span></a></div>
                     </div>
