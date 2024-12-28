@@ -193,11 +193,11 @@
 
                 <div class="col-lg-12 col-md-12 text-center child_div_section">
 
-                    <div    class="categories-scroll-animation visible wow  shake animated categories_main_container"  data-wow-duration="1500ms" data-wow-iteration="1"    >
+                    <div    class="categories-scroll-animation categories_main_container"      >
 
 
                         <img class="section_img" src="{{asset($val->image)}}"/>
-                        <div  class="absolute_div"   >
+                        <div  class="absolute_div visible wow  shake animated categories_main_container"  data-wow-duration="1500ms" data-wow-iteration="1"   >
                             <h4 class="upper_h mb-4">{{$val->transNow->title}}</h4>
                             <p class="section_p" >{{$val->transNow->description}}</p>
                             <div class="button_align align_center mt-2"><a class="button  button_size_2"
@@ -217,6 +217,7 @@
 
 
 @endsection
+
 
 
 {{--wow bounceIn--}}
