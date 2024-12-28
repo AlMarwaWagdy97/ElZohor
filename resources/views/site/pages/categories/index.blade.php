@@ -46,10 +46,10 @@
         }
 
         .button_size_2 {
-            padding: 12px;
-            padding-left: 15px;
-            padding-right: 15px;
-            margin-bottom: 10%;
+            padding: 1%;
+            padding-left: 1%;
+            padding-right: 1%;
+            margin-bottom: 2%;
             text-decoration: none;
             font-size: 19px;
             border:2px solid #fff!important;
