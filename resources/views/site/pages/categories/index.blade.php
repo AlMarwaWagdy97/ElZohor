@@ -54,7 +54,7 @@
             font-size: 19px;
             border:2px solid #fff!important;
             color:white !important;
-            background-color: rgba(60, 2, 128, 0.7);
+            /*background-color: rgba(60, 2, 128, 0.7);*/
             /*border-radius: 20px;*/
 
         }
