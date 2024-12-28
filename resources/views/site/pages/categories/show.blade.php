@@ -4,21 +4,22 @@
 @section('content')
     {{--    800080--}}
 
-        {{--         <link rel="stylesheet" href="{{ asset('css/livewire-component.css') }}">--}}
+    {{--         <link rel="stylesheet" href="{{ asset('css/livewire-component.css') }}">--}}
 
 
-{{--        <style>--}}
-{{--            /*.myBtnLiveWire{*/--}}
-{{--            /*    display: none !important;*/--}}
-{{--            /*}*/--}}
+    {{--        <style>--}}
+    {{--            /*.myBtnLiveWire{*/--}}
+    {{--            /*    display: none !important;*/--}}
+    {{--            /*}*/--}}
 
 
 
-{{--        </style>--}}
+    {{--        </style>--}}
 
 
 
     <style>
+
 
         *,
         *::before,
@@ -88,6 +89,7 @@
             opacity: 0.001;
 
         }
+
         .moving-div4 {
             position: absolute; /* Needed for movement */
             top: 20%; /* Start from the top */
@@ -122,18 +124,18 @@
         }
 
 
-        .moving-div, .moving-div2 , .moving-div3 , .moving-div4 {
+        .moving-div, .moving-div2, .moving-div3, .moving-div4 {
             will-change: transform, opacity; /* يساعد على تحسين الأداء */
         }
 
 
         .main_image {
-            {{--background-image: url("{{url('attachments/products/test2.png')}}");--}}
-            {{-- background-image: url("{{$category->image ? url($category->image) : ''}}");--}}
-            {{--background-size: contain;--}}
-            {{--background-position: center;--}}
+        {{--background-image: url("{{url('attachments/products/test2.png')}}");--}}
+        {{-- background-image: url("{{$category->image ? url($category->image) : ''}}");--}}
+        {{--background-size: contain;--}}
+        {{--background-position: center;--}}
 
-            /*width: 40rem;*/
+ /*width: 40rem;*/
             /*height: 25rem;*/
 
             width: 39rem;
@@ -154,11 +156,11 @@
             height: 100%;
 
             text-align: center;
-            background-color: rgba(0,0,0,0.4) !important;
+            background-color: rgba(0, 0, 0, 0.4) !important;
 
             position: absolute;
-            top:0;
-            left:0;
+            top: 0;
+            left: 0;
             padding-top: 7%;
 
 
@@ -168,31 +170,26 @@
             .main_p {
                 font-size: 15px;
             }
-
+            .cart_p{
+                font-size: 15px !important;
+            }
         }
 
-            .contain_img{
+
+
+
+        .contain_img {
             position: relative;
         }
 
         .caontainer_main_image {
             /*padding-top: 10rem;*/
             margin-top: 0 !important;
-
             padding-bottom: 3rem;
             align-items: center;
             flex-direction: column;
-
             height: 100%;
-
-            {{--background-image: url("{{$category->image ? url($category->image) : ''}}");--}}
-            {{--background-size: cover;--}}
-            {{--background-position: center;--}}
-
-            {{--background-repeat: no-repeat;--}}
-
         }
-
 
 
         @media (max-width: 424px) {
@@ -229,7 +226,7 @@
         }
 
 
-            /********************************/
+        /********************************/
 
         .image_card:hover {
             /*position: absolute; !* Needed for movement *!*/
@@ -269,7 +266,7 @@
             }
         }
 
-/*********************************/
+        /*********************************/
 
         .image_card:not(:hover) {
             animation: rotateViceVerse 1s ease-in-out; /* Call the animation */
@@ -285,7 +282,9 @@
         }
 
 
-
+        img {
+            border-radius: unset;
+        }
 
 
     </style>
@@ -302,25 +301,25 @@
         <img class="moving-div3" src="{{asset('site/images/flowers/yellow.png')}}">
         <img class="moving-div4" src="{{asset('site/images/flowers/pink.png')}}">
 
-{{--        C:\laragon\www\ElZohor\public\site\images\flowers--}}
+        {{--        C:\laragon\www\ElZohor\public\site\images\flowers--}}
         <div class="row">
 
-{{--            <div class="row">--}}
-                <div class="d-flex caontainer_main_image">
+            {{--            <div class="row">--}}
+            <div class="d-flex caontainer_main_image">
 
-                    <div class="w-100 h-100 contain_img" >
+                <div class="w-100 h-100 contain_img">
 
-                        <img src="{{asset($category->image ? url($category->image) : '#')}}"  class="w-100 h-100">
+                    <img src="{{asset($category->image ? url($category->image) : '#')}}" class="w-100 h-100">
 
-                        <div class="main_p w-100 h-100">
+                    <div class="main_p w-100 h-100">
 
-                            {{optional($category->transNow)->description}}
-                        </div>
-
+                        {{optional($category->transNow)->description}}
                     </div>
 
+                </div>
 
-{{--                </div>--}}
+
+                {{--                </div>--}}
             </div>
 
 
@@ -333,13 +332,14 @@
                 <br>
                 <div class="row products_container py-5 d-flex">
                     @if($category->products)
-                    @foreach($category->products as $product)
-                                     @livewire('show-product-component' , ['product_id'=>$product->id , 'product_image' => asset($product->image) , 'product_name' => optional($product->transNow)->name  , 'product_description' => optional($product->transNow)->description  ])
+                        @foreach($category->products as $product)
+                            @livewire('show-product-component' , ['product_id'=>$product->id , 'product_image' =>
+                            asset($product->image) , 'product_name' => optional($product->transNow)->name  ,
+                            'product_description' => optional($product->transNow)->description  ])
                         @endforeach
-                        @endif
+                    @endif
 
                 </div>
-
 
 
             </div>

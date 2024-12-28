@@ -34,7 +34,7 @@
                             <p class="myClass-title">{!!  $product_description !!}</p>
 
                         </div>
-                        <span class="p-1 mb-3 btn" style="font-size: 18px; font-weight: bold; background-color: transparent; color: var(--main-bg-purple-second-color); border-radius: 15px;  "
+                        <span class="p-1 mb-3 btn cart_p" style="font-size: 18px; font-weight: bold; background-color: transparent; color: var(--main-bg-purple-second-color); border-radius: 15px;  "
                               wire:click="closeModal">x</span>
 
                         <!-- Modal body -->

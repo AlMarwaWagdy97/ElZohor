@@ -167,6 +167,10 @@
         }
 
 
+        img {
+            border-radius: unset;
+        }
+
 
     </style>
 
