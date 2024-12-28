@@ -323,7 +323,7 @@
             </div>
 
 
-            <div class="row">
+            <div class="row m-auto">
 
 
                 <h2 class="text-start main_title ">
