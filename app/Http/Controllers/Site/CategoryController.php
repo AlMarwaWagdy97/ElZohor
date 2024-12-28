@@ -24,7 +24,6 @@ class CategoryController extends Controller
             $category = Categories::with(  'products.transNow')->WhereTranslation('slug', $slug)->get()->first();
             if ($category == null) abort('404');
         }
-
 //        $products = Product::with('trans')->where('category_id', $category->id)
 //            ->orderBy('sort', 'ASC')->active()->offset(0)->limit(2)->get();
 
