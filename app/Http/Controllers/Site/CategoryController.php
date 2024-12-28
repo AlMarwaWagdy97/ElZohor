@@ -11,7 +11,7 @@ class CategoryController extends Controller
     public function index()
     {
 //        $categories = Categories::with('trans')->orderBy('sort', 'ASC')->active()->limit(8)->get();
-        $categories = Categories::with('transNow:id,title,description')->orderBy('sort', 'ASC')->active()->orderBy('sort', 'ASC')->get();
+        $categories = Categories::with('transNow')->orderBy('sort', 'ASC')->active()->orderBy('sort', 'ASC')->get();
         return view('site.pages.categories.index', compact('categories'));
     }
 
