@@ -304,7 +304,7 @@
         {{--        C:\laragon\www\ElZohor\public\site\images\flowers--}}
         <div class="row">
 
-            {{--            <div class="row">--}}
+                        <div class="row">
             <div class="d-flex caontainer_main_image">
 
                 <div class="w-100 h-100 contain_img">
@@ -319,7 +319,7 @@
                 </div>
 
 
-                {{--                </div>--}}
+                                </div>
             </div>
 
 
