@@ -18,5 +18,8 @@ yarn-error.log
 /.idea
 /.vscode
 /storage/clockwork/
-git 
+git
 public/attachments.rar
+public/site/Fonts
+public/site/fonts
+public/site/imgs
