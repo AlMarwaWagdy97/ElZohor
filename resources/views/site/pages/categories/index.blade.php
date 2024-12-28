@@ -38,9 +38,9 @@
             margin: auto;
             position: relative;
             z-index: 10;
-            font-size: 20px;
-            padding-left: 5%;
-                padding-right: 5%;
+            font-size: 19px;
+            /*padding-left: 5%;*/
+            /*    padding-right: 5%;*/
 
                 padding-bottom: 3%;
         }
@@ -141,7 +141,32 @@
             text-shadow: 4px 4px 10px black;
 
 
+
         }
+
+
+        .absolute_div_left{
+
+            text-align: left;
+            padding-left: 128px;
+
+        }
+
+        .absolute_div_left div p{
+            padding-right: 10%;
+        }
+
+
+        .absolute_div_right{
+
+            text-align: right;
+            padding-right: 128px;
+        }
+        .absolute_div_right div p{
+            padding-left: 10%;
+        }
+
+
 
     </style>
 
@@ -164,15 +189,30 @@
 
 
                         <img class="section_img" src="{{asset($val->image)}}"/>
-                        <div  class="absolute_div" >
+
+{{--                        --}}
+
+                        @if($key % 2 != 0)
+                        <div  class="absolute_div absolute_div_left" >
                             <div  class=" visible wow  shake animated "  data-wow-duration="1500ms" data-wow-iteration="1">
-                            <h4 class="upper_h mb-4">{{$val->transNow->title}}</h4>
-                            <p class="section_p" >{{$val->transNow->description}}</p>
+                            <h4 class="upper_h mb-4  text-left">{{$val->transNow->title}}</h4>
+                            <p class="section_p  text-left" >{{$val->transNow->description}}</p>
                             <div class="button_align align_center mt-2"><a class="button  button_size_2"
                                                                            href="{{url(route('site.categories.show' , $val->transNow->slug))}}"><span
                                         class="button_label">اكتشف</span></a></div>
                             </div>
                         </div>
+                            @else
+                            <div  class="absolute_div absolute_div_right" >
+                                <div  class=" visible wow  shake animated "  data-wow-duration="1500ms" data-wow-iteration="1">
+                                    <h4 class="upper_h mb-4  text-left">{{$val->transNow->title}}</h4>
+                                    <p class="section_p  text-left" >{{$val->transNow->description}}</p>
+                                    <div class="button_align align_center mt-2"><a class="button  button_size_2"
+                                                                                   href="{{url(route('site.categories.show' , $val->transNow->slug))}}"><span
+                                                class="button_label">اكتشف</span></a></div>
+                                </div>
+                            </div>
+                        @endif
 
 
                     </div>
