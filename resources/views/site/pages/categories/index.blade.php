@@ -54,18 +54,12 @@
             font-size: 19px;
             border:2px solid #fff!important;
             color:white !important;
-            /*background-color: rgba(60, 2, 128, 0.7);*/
-            /*border-radius: 20px;*/
-
         }
 
         @media(max-width: 700px) {
             .section_p {
-                /*padding-right: 5%;*/
-
                 z-index: 10;
                 font-size: 12px;
-                /*padding-left: 5%;*/
             }
 
             .button_size_2 {
@@ -90,40 +84,13 @@
 
         }
 
-        /*section{*/
-        /*    overflow: hidden;*/
 
-        /*}*/
-
-
-
-
-
-
-
-
-
-
-
-
-        /*section {*/
-        /*    height: 100%;*/
-        /*    font-size: 2rem;*/
-        /*}*/
 
 
             section {
-                /*padding-top: 10%;*/
-                /*padding-bottom: 20%;*/
                 position: relative;
                 overflow-x: hidden;
                 overflow-y: hidden;
-
-            }
-
-            .child_div_section {
-                /*padding-top: 10%;*/
-                /*padding-bottom: 10%;*/
 
             }
 
