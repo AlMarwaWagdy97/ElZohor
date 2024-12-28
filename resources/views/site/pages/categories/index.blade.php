@@ -96,20 +96,6 @@
 
 
 
-
-        /*section:nth-child(odd) {*/
-        /*    !*background-color: #0157a8;*!*/
-        /*    background-color: var(--main-bg-purple-second-color);*/
-
-
-        /*}*/
-
-        /*section:nth-child(even) {*/
-        /*    !*background-color: #021788;*!*/
-        /*    background-color: var(--main-bg-purple-color);*/
-        /*}*/
-
-
         .section_img {
             height: 100%;
             width: 100%;
@@ -118,10 +104,6 @@
             margin: auto;
             position: relative;
             z-index: 1;
-
-
-
-
         }
 
 
@@ -173,9 +155,6 @@
 
 
     </style>
-
-{{--    .caontainer_main_image {--}}
-
     {{--
     The first generic brand name of packed croissants in Egypt and the region, Molto was launched in 1997 to introduce the concept of packed croissants to consumers. The brand is available in multiple savory and sweet variations.
     --}}
