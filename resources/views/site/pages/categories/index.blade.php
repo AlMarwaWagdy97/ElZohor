@@ -134,7 +134,7 @@
         }
 
         .absolute_div_center div p{
-            padding-right: 10%;
+            /*padding-right: 10%;*/
         }
 
 
@@ -175,8 +175,8 @@
 
                         <div  class="absolute_div absolute_div_center" >
                             <div  class=" visible wow  shake animated "  data-wow-duration="1500ms" data-wow-iteration="1">
-                            <h4 class="upper_h mb-4  text-left">{{$val->transNow->title}}</h4>
-                            <p class="section_p  text-left" >{{$val->transNow->description}}</p>
+                            <h4 class="upper_h mb-4  text-center">{{$val->transNow->title}}</h4>
+                            <p class="section_p  text-center" >{{$val->transNow->description}}</p>
                             <div class="button_align align_center mt-2"><a class="button  button_size_2"
                                                                            href="{{url(route('site.categories.show' , $val->transNow->slug))}}"><span
                                         class="button_label">اكتشف</span></a></div>
