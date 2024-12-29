@@ -44,7 +44,7 @@
                                 <div class="swiper-slide slide-{{$i++}}"
 {{--                                     style="background-image: url({{ asset($slider->image) }})">--}}
                                 >
-                                <img src="{{ asset($slider->image)}}" style="width: 100%; height: 100%" />
+                                <img src="{{ asset($slider->image)}}" style="" />
                                     <div class="overlay"></div>
                                     <div class="container">
                                         <div class="row">
@@ -106,7 +106,7 @@
                                 <div class="swiper-slide slide-{{$i++}}"
 {{--                                     style="background-image: url({{ asset($slider->image) }})">--}}
                             >
-                                <img src="{{ asset($slider->image)}}" style="width: 100%; " />
+                                <img src="{{ asset($slider->image)}}" style=" " />
 
                                 <div class="overlay"></div>
                                     <div class="container">
