@@ -166,10 +166,10 @@ i {
     position: relative;
     width: 100% !important;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     background-position: center;
-    -o-object-fit: contain;
-    object-fit: contain;
+    -o-object-fit: cover;
+    object-fit: cover;
 
 }
 .slide-1 {
@@ -196,8 +196,8 @@ i {
     left: 0;
     width: 100%; /* Cover the entire slide */
     height: 100%; /* Cover the entire slide */
-    -o-object-fit: contain;
-    object-fit: contain; /* Ensure the video contains the entire slide */
+    -o-object-fit: cover;
+    object-fit: cover; /* Ensure the video covers the entire slide */
     z-index: -1;
 }
 .middle {
