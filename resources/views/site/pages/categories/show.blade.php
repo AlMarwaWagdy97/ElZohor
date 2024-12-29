@@ -165,6 +165,8 @@
             /*border-radius: 15px;*/
             border: 5px solid var(--main-bg-purple-color);
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
+            text-shadow: 4px 4px 10px black;
+
         }
 
         @media (max-width: 700px) {
