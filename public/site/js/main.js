@@ -3,7 +3,7 @@ new WOW().init();
 const Heroswiper = new Swiper(".Hero_slider", {
     // Optional parameters
     autoplay: {
-        delay: 7000,
+        delay: 15000,
         disableOnInteraction: false,
     },
     loop: true,
