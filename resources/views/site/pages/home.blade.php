@@ -42,9 +42,7 @@
 
                             @if(substr($slider->image, -3) == "mp4")
                                 <div class="swiper-slide slide-{{$i++}}"
-{{--                                     style="background-image: url({{ asset($slider->image) }})">--}}
-                                >
-                                <img src="{{ asset($slider->image)}}" style="" />
+                                     style="background-image: url({{ asset($slider->image) }})">
                                     <div class="overlay"></div>
                                     <div class="container">
                                         <div class="row">
@@ -104,11 +102,8 @@
                             @else
 
                                 <div class="swiper-slide slide-{{$i++}}"
-{{--                                     style="background-image: url({{ asset($slider->image) }})">--}}
-                            >
-                                <img src="{{ asset($slider->image)}}" style=" " />
-
-                                <div class="overlay"></div>
+                                     style="background-image: url({{ asset($slider->image) }})">
+                                    <div class="overlay"></div>
                                     <div class="container">
                                         <div class="row">
                                             <div class="col-12 text-center text-white middle">
