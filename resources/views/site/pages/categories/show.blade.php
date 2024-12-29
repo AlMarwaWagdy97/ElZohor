@@ -209,6 +209,7 @@
 
         .main_title {
             color: white;
+            padding-left: 4%;
         }
 
 
@@ -324,11 +325,11 @@
             <div class="row m-auto">
 
 
-                <h2 class="text-start main_title ">
+                <h2 class="text-start main_title pl-2">
                     {{optional($category->transNow)->title}}
                 </h2>
                 <br>
-                <div class="row products_container py-5 m-auto">
+                <div class="row products_container py-5 m-auto px-5">
                     @if($category->products)
                         @foreach($category->products as $product)
                             @livewire('show-product-component' , ['product_id'=>$product->id , 'product_image' =>
