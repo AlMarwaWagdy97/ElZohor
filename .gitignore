@@ -20,6 +20,6 @@ yarn-error.log
 /storage/clockwork/
 git
 public/attachments.rar
-public/site/Fonts
-public/site/fonts
-public/site/imgs
+#public/site/Fonts
+#public/site/fonts
+#public/site/imgs
