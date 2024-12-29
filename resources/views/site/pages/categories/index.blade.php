@@ -118,7 +118,7 @@
             background-color: #00000054;
 
             z-index: 4;
-            bottom: 0;
+            bottom: 10%;
             left: 27%;
             text-shadow: 4px 4px 10px black;
             /*width: 30%;*/
