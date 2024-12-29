@@ -27,7 +27,7 @@
 
         .upper_h{
             margin-bottom: 0;
-            margin-top: 5%;
+            padding: 9px;
             color: white;
         }
 
@@ -54,6 +54,10 @@
             font-size: 19px;
             border:2px solid #fff!important;
             color:white !important;
+        }
+
+        .button_align{
+            padding-bottom: 10px;
         }
 
         @media(max-width: 700px) {
@@ -114,7 +118,7 @@
         .absolute_div{
             position: absolute;
             /*width: 100%;*/
-            /*height: 100%;*/
+            height: fit-content;
             background-color: #00000054;
 
             z-index: 4;
@@ -123,10 +127,10 @@
             text-shadow: 4px 4px 10px black;
             /*width: 30%;*/
             /*height: 30%;*/
-            overflow-y: auto;
-            overflow-x: hidden;
-            /*border: 1px solid var(--main-bg-purple-color);*/
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.25);
+            /*overflow-y: auto;*/
+            /*overflow-x: hidden;*/
+            /*border: 3px solid white;*/
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
 
 
@@ -139,8 +143,7 @@
             /* padding-top: 20%; */
             width: 48%;
             height: fit-content;
-            padding-bottom: 2%;
-            /* padding-top: 20%; */
+            /*padding-bottom: 2%;*/
         }
 
         .absolute_div_center div p{
@@ -186,9 +189,9 @@
 
                         <div  class="absolute_div absolute_div_center" >
                             <div  class=" visible wow  shake animated "  data-wow-duration="1500ms" data-wow-iteration="1">
-                            <h4 class="upper_h mb-4  text-center">{{$val->transNow->title}}</h4>
+                            <h4 class="upper_h text-center">{{$val->transNow->title}}</h4>
                             <p class="section_p  text-center" >{{$val->transNow->description}}</p>
-                            <div class="button_align align_center mt-2"><a class="button  button_size_2"
+                            <div class="button_align align_center"><a class="button  button_size_2"
                                                                            href="{{url(route('site.categories.show' , $val->transNow->slug))}}"><span
                                         class="button_label">المزيد</span></a></div>
                             </div>
