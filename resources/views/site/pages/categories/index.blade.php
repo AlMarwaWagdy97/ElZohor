@@ -127,14 +127,13 @@
         }
 
 
-        .absolute_div_left{
+        .absolute_div_center{
 
-            text-align: left;
-            padding-left: 128px;
+            text-align: center;
 
         }
 
-        .absolute_div_left div p{
+        .absolute_div_center div p{
             padding-right: 10%;
         }
 
@@ -173,8 +172,8 @@
 
 {{--                        --}}
 
-                        @if($key % 2 != 0)
-                        <div  class="absolute_div absolute_div_left" >
+
+                        <div  class="absolute_div absolute_div_center" >
                             <div  class=" visible wow  shake animated "  data-wow-duration="1500ms" data-wow-iteration="1">
                             <h4 class="upper_h mb-4  text-left">{{$val->transNow->title}}</h4>
                             <p class="section_p  text-left" >{{$val->transNow->description}}</p>
@@ -183,17 +182,7 @@
                                         class="button_label">اكتشف</span></a></div>
                             </div>
                         </div>
-                            @else
-                            <div  class="absolute_div absolute_div_right" >
-                                <div  class=" visible wow  shake animated "  data-wow-duration="1500ms" data-wow-iteration="1">
-                                    <h4 class="upper_h mb-4  text-left">{{$val->transNow->title}}</h4>
-                                    <p class="section_p  text-left" >{{$val->transNow->description}}</p>
-                                    <div class="button_align align_center mt-2"><a class="button  button_size_2"
-                                                                                   href="{{url(route('site.categories.show' , $val->transNow->slug))}}"><span
-                                                class="button_label">اكتشف</span></a></div>
-                                </div>
-                            </div>
-                        @endif
+
 
 
                     </div>
