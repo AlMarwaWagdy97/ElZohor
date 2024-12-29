@@ -164,8 +164,9 @@
             padding: 1rem;
             /*border-radius: 15px;*/
             border: 5px solid var(--main-bg-purple-color);
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
+            /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6), 0 6px 20px 0 rgba(0, 0, 0, 0.5);*/
             text-shadow: 4px 4px 10px black;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
         }
 
