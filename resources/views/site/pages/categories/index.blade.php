@@ -57,7 +57,7 @@
         }
 
         .button_align{
-            padding-bottom: 10px;
+            padding-bottom: 16px;
         }
 
         @media(max-width: 700px) {
