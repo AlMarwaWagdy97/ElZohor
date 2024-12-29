@@ -159,9 +159,10 @@
             text-align: center;
             background-color: rgba(0, 0, 0, 0.4) !important;
             position: absolute;
-            top: 6%;
+            top: 70%;
             left: 29%;
             padding: 1rem;
+            border-radius: 15px;
         }
 
         @media (max-width: 700px) {
