@@ -116,7 +116,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                             @endif
                         @empty
                         @endforelse
