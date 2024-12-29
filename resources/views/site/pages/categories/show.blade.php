@@ -159,11 +159,11 @@
             text-align: center;
             background-color: rgba(0, 0, 0, 0.4) !important;
             position: absolute;
-            bottom: 5%;
+            bottom: 10%;
             left: 29%;
             padding: 1rem;
             /*border-radius: 15px;*/
-            border: 1px solid var(--main-bg-purple-color);
+            border: 3px solid var(--main-bg-purple-color);
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         }
 
