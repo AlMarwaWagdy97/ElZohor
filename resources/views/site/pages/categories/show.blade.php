@@ -151,24 +151,22 @@
 
         .main_p {
             color: white;
-            font-size: 22px;
-            width: 100%;
-            height: 100%;
-
+            font-size: 100%;
+            height: fit-content !important;
+            width: 43% !important;
+            max-height: 90%;
+            overflow-y: hidden;
             text-align: center;
             background-color: rgba(0, 0, 0, 0.4) !important;
-
             position: absolute;
-            top: 0;
-            left: 0;
-            padding-top: 7%;
-
-
+            top: 6%;
+            left: 29%;
+            padding: 1rem;
         }
 
         @media (max-width: 700px) {
             .main_p {
-                font-size: 15px;
+                font-size: 12px;
             }
             .cart_p{
                 font-size: 15px !important;
