@@ -130,11 +130,13 @@
         .absolute_div_center{
 
             text-align: center;
+            padding-top: 20%;
 
         }
 
         .absolute_div_center div p{
             /*padding-right: 10%;*/
+            width: 50%;
         }
 
 
