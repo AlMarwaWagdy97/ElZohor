@@ -125,8 +125,8 @@
             /*height: 30%;*/
             overflow-y: auto;
             overflow-x: hidden;
-            /*border: 5px solid var(--main-bg-purple-color);*/
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
+            /*border: 1px solid var(--main-bg-purple-color);*/
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.25);
 
 
 
