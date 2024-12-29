@@ -113,14 +113,18 @@
 
         .absolute_div{
             position: absolute;
-            width: 100%;
-            height: 100%;
+            /*width: 100%;*/
+            /*height: 100%;*/
             background-color: #00000054;
 
             z-index: 4;
-            top:0;
-            left:0;
+            bottom: 0;
+            left: 27%;
             text-shadow: 4px 4px 10px black;
+            /*width: 30%;*/
+            /*height: 30%;*/
+            overflow-y: auto;
+            overflow-x: hidden;
 
 
 
@@ -130,13 +134,16 @@
         .absolute_div_center{
 
             text-align: center;
-            padding-top: 20%;
-
+            /* padding-top: 20%; */
+            width: 48%;
+            height: fit-content;
+            padding-bottom: 2%;
+            /* padding-top: 20%; */
         }
 
         .absolute_div_center div p{
             /*padding-right: 10%;*/
-            width: 50%;
+            width: 100%;
         }
 
 
@@ -181,7 +188,7 @@
                             <p class="section_p  text-center" >{{$val->transNow->description}}</p>
                             <div class="button_align align_center mt-2"><a class="button  button_size_2"
                                                                            href="{{url(route('site.categories.show' , $val->transNow->slug))}}"><span
-                                        class="button_label">اكتشف</span></a></div>
+                                        class="button_label">المزيد</span></a></div>
                             </div>
                         </div>
 
