@@ -123,7 +123,6 @@
 
             z-index: 4;
             bottom: 10%;
-            left: 27%;
             text-shadow: 4px 4px 10px black;
             /*width: 30%;*/
             /*height: 30%;*/
@@ -136,6 +135,13 @@
 
         }
 
+        .absolute_div_in_left{
+            left: 1%;
+        }
+
+        .absolute_div_in_right{
+            right: 1%;
+        }
 
         .absolute_div_center{
 
@@ -173,6 +179,7 @@
     --}}
 
     @foreach($categories as $key => $val)
+        @if($key%2 == 0)
              <section class="">
                 <div class="row">
 
@@ -187,7 +194,7 @@
 {{--                        --}}
 
 
-                        <div  class="absolute_div absolute_div_center" >
+                        <div  class="absolute_div absolute_div_center absolute_div_in_right" >
                             <div  class=" visible wow  shake animated "  data-wow-duration="1500ms" data-wow-iteration="1">
                             <h4 class="upper_h text-center">{{$val->transNow->title}}</h4>
                             <p class="section_p  text-center" >{{$val->transNow->description}}</p>
@@ -204,6 +211,39 @@
                 </div>
                 </div>
             </section>
+             @else
+            <section class="">
+                <div class="row">
+
+
+                    <div class="col-lg-12 col-md-12 text-center child_div_section">
+
+                        <div    class="categories-scroll-animation categories_main_container"      >
+
+
+                            <img class="section_img" src="{{asset($val->image)}}"/>
+
+                            {{--                        --}}
+
+
+                            <div  class="absolute_div absolute_div_center absolute_div_in_left" >
+                                <div  class=" visible wow  shake animated "  data-wow-duration="1500ms" data-wow-iteration="1">
+                                    <h4 class="upper_h text-center">{{$val->transNow->title}}</h4>
+                                    <p class="section_p  text-center" >{{$val->transNow->description}}</p>
+                                    <div class="button_align align_center"><a class="button  button_size_2"
+                                                                              href="{{url(route('site.categories.show' , $val->transNow->slug))}}"><span
+                                                class="button_label">المزيد</span></a></div>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        @endif
     @endforeach
 
 

@@ -994,7 +994,24 @@ h2 {
     border-radius: 39px;
     color: purple;
     font-size: 17px;
-    font-weight: 900;}
+    font-weight: 900;
+}
+
+.custom-toggler.navbar-toggler{
+}
+
+
+/************navbar icon at mobile ******/
+.header {
+.custom-toggler.navbar-toggler {
+    background-color: var(--main-bg-purple-color);
+}
+}
+
+.navbar-toggler:focus {
+    box-shadow: none !important;
+}
+/************end navbar icon at mobile ******/
 
 
 
