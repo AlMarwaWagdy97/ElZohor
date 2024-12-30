@@ -17,6 +17,7 @@ class Product extends Model
         'sort',
         'status',
         'feature',
+        'back_ground_color',
     ];
 
     protected $translationForignKey = 'product_id';
