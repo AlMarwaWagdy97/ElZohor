@@ -12,9 +12,10 @@ class ShowProductComponent extends Component
 
 
 
-    public function mount($product_id , $product_image , $product_name , $product_description)
+    public function mount($product_id , $product_image , $product_name , $product_description , $product_back_ground_color)
     {
 
+        $this->product_back_ground_color = $product_back_ground_color;
         $this->product_id = $product_id;
         $this->product_image = $product_image;
         $this->product_name = $product_name;

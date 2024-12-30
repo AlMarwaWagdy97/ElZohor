@@ -32,6 +32,7 @@ class ProductRequest extends FormRequest
         $attr += ['sort' => 'Sort'];
         $attr += ['feature' => 'Fearure'];
         $attr += ['status' => 'Status'];
+        $attr += ['back_ground_color' => 'Back Ground Color'];
 
         return $attr;
     }
@@ -56,6 +57,8 @@ class ProductRequest extends FormRequest
         $req += ['sort' => 'nullable'];
         $req += ['feature' => 'nullable'];
         $req += ['category_id' => 'required'];
+        $req += ['back_ground_color' => 'nullable|string'];
+
 
 
 

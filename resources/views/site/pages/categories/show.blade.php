@@ -339,7 +339,7 @@
                     <div class="row products_container py-5 m-auto px-5">
                         @if($category->products)
                             @foreach($category->products as $product)
-                                @livewire('show-product-component' , ['product_id'=>$product->id , 'product_image' =>
+                                @livewire('show-product-component' , ['product_id'=>$product->id , 'product_back_ground_color'=>$product->back_ground_color , 'product_image' =>
                                 asset($product->image) , 'product_name' => optional($product->transNow)->name  ,
                                 'product_description' => optional($product->transNow)->description  ])
                             @endforeach

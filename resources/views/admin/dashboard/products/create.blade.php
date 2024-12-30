@@ -250,7 +250,7 @@
                                                         {{-- feature ------------------------------------------------------------------------------------- --}}
                                                         <div class="col-12">
                                                             <label class="col-sm-12 col-form-label"
-                                                                   for="available">{{ trans('admin.feature') }}</label>
+                                                                   for="feature">{{ trans('admin.feature') }}</label>
                                                             <div class="col-sm-10">
                                                                 <input class="form-check form-switch" name="feature" type="checkbox"
                                                                        id="switch1" switch="success" checked value="1">
@@ -262,7 +262,7 @@
                                                         {{-- Status ------------------------------------------------------------------------------------- --}}
                                                         <div class="col-12">
                                                             <label class="col-sm-12 col-form-label"
-                                                                   for="available">{{ trans('admin.status') }}</label>
+                                                                   for="status">{{ trans('admin.status') }}</label>
                                                             <div class="col-sm-10">
                                                                 <input class="form-check form-switch" name="status" type="checkbox"
                                                                        id="switch3" switch="success" checked value="1">
@@ -271,6 +271,32 @@
                                                                        data-off-label=" @lang('admin.no')"></label>
                                                             </div>
                                                         </div>
+
+
+
+                                                        {{-- Status of back ground ------------------------------------------------------------------------------------- --}}
+                                                        <div class="col-12">
+                                                            <label class="col-sm-12 col-form-label"
+                                                                   for="back_ground_color_status">{{ trans('admin.change_back_ground_color_status') }}</label>
+                                                            <div class="col-sm-10">
+                                                                <input onchange="bgColorStatus(this)" class="form-check form-switch"  type="checkbox"
+                                                                       id="back_ground_color_status" name="back_ground_color_status"  switch="true" value="1">
+                                                                <label class="form-label" for="back_ground_color_status"
+                                                                       data-on-label=" @lang('admin.yes') "
+                                                                       data-off-label=" @lang('admin.no')"></label>
+                                                            </div>
+                                                        </div>
+
+                                                        {{-- back ground color ------------------------------------------------------------------------------------- --}}
+                                                        <div class="col-12" style="visibility: hidden" id="background_container">
+                                                            <label class="col-sm-12 col-form-label"
+                                                                   for="back_ground_color">{{ trans('admin.back_ground_color') }}</label>
+                                                            <div class="col-sm-10">
+                                                                <input disabled="disabled" class="form-control" name="back_ground_color" id="back_ground_color" type="color"
+                                                                        value="">
+                                                            </div>
+                                                        </div>
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -304,6 +330,19 @@
         </div>
         <!-- end row -->
     </div>
+        <script>
+            function bgColorStatus(obj) {
+              if(obj.checked == true)  {
+
+                  document.getElementById('background_container').style.visibility = "visible";
+                  document.getElementById('back_ground_color').removeAttribute('disabled' );
+              }else{
+                  document.getElementById('background_container').style.visibility = "hidden";
+                  document.getElementById('back_ground_color').setAttribute('disabled' , "disabled");
+
+              }
+            }
+        </script>
 @endsection
 
 

@@ -4,7 +4,7 @@
 {{--     <span wire:click.prevent="getData">click</span>--}}
 
 <div class="col-lg-4 col-6  mb-4">
-    <div class="card card_image_container"  wire:click="getData" >
+    <div class="card card_image_container"  wire:click="getData"  style="background-color: {{$product_back_ground_color}}">
 
         <img class="image_card"
              src="{{$product_image}}"/>
