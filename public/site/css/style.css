@@ -160,13 +160,13 @@ i {
 
 .Hero {
 .swiper {
-    height: fit-content;
+    height: 550px;
 }
 .swiper-slide {
     position: relative;
     width: 100% !important;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     background-position: center;
     -o-object-fit: contain;
     object-fit: contain;
@@ -919,7 +919,6 @@ h2 {
  }
 }
 }
-
 
 
 
