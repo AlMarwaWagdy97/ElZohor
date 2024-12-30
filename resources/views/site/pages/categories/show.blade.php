@@ -331,21 +331,22 @@
             <div class="row m-auto">
 
 
-                <h2 class="text-start main_title pl-2">
+                <h2 class="text-start main_title pl-3">
                     {{optional($category->transNow)->title}}
                 </h2>
                 <br>
-                <div class="row products_container py-5 m-auto px-5">
-                    @if($category->products)
-                        @foreach($category->products as $product)
-                            @livewire('show-product-component' , ['product_id'=>$product->id , 'product_image' =>
-                            asset($product->image) , 'product_name' => optional($product->transNow)->name  ,
-                            'product_description' => optional($product->transNow)->description  ])
-                        @endforeach
-                    @endif
+                <div class="container px-2">
+                    <div class="row products_container py-5 m-auto px-5">
+                        @if($category->products)
+                            @foreach($category->products as $product)
+                                @livewire('show-product-component' , ['product_id'=>$product->id , 'product_image' =>
+                                asset($product->image) , 'product_name' => optional($product->transNow)->name  ,
+                                'product_description' => optional($product->transNow)->description  ])
+                            @endforeach
+                        @endif
 
+                    </div>
                 </div>
-
 
             </div>
 
