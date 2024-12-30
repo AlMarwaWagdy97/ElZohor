@@ -29,6 +29,8 @@
             margin-bottom: 0;
             padding: 9px;
             color: white;
+            /*font-size:  4vw;*/
+            font-size: clamp(6px, 4vw, 30px);
         }
 
             .section_p {
@@ -38,12 +40,14 @@
             margin: auto;
             position: relative;
             z-index: 10;
-            font-size: 19px;
+            /*font-size: 19px;*/
             /*padding-left: 5%;*/
             /*    padding-right: 5%;*/
 
                 padding-bottom: 3%;
-        }
+                font-size: clamp(10px, 4vw, 19px);
+
+            }
 
         .button_size_2 {
             padding: 1%;
@@ -63,7 +67,7 @@
         @media(max-width: 700px) {
             .section_p {
                 z-index: 10;
-                font-size: 12px;
+                font-size: 10px;
             }
 
             .button_size_2 {
