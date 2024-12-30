@@ -30,7 +30,7 @@
             padding: 9px;
             color: white;
             /*font-size:  4vw;*/
-            font-size: clamp(6px, 4vw, 30px);
+            font-size: clamp(6px, 4vw, 28px);
         }
 
             .section_p {
