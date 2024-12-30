@@ -13,19 +13,17 @@
             box-sizing: border-box;
         }
 
-        h4{
-            color:black;
+        h4 {
+            color: black;
             position: relative;
             z-index: 2;
 
         }
 
 
-
-
         /*************sections **************/
 
-        .upper_h{
+        .upper_h {
             margin-bottom: 0;
             padding: 9px;
             color: white;
@@ -33,10 +31,10 @@
             font-size: clamp(6px, 4vw, 28px);
         }
 
-            .section_p {
+        .section_p {
             /*padding-right: 5%;*/
 
-            color:white;
+            color: white;
             margin: auto;
             position: relative;
             z-index: 10;
@@ -44,27 +42,28 @@
             /*padding-left: 5%;*/
             /*    padding-right: 5%;*/
 
-                padding-bottom: 3%;
-                font-size: clamp(10px, 4vw, 19px);
+            padding-bottom: 3%;
+            font-size: clamp(10px, 4vw, 19px);
 
-            }
+        }
 
         .button_size_2 {
             padding: 1%;
             padding-left: 1%;
+            padding-top: 0;
             padding-right: 1%;
             margin-bottom: 2%;
             text-decoration: none;
             font-size: 19px;
-            border:2px solid #fff!important;
-            color:white !important;
+            border: 2px solid #fff !important;
+            color: white !important;
         }
 
-        .button_align{
+        .button_align {
             padding-bottom: 16px;
         }
 
-        @media(max-width: 700px) {
+        @media (max-width: 700px) {
             .section_p {
                 z-index: 10;
                 font-size: 10px;
@@ -93,15 +92,12 @@
         }
 
 
+        section {
+            position: relative;
+            overflow-x: hidden;
+            overflow-y: hidden;
 
-
-            section {
-                position: relative;
-                overflow-x: hidden;
-                overflow-y: hidden;
-
-            }
-
+        }
 
 
         .section_img {
@@ -115,11 +111,11 @@
         }
 
 
-        .categories_main_container{
+        .categories_main_container {
 
         }
 
-        .absolute_div{
+        .absolute_div {
             position: absolute;
             /*width: 100%;*/
             height: fit-content;
@@ -136,18 +132,17 @@
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
 
-
         }
 
-        .absolute_div_in_left{
+        .absolute_div_in_left {
             left: 1%;
         }
 
-        .absolute_div_in_right{
+        .absolute_div_in_right {
             right: 1%;
         }
 
-        .absolute_div_center{
+        .absolute_div_center {
 
             text-align: center;
             /* padding-top: 20%; */
@@ -156,18 +151,19 @@
             /*padding-bottom: 2%;*/
         }
 
-        .absolute_div_center div p{
+        .absolute_div_center div p {
             /*padding-right: 10%;*/
             width: 100%;
         }
 
 
-        .absolute_div_right{
+        .absolute_div_right {
 
             text-align: right;
             padding-right: 128px;
         }
-        .absolute_div_right div p{
+
+        .absolute_div_right div p {
             padding-left: 10%;
         }
 
@@ -184,45 +180,13 @@
 
     @foreach($categories as $key => $val)
         @if($key%2 == 0)
-             <section class="">
-                <div class="row">
-
-
-                <div class="col-lg-12 col-md-12 text-center child_div_section">
-
-                    <div    class="categories-scroll-animation categories_main_container"      >
-
-
-                        <img class="section_img" src="{{asset($val->image)}}"/>
-
-{{--                        --}}
-
-
-                        <div  class="absolute_div absolute_div_center absolute_div_in_right" >
-                            <div  class=" visible wow  shake animated "  data-wow-duration="1500ms" data-wow-iteration="1">
-                            <h4 class="upper_h text-center">{{$val->transNow->title}}</h4>
-                            <p class="section_p  text-center" >{{$val->transNow->description}}</p>
-                            <div class="button_align align_center"><a class="button  button_size_2"
-                                                                           href="{{url(route('site.categories.show' , $val->transNow->slug))}}"><span
-                                        class="button_label">المزيد</span></a></div>
-                            </div>
-                        </div>
-
-
-
-                    </div>
-
-                </div>
-                </div>
-            </section>
-             @else
             <section class="">
                 <div class="row">
 
 
                     <div class="col-lg-12 col-md-12 text-center child_div_section">
 
-                        <div    class="categories-scroll-animation categories_main_container"      >
+                        <div class="categories-scroll-animation categories_main_container">
 
 
                             <img class="section_img" src="{{asset($val->image)}}"/>
@@ -230,16 +194,48 @@
                             {{--                        --}}
 
 
-                            <div  class="absolute_div absolute_div_center absolute_div_in_left" >
-                                <div  class=" visible wow  shake animated "  data-wow-duration="1500ms" data-wow-iteration="1">
+                            <div class="absolute_div absolute_div_center absolute_div_in_right">
+                                <div class=" visible wow  shake animated " data-wow-duration="1500ms"
+                                     data-wow-iteration="1">
                                     <h4 class="upper_h text-center">{{$val->transNow->title}}</h4>
-                                    <p class="section_p  text-center" >{{$val->transNow->description}}</p>
+                                    <p class="section_p  text-center">{{$val->transNow->description}}</p>
                                     <div class="button_align align_center"><a class="button  button_size_2"
                                                                               href="{{url(route('site.categories.show' , $val->transNow->slug))}}"><span
                                                 class="button_label">المزيد</span></a></div>
                                 </div>
                             </div>
 
+
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        @else
+            <section class="">
+                <div class="row">
+
+
+                    <div class="col-lg-12 col-md-12 text-center child_div_section">
+
+                        <div class="categories-scroll-animation categories_main_container">
+
+
+                            <img class="section_img" src="{{asset($val->image)}}"/>
+
+                            {{--                        --}}
+
+
+                            <div class="absolute_div absolute_div_center absolute_div_in_left">
+                                <div class=" visible wow  shake animated " data-wow-duration="1500ms"
+                                     data-wow-iteration="1">
+                                    <h4 class="upper_h text-center">{{$val->transNow->title}}</h4>
+                                    <p class="section_p  text-center">{{$val->transNow->description}}</p>
+                                    <div class="button_align align_center"><a class="button  button_size_2"
+                                                                              href="{{url(route('site.categories.show' , $val->transNow->slug))}}"><span
+                                                class="button_label">المزيد</span></a></div>
+                                </div>
+                            </div>
 
 
                         </div>
