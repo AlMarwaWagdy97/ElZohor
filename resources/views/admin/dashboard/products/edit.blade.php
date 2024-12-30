@@ -308,7 +308,7 @@ app()->getLocale())->value('name')]))
                                                             </div>
                                                         </div>
 
-                                                        <input type="text" name="back_ground_color" id="transparent"
+                                                        <input type="hidden" name="back_ground_color" id="transparent"
                                                                value="transparent" disabled>
 
 
