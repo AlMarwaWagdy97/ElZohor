@@ -32,6 +32,7 @@ class CategoriesRequest extends FormRequest
         $attr += ['feature' => 'Fearure'];
         $attr += ['status' => 'Status'];
         $attr += ['parent_id' => 'Parent'];
+        $attr += ['back_ground_color' => 'Back Ground Color'];
 
         return $attr;
     }
@@ -55,6 +56,7 @@ class CategoriesRequest extends FormRequest
         $req += ['sort' => 'nullable'];
         $req += ['feature' => 'nullable'];
         $req += ['parent_id' => 'nullable'];
+        $req += ['back_ground_color' => 'nullable|string'];
 
 
 

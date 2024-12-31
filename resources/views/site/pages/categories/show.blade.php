@@ -300,7 +300,8 @@
 
 
 
-    <section class=" primaryBgColor">
+
+    <section class=" primaryBgColor"  style="background-color: {{$category->back_ground_color == 'transparent' ? '#800080' : $category->back_ground_color }}">
         <img class="moving-div" src="{{asset('site/images/candy1.png')}}">
         <img class="moving-div2" src="{{asset('site/images/candy2.png')}}">
         <img class="moving-div3" src="{{asset('site/images/flowers/yellow.png')}}">

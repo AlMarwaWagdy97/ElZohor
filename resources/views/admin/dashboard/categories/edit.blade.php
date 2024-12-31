@@ -270,6 +270,125 @@
                                                         </div>
 
 
+
+
+                                                        <div class="col-12">
+                                                            <label class="col-sm-12 col-form-label"
+                                                                   for="available"> تفعيل خاصية تغيير اللون</label>
+                                                            <div class="col-sm-10">
+                                                                <input class="form-check form-switch"
+                                                                       name="giveTransparentColorid"
+                                                                       id="giveTransparentColorid"
+                                                                       type="checkbox"
+                                                                       onchange="giveTransparentColor(this)"
+                                                                       switch="success"
+                                                                       @if($item->back_ground_color != "transparent" && isset($item->back_ground_color))
+                                                                       checked
+                                                                       @endif
+                                                                       value="1">
+
+                                                                <label class="form-label" for="giveTransparentColorid"
+                                                                       data-on-label=" @lang('admin.yes') "
+                                                                       data-off-label=" @lang('admin.no')"></label>
+                                                            </div>
+                                                        </div>
+
+                                                        <input type="hidden" name="back_ground_color" id="transparent"
+                                                               value="transparent" disabled>
+
+
+                                                        <div id="background_container_whole">
+                                                            @if($item->back_ground_color !== "transparent" && isset($item->back_ground_color))
+
+
+
+                                                                {{-- show recent back ground ------------------------------------------------------------------------------------- --}}
+                                                                <div class="col-12 background_container_whole">
+                                                                    <label class="col-sm-12 col-form-label"
+                                                                           for="show_recent_back_ground_color">
+
+
+                                                                        اللون الحالي للخلفية</label>
+                                                                    <div class="col-sm-10">
+                                                                        <!-- Button trigger modal -->
+                                                                        <button type="button"
+                                                                                class="btn btn-outline-primary"
+                                                                                data-bs-toggle="modal"
+                                                                                data-bs-target="#exampleModal">
+                                                                            عرض
+                                                                        </button>
+
+                                                                        <!-- Modal -->
+                                                                        <div class="modal fade" id="exampleModal"
+                                                                             tabindex="-1"
+                                                                             aria-labelledby="exampleModalLabel"
+                                                                             aria-hidden="true">
+                                                                            <div class="modal-dialog">
+                                                                                <div class="modal-content">
+                                                                                    <div class="modal-header">
+                                                                                        <h5 class="modal-title"
+                                                                                            id="exampleModalLabel">
+                                                                                            لون الخلفية </h5>
+                                                                                        <button type="button"
+                                                                                                class="btn-close"
+                                                                                                data-bs-dismiss="modal"
+                                                                                                aria-label="Close"></button>
+                                                                                    </div>
+                                                                                    <div class="modal-body ">
+                                                                                        <div
+                                                                                            style="margin: auto; width: 100%; height: 30vh;  background-color: {{$item->back_ground_color}} !important; ">
+                                                                                            <br></div>
+                                                                                    </div>
+                                                                                    <div class="modal-footer">
+                                                                                        <button type="button"
+                                                                                                class="btn btn-secondary"
+                                                                                                data-bs-dismiss="modal">
+                                                                                            اغلاق
+                                                                                        </button>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            @endif
+
+                                                            {{-- Status of back ground ------------------------------------------------------------------------------------- --}}
+                                                            <div class="col-12 background_container_whole">
+                                                                <label class="col-sm-12 col-form-label"
+                                                                       for="back_ground_color_status">تغيير اللون الحالي
+                                                                    للخلفية</label>
+                                                                <div class="col-sm-10">
+                                                                    <input onchange="bgColorStatus(this)"
+                                                                           class="form-check form-switch"
+                                                                           type="checkbox"
+                                                                           id="back_ground_color_status"
+                                                                           name="back_ground_color_status" switch="true"
+                                                                           value="1">
+                                                                    <label class="form-label"
+                                                                           for="back_ground_color_status"
+                                                                           data-on-label=" @lang('admin.yes') "
+                                                                           data-off-label=" @lang('admin.no')"></label>
+                                                                </div>
+                                                            </div>
+
+                                                            {{-- back ground color ------------------------------------------------------------------------------------- --}}
+                                                            <div class="col-12 background_container_whole"
+                                                                 style="visibility: hidden"
+                                                                 id="background_container">
+                                                                <label class="col-sm-12 col-form-label"
+                                                                       for="back_ground_color">اختر لون الخلفية</label>
+                                                                <div class="col-sm-10">
+                                                                    <input disabled="disabled" class="form-control"
+                                                                           name="back_ground_color"
+                                                                           id="back_ground_color"
+                                                                           type="color"
+                                                                           value="">
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+
                                                     </div>
                                                 </div>
 
@@ -302,6 +421,50 @@
     </div> <!-- end row-->
 
     </div> <!-- container-fluid -->
+    <script>
+
+        window.onLoad(giveTransparentColor(document.querySelector('#giveTransparentColorid')))
+
+
+        function bgColorStatus(obj) {
+            if (obj.checked == true) {
+
+                document.getElementById('background_container').style.visibility = "visible";
+                document.getElementById('back_ground_color').removeAttribute('disabled');
+            } else {
+                document.getElementById('background_container').style.visibility = "hidden";
+                document.getElementById('back_ground_color').setAttribute('disabled', "disabled");
+
+            }
+        }
+
+
+        function giveTransparentColor(obj) {
+            if (obj.checked === true) {
+
+                document.getElementById('transparent').setAttribute('disabled', "disabled");
+                document.getElementById('background_container_whole').style.visibility = "visible";
+
+                // document.getElementsByClassName('background_container_whole').forEach(function (item) {
+                //     item.style.visibility = "visible !important";
+                // });
+
+
+            } else {
+                document.getElementById('transparent').removeAttribute('disabled');
+                document.getElementById('background_container_whole').style.visibility = "hidden";
+
+                // document.getElementsByClassName('background_container_whole').style.visibility = "hidden";
+                // document.getElementsByClassName('background_container_whole').forEach(function (item) {
+                //     item.style.visibility = "hidden !important";
+                // });
+                // // document.getElementById('back_ground_color').setAttribute('disabled' , 'disabled');
+            }
+        }
+
+        //
+
+    </script>
 
 @endsection
 

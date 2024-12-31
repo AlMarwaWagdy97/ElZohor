@@ -222,6 +222,76 @@
                                                                     <p class="badge  bg-danger h3" style="font-size:20px">@lang("admin.dis_active")</p>
                                                                 @endif
                                                         </div>
+
+
+
+
+
+                                                        <div class="col-12">
+                                                            <label class="col-sm-3 col-form-label"
+                                                                   for="available"> تفعيل خاصية تغيير اللون</label>
+                                                            @if($item->back_ground_color != "transparent" && isset($item->back_ground_color))
+                                                                <p class="badge  bg-success h3" style="font-size:20px">
+                                                                    @lang('admin.active')</p>
+                                                            @else
+                                                                <p class="badge  bg-danger h3" style="font-size:20px">
+                                                                    @lang('admin.dis_active')</p>
+                                                            @endif
+                                                        </div>
+
+
+                                                        @if($item->back_ground_color !== "transparent" && isset($item->back_ground_color))
+                                                            {{-- show recent back ground ------------------------------------------------------------------------------------- --}}
+                                                            <div class="col-12 background_container_whole">
+                                                                <label class="col-sm-12 col-form-label"
+                                                                       for="show_recent_back_ground_color">
+
+
+                                                                    اللون الحالي للخلفية</label>
+                                                                <div class="col-sm-10">
+                                                                    <!-- Button trigger modal -->
+                                                                    <button type="button"
+                                                                            class="btn btn-outline-primary"
+                                                                            data-bs-toggle="modal"
+                                                                            data-bs-target="#exampleModal">
+                                                                        عرض
+                                                                    </button>
+
+                                                                    <!-- Modal -->
+                                                                    <div class="modal fade" id="exampleModal"
+                                                                         tabindex="-1"
+                                                                         aria-labelledby="exampleModalLabel"
+                                                                         aria-hidden="true">
+                                                                        <div class="modal-dialog">
+                                                                            <div class="modal-content">
+                                                                                <div class="modal-header">
+                                                                                    <h5 class="modal-title"
+                                                                                        id="exampleModalLabel">
+                                                                                        لون الخلفية </h5>
+                                                                                    <button type="button"
+                                                                                            class="btn-close"
+                                                                                            data-bs-dismiss="modal"
+                                                                                            aria-label="Close"></button>
+                                                                                </div>
+                                                                                <div class="modal-body ">
+                                                                                    <div
+                                                                                        style="margin: auto; width: 100%; height: 30vh;  background-color: {{$item->back_ground_color}} !important; ">
+                                                                                        <br></div>
+                                                                                </div>
+                                                                                <div class="modal-footer">
+                                                                                    <button type="button"
+                                                                                            class="btn btn-secondary"
+                                                                                            data-bs-dismiss="modal">
+                                                                                        اغلاق
+                                                                                    </button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        @endif
+
                                                     </div>
 
 

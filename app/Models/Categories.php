@@ -20,7 +20,8 @@ class Categories extends Model
         'sort',
         'feature',
         'status',
-        'meta'
+        'meta',
+        'back_ground_color',
     ];
 
     protected $translationForeignKey = 'category_id';

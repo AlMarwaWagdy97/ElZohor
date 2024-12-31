@@ -13,10 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('products', function (Blueprint $table) {
+        Schema::table('categories', function (Blueprint $table) {
             $table->string('back_ground_color')->default('transparent')->nullable();
         });
     }
+
     /**
      * Reverse the migrations.
      *
@@ -24,6 +25,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropColumns('products' , 'back_ground_color');
+        Schema::dropColumns('categories' , 'back_ground_color');
     }
 };
