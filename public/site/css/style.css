@@ -991,6 +991,7 @@ h2 {
 
 #newMainBtn{
     width: 12%;
+    min-width: 125px !important;
     border-radius: 39px;
     color: purple;
     font-size: 17px;
