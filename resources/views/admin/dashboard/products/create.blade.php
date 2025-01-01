@@ -277,7 +277,7 @@
                                                         {{-- Status of back ground ------------------------------------------------------------------------------------- --}}
                                                         <div class="col-12">
                                                             <label class="col-sm-12 col-form-label"
-                                                                   for="back_ground_color_status">{{ trans('admin.change_back_ground_color_status') }}</label>
+                                                                   for="back_ground_color_status"> تفعيل خاصية تغيير اللون</label>
                                                             <div class="col-sm-10">
                                                                 <input onchange="bgColorStatus(this)" class="form-check form-switch"  type="checkbox"
                                                                        id="back_ground_color_status" name="back_ground_color_status"  switch="true" value="1">
@@ -290,7 +290,8 @@
                                                         {{-- back ground color ------------------------------------------------------------------------------------- --}}
                                                         <div class="col-12" style="visibility: hidden" id="background_container">
                                                             <label class="col-sm-12 col-form-label"
-                                                                   for="back_ground_color">{{ trans('admin.back_ground_color') }}</label>
+                                                                   for="back_ground_color">تغيير اللون الحالي
+                                                                للخلفية</label>
                                                             <div class="col-sm-10">
                                                                 <input disabled="disabled" class="form-control" name="back_ground_color" id="back_ground_color" type="color"
                                                                         value="">
