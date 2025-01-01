@@ -180,57 +180,57 @@
                                         </div>
                                     </div>
                                 </div>
+                                    <div class="col-md-4">
+
+                                        <div class="accordion mt-4 mb-4" id="accordionExample">
+                                            <div class="accordion-item border rounded">
+                                                <h2 class="accordion-header" id="headingOne">
+                                                    <button class="accordion-button fw-medium" type="button"
+                                                            data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true"
+                                                            aria-controls="collapseOne">
+                                                        {{ trans('admin.settings') }}
+                                                    </button>
+                                                </h2>
+                                                <div id="collapseOne" class="accordion-collapse collapse show"
+                                                     aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                                    <div class="accordion-body">
+                                                        <div class="col-sm-3 mb-3">
+                                                            @if ($page->image != null)
+                                                                <img src="{{ asset($page->image) }}" alt=""
+                                                                     style="width:100%">
+                                                            @endif
+                                                        </div>
 
 
 
-
-                        </div>
-
-
-                        <div class="col-md-4">
-
-                            <div class="accordion mt-4 mb-4" id="accordionExample">
-                                <div class="accordion-item border rounded">
-                                    <h2 class="accordion-header" id="headingOne">
-                                        <button class="accordion-button fw-medium" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true"
-                                            aria-controls="collapseOne">
-                                            {{ trans('admin.settings') }}
-                                        </button>
-                                    </h2>
-                                    <div id="collapseOne" class="accordion-collapse collapse show"
-                                        aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-                                            <div class="col-sm-3 mb-3">
-                                                @if ($page->image != null)
-                                                    <img src="{{ asset($page->image) }}" alt=""
-                                                        style="width:100%">
-                                                @endif
-                                            </div>
-
-                          
-  
-                                            {{-- Status ------------------------------------------------------------------------------------- --}}
-                                            <div class="col-12">
-                                                <label class="col-sm-12 col-form-label"
-                                                    for="available">{{ trans('admin.status') }}</label>
-                                                <div class="col-sm-10">
-                                                    <input class="form-check form-switch" name="status" type="checkbox"
-                                                        id="switch3" switch="success"
-                                                        {{ @$page->status == 1 ? 'checked' : '' }} value="1" disabled>
-                                                    <label class="form-label" for="switch3"
-                                                        data-on-label=" @lang('admin.yes') "
-                                                        data-off-label=" @lang('admin.no')"></label>
+                                                        {{-- Status ------------------------------------------------------------------------------------- --}}
+                                                        <div class="col-12">
+                                                            <label class="col-sm-12 col-form-label"
+                                                                   for="available">{{ trans('admin.status') }}</label>
+                                                            <div class="col-sm-10">
+                                                                <input class="form-check form-switch" name="status" type="checkbox"
+                                                                       id="switch3" switch="success"
+                                                                       {{ @$page->status == 1 ? 'checked' : '' }} value="1" disabled>
+                                                                <label class="form-label" for="switch3"
+                                                                       data-on-label=" @lang('admin.yes') "
+                                                                       data-off-label=" @lang('admin.no')"></label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
+
+
+
                                     </div>
-                                </div>
-                            </div>
+
 
 
 
                         </div>
+
+
                                             {{-- Butoooons ------------------------------------------------------------------------- --}}
                     <div class="row mb-3 text-end">
                         <div>
