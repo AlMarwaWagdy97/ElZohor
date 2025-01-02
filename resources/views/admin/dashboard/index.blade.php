@@ -167,22 +167,7 @@
                 </div>
             </div>
 
-            <div class="col-md-6 col-xl-4">
-                <div class="card">
-                    <div class="card-body">
-                        <a href="{{ route('admin.clients.index') }}">
-                            <div class="mini-stat">
-                                <span class="mini-stat-icon bg-purple me-0 float-end"><i
-                                        class="fa fa-sliders-h"></i></span>
-                                <div class="mini-stat-info">
-                                    <span class="counter text-purple">{{ App\Models\Client::count() }}</span>
-                                    @lang('clients.clients')
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
+
 
 
             {{-- ------------------------------------------------------------------------------------------------------------------- --}}
