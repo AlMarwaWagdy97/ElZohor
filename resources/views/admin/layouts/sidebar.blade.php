@@ -177,44 +177,8 @@
                 <!-- End Works -------------------------------------------------------- --->
 
 
-                <!-- Members  ----------------------------------------------------------- --->
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="mdi mdi-buffer"></i>
-                        <span> @lang('admin.members')</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <!-- Teams --------------------------------------------------------------- --->
-                        <li>
-                            <a href="javascript: void(0);" class="has-arrow waves-effect">
-                                <i class="fas fa-user-md"></i>
-                                <span> @lang('teams.teams')</span>
-                            </a>
-                            <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="{{ route('admin.teams.index') }}"> @lang('teams.show_teams')</a></li>
-                                <li><a href="{{ route('admin.teams.create') }}"> @lang('teams.create_teams')</a></li>
-                            </ul>
-                        </li>
-                        <!-- End Teams ---->
 
 
-                        <!-- Partners --------------------------------------------------------------- -->
-                        <li>
-                            <a href="javascript: void(0);" class="has-arrow waves-effect">
-                                <i class="fas fa-handshake"></i> <!-- Replaced with handshake icon for clients -->
-                                <span>@lang('clients.clients')</span> <!-- Updated text for clients -->
-                            </a>
-                            <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="{{ route('admin.clients.index') }}">@lang('clients.show_clients')</a></li>
-                                <li><a href="{{ route('admin.clients.create') }}">@lang('clients.create_clients')</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <!-- End Partners ---->
-
-
-                    </ul>
-                </li>
 
             {{--                <li>--}}
             <!-- End members -------------------------------------------------------- --->
