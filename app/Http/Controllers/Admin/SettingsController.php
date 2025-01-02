@@ -44,9 +44,9 @@ class SettingsController extends Controller
             $settings = $settings->where('key',$key)->first();
             if ($request->hasFile($key)) {
                 $filename = $this->upload_file($request->file($key) , ('settings'));
-                $settings->where('key',$key)->update(['value'=>$filename , 'featured' => $request->featured]);
+                $settings->where('key',$key)->update(['value'=>$filename ]);
             }else{
-                $settings->where('key',$key)->update(['value'=>$item  , 'featured' => $request->featured]);
+                $settings->where('key',$key)->update(['value'=>$item  ]);
             }
 
         }
