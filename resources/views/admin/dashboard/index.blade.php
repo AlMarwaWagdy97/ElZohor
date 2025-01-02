@@ -149,23 +149,6 @@
             </div>
 
 
-            {{-- ------------------------------------------------------------------------------------------------------------------- --}}
-            <h4 class="page-title navbar-custom-color">@lang('admin.members')</h4>
-            <div class="col-md-6 col-xl-4">
-                <div class="card">
-                    <div class="card-body">
-                        <a href="{{ route('admin.teams.index') }}">
-                            <div class="mini-stat">
-                                <span class="mini-stat-icon bg-teal me-0 float-end"> <i class="fas fa-pager"></i></span>
-                                <div class="mini-stat-info">
-                                    <span class="counter text-teal">{{ App\Models\Teams::count() }}</span>
-                                    @lang('teams.teams')
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
 
 
 
