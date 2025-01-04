@@ -1,3 +1,4 @@
+
 /*All items*/
 @font-face {
     font-family: Somar-Medium;
@@ -104,154 +105,16 @@ i {
 /*Header*/
 
 /*Hero*/
-@media (max-width: 991.98px) {
-    .Hero {
-    /*Text Area*/
-    .TextArea {
-    .Hero_text {
-        font-size: 54px;
-    span {
-        font-size: 33px;
-    }
-}
-.uderline {
-    width: 30%;
-}
-.subtitle {
-    font-size: 20px;
-}
-.decription {
-    font-size: 18px;
-}
-}
-/*Text Area*/
-.swiper-pagination {
-    top: 90% !important;
-}
-}
-}
-
-@media (min-width: 992px) {
-    .Hero {
-    /*Text Area*/
-    .TextArea {
-    .Hero_text {
-        font-size: 64px;
-    span {
-        font-size: 66px;
-    }
-}
-.uderline {
-    width: 12%;
-}
-.subtitle {
-    font-size: 29px;
-}
-.decription {
-    font-size: 20px;
-}
-}
-/*Text Area*/
-.swiper-pagination {
-    top: 86% !important;
-}
-}
-}
 
 .Hero {
-.swiper {
-    height: 550px;
-}
 .swiper-slide {
-    position: relative;
-    width: 100% !important;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    -o-object-fit: contain;
-    object-fit: contain;
+img {
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
 }
-.slide-1 {
-    background-image: url("../imgs/1-1.jpg");
-}
-.slide-2 {
-    background-image: url("../imgs/2-2.jpg");
-}
-.slide-3 {
-    background-image: url("../imgs/3-3.jpg");
-}
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%; /* Set the height to 100% */
-    background-color: rgba(0, 0, 0, 0.4);
-    z-index: -1;
-}
-.slide-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%; /* Cover the entire slide */
-    height: 100%; /* Cover the entire slide */
-    -o-object-fit: cover;
-    object-fit: cover; /* Ensure the video covers the entire slide */
-    z-index: -1;
-}
-.middle {
-    margin-top: 8rem;
-}
-/*Text Area*/
-.TextArea {
-.Hero_text {
-    font-family: SomarSans-ExtraBold;
-
-span {
-    font-family: Somar-Light;
-}
-}
-.uderline {
-    border-radius: 5px;
-    height: 7px;
-    background-color: #210d9c;
-}
-.subtitle {
-    word-spacing: 10px;
-    letter-spacing: 1rem;
-    font-size: 32px;
-    font-family: Somar-Regular;
-}
-.decription {
-    font-family: Somar-Regular;
-    font-size: 30px;
-    background-color: rgba(0, 0, 0, 0.6);
-}
-}
-/*Text Area*/
-
-.btn-more {
-    background-color: #8c1320;
-    color: #fff;
-    border-radius: 50px;
-    font-size: 15px;
-    border: 4px solid rgba(250, 250, 250, 1);
-    padding: 0 38px;
-    outline: none;
-}
-.btn-more:hover {
-    background-color: #8c1320;
-    border: 4px solid rgba(250, 250, 250, 1);
-    color: #fff;
-    outline: none;
-}
-.swiper-pagination {
-    position: absolute;
-}
-.swiper-pagination-bullet {
-    background: white;
-    border-radius: 20px;
-    width: 40px;
 }
 }
 /*Hero*/
@@ -919,10 +782,6 @@ h2 {
  }
 }
 }
-
-
-
-
 /*************custom**********/
 .bg_purple_h4{
     color:  #905885 !important;
