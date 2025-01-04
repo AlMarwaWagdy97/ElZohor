@@ -44,7 +44,7 @@
                                 <div class="swiper-slide">
                                         <div class="row">
                                             <div class="col-12 text-center">
-                                                <img src="{{ asset($slider->image) }}" class="img-fluid" alt="" />
+                                                <img src="{{ asset($slider->image) }}" class="img-fluid" alt="" style="width: 100%" />
                                             </div>
                                         </div>
                                 </div>
@@ -54,7 +54,7 @@
                                 <div class="swiper-slide">
                                     <div class="row">
                                         <div class="col-12 text-center">
-                                            <img src="{{ asset($slider->image) }}" class="img-fluid" alt="" />
+                                            <img src="{{ asset($slider->image) }}" class="img-fluid" alt="" style="width: 100%" />
                                         </div>
                                     </div>
                                 </div>
