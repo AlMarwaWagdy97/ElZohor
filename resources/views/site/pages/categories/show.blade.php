@@ -56,6 +56,7 @@
             animation: moveDown 5s linear infinite; /* Call the animation */
             animation-delay: 2s;
             opacity: 0.001;
+            display:none;
 
         }
 
@@ -73,6 +74,7 @@
             animation: moveDown 7s infinite; /* Call the animation */
             animation-delay: 2s;
             opacity: 0.001;
+            display:none;
 
         }
 
@@ -87,6 +89,7 @@
             animation: moveDown 15s infinite; /* Call the animation */
             animation-delay: 2s;
             opacity: 0.001;
+            display:none;
 
         }
 
@@ -100,6 +103,7 @@
             animation: moveDown 15s infinite; /* Call the animation */
             animation-delay: 4s;
             opacity: 0.001;
+            display:none;
 
 
         }
